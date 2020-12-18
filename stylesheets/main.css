@@ -32,9 +32,9 @@
 :root {
   --font-family-header: "Anton", sans-serif;
   --font-family-body: "Work Sans", sans-serif;
-  --color-black: #000000;
-  --color-downy: #65c8d0;
-  --color-jelly-bean: #248f99;
+  --color-black: #1a105e;
+  --color-downy: #f7a240;
+  --color-jelly-bean: #ff4f0a;
   --color-iron: #dee3e2;
   --color-alabaster: #f7f7f7;
 }
@@ -100,7 +100,7 @@ a:hover {
 }
 
 .integration:first-of-type {
-  background: var(--color-downy);
+  background: #b82a52;
   color: var(--color-alabaster);
   padding-top: 20px;
   padding-bottom: 40px;
@@ -226,7 +226,7 @@ img {
   font-family: var(--font-family-header);
   font-weight: bold;
   font-size: 1.5rem;
-  color: var(--color-downy);
+  color: #b82a52;
   cursor: pointer;
   width: 50px;
   position: fixed;
@@ -373,7 +373,7 @@ nav#site-navigation a {
 
 header {
   height: 100vh;
-  background: var(--color-alabaster);
+  background: #f7a240;
 }
 
 header h1 {
@@ -383,7 +383,7 @@ header h1 {
 }
 
 header p {
-  color: #65c8d0;
+  color: #b82a52;
   font-family: var(--font-family-header);
   font-size: 4rem;
   letter-spacing: 0.1rem;
@@ -444,7 +444,7 @@ header h1 img {
 }
 
 #case-study nav li {
-  color: #999;
+  color: #b82a52;
   font-size: 1.3rem;
   list-style: circle;
   margin-bottom: 1.5vh;
@@ -464,7 +464,7 @@ header h1 img {
 }
 
 #case-study nav a {
-  color: #999;
+  color: #b82a52;
   font-size: 0.9rem;
   font-weight: bold;
   text-decoration: none;
@@ -494,7 +494,7 @@ header h1 img {
 }
 
 #case-study h2 {
-  color: var(--color-downy);
+  color: #b82a52;
   font-family: var(--font-family-header);
   margin: 75px auto 20px auto;
 }
@@ -511,7 +511,7 @@ h3 {
 #case-study h3,
 #case-study h4,
 #case-study h5 {
-  color: #65c8d0;
+  color: #ff4d0a;
   margin-top: 75px;
 }
 
