@@ -1,9 +1,9 @@
-# 🏠 [Homepage](https://apex-api-proxy.github.io/)
+# 🏠 [Homepage](https://stagehand-framework.github.io)
 
-![Apex logo](images/logos/apex_banner.png)
+![Stagehand logo](images/logos/stagehand_logo-full.png)
 
-## Apex: API proxy for microservices
+## Stagehand: Review Apps For Frontend Developers
 
-Apex is an API proxy for microservices. Designed for small teams that have just begun migrating from a monolith to a microservices architecture, it provides one place to log and control service-to-service traffic.
+Stagehand makes getting to production as painless as possible by providing a drop-in solution for review apps for modern frontend applications.
 
-# 🏠 [Homepage](https://apex-api-proxy.github.io/)
+# 🏠 [Homepage](https://stagehand-framework.github.io)
