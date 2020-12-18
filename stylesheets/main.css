@@ -4,12 +4,13 @@
 
 ------------------------------------ */
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital@0;1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans&display=swap");
 
-@font-face {
+/* @font-face {
   font-family: 'Founders Grotesk';
   /* src: url('/fonts/FoundersGrotesk-Semibold.otf') format('opentype'); */
-  src: url('../fonts/FoundersGrotesk-Semibold.otf') format('opentype');
+/* src: url('../fonts/FoundersGrotesk-Semibold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
@@ -17,10 +18,10 @@
 @font-face {
   font-family: 'Founders Grotesk';
   /* src: url('/fonts/FoundersGrotesk-SemiboldItalic.otf') format('opentype'); */
-  src: url('../fonts/FoundersGrotesk-SemiboldItalic.otf') format('opentype');
+/* src: url('../fonts/FoundersGrotesk-SemiboldItalic.otf') format('opentype');
   font-weight: bold;
   font-style: italic;
-}
+} */
 
 /* ---------------------------------
 
@@ -29,8 +30,8 @@
 ------------------------------------ */
 
 :root {
-  --font-family-header: 'Founders Grotesk', sans-serif;
-  --font-family-body: 'Raleway', sans-serif;
+  --font-family-header: "Anton", sans-serif;
+  --font-family-body: "Work Sans", sans-serif;
   --color-black: #000000;
   --color-downy: #65c8d0;
   --color-jelly-bean: #248f99;
@@ -297,9 +298,9 @@ img {
 ------------------------------------ */
 
 @font-face {
-  font-family: 'Fira Code';
+  font-family: "Fira Code";
   src: url(https://cdn.jsdelivr.net/npm/firacode@1.205.0/distr/woff2/FiraCode-Regular.woff2)
-    format('truetype');
+    format("truetype");
 }
 
 .container {
@@ -320,9 +321,7 @@ pre code {
 code {
   background-color: var(--color-alabaster);
   color: var(--color-jelly-bean);
-  font-family: 'Fira Code', monospace;
-  /* font-size: 1rem; */
-  text-deco
+  font-family: "Fira Code", monospace;
 }
 
 code.gruvbox-code {
@@ -646,7 +645,7 @@ h3 {
 
 ------------------------------------ */
 
-a[href^='footnote-'] {
+a[href^="footnote-"] {
   cursor: pointer;
 }
 
