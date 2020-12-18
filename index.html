@@ -4,12 +4,12 @@
   <head>
     <meta charset="UTF-8" />
 
-    <meta name="title" property="og:title" content="Apex" />
+    <meta name="title" property="og:title" content="Crato" />
 
     <meta
       name="description"
       property="og:description"
-      content="Apex is an API proxy for microservices that provides one place to log and control all service-to-service traffic"
+      content="Crato is an open source framework for small web applications to easily deploy a centralized logging solution that maintains ownership of data"
     />
 
     <meta name="type" property="og:type" content="website" />
@@ -17,51 +17,35 @@
     <meta
       name="url"
       property="og:url"
-      content="https://apex-api-proxy.github.io/"
+      content="https://crato-logging.github.io/"
     />
 
     <meta
       name="image"
       property="og:image"
-      content="images/logos/apex-logo-linkedin-feature.png"
+      content="images/logos/crato-logo.png"
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="author" content="Derick Gross, Kelvin Wong" />
-
-    <title>Stagehand</title>
-
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/icons/favicons/apple-touch-icon.png"
+    <meta
+      name="author"
+      content="Faazil Shaikh, Kurth O'Connor, Alex Soloviev"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/icons/favicons/favicon-32x32.png"
-    />
+
+    <title>CRATO</title>
+
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="images/icons/favicons/favicon-16x16.png"
+      href="images/icons/favicon_package_v0.16/favicon-16x16.png"
     />
-    <link rel="manifest" href="/images/icons/favicons/site.webmanifest" />
+
     <link
-      rel="mask-icon"
-      href="/images/icons/favicons/safari-pinned-tab.svg"
-      color="#5bbad5"
+      href="https://fonts.googleapis.com/css?family=Hind|Hind:700|Open+Sans:700|Teko:700&display=swap"
+      rel="stylesheet"
     />
-    <link rel="shortcut icon" href="/images/icons/favicons/favicon.ico" />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta
-      name="msapplication-config"
-      content="/images/icons/favicons/browserconfig.xml"
-    />
-    <meta name="theme-color" content="#ffffff" />
 
     <!-- <style>reset</style> -->
 
@@ -84,18 +68,16 @@
     <!-- <script></script> -->
 
     <script src="javascripts/application.js"></script>
-
-    <style></style>
   </head>
 
   <body>
     <div class="logo-links">
-      <p id="apex-logo">MENU</p>
-      <!-- <a href="https://github.com/apex-api-proxy" target="_blank">
-        <img src="images/logos/apex-logo.png" alt="Apex logo" id="apex-logo" />
-      </a> -->
+      <p id="crato-logo">STAGEHAND</p>
 
-      <a href="https://github.com/apex-api-proxy/apex" target="_blank">
+      <a
+        href="https://github.com/stagehand-framework/stagehand"
+        target="_blank"
+      >
         <img
           src="images/logos/github_black.png"
           alt="github logo"
@@ -132,1879 +114,1816 @@
 
     <header id="home">
       <h1>
-        <img src="images/logos/stagehand_logo-full.png" alt="Apex logo" />
+        <img src="images/logos/stagehand_logo-full.png" alt="Crato logo" />
 
         <p>
-          A drop-in cloud solution that provides review apps for modern frontend
-          applications
+          frontend review apps that make getting to production as painless as
+          possible
         </p>
       </h1>
     </header>
 
     <section class="integration">
       <div class="box">
-        <img
-          id="banner-deploy"
-          src="images/diagrams//gifs/apex_query_logs_2.gif"
-          alt="best practices"
-        />
+        <img src="images/crato_horizontal.png" alt="best practices" />
       </div>
 
       <article class="box">
         <div class="text-box">
-          <h1>Centralized logging and tracing for your microservices</h1>
-
-          <p>No additional client libraries needed in your service code</p>
-
-          <!-- <a class="button" href="#case-study">Learn More</a> -->
-        </div>
-      </article>
-    </section>
-
-    <section class="integration">
-      <article class="box">
-        <div class="text-box">
-          <h1>Manage all fault-handling logic e.g. retries in one place</h1>
+          <h1>Centralize your logs</h1>
 
           <p>
-            Define both global traffic rules and custom rules for individual
-            services
+            Crato is an open-source framework for small applications to easily
+            deploy a centralized logging solution that maintains ownership of
+            data.
           </p>
 
           <!-- <a class="button" href="#case-study">Learn More</a> -->
         </div>
       </article>
-
-      <div class="box">
-        <img
-          id="banner-deploy"
-          src="images/diagrams/5.4) orders-shipping custom configuration_2.png"
-          class="softened"
-          alt="Deploy Apex proxy with a few commands"
-        />
-      </div>
     </section>
 
     <section class="integration">
-      <div class="box">
-        <img
-          id="banner-deploy"
-          src="images/diagrams/gifs/apex_deploy_2.gif"
-          class="softened"
-          alt="Deploy Apex proxy with a few commands"
-        />
-      </div>
-
       <article class="box">
         <div class="text-box">
-          <h1>Deploy to Docker containers with a few commands</h1>
+          <h1>Easy To Deploy</h1>
 
-          <p>No changes required in how your services are currently deployed</p>
+          <p>Get started with a few simple commands.</p>
 
           <!-- <a class="button" href="#case-study">Learn More</a> -->
         </div>
       </article>
+      <div class="box">
+        <img
+          id="banner-deploy"
+          src="images/diagrams/gifs/crato_docker_deploy.gif"
+          class="softened"
+          alt="Gif of crato's install-kafka and deploy commands"
+        />
+      </div>
     </section>
 
     <main>
       <section id="case-study">
         <h1>Case Study</h1>
-        <!-- <p class="subheader">
-          One place to log and control service-to-service traffic
-        </p> -->
 
         <div id="side-nav">
-          <a href="#home">
-            <img src="images/logos/stagehand_logo-full.png" alt="Apex logo" />
-          </a>
+          <img src="images/logos/crato-logo.png" alt="Crato logo" />
         </div>
 
         <nav>
           <ul></ul>
         </nav>
 
-        <h2 id="introduction">1) Introduction</h2>
+        <h2 id="introduction">1 Introduction</h2>
+
+        <h3>1.1 What is Crato?</h3>
 
         <p>
-          Apex is an API proxy for microservices. It provides one place to log
-          and control service-to-service traffic.
+          Crato is an open source framework for small applications to easily
+          deploy centralized logging.
         </p>
 
         <p>
-          Apex is designed for small teams that have just begun migrating from a
-          monolith to a microservices architecture. While microservices bring
-          many benefits such as faster deployment cycles, they also bring a host
-          of new challenges by relying on the network for service-to-service
-          communication. As network communication is unreliable and has latency,
-          faults become more likely to occur, leading teams to have to spend
-          more time diagnosing network-related faults, and writing pre-emptive
-          fault-handling logic within each service. [<a href="#footnote-1">1</a
-          >]
+          Applications and system services record their events to local log
+          files, but by default these log messages remain on local systems and
+          are eventually either archived away never to be seen or permanently
+          deleted. Without intervening then, developers and administrators lose
+          valuable insight into the history, performance, and security of their
+          systems and applications.
         </p>
 
         <p>
-          Some current solutions exist to help teams perform these tasks faster.
-          Client libraries can be imported into each service’s code to automate
-          networking concerns, an API gateway can be inserted in front of all
-          services to handle incoming traffic, and for large systems, a service
-          mesh is often deployed to abstract away networking concerns from
-          services altogether. These are all valid solutions with their own set
-          of trade-offs.
+          Crato allows developers to quickly and easily deploy a centralized
+          logging infrastructure to address this problem. Using Crato, each
+          machine sends its logs to a central collection server, where
+          developers can gain insight into their entire system by analyzing the
+          consolidated logs across the entire deployed fleet of systems and
+          applications. Besides log data consolidation and analysis (via
+          InfluxDB), Crato also provides smart compression and archiving (via
+          Amazon S3 and S3 Glacier). Crato makes configuring, deploying, and
+          maintaining all these pieces easy and fast.
         </p>
 
         <p>
-          For a small team running their first few microservices, however, none
-          of the existing solutions provide the right set of trade-offs:
-          optimized for service-to-service traffic, and ease of deployment and
-          operation, over high availability and scalability. These are the
-          trade-offs that underpinned Apex’s design.
+          Before we get into Crato, let's take a step back and discuss what logs
+          are.
         </p>
 
+        <h2 id="logging">2 Logging</h2>
+
+        <h3>2.1 What is a Log?</h3>
+
         <p>
-          With Apex, a user can view the logs for all service-to-service traffic
-          by querying just one table, while grouping all requests and responses
-          that belong to the same workflow. They can also define and update
-          traffic rules such as the number of times to retry a request in one
-          configuration store.
+          Developers rely on logs of all sorts on a daily basis. In the simplest
+          case, we can think of logs as distinct events that get written to
+          files<sup><a href="#footnote-1">1</a></sup
+          >. Log data is often the primary way to determine application health,
+          debug a problem, or derive aggregate metrics. It's the first place any
+          developer looks to try to piece together what happened in an event of
+          an error or exception. Logs are critical and every piece of software,
+          from infrastructure to operating system services, are continuously
+          logging events as soon as the system is up.
         </p>
 
-        <h2 id="microservices">2) Microservices</h2>
+        <h3>2.2 Logs as Files</h3>
 
         <p>
-          To understand how Apex makes it easier to work with microservices, it
-          is important to first understand what microservices are. This, in
-          turn, requires understanding that the microservices architecture is a
-          choice, the other choice being, of course, a monolith.
-        </p>
-
-        <h3 id="monolithic-architecture">2.1) Monolithic architecture</h3>
-
-        <p>
-          In a monolithic architecture, there is typically just one application
-          server (the ‘monolith’) that holds all the business logic. In some
-          cases, this application server alone is already sufficient to serve an
-          application to a user (e.g. a website with just static HTML). More
-          likely though, the application will also generate some user data that
-          must be persisted, and so the monolithic application server will also
-          transfer data to and from a database server.
+          In most UNIX systems, these events are written to log files. For the
+          most common applications and services, these files can be found in the
+          <code>var/log</code> directory. Within that directory, some services
+          will create sub-directories to organize their logs. For example, MySQL
+          generates its own log file and the <code>httpd</code> sub directory
+          contains log files for the Apache web server
+          <code>access_log</code> and <code>error_log</code>. There are also
+          system process logs that can be found in files like
+          <code>kern.log</code> or <code>auth.log</code>
+          that contain information logged by the kernel and system authorization
+          information, respectively.
         </p>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/2.1) Monolith.png" alt="Monolith" />
+          <img src="images/diagrams/logs_as_files.png" alt="Logs as files" />
         </div>
 
         <p>
-          Consider the above example of a monolithic system that serves an
-          e-commerce store to users. The business logic in the app server can be
-          organized into classes or modules, or more generally, ‘subsystems’,
-          that encapsulate related functionality e.g. manipulating customer
-          data, checking and updating inventory, creating shipments. These
-          subsystems can each expose an interface of methods, or more generally
-          ‘behaviors’, that can be invoked by each other to facilitate
-          communication between them.
-        </p>
-
-        <p>
-          As method or function calls take place within the same running process
-          in memory, they are reliable and very fast, with latency often
-          measured in microseconds [<a href="#footnote-2">2</a>].
+          Because log messages are generated by some process and get written to
+          files on our local file system, it's natural to think of logs simply
+          as files. If logs are just files, then we use commands like
+          <code>grep</code> to match against some string or regular expression
+          in the log file.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.1) In-process method calls.png"
-            alt="In-process method calls are reliable and fast"
+            src="images/diagrams/gifs/grep.gif"
+            class="softened"
+            id="grep"
+            alt="Logs as files"
           />
+
+          <p>
+            We can use <code>grep</code> to search a file for logs generated in
+            the last 10 minutes.
+          </p>
         </div>
 
         <p>
-          Another possible monolithic architecture is to further decouple the
-          data store for each subsystem, by separating it into multiple database
-          servers. For example, the
-          <code>customers</code> subsystem and the <code>orders</code>
-          subsystem can be connected to separate database servers, if that is
-          deemed to be e.g. more flexible or scalable for a particular need.
+          But in order to better understand the structure of application logs,
+          let's consider another description of what a log is. We know that a
+          log is a file but that's not the full story.
+        </p>
+
+        <h3>2.3 Logs as Append-Only Data Structures</h3>
+
+        <blockquote>
+          <p>
+            "A log is perhaps the simplest possible storage abstraction. It is
+            an append-only, totally-ordered sequence of records ordered by time"
+          </p>
+
+          <p>- Jay Kreps</p>
+        </blockquote>
+
+        <p>
+          In the simplest case, we have an application that runs on a single
+          server, and our life is relatively easy. When the application is
+          contained on one server, so is its log data - when something goes
+          wrong we know where to look and it's fairly straightforward to paint
+          the entire picture of the application state. However, as applications
+          continue to grow in complexity so does the volume of their log data -
+          the many components, devices and microservices that produce log data
+          are often distributed on multiple servers and even with a relatively
+          small number of users, this can quickly become a big problem of
+          incomplete information. For this reason there has been a greater need
+          to unify log data, both by location as well as format. On top of data
+          consolidation, there's also been a growing need to synthesize the
+          proliferation of logs for business insights. This also implies a
+          growing need for machines to process log data.
+        </p>
+
+        <p>
+          In order for a machine to parse and aggregate log data to then be
+          consumed by humans, a text file may no longer be sufficient. But how
+          do we store log data, if not in a file?
+        </p>
+
+        <p>
+          The key is to recognize that logs as files are just one form of a more
+          general concept of a log as a data structure. That is, if we regard a
+          log as a time-ordered, append only sequence of records, we can see log
+          files as just one example. In this light, a log and its basic
+          properties can be represented by the following diagram.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/log_data_structure.png" alt="Log" />
+        </div>
+
+        <p>
+          Each entry in a log is added sequentially making this an append-only
+          data structure. We start on the left and each subsequent entry is then
+          added to the right. The entries on the left are then by definition
+          older than entries on the right, giving this data structure a built-in
+          ordering<sup><a href="#footnote-2">2</a></sup
+          >. Since reads also proceed from left to write, in the context of
+          building an application, if each entry in a log represents some event,
+          we can know the order in which the events occurred. In this way, logs
+          provide a historical context for our applications.
+        </p>
+
+        <h3>2.4 Logs as Streams</h3>
+
+        <p>
+          The "Twelve-Factor App" is a set of best practices for building robust
+          and maintainable web applications. One of the guidelines directly
+          address logging, suggesting that we should treat logs not as files but
+          as event streams, and that a web application shouldn’t concern itself
+          with the storage of this information. Instead, these logs should be
+          treated as a continuous stream that is captured and stored by a
+          separate service<sup><a href="#footnote-3">3</a></sup
+          >.
+        </p>
+
+        <p>
+          Of course it's natural to think of logs as files since it's a common
+          way to interact with logs and because log file generation is typically
+          an automatic process that happens behind the scenes. But log messages
+          get written to files mainly because it's a convenient method of
+          storing data. As we have seen, outside of the context of a file,
+          individual log messages can be viewed as time ordered streams of
+          events that <em>can</em>
+          be written to files but that can also be processed in other ways. To
+          borrow another quote from Jay Kreps, "Log is another word for stream
+          and logs are at the heart of stream processing". Streams of data can
+          be directed or split into multiple streams and sent to different
+          locations for further processing.
+        </p>
+
+        <p>
+          If we use a command line utility like <code>tail</code> it's possible
+          to see a live stream of logs that are coming from an application or
+          any other process we'd like to monitor. So while messages are being
+          written to files, from this view it's easier to think of logs as a
+          collection of events that we can view in real time as they occur -
+          something that's ongoing, with no beginning or an end.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.1) Monolith with multiple databases.png"
-            alt="Monolith with multiple databases"
+            src="images/diagrams/gifs/tail.gif"
+            class="softened"
+            id="tail"
+            alt="Logs as streams"
           />
+
+          <p>
+            Ongoing, collated collection of events viewed in real time with the
+            <code>tail</code> utility.
+          </p>
+        </div>
+
+        <h3>2.5 Logs Capture Change</h3>
+
+        <p>
+          To review, a log at its core is an append-only sequence of records
+          that has a natural notion of "time" because newer records are appended
+          to the end of the log. Taken together, these properties mean that a
+          log effectively captures changes over time, thereby
+          <i>creating a full history of the application</i>.
+        </p>
+
+        <p>
+          We most often think of our application's database, where we keep the
+          business logic of our application, as the source of truth. If some
+          data on the UI doesn't look right, we consult the database to
+          determine whether it's correct. But even a database can't tell you how
+          the data got to that state. In some situations, knowing the historical
+          context for how we got to a particular state can be even more
+          important. As espoused by Martin Kleppman, Jay Kreps, and others, this
+          idea is known as the "Stream-Table Duality".
+        </p>
+
+        <h3>2.6 Stream-Table Duality</h3>
+
+        <p>
+          Stream-Table duality is another way of saying that there are distinct
+          but related ways to represent data. The familiar way is of course with
+          a table which represents a snapshot of current state. Let's consider a
+          simple example below using relational data in tables. There are two
+          users and they are transferring funds between one another. As changes
+          occur over time, the data in a table is updated to reflect a new
+          current state.
+        </p>
+
+        <div class="buttons">
+          <button id="resetButton" class="cratoButton">Reset</button>
+
+          <button id="nextButton" class="cratoButton">&rarr;</button>
+        </div>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/table_states/state1.png"
+            id="table-state"
+            data-id="1"
+            alt="Table State1"
+          />
+
+          <p>
+            As changes occur over time, the data in a table is updated to
+            reflect a new current state. But how did we get there?
+          </p>
         </div>
 
         <p>
-          A simple analogy for a monolithic application is a small business run
-          by just one owner. The owner has to do everything - sales and
-          marketing, procurement, operations, finance, IT. There may be one
-          central log book that keeps track of all business data, or the owner
-          could use several ‘persistent data stores’ in parallel e.g. CRM system
-          for sales data, accounting software for financial data, ERP system for
-          inventory data, pen and paper for tax filings.
+          From this example, we can see that data in the table is mutable since
+          the old values are replaced by new values. When we isolate a table and
+          look at it at any point in time, it's possible to answer questions
+          about the current state - for example, what <em>is</em> the current
+          balance of a customer with username big_ed. However, looking only at a
+          database record at one point in time doesn't paint a full picture -
+          there are many ways you could have arrived from one state to another
+          and it is only the log that can describe that journey. The log is the
+          database's changelog and it's there that we can find the full story of
+          how the current data arrived at its current state.
         </p>
 
-        <h3 id="microservices-architecture">2.2) Microservices architecture</h3>
+        <p>
+          Representing the same history that we saw above but this time as a
+          stream of changes would look like this:
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/gifs/stream.gif" alt="Stream" />
+
+          <p>
+            A stream captures the changes between the table's states as distinct
+            events.
+          </p>
+        </div>
 
         <p>
-          The microservices architecture differs from the monolith in two major
-          ways. First, subsystems are decoupled even further. Each subsystem is
-          deployed independently to its own app server as a standalone
-          ‘application’, or ‘service’, and the current best practice is for
-          every service to have its own database [<a href="#footnote-3">3</a>].
+          From a log-as-stream perspective, the data is immutable since the
+          values are not updated. Instead, distinct and immutable events are
+          appended to the end of the log. What is captured in the blue boxes are
+          the changes between the table's states. This stream of changes can
+          supplement the core business logic that lives in tables and helps
+          answer not only <em>what</em> changed but also <em>why</em> and
+          <em>how</em> it changed<sup><a href="#footnote-4">4</a></sup
+          >.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.2) Microservices with multiple databases.png"
-            alt="Monolith architecture vs microservices architecture"
+            src="images/diagrams/stream_table_duality.png"
+            alt="Stream-table duality"
           />
+
+          <p>
+            Tables show us current state and streams capture how we got there.
+          </p>
         </div>
 
         <p>
-          Secondly, subsystems now communicate over the network via HTTP
-          requests, rather than through in-process method invocations. So for
-          example, if our <code>orders</code> service needs to create a new
-          shipment, it might do this by sending a <code>POST</code> request to
-          the <code>/shipments</code> endpoint of the <code>shipping</code>
-          service, and attaching any other relevant information in the request
-          body.
+          And a log is useful in another way besides providing historical
+          context for existing data. Because a log captures the changes
+          themselves, it is possible to rebuild the current state of any
+          database from the database logs alone. In fact, it is possible to
+          rebuild the "current state" of any point in time of the database from
+          logs.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.2) Microservices communicating over the network.png"
-            alt="Microservices communicate over the network"
+            src="images/diagrams/stream_to_table.png"
+            alt="Stream to a table"
           />
+
+          <p></p>
         </div>
 
         <p>
-          Going with the same analogy of a small business, the microservices
-          architecture is comparable to a small team of several members (or
-          ‘services’) who each specialize in one function. For example, these
-          could include a salesperson, a marketer, an operations manager,
-          accountant/bookkeeper and an IT manager. Now, function-to-function
-          communication no longer happens in the owner’s head (or ‘in-process’);
-          instead, different team members must communicate with each other in
-          person, on the phone or by email (or ‘over the network’) to get things
-          done.
+          In this way, it's possible to think of a log as the real source of
+          truth since we can recreate a snapshot of the database at any point in
+          time from logs. That is, we can aggregate streams to arrive at tables,
+          but we cannot understand the historical context from only tables.
+        </p>
+
+        <h3>2.7 Why Does Logging Matter for Small Applications?</h3>
+
+        <p>
+          There are obvious benefits to logging that are important in day to day
+          development. Developers use logs every day for analysis and debugging,
+          infrastructure monitoring and for deriving useful metrics. Some types
+          of applications are also required to keep logs long term for audit
+          purposes. However, besides these uses, carefully curated logs related
+          to your application can provide valuable historical context that
+          unlocks other benefits:
+        </p>
+
+        <ul>
+          <li>We can see precisely how our applications are being used</li>
+          <li>Data can be used to find trends, patterns, and behaviors</li>
+          <li>
+            With historical event logs we can rebuild a snapshot of our
+            application state at any point in time
+          </li>
+        </ul>
+
+        <p>
+          For a small but growing application, there are many options to get
+          started with logging. Despite the myriad of options, many companies
+          opt to deprioritize logging from the outset. Yet, the power of logs
+          can only be realized later; by the time an application owner decides
+          she wants to look at historical data, it's too late to get started as
+          previous data is already lost. By default, many systems delete log
+          data; in some cases, it's archived into various machines and unusable
+          for meaningful analysis. Most small application owners do not think
+          about a logging strategy until significant data is lost.
         </p>
 
         <p>
-          As we shall see, the use of the network for communication between
-          subsystems is the key enabler for many of the benefits of the
-          microservices architecture, but also the main culprit behind many of
-          its drawbacks.
+          In the next section, we'll discuss how to get started with Syslog, the
+          standard log recording format on UNIX, and the various architectural
+          deployment options that small application owners have for centralizing
+          and storing their log data.
         </p>
 
-        <h3 id="microservices-benefits">2.3) Microservices benefits</h3>
+        <h2 id="syslog">3 Syslog</h2>
+
+        <h3>3.1 Single Host Architecture</h3>
 
         <p>
-          A first benefit of microservices is a wider choice of technologies for
-          service developers. [<a href="#footnote-4">4</a>] The network
-          boundaries between services free them from having to use the same
-          technology stack. As long as each service maintains a stable network
-          interface, or API, for other services talking to it, it is free to
-          choose the language or framework that is most optimal for implementing
-          its business logic.
+          Previously, we talked about how log files are automatically generated
+          by a logging system on the operating system. Syslog is the most widely
+          used logging system. In fact, syslog is a UNIX standard that defines a
+          message format and allows for standardization of how logs are
+          generated and processed.
+        </p>
+
+        <p>
+          Since the original inception of Syslog in the 1980's, there are now
+          various implementations of the syslog daemon, with rsyslog and
+          syslog-ng being the most notable examples. For the purposes of our
+          discussion here, we'll use the generic syslog daemon in our diagrams,
+          however any of the more modern implementations can be used in its
+          place.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/syslog_local.png" alt="Syslog local" />
+          <p></p>
+        </div>
+
+        <p>
+          First let's take a look at what syslog looks like locally. In a simple
+          case, for example on a single node system, the log daemon will receive
+          log messages and then write them to the local file system as we saw
+          earlier - typically the files are written to the
+          <code>var/log</code> directory.
+        </p>
+
+        <p>
+          There is a separate process called "log rotation" that is responsible
+          for compressing, archiving and eventually removing old log files. Log
+          rotation occurs daily, weekly or when a file reaches a certain size -
+          this depends on the configuration<sup><a href="#footnote-5">5</a></sup
+          >. For example, you can choose to keep 3 days worth of logs, in which
+          case the log rotation process will rename the log file to make room
+          for the next file, eventually leaving the most recent three files:
+          <code>example.log.1</code>, <code>example.log.2</code> and
+          <code>example.log.3</code>
+        </p>
+
+        <p>
+          During the next iteration, the <code>example.log.3</code> file will
+          get rotated out and <code>example.log.2</code> file takes its place
+          and is renamed <code>example.log.3</code>.
+        </p>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/syslog_local2.png"
+            alt="Syslog local on client"
+          />
+          <p></p>
+        </div>
+
+        <p>
+          This process occurs behind the scenes in a localized system. But
+          applications are rarely deployed on a single node. There are typically
+          many moving parts and various components across different servers.
+          Each of these components is generating its own log data in real time,
+          so the question is how do you as a developer sift through this data
+          and correlate events from each component?
+        </p>
+
+        <p>
+          Imagine that you have an error and you need to refer to your logs to
+          see what went wrong. In this case you would have to individually
+          connect to every single one of the servers one at a time, locate logs
+          on each machine and try to find the information that you are looking
+          for, and then try to correlate different events across different
+          machines, perhaps by their timestamp, to understand what went wrong.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.3) Microservices with different stacks.png"
-            alt="Microservices can use different technologies"
+            src="images/diagrams/gifs/local_logging.gif"
+            alt="Localized logging"
           />
+          <p></p>
         </div>
 
         <p>
-          Arguably the most defining benefit, though, is the option to deploy
-          subsystems independently of each other. [<a href="#footnote-5">5</a>]
-          With subsystems now deployed to independent services that each have a
-          smaller scope, redeploying any one subsystem incurs less overhead and
-          so it becomes practical to redeploy each service more frequently. This
-          enables teams to ship new features faster and reap the corresponding
-          business benefits sooner.
+          This is not what we want. Having all these different logs hosted in
+          different locations makes the correlation and analysis difficult and
+          on top of that, through the process of log rotation, it might be
+          possible that the log file you're looking for has been rotated out and
+          deleted forever. Ideally we would bring together all these logs into
+          one central place, where we can analyze the logs in aggregate and come
+          up with a uniform back-up strategy for them.
         </p>
 
+        <h3>3.2 Forwarding Messages to a Central Server</h3>
+
         <p>
-          More concretely, in our e-commerce example app, as soon as a feature
-          in the
-          <code>orders</code> service is ready, <code>orders</code> can be
-          redeployed. As long as <code>orders</code>’s API remains the same
-          before and after the deployment, other services need not even know
-          that a redeployment took place. On the other hand, if
-          <code>notifications</code>’s logic rarely changes, then that service
-          can simply continue to operate untouched.
+          Syslog can also help with forwarding log events across machines. It
+          does this by having facilities for both sending and receiving log
+          events: a syslog daemon for each log-sending machine and a syslog
+          daemon on the log-receiving machine where all log data is to be
+          centralized.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.3) Redeploying one microservice.png"
-            alt="Each microservice can be independently redeployed"
+            src="images/diagrams/syslog_centralized.png"
+            alt="Centralized syslog"
           />
+          <p></p>
         </div>
 
         <p>
-          Independent redeployment also enables independent scaling. [<a
-            href="#footnote-6"
-            >6</a
-          >] If our <code>orders</code> service is the first to reach its
-          capacity, then we can simply upgrade <code>orders</code> to a more
-          powerful server or deploy more replicas of <code>orders</code>,
-          without having to also replicate every other service. Yet again, as
-          long as the replicated <code>orders</code> service retains the same
-          API before and after scaling, the other services can continue to
-          operate in the same way as though nothing happened. The result is
-          fewer large-scale system-wide redeployments and higher utilisation of
-          provisioned resources, leading to savings in engineering time and
-          costs.
+          This time, the syslog daemon on each of your components captures log
+          messages but instead of simply writing them to a file, it forwards
+          messages to a remote machine where another syslog daemon accepts them.
+          Here, it's possible to view our logs as a consolidated whole. Already
+          this is a big improvement from the disjointed scenario we had above.
+        </p>
+
+        <p>
+          Now you can inspect all your logs from a single place and you don’t
+          have to rely on connecting to every machine individually; you can
+          directly see the logs from the same filesystem. This also makes for a
+          far more reliable way to access logs because even if one of these
+          clients becomes inaccessible, all logs up to the point of the client's
+          failure are already in the central server.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/2.3) Scaling microservices.png"
-            alt="Each microservice can be independently scaled"
+            src="images/diagrams/centralized_logging.png"
+            alt="Centralized logging"
+          />
+          <p></p>
+        </div>
+
+        <p>
+          Now we have a much more desirable and more manageable situation and
+          this is the basis for a centralized logging architecture. Once all
+          logs that are relevant to your application are consolidated in one
+          place, their value in aggregate starts to become more apparent.
+        </p>
+
+        <p>
+          Whether you want to use simple command line utilities like
+          <code>grep</code>, ship your logs somewhere else, or visualize them
+          using the many monitoring and visualization tools that exist, it can
+          only be possible once the logs are centralized. In the next section,
+          we'll enumerate over some solutions to help developers set up a
+          centralized logging architecture.
+        </p>
+
+        <h2 id="current-solutions">4 Current Solutions</h2>
+
+        <p>
+          What solutions exist for a small and growing application that wants to
+          manage its own logs?
+        </p>
+
+        <h3>4.1 Three Main Options</h3>
+
+        <div class="img-wrapper">
+          <img
+            src="images/three_options.png"
+            alt="options for centralized logging"
+          />
+
+          <p>Three main types of log management solutions</p>
+        </div>
+
+        <p>
+          To quickly survey the available options, let's distinguish between
+          three main categories of log management solutions.
+          <em>Logging as a Service</em> (LaaS) consists of paid, proprietary,
+          typically cloud-based systems. The <em>Do it Yourself</em> (DIY) path
+          involves designing and building a custom, self-hosted solution from a
+          variety of components. Finally, the
+          <em>Open-Source Software</em> (OSS) solutions are open-source,
+          pre-designed centralized logging systems that you deploy on your own
+          machines.
+        </p>
+
+        <h3>4.2 LaaS: Full Service Log Management</h3>
+
+        <p>
+          Full-service Logging as a Service (LaaS) products provide their
+          customers with the full range of options, including most - if not all
+          - of the following log management functions: Log Collection, Ingestion
+          &amp; Storage, Search &amp; Analysis, Monitoring &amp; Alerting,
+          Visualization &amp; Reporting.
+        </p>
+
+        <p>
+          LaaS solutions are generally cloud-based. They&#39;re designed to be
+          easy-to-use and they provide a rich feature-set along with technical
+          support. The most difficult part in working with a LaaS may be
+          configuring your machine(s) to forward logs into the service. Once the
+          data is ingested, the LaaS handles the rest. The major advantage of
+          buying a LaaS product is convenience and ease of setup.
+        </p>
+
+        <p>
+          The drawbacks however are also apparent. The services aren't free, and
+          costs can fluctuate based on a number of factors, including the volume
+          of data being ingested, the number of users, and storage or retention
+          plans. Nor is it simply an issue of costs. Whether cloud-based or
+          on-premise, proprietary solutions are marked by a lack of ownership:
+          users cede control of their data to a third party, and they are unable
+          to inspect, modify, or audit proprietary code.
+        </p>
+
+        <p>
+          For some, giving up control of sensitive data is prohibitive, so
+          another option would be to build your own.
+        </p>
+
+        <h3 id="diy">4.3 DIY</h3>
+
+        <p>
+          Another approach to managing logs is to Do It Yourself (DIY). The DIY
+          approach allows developers to design and build a system out of
+          pre-existing components. The key components for a centralized log
+          management infrastructure are below.
+        </p>
+
+        <ol>
+          <li>Log Collection</li>
+          <li>Processing &amp; Aggregation</li>
+          <li>Ingestion &amp; Storage</li>
+          <li>Monitoring &amp; Visualization</li>
+        </ol>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/components/components.png"
+            alt="key components in log management"
+          />
+
+          <p>Key components in a log management system</p>
+        </div>
+
+        <h4 id="collection">4.3.1 Collection</h4>
+        <p>
+          Log collection occurs on each machine with Syslog daemons, also known
+          as agents, listening for messages generated by applications and system
+          processes. When new events are generated, the agent(s) collects them.
+          There are alternatives for <code>Syslogd</code>, the standard Syslog
+          daemon which can collect, process, and transport logs<sup
+            ><a href="#footnote-7">7</a></sup
+          >.
+        </p>
+
+        <div class="buttons">
+          <button id="resetSystemBtn" class="cratoButton">Reset</button>
+
+          <button id="nextSystemBtn" class="cratoButton">&rarr;</button>
+        </div>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/log_collection/log_collection.png"
+            id="log-collection"
+            data-id="1"
+            alt="Log Collection1"
+          />
+
+          <p>
+            Logs can be collected and transported from each client machine and
+            forwarded to a central log server using different systems built on
+            top of the Syslog daemon.
+          </p>
+        </div>
+
+        <h5 id="syslog-protocol-its-implementations">
+          4.3.1.1 Syslog Protocol &amp; its Implementations
+        </h5>
+
+        <p>
+          Syslog, and its more recent implementations rsyslog and syslog-ng, are
+          commonly found on <code>*nix</code> systems, and are even available on
+          Windows. Because of this ubiquity, DIY systems are often able to
+          directly work with one or another of these syslog implementations for
+          log collection. Other options exist as well but syslog implementation
+          is the standard.
+        </p>
+
+        <h4 id="processing-aggregration">4.3.2 Processing &amp; Aggregation</h4>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/components/collection_aggregation.png"
+            alt="log collection and aggregation"
+          />
+
+          <p>
+            Once collected from each client, logs are aggregated in a central
+            location
+          </p>
+        </div>
+
+        <p>
+          After collecting logs from each client, the next step is to aggregate
+          these logs on a single machine. To accomplish this, a logging system
+          must 'ship' or forward the logs to a centralized server. Here, the
+          logs may be parsed and transformed into formats like JSON, enriched
+          with context and stored. There is a healthy amount of options from
+          which to choose here, and choices will depend largely on application
+          need.
+        </p>
+
+        <h4 id="ingestion-storage">4.3.3 Ingestion &amp; Storage</h4>
+        <p></p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/components/zoomed_in/ingestion_storage2.png"
+            alt="log ingestion"
+          />
+
+          <p>Logs ingested into storage</p>
+        </div>
+
+        <p>
+          Once logs are collected, the goal is to transport them to a storage
+          service from which they can be searched and analyzed. If the write
+          rate of the chosen data store is compatible with potentially bursty
+          influx of logs into the system, then the logs could be sent directly
+          to storage. However, not all applications will be able to rely on this
+          throughput parity. Applications that need to scale, or that expect
+          wide fluctuations in data flow, would likely do better by decoupling
+          log aggregation and storage. This can be handled in a number of ways,
+          and a common option is to use a messaging system. Doing so would
+          provide a more robust, fault-tolerant system, along with the ability
+          to handle higher throughput. But it also introduces additional
+          complexity.
+        </p>
+
+        <p>
+          Here, as with the other components, there are a number of options to
+          choose from. The design and implementation choices will depend on a
+          number of factors. Relevant considerations include the following:
+        </p>
+
+        <ul>
+          <li>How much data is being ingested?</li>
+          <li>Who is going to be using the data?</li>
+          <li>What is the structure of the log?</li>
+          <li>What search, analysis, and indexing capabilities are needed?</li>
+        </ul>
+
+        <h4 id="monitoring-visualization">
+          4.3.4 Monitoring &amp; Visualization
+        </h4>
+        <p>
+          Finally, once data is in a database, we can connect it to a
+          visualization tool for more user friendly analysis and reporting. Some
+          of these tools also provide alerting and system configuration
+          capabilities. The visual representation of data allows users to
+          transform and aggregate in more effective ways. There are many open
+          source options here, with Kibana and Grafana as the leaders.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/components/visualization.png"
+            alt="system visualization"
+          />
+
+          <p>
+            Visualization tools provide convenient insight into a system's
+            performance
+          </p>
+        </div>
+
+        <p>
+          Ultimately, if you decide to DIY a central log management system, at
+          each layer you will have several options available.
+        </p>
+
+        <p>
+          Overall, doing it yourself (DIY) and building a custom system allows
+          for greater control and flexibility at the cost of complexity. Custom
+          systems can address very precise needs, and they can provide high
+          control of data and security. But it requires a dedicated team to
+          setup, configure, and maintain the system.
+        </p>
+
+        <h3 id="oss">4.4 OSS</h3>
+        <p>
+          The final category of log management solutions consists of open source
+          pre-designed systems. These tools allow a developer to maintain higher
+          levels of data control with an ease-of-use closer to LaaS tools.
+          However, they typically require self-management and hosting. The two
+          main solutions here are the Elastic Stack and Graylog.
+        </p>
+
+        <h4 id="elastic-stack">4.4.1 Elastic Stack</h4>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/elastic_stack_diagram.png"
+            alt="Elastic Stack"
+          />
+
+          <p>Elastic Stack Architecture</p>
+        </div>
+
+        <p>
+          Elastic develops a collection of open-source log management products
+          designed to work well together. Altogether, they have products that
+          cover each of the four key phases of centralized log management. In
+          fact, 'ELK' refers to a frequently-used combination of their tools,
+          comprised of the text-search storage system ElasticSearch, the log
+          collection and storage service Logstash, and the
+          visualization/monitoring tool Kibana.
+        </p>
+
+        <h4 id="graylog">4.4.2 Graylog</h4>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/graylog_diagram.png"
+            alt="Graylog architecture"
+          />
+
+          <p>Graylog architecture</p>
+        </div>
+
+        <p>
+          Graylog is a company and open-source centralized log management
+          server. It is built on top of ElasticSearch and MongoDB and offers a
+          web interface connected to the server. In addition to their OSS
+          self-hosted option, Graylog provides a LaaS as well.
+        </p>
+
+        <p>
+          The Elastic Stack and Graylog are very popular open-source self-hosted
+          solutions. Each offers the expected ease of use, along with the
+          potential for data ownership and security assurances that come from
+          self-hosting. There is a rich ecosystem of plugins for each tool, thus
+          offering extended flexibility. However, these systems are more complex
+          than LaaS. You'll need to configure, deploy, maintain, and potentially
+          scale these systems yourself.
+        </p>
+
+        <h2 id="crato-design">5 Crato Design</h2>
+
+        <p>
+          We can now finally situate Crato. To do so, we will first quickly
+          summarize the landscape of options and their tradeoffs.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/complexity_ownership_diagram.png"
+            alt="2-axis-comparison"
           />
         </div>
 
-        <h2 id="microservices-challenges">3) Microservices challenges</h2>
-
         <p>
-          We have now seen how the network boundaries between microservices
-          result in several major benefits over the monolithic architecture. The
-          network, however, comes with baggage, and relying heavily on it to
-          communicate between subsystems introduces an entire new dimension of
-          challenges.
+          While LaaS options provide the quickest and most simple path, their
+          advantages come with costs. Not only must users pay for LaaS services,
+          but their applications' data is yielded to a third party. DIY options
+          grant users the most control, and can be designed and built to include
+          precisely the features wanted. But there are tradeoffs here as well.
+          The high level of control and customizability comes with increased
+          complexity and additional design and maintenance commitments. Finally,
+          the pre-designed OSS options aim to split the difference between LaaS
+          and DIY. OSS options return data control to the users (typically
+          lacking in LaaS) while reducing complexity and design and maintenance
+          commitments (both of which tend to be high in DIY projects).
         </p>
 
-        <h3 id="network-unreliability-and-latency">
-          3.1) Network unreliability and latency
+        <p>
+          But even here in the OSS options, there is a range of complexity,
+          which is largely attributable to the database and full-text search
+          choices of the OSS stacks. Crato reduces complexity even more by
+          eliminating the need to set up and maintain a full-text search engine.
+          Thus,
+          <em
+            >Crato is designed to provide the core features of centralized
+            logging while reducing complexity and time commitments</em
+          >.
+        </p>
+
+        <h4>Design Goals</h4>
+
+        <ul>
+          <li>Open Source</li>
+          <li>Provide core centralized logging functions</li>
+          <li>
+            Easy to use: knowledge and skills for configuration, deployment and
+            use are likely to be found in the development team
+          </li>
+          <li>
+            Lightweight: modify as little as possible on client machines; does
+            not require changes to user's application code
+          </li>
+          <li>Allow data ownership and control over storage</li>
+        </ul>
+
+        <h3 id="51cratoarchitectureoverview">
+          5.1 Crato Architecture Overview
         </h3>
 
         <p>
-          Recall that in a monolith, subsystems are simply classes or modules
-          that communicate through method invocations within the same process in
-          memory. In contrast, in a microservices architecture, equivalent calls
-          are now sent between services using HTTP requests and responses over
-          the network.
+          Crato consists of two main components: the <i>Crato Client</i> and
+          <i>Crato Core</i>. The client is installed and run on each machine
+          from which logs are to be collected. The core infrastructure is
+          deployed via Docker onto a separate server or VPS.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.1) In-process method calls vs network hops.png"
-            alt="Method calls are fast, but network hops are (relatively) slow"
+            src="images/diagrams/crato/crato_architecture.png"
+            alt="crato architecture"
+          />
+        </div>
+
+        <h3 id="52cratoclient">5.2 Crato Client</h3>
+
+        <p>
+          Crato Client is designed to have a light footprint on each client
+          system. Downloading the client adds only two files to each system: the
+          <code>crato</code> bash script and <code>crato-config</code>, a text
+          file to record user preferences. Running Crato client interferes with
+          the native logging of the system as little as possible. Crato adds
+          only a single configuration file that supplements, not overrides,
+          default settings.
+        </p>
+
+        <h4 id="cratoconfig"><code>crato-config</code></h4>
+
+        <div class="img-wrapper">
+          <img
+            src="images/crato_config_file.png"
+            class="softened"
+            alt="crato client config file"
           />
         </div>
 
         <p>
-          As any sufficiently heavy user of the internet will have experienced,
-          the network is unreliable and has latency. That is, networks can
-          disconnect for any number of reasons, and network traffic can
-          sometimes take a long time to reach its destination. Even though in
-          production, services are likely deployed to state-of-the-art data
-          centers run by large cloud providers, network faults still can and do
-          occur.
+          To simplify deployment and reduce complexity, the Crato client CLI
+          exposes only a handful of configuration options. Crato client
+          configuration options are set in the <code>crato-config</code> text
+          file. Using key-value pairs, enter any number of logs for Crato to
+          track, along with their tags and severity levels. Then enter the ip
+          address of the central server.
+        </p>
+
+        <p>
+          For users needing more granular control over settings, the full range
+          of configuration options are available by directly editing the default
+          <code>*.conf</code> files. Because Crato does not override
+          applications' logging processes, these can be configured as before.
+        </p>
+
+        <p>
+          The Crato client command interface is also designed to be simple and
+          easy to use.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.1) Network faults.png"
-            alt="Network faults"
+            src="images/diagrams/crato_client_commands.png"
+            alt="Crato Client Commands"
           />
         </div>
 
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/gifs/crato_usage.gif"
+            class="softened"
+            alt="client cli usage"
+          />
+          <p>Crato client's CLI commands in use</p>
+        </div>
+
         <p>
-          Such faults introduce a whole new class of problems for developers -
-          not only do they have to ensure their service code is bug-free, now
-          they also have to diagnose unexpected network faults, and add logic to
-          service code that preempts network faults by providing compensating
-          behaviors (e.g. displaying a ‘network down’ page to users, or retrying
-          the same request a few seconds later).
+          Apply the current configuration and start Crato client with
+          <code>crato -c</code> or <code>crato --configure</code>. Running this
+          command checks that permissions, <code>rsyslog</code> version and base
+          configuration is appropriate for Crato client. It then dynamically
+          generates a <code>/etc/rsyslog.d/49-crato.conf</code> file (numbered
+          to avoid collision with default configuration files) to hold Crato
+          configuration, and checks the validity of the resulting
+          <code>rsyslog</code> configuration. It then either throws an error
+          with instructions for debugging or (re)starts logging with the new
+          settings.
         </p>
 
-        <h3 id="diagnosing-network-faults">3.2) Diagnosing network faults</h3>
+        <p>
+          <code>crato -s</code> or <code>crato --suspend</code> suspends Crato's
+          logging on the client and returns the machine to default logging.
+          <code>crato -r</code> or <code>crato --resume</code> restarts Crato
+          logging on the client with the suspended settings resumed. If Crato
+          client was not suspended at the time of execution, then the command
+          makes no changes.
+        </p>
 
         <p>
-          Diagnosing a network fault can be especially cumbersome when a single
-          workflow passes through multiple services. Consider a user placing an
-          order on our e-commerce example app, and suppose the
-          <code>orders</code> service needs to first update inventory in
-          <code>inventory</code>, then create a shipment in
-          <code>shipping</code>. This one workflow involves 3 services with at
-          least 3 network hops between them. If the order placement eventually
-          fails, what caused that to happen?
+          <code>crato -d</code> or <code>crato --delete</code> removes current
+          or suspended Crato client configurations, confirms that resulting
+          default configuration is valid and restarts logging with default
+          settings or throws an error with instructions for debugging.
+        </p>
+
+        <p>
+          <code>crato -h</code>, <code>crato --help</code>, or even
+          <code>crato</code>
+          without flags provides help by displaying a usage screen.
+        </p>
+
+        <h3 id="53cratocore">5.3 Crato Core</h3>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/gifs/crato_docker_deploy.gif"
+            class="softened"
+            alt="deployment via Docker"
+          />
+
+          <p>
+            Crato infrastructure installs and deploys with just two commands
+          </p>
+        </div>
+
+        <p>
+          The Crato CLI is designed for developer convenience. It abstracts away
+          from Docker CLI, installs services in-order, and provides common CLI
+          log management functionality such as live-tailing and shell access.
+        </p>
+
+        <p>
+          As an example of the convenience provided by the CLI, let's look at
+          the <code>crato install-kafka</code> command. Apache Kafka is often
+          considered hard to configure, but this one command starts Zookeeper,
+          creates a pre-configured three broker cluster, and also creates a
+          textlogs and a jsonlogs topic.
+        </p>
+
+        <p>
+          The <code>install-kafka</code> command is one instance of the Crato
+          CLI that abstracts away multi-step commands. Kafka is often regarded
+          as difficult to install and configure. In fact, even with a service
+          like Docker handling most of the configuration there is still some
+          manual work needed. Compared to the Crato CLI, the equivalent commands
+          via Docker are still numerous and not easy to recall. There are 5
+          steps:
+        </p>
+
+        <ol>
+          <li><code>docker-compose up -d zookeeper</code></li>
+          <li><code>docker-compose up -d kafka</code></li>
+          <li>
+            <code
+              >docker-compose exec kafka kafka-topics --create --zookeeper
+              zookeeper:8092 --replication-factor 3 --partitions 6 --topic
+              textlogs</code
+            >
+          </li>
+          <li>
+            <code
+              >docker-compose exec kafka kafka-topics --create --zookeeper
+              zookeeper:8092 --replication-factor 3 --partitions 6 --topic
+              jsonlogs</code
+            >
+          </li>
+          <li><code>docker-compose stop</code></li>
+        </ol>
+
+        <p>
+          The Crato CLI as shown above simplifies this process into 1 step:
+          <code>crato install-kafka</code>. Below are some other Crato CLI
+          commands.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.2) Network fault in multi-service workflow.png"
-            alt="Network fault in multi-service workflow"
+            src="images/diagrams/crato_core_commands.png"
+            alt="Crato Core Commands"
+          />
+        </div>
+
+        <h2 id="crato-implementation">6 Crato Implementation</h2>
+
+        <h3 id="61collectionaggregation-1">6.1 Collection &amp; Aggregation</h3>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/crato/crato_collection_aggregation.png"
+            alt="collection and aggregation"
           />
         </div>
 
         <p>
-          To find out, a developer would have to trace the user’s initial
-          <code>POST</code> request through the entire system. Since each
-          service generates its own logs, the developer would have to first
-          access <code>orders</code>’s logs, track down the request that failed,
-          follow the request to the next service (in our case, the
-          <code>inventory</code> service), access <code>inventory</code>’s logs,
-          and so on, until they pinpoint the exact request that failed. This can
-          be a laborious and slow process.
-        </p>
-
-        <h3 id="managing-fault-handling-logic">
-          3.3) Managing fault-handling logic
-        </h3>
-
-        <p>
-          Other times, a network fault may be totally random, and a request
-          should simply be retried again. But how long should the requesting
-          service wait before retrying again? How many times should it retry
-          before giving up? If too soon or too many, then all the retries could
-          overwhelm the responding service. Such logic must be defined
-          thoughtfully.
+          Following our design goal of being a lightweight, easy-to-use system,
+          Crato collects logs using <code>rsyslog</code>, a standard tool
+          available on most <code>*nix</code> systems.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.3) Retry logic.png"
-            alt="Retrying failed requests"
+            src="images/diagrams/client_system.png"
+            alt="inner client diagram"
           />
+
+          <p>
+            System logs and designated application logs collected into single
+            stream.
+          </p>
         </div>
 
         <p>
-          The next question becomes: where should all this logic be defined? For
-          some teams, the first answer to this question is in HTTP client
-          libraries that are imported into each service’s code. [<a
-            href="#footnote-7"
-            >7</a
-          >] So if the <code>orders</code> service is written in Ruby, then it
-          would <code>require</code> a gem that provides a configurable client
-          for making HTTP requests to other services. Another service written in
-          Node might <code>import</code> a similar package into its code.
+          At the user’s discretion, Crato can collect any text-based log
+          messages your servers, applications, databases, etc generate. Captured
+          log messages are consolidated into a single stream along with system
+          logs. Together, these messages are persisted to disk in the
+          <code>syslog</code> file on each client machine and also routed for
+          processing and forwarding.
+        </p>
+
+        <h3 id="62shippingingestion">6.2 Shipping &amp; Ingestion</h3>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/crato/crato_shipping_ingestion.png"
+            alt="shipping and ingestion"
+          />
+
+          <p>
+            Crato clients monitor logs, forwarding messages as they arrive for
+            ingestion into the core Crato infrastructure.
+          </p>
+        </div>
+
+        <h4 id="621shipping">6.2.1 Shipping</h4>
+
+        <p>
+          So far, the logs are grouped into a single stream, which is being
+          written to a single file. This occurs on each client (physical machine
+          or virtual server). But the primary goal of centralized log management
+          is to collect logs from many different sources into a single, central
+          (offsite) location. To accomplish that goal, we need to ship the logs
+          to some other server.
         </p>
 
         <p>
-          Often, these libraries can also handle logging, as well as other
-          networking and infrastructure concerns, such as caching,
-          rate-limiting, authentication etc.
+          Each system running a Crato client forwards the stream of captured log
+          messages via <code>tcp</code> to the offsite core of Crato's
+          infrastructure. To mitigate message loss resulting from a network
+          partition or problems with the central server, each Crato client
+          implements a disk-assisted memory queue in front of the forwarding
+          action.
         </p>
 
         <p>
-          Teams with more resources may go further, by having each service’s
-          owner write a client library for every other service that calls it.
-          This is already common practice when working with popular external
-          APIs; for example, Stripe provides dozens of official and third-party
-          libraries in different languages that abstract away the logic for
-          calling its APIs. [<a href="#footnote-8">8</a>] Similarly, in a large
-          team, each service’s owner may be tasked with writing a new client
-          library for every requesting service that uses a different language.
+          Why default to TCP? At our expected volumes, the disk-assisted memory
+          queue (a linked list capable of holding 10000 individual log messages,
+          with 1Gb disk space available if needed) should mitigate the need to
+          fire and forget to keep up with traffic. Thus, Crato opts for TCP and
+          its guarantees of delivery and packet order over UDP's potential speed
+          gains and absence of guarantees.
+        </p>
+
+        <h4 id="622ingestion">6.2.2 Ingestion</h4>
+
+        <p>
+          As it receives new log events from the dispersed clients, the central
+          log server appends each message to its own log file. At this point,
+          the central collection server's <code>syslog</code> file contains all
+          captured messages from the clients along with those from the
+          collection server itself. The full text is available for CLI query
+          using familiar text processing tools like <code>grep</code>,
+          <code>tail</code>, <code>sort</code>, and <code>awk</code>.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.3) New client library for every language.png"
-            alt="shipping's owner writes a new shipping_client for every language"
+            src="images/diagrams/crato/crato_central_server.png"
+            alt="Logs from across system read from single place."
           />
+
+          <p>
+            Central point for insight into entire system: all messages available
+            to familiar Unix tools.
+          </p>
         </div>
 
         <p>
-          Needless to say, this solution becomes less and less manageable as the
-          number of services grows. Every time a new service is built in a new
-          language, every other service owner must write a new client library in
-          that language. More critically, updating fault-handling logic now
-          incurs a great deal of repetitive work. Suppose the CTO wishes to
-          update the global defaults for the retry logic; developers would now
-          have to update the code in multiple client libraries in every service,
-          then carefully coordinate each service’s redeployment. The greater the
-          number of services, the slower this process becomes. [<a
-            href="#footnote-9"
-            >9</a
-          >]
+          Central log servers also forward logs into Crato’s pub-sub system,
+          where they are made available to both the archiving server and to the
+          database.
+        </p>
+
+        <h3 id="63messagestreaming">6.3 Message Streaming</h3>
+
+        <h4 id="631weneedtostorelogsbuthow">
+          6.3.1 We Need to Store Logs...but How?
+        </h4>
+
+        <p>
+          It is common practice for log management systems to persist log data
+          not only to save it from automatic log rotation jobs, but also to
+          facilitate metrics and other system analysis. Crato follows this
+          practice as well, with logs being saved for archiving and also made
+          available for querying.
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/3.3) Microservices with client libraries.png"
-            alt="As more services are added, client libraries can get out of hand"
+            src="images/diagrams/crato/generic_dbs.png"
+            alt="Central server sending logs to two datastores"
           />
         </div>
 
-        <h2 id="existing-solutions">4) Existing solutions</h2>
-
         <p>
-          With microservices becoming increasingly popular, a number of
-          solutions have emerged to help teams overcome these challenges. Here
-          we explain how two of these solutions - the API gateway and the
-          service mesh - compare with each other.
+          But then couldn't Crato's central server send logs directly to the
+          persistence layer? Yes, in fact it's earliest iterations did exactly
+          that, but this approach is sub-optimal for a number of related
+          reasons.
         </p>
 
         <p>
-          Both of these solutions in fact share the same building block - a
-          proxy server.
+          Logs are produced at different rates than they are consumed.
+          Furthermore, the same log data will be used by multiple processes.
+          Each use can be expected to have different needs, to operate at a
+          different rate, and to have potentially different bottlenecks or
+          failure rates. As a result, sending a copy of each log message to each
+          consumer as they come in is likely to lead to dropped messages with no
+          good way of recovery. Crato needed a buffering system to capture logs
+          and allow each consumer to draw data at its own rate.
         </p>
+
+        <p>
+          One way to address this problem would be to use a queue. Log messages
+          are sent into a queue, and a consumer shifts the next message off as
+          needed. This may would work well for an individual consumer, but Crato
+          needs to handle multiple consumers, and as each consumer grabs the
+          next available message from the queue, all the others miss out. The
+          message is no longer available. What Crato would need would be a queue
+          in front of each potential consumer. To implement that, the central
+          server would need to send a copy of each log message to n queues in
+          front of n consumers.
+        </p>
+
+        <p>
+          Another potential solution would be to use a publish-subscribe
+          messaging system. The central server would publish each new log
+          message to the platform, and all subscribers would receive the log as
+          it is available. While this model allows the central server to forward
+          its stream to a single destination, it does not account for the
+          different rates of consumption.
+        </p>
+
+        <h4 id="632decouplingloggenerationusewithkafka">
+          6.3.2 Decoupling Log Generation &amp; Use with Kafka
+        </h4>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/4) Proxy server as building block.png"
-            alt="The proxy server is a building block"
+            src="images/diagrams/crato/crato_kafka.png"
+            alt="Architecture with Kafka highlighted"
           />
-        </div>
 
-        <h3 id="proxy-server">4.0) Proxy server</h3>
-
-        <p>
-          A proxy is simply a server that sits on the path of network traffic
-          between two communicating machines, and intercepts all their requests
-          and responses. These machines could represent a client sending a
-          request to another server, or for our purposes, two internal services
-          communicating within the same architecture.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.0) Proxy server.png"
-            alt="Proxy server can intercept and forward HTTP requests and responses"
-          />
+          <p></p>
         </div>
 
         <p>
-          In the above diagram, <code>orders</code> does not send an HTTP
-          request directly to <code>shipping</code>; instead, it addresses its
-          request to a host belonging to <code>proxy</code> (i.e.
-          <code>proxy.com</code>). In order for <code>proxy</code> to know that
-          <code>orders</code> actually wants to send its request to
-          <code>shipping</code>, <code>orders</code> must specify
-          <code>shipping</code>’s host (i.e. <code>shipping.com</code>) in
-          another part of the request e.g. in the <code>Host</code> header
-          value.
-        </p>
-
-        <p>
-          When <code>proxy</code> receives a response back from
-          <code>shipping</code>, it simply forwards the same response back to
-          <code>orders</code>.
-        </p>
-
-        <h3 id="api-gateway">4.1) API gateway</h3>
-
-        <h4>4.1.1) API gateway features</h4>
-
-        <p>
-          At its core, an API gateway is simply a proxy server (more precisely,
-          a ‘reverse proxy’ [<a href="#footnote-10">10</a>]). When used with
-          microservices, one of its primary functions is to provide a stable API
-          to clients and route client requests to the appropriate service. [<a
-            href="#footnote-11"
-            >11</a
-          >]
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.1.1) API gateway.png"
-            alt="An API gateway proxies all incoming requests into a system"
-          />
-        </div>
-
-        <p>
-          It is certainly possible to deploy microservices without an API
-          gateway. In such an architecture, whenever the client sends a request,
-          it must already know which service to send the request to, and also
-          the host and port of that service. This tightly couples the client
-          with internal services, such that any newly added services, or updates
-          to existing service APIs, must be deployed at the same time as updates
-          in the client code. Such an architecture can be difficult to manage,
-          as clients cannot always be relied upon to update immediately (e.g.
-          mobile apps cannot be easily forced to update); even if they can,
-          doing so would still incur additional engineering that could be
-          avoided.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.1.1) Microservices without API gateway.png"
-            alt="Without an API gateway, a client must know the host port and path of every service it needs to call"
-          />
-        </div>
-
-        <p>
-          With an API gateway, developers are largely free to update internal
-          services while still providing a stable API to clients.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.1.1) API gateway's stable API.png"
-            alt="An API gateway provides a stable API for clients, even if services are upgraded, replicated, or removed internally"
-          />
-        </div>
-
-        <p>
-          In addition to routing requests, the API gateway also provides one
-          place to handle many concerns that are shared between services, such
-          as authentication, caching, rate-limiting, load-balancing and
-          monitoring.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.1.1) API gateway's features.png"
-            alt="An API gateway also provides one place to manage other networking concerns"
-          />
-        </div>
-
-        <p>
-          In a way, an API gateway can be thought of as a receptionist at a
-          large company. Any visitor does not necessarily have to know which
-          employees are present in advance, or how different teams work together
-          to complete specific tasks. Instead, they simply speak with the
-          receptionist, who then decides, based on the visitor’s identity and
-          stated purpose, which company employee to notify, and/or what access
-          to grant to the visitor.
-        </p>
-
-        <h4>4.1.2) API gateway for service-to-service traffic?</h4>
-
-        <p>
-          Let us revisit the challenges that were described back in Section 3:
-          1) diagnosing faults in workflows that span multiple microservices,
-          and 2) managing fault-handling logic that is similar across services.
-        </p>
-
-        <p>
-          If the API gateway already provides one place to manage networking
-          concerns, perhaps it is already a sufficient solution to these
-          challenges? For example, instead of deploying it as a ‘front proxy’
-          that sits in front of all services, we could deploy it in a different
-          pattern than it was intended for - as a proxy that sits between
-          services internally. Would this not already provide the one place to
-          log all service-to-service requests and responses, and define
-          fault-handling logic like retries?
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.1.2) Deploying API gateway internally.png"
-            alt="Could we just deploy an API gateway internally between services?"
-          />
-        </div>
-
-        <p>
-          In theory, this is certainly possible, but in practice, existing API
-          gateway solutions are not ideal options for this.
+          What Crato needs is a way to provide the same stream of log messages
+          to multiple consumers, to allow producers and consumers to work at
+          their own paces, and for each to always be able to resume its work at
+          the exact point it left off. It needs the advantages of a queue and a
+          pub-sub system folded into a single platform. Apache Kafka provides
+          exactly that.
         </p>
 
         <blockquote>
           <p>
-            Optimized to handle [client-server] traffic at the edge of the data
-            center, the API gateway ... is inefficient for the large volume of
-            [service-to-service] traffic in distributed microservices
-            environments: it has a large footprint (to maximize the solution’s
-            appeal to customers with a wide range of use cases), can’t be
-            containerized, and the constant communication with the database and
-            a configuration server adds latency.
+            The consumer group concept in Kafka generalizes these two concepts.
+            As with a queue the consumer group allows you to divide up
+            processing over a collection of processes (the members of the
+            consumer group). As with publish-subscribe, Kafka allows you to
+            broadcast messages to multiple consumer groups.
           </p>
         </blockquote>
+
         <p>
-          <cite>
-            - NGINX, maker of the popular open-source NGINX load balancer and
-            web server [<a href="#footnote-12">12</a>]
-          </cite>
+          By decoupling log creation or ingestion from log use, Kafka solves the
+          problem noted above, namely Crato's need for exactly once delivery of
+          log messages to multiple users operating at different paces. At the
+          same time, it also allows Crato to be more extensible in the future.
+          Any additional uses for the same data can be added as consumers.
         </p>
 
         <p>
-          In short, although the API gateway looks close to the solution we
-          need, existing solutions on the market come built-in with many extra
-          features that are designed for client-server traffic, making them a
-          poor fit for managing service-to-service traffic.
+          But if Kafka is so effective at managing this decoupling, wouldn't
+          Crato benefit from skipping the central server model and simply have
+          each client produce directly to remote Kafka brokers instead? There
+          are advantages to this approach. It would reduce complexity in Crato's
+          core infrastructure, and there is no doubt that Kafka could handle the
+          load from multiple distributed clients as well as it does from a
+          single central log server.
         </p>
+
+        <p>
+          That said, this design would increase the complexity on the client
+          side by introducing additional configuration requirements and
+          dependencies. If we want to use the <code>syslog</code> protocol on
+          each client (see the justification above), then an
+          <code>rsyslog</code> central server poses fewer problems for client’s
+          installation. Also, removing the central server would eliminate one of
+          Crato's UI advantages, because without a central collection point it
+          would lose the ability to provide system-wide observability using the
+          familiar *nix text processing tools. One of the design goals is 'easy
+          to use'. Asking users to query Kafka for observability pushes hard
+          against that goal.
+        </p>
+
+        <h4 id="633producingtokafka">6.3.3 Producing to Kafka</h4>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/4.1.2) API gateway's extra features for client-server traffic.png"
-            alt="API gateway's features for client-server traffic add unnecessary complexity when using it for service-to-service traffic"
+            src="images/diagrams/crato/omkafka.png"
+            alt="omkafka producing to Kafka brokers"
           />
         </div>
 
         <p>
-          That is not to say a solution like an API gateway is completely out of
-          the question. As we shall see in Section 5, the API gateway pattern
-          was a major source of inspiration for Apex’s solution.
+          With Kafka in place, Crato's central collection server sends plain
+          text and JSON formatted log messages to Kafka brokers via
+          <code>rsyslog</code>'s <code>omkafka</code> module. Early tests of
+          Crato with a single Kafka broker revealed that the broker would not
+          always be available to receive messages. To reduce the potential for
+          log loss, Crato is now built with a three broker Kafka cluster, thus
+          preserving service even if two brokers fail. Additionally, it employs
+          on its central server a disk-assisted memory queue to mitigate
+          partitions between server and Kafka cluster, and to provide an
+          emergency store of unsent messages if <code>rsyslogd</code> shuts
+          down, or in the event that all Kafka brokers are down.
         </p>
 
-        <h3 id="service-mesh">4.2) Service mesh</h3>
-
-        <p>
-          The service mesh is another existing solution to the challenges with
-          microservices that were outlined in Section 3. As mentioned
-          previously, it also builds upon the proxy server.
-        </p>
-
-        <h4>4.2.1) Sidecar proxies</h4>
-
-        <p>
-          The service mesh is a highly complex solution, and we once again
-          approach it through the analogy of a company. Consider a large team of
-          people (analogous to services) who all communicate directly with each
-          other.
-        </p>
+        <h4 id="634consumingfromkafka">6.3.4 Consuming from Kafka</h4>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/4.2.1) Everybody talks to everybody.png"
-            alt="Communication in a large team (1): everybody talks to everybody"
+            src="images/diagrams/crato/crato_consumers2.png"
+            alt="consuming from Kafka brokers"
           />
         </div>
 
         <p>
-          As the team size grows, team members will likely find themselves
-          spending more and more time handling these scenarios:
+          Although the logs are buffered, and Kafka provides delivery guarantees
+          for Crato's multiple consumers, the actual consumption is not
+          automatic. That is, Kafka will hold the messages for their specified
+          time-to-live (pending available disk space), but the consumers must
+          make the requests and manage flow to suit their endpoint's needs.
+        </p>
+
+        <p>
+          As a result of this pull model, Crato is built with two consumer
+          groups, one for batching and one for streaming. The batching consumers
+          save logs to a json file until it reaches a configurable size, and
+          then send the file to Amazon S3 Glacier. The streaming consumers
+          redirect incoming log messages and serve them to their appropriate
+          measurements in InfluxDB.
+        </p>
+
+        <h3 id="64storage">6.4 Storage</h3>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/crato/crato_storage.png"
+            alt="two kinds of storage needs"
+          />
+        </div>
+
+        <h4 id="641dualstorageneeds">6.4.1 Dual Storage Needs</h4>
+
+        <p>
+          In order to provide the full advantages associated with centralized
+          logging, a platform would need to store logs and to make them
+          available for queries. Of course, this could be accomplished with a
+          single data store, but Crato takes a different approach, because there
+          are actually two very different needs here.
+        </p>
+
+        <p>
+          First, (as discussed above) there is value in archiving logs, i.e.
+          setting them aside in files for long-term preservation. Second,
+          storing individual log messages for metrics based queries provides
+          unique insight into a system's performance. Crato's storage is
+          designed with the idea that these different needs should be addressed
+          separately. As a result, Crato uses two forms of storage with distinct
+          sets of criteria.
+        </p>
+
+        <h5>Archives:</h5>
+        <ul>
+          <li>log <i>files</i> saved for as long as desired</li>
+          <li>delayed access to logs is acceptable</li>
+          <li>stored offsite as a backup</li>
+        </ul>
+
+        <h5>Queryable storage:</h5>
+        <ul>
+          <li>log <i>messages</i> saved for limited time</li>
+          <li>immediate access to query is required</li>
+          <li>location is not essential</li>
+        </ul>
+
+        <h4 id="642archivesamazons3glacier">
+          6.4.2 Archives: Amazon S3 Glacier
+        </h4>
+
+        <p>
+          Crato uses Amazon S3 Glacier for archival log storage. Users enter
+          their AWS credentials and a destination S3 bucket name when deploying
+          Crato core, and Crato takes care of the rest. Establishing and
+          configuring an AWS account are handled directly through Amazon.
+        </p>
+
+        <p>
+          Using S3 for log file archiving gives Crato's users offsite storage
+          with 99.99..% durability and automatic lifecycle management
+          (configured via AWS console) at a competitive price. Furthermore,
+          because Crato archives in JSON format, the files themselves are
+          queryable from AWS console. As a result users may have an easier time
+          determining which files they wish to extract.
+        </p>
+
+        <h4 id="643queryablestorageneeds">6.4.3 Queryable Storage Needs</h4>
+
+        <p>
+          Emphasizing metrics-based queries, Crato should be able to track
+          entities (e.g. servers, applications, processes) through their logs as
+          they change across time. Seen in this light, logs can be understood as
+          containing time series data, and therefore as ideal candidates for
+          time series databases. Consider the following distinguishing
+          characteristics of time series data and databases.
+        </p>
+
+        <p>
+          <b>Time Series Data</b>: sequences of data points from individual
+          sources over time
         </p>
 
         <ul>
-          <li>
-            <b>[Retry logic]</b> At any given time a team member may be off
-            sick, so any other person who wishes to talk to them must retry
-            again later.
-          </li>
-          <li>
-            <b>[Rate-limiting]</b> A team member may be temporarily working
-            reduced hours, and can only handle a limited number of incoming
-            messages.
-          </li>
-          <li>
-            <b>[Caching]</b> A team member may be asked for the same piece of
-            information multiple times by other team members.
-          </li>
-          <li>
-            <b>[Encryption]</b> Each team member is required to only use secure
-            communication channels provided by the company.
-          </li>
-          <li>
-            <b>[Authorization]</b> Some team members may be allowed to access
-            confidential financial information, while others may not.
-          </li>
-          <li>
-            <b>[Routing]</b> Sometimes a team member may need a particular piece
-            of information, but does not know who has it, and so has to try
-            several different people before obtaining it.
-          </li>
-          <li>
-            <b>[Logging]</b> The company may wish to pull all messages from
-            every team member’s inbox, to create a centralized record for
-            auditing purposes.
-          </li>
+          <li>Time is one axis when TS data is plotted on a graph</li>
+          <li>Relationships between entities (tables) not important</li>
         </ul>
 
         <p>
-          Managing these communication-related issues would take away time and
-          focus from each team member’s core responsibilities.
-        </p>
-
-        <p>
-          In this example, adding a service mesh is analogous to giving every
-          team member a personal assistant (PA), who intercepts all incoming and
-          outgoing messages and handles all the above tasks. This team structure
-          would free team members from having to handle communication-related
-          tasks, and allow them to focus more on their core responsibilities.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.2.1) Team members with their own PA.png"
-            alt="Communication in a large team (2): Every team member talks through their own personal assistant (PA)"
-          />
-        </div>
-
-        <p>
-          In an actual service mesh, the PA would instead be a proxy server,
-          known as a ‘sidecar proxy’. Each service is deployed alongside its own
-          sidecar proxy, which intercepts all requests and responses to and from
-          its parent service, and handles all the networking and infrastructure
-          concerns we listed above, such as retry logic, rate-limiting etc. As a
-          result, each service’s code can focus on its main business logic,
-          while outsourcing networking and infrastructure concerns to the
-          service’s sidecar proxy. [<a href="#footnote-13">13</a>]
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.2.1) Services and sidecar proxies.png"
-            alt="In a service mesh, services talk through their own 'sidecar proxies'"
-          />
-        </div>
-
-        <h4>4.2.2) Configuration server</h4>
-
-        <p>
-          In addition to the sidecar proxies, the service mesh has one other
-          important component - a central configuration server.
-        </p>
-
-        <p>
-          Back in our hypothetical company, a configuration server is akin to a
-          centralized folder containing data on team members and company
-          policies e.g. who is on leave, who is working reduced hours, which
-          secure channels to use, who has access to what information. Each
-          personal assistant (PA) would have their own copy of this information
-          to help them handle communication quickly, but whenever anything is
-          updated in the centralized folder e.g. by the COO or HR Director, the
-          changes are immediately sent to each PA, so that PAs always have the
-          most up-to-date information in their own copies.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.2.2) Centralized folder with company policies and team info.png"
-            alt="One centralized folder containing personnel info, with updates automatically copied to each PA's copy of the folder"
-          />
-        </div>
-
-        <p>
-          In the same way, the configuration server in a service mesh provides
-          one place to update network traffic rules, such as logic for retries,
-          caching, encryption, rate-limiting, routing. The configuration server
-          is the source of truth for this information, but each sidecar proxy
-          also has a cached copy of the information. Whenever the configuration
-          server gets updated, it propagates the changes to each sidecar proxy,
-          which then applies the changes to its own cached copy. [<a
-            href="#footnote-14"
-            >14</a
-          >]
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.2.2) Services and configuration server.png"
-            alt="One configuration server containing all routes, retry logic, etc., with updates automatically pushed to each sidecar proxy's cached copy"
-          />
-        </div>
-
-        <h4>4.2.3) Service mesh trade-offs</h4>
-
-        <p>
-          Again, let us revisit the challenges that were described back in
-          Section 3: 1) diagnosing faults in workflows that span multiple
-          microservices, and 2) managing fault-handling logic that is similar
-          across services.
-        </p>
-
-        <p>
-          The service mesh provides a robust solution to these challenges. The
-          configuration server provides one place to define and update
-          fault-handling logic; each sidecar proxy can be responsible for
-          generating logs and sending them to one place to be stored, and also
-          for executing fault-handling logic. Moreover, without any single point
-          of failure or one single bottleneck, the architecture is resilient and
-          highly scalable. [<a href="#footnote-15">15</a>]
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/4.2.3) Service mesh as solution to microservices challenges.png"
-            alt="Service mesh as solution to microservices challenges"
-          />
-        </div>
-
-        <p>
-          However, as with so many tools, rich functionality begets complexity.
-          Implementing a full service mesh more than doubles the number of
-          components in the architecture that must now be deployed and operated.
-          In addition, both the sidecar proxy and its parent service are usually
-          containerized to run alongside each other in the same virtual server.
-          [<a href="#footnote-16">16</a>] If any existing service is currently
-          deployed without a container, then developers must now containerize it
-          and redeploy it. More domain expertise must be acquired, and
-          significant engineering effort expended.
-        </p>
-
-        <h3 id="summary">4.3) Summary</h3>
-
-        <p>
-          As we have seen, solutions certainly exist to handle the challenges we
-          described with microservices. Each existing solution embodies a
-          different set of trade-offs.
+          <b>Time Series Databases</b>: databases built for collecting, storing,
+          retrieving &amp; processing TS data
         </p>
 
         <ul>
           <li>
-            <b>API gateways’</b> features are designed for client-server, not
-            service-to-service, traffic.
+            Retention policy / aggregation of fine-grained data as it ages
           </li>
-          <li>
-            <b>Service meshes</b> check all the boxes, but require teams to
-            acquire more expertise, operate double the number of components, and
-            redeploy existing services in a different pattern.
-          </li>
+          <li>Query &amp; summarization tools</li>
+          <li>Integration with metrics visualization tools</li>
         </ul>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/4.3) API gateway and service mesh trade-offs.png"
-            alt="API gateway and service mesh trade-offs"
+            src="images/diagrams/tsdb_relational_comparison.png"
+            alt="Time Series Database"
           />
+
+          <p>Comparison of time series and relational databases</p>
         </div>
 
-        <h2 id="design-architecture">5) Design & architecture</h2>
+        <p>
+          Although other forms of database can be used for time series data,
+          they often lack the tooling to make working with time series easy .
+          The chart above compares time series and relational databases. Time
+          series databases tend to be optimized for fast indexing by time. While
+          other database types tend to slow down due to indexing as the data set
+          grows, time series databases tend to keep a consistently high
+          ingestion rate. Also, time series databases make running a continuous
+          query simple. When performed over a short retention period
+          measurement, a continuous query allows live monitoring of, for
+          example, a server's response rate.
+        </p>
 
-        <h3 id="apex-trade-offs">5.1) Apex trade-offs</h3>
+        <h4 id="644queryablestorageinfluxdb">
+          6.4.4 Queryable Storage: InfluxDB
+        </h4>
 
         <p>
-          For some teams, neither an API gateway nor a service mesh provide the
-          right set of trade-offs. Consider a small team that are just beginning
-          to migrate their monolith to include a few microservices. For ease of
-          deployment, most of the services have been deployed to Heroku, or
-          another platform as a service (PaaS) solution.
+          Crato deploys an instance of InfluxDB for queryable storage. Since
+          most time series databases have similar optimizations, and they tend
+          to be immersed in an ecosystem that allows easy integration with
+          visualization tools, the decisive factor in using InfluxDB is the fact
+          that it is schema-free. As a result, when a Crato consumer sends logs
+          to InfluxDB it automatically creates a new measurement (table) for
+          each new log source. That means that Crato's users can benefit
+          immediately, and will also be able to add new clients without having
+          to declare new schema.
+        </p>
+
+        <h2 id="challenges">7 Challenges</h2>
+
+        <h3 id="71collectinglogs">7.1 Collecting Logs</h3>
+
+        <p>
+          A problem that arose early in Crato's design was how to efficiently
+          and reliably collect logs from client systems without imposing on the
+          developers' application code. The very nature of centralized logging
+          framework requires extraction of logs from machines and environments
+          over which the framework has little or no control. As a result, every
+          byte of code deployed on a client system is a potential liability.
+          Ideally, Crato would be able to collect logs from clients without
+          altering any code or impacting the original environment in any way.
+          But this is just an ideal. Instead, we chose to work with the least
+          invasive techniques we could find that still allowed reliable log
+          collection. We evaluated and excluded two popular options before
+          deciding to use rsyslog.
         </p>
 
         <p>
-          It is likely that this team will have already experienced the
-          challenges we mentioned back in Section 3: 1) diagnosing faults in
-          workflows that span multiple microservices, and 2) managing
-          fault-handling logic that is similar across services.
+          The first option was to install an active collection agent on user's
+          servers. This approach would give Crato as much control as possible
+          over the conditions of log collection, so it was tempting to follow
+          this approach. Nonetheless, it carries with it considerable risks of
+          deploying code into an untested situation, and of interfering with the
+          original applications. We considered this approach too invasive, and
+          it certainly violated Crato's goal of being lightweight.
         </p>
 
         <p>
-          For this team, a solution with the following trade-offs are needed:
+          The other main option we considered was to integrate with an
+          application logging library. The idea would be to use an existing
+          library to send logs into Crato's core infrastructure. The first
+          obvious advantage to this option is that many application logging
+          libraries are already familiar tools to developers. If Crato were to
+          integrate with a familiar library, it would not itself need to
+          intervene directly in any way on a user's machine. Furthermore, users
+          could continue to use familiar tools. Unfortunately this approach
+          would substantially narrow the scope of users to those already working
+          with the library, or at least those already coding in a given language
+          or with a certain framework. Also, this approach would limit the logs
+          collected to only those intercepted by the library in question.
         </p>
+
+        <p>
+          So, with the first option too heavy-handed and risky, and the second
+          too limiting, we opted to adapt <code>rsyslogd</code>, an already in
+          place system-level logging daemon to collect from applications as well
+          as from its default system processes. By doing so, Crato is able to
+          create customized configurations that supplement, not override, the
+          functioning of existing <code>rsyslog</code> configurations.
+        </p>
+
+        <h3 id="72producingtokafka">7.2 Producing to Kafka</h3>
+
+        <p>
+          Crato uses the Rsyslog Omkafka module to produce to Kafka. Although
+          this approach simplifies the technical aspects of sending logs to
+          Kafka, writing the configuration scripts requires learning Rsyslog's
+          DSL, Rainerscript (named for Rsyslog's founder). While the DSL is
+          well-documented, we decided this would be too much to ask of Crato's
+          users. As a result, we decided to include these ourselves,
+          automatically configuring Rsyslog when the central server is started
+          up.
+        </p>
+
+        <p>
+          In testing we quickly realized that our original configuration of
+          Omkafka left Rsyslog too tightly bound to Kafka. With even a
+          momentarily unavailable Kafka broker, we began to see error messages
+          propagate through the system. While seeing these messages in Kafka
+          demonstrated that the pipeline was resilient and had continued to
+          work, they also indicated that Crato needed to decouple rsyslog from
+          Kafka. More specifically, it need to decouple rsyslog from any
+          particular Kafka broker. We approached the decoupling from both sides.
+        </p>
+
+        <p>
+          On rsyslog's side, to address complete Kafka failures, connection
+          partitions, and bursts of logs that exceeded forwarding capacity, we
+          added disk-assisted queuing to the rsyslog output module. This greatly
+          increases the probability that log messages will eventually get to
+          Kafka even under adverse conditions.
+        </p>
+
+        <p>
+          On the Kafka side, we added two more brokers. With a total of three
+          nodes, the Kafka cluster would continue to provide service with as
+          many as two failed or otherwise unavailable brokers. Doing so took
+          some of the burden off of the disk-assisted queues, but more
+          importantly it increased the fault-tolerance and reliability of the
+          entire ingestion side of Crato.
+        </p>
+
+        <h3 id="73measurements">7.3 InfluxDB Measurements</h3>
+        <p>
+          Crato is built to handle logs from multiple clients, and on each
+          client, multiple applications and services are likely to be logging.
+          With so much diverse data coming into the system, finding order in the
+          chaos and storing the logs in an easy to reason about way is a top
+          priority. An initially promising approach is to use the logs'
+          <code>host</code> property to route and store logs from each machine
+          in their own measurements. (InfluxDB measurements are roughly
+          analogous to SQL tables, with each measurement storing related data
+          over time.)
+        </p>
+
+        <p>
+          Indeed, this may be a good option in many or even most cases, but it
+          is not always ideal to group logs by host. Given that many services
+          may be logging from each host, it may be that storing kernel logs in
+          the same measurement as web framework logs won't be very enlightening.
+          We certainly need to be able to identify logs by their host origins,
+          but defaulting to this overlooks the possibility of greater
+          granularity in our filtering and routing.
+        </p>
+
+        <p>
+          With these factors in mind, ultimately we chose to group logs by their
+          <code>syslog-tag</code> property. With this option users of Crato have
+          the most flexibility. Because this property is configurable on each
+          Crato client, users may determine the grouping of logs into
+          measurements in InfluxDB. So, for instance, users could group together
+          logs that share a similar <em>function</em>
+          as opposed to simply bundling them by source, although this remains a
+          possibility as well.
+        </p>
+
+        <p>
+          As written, then, Crato allows users to automatically configure the
+          filtering of messages into measurements simply by adding the same
+          <code>syslog-tag</code>
+          to each log source in Crato client, whether on a single machine or on
+          many. Additionally, Crato filters and stores all messages with 'err'
+          severity or greater in a single measurement, and groups all
+          authentication messages into another.
+        </p>
+
+        <h3 id="74docker">7.4 Docker</h3>
+
+        <p>
+          After testing Crato using independent, hand-configured servers, we had
+          to consider how to package everything together in a feasible manner
+          for any developer. A framework designed to make logging easy can
+          hardly ask users to hand code configurations or even to copy a set of
+          provided files from a repository. Nor can they be expected to deal
+          with any of the following concerns.
+        </p>
+
+        <p>
+          In order to deploy Crato, we needed reliable networking so that our
+          services could easily communicate with each other and remain secure.
+          We also needed a way to implement ordering of services, so that
+          services (E.g. Kafka) would only attempt to communicate with one
+          another when dependent services (E.g. Zookeeper) were ready.
+          Furthermore, we needed a system that would orchestrate and run all
+          necessary commands to create each service including our application.
+          Finally, we needed a powerful interface to manage these services. In
+          order to meet all these needs, and to hide the complexity from Crato
+          users, we decided to use Docker. Using Docker, we were able to package
+          all of the aforementioned services in containers, simplify networking,
+          and provide a robust but clean interface to manage service
+          interaction.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/docker-diagram.png" alt="Docker" />
+
+          <p>
+            Docker uses the <code>docker-compose.yml</code> file to find images
+            and build containers for services.
+          </p>
+        </div>
+
+        <p>
+          Using Docker brought many advantages. With Docker containerizing each
+          of our services, we were able to isolate issues and expose an
+          interface for additional development work and querying via shell. By
+          using officially supported Docker images for Apache Kafka, Apache
+          Zookeeper and InfluxDB we were able to ensure Crato's services will
+          always be up-to-date. The project required us to build a custom image
+          of Rsyslog to install necessary modules and to copy key configuration
+          files. Docker's tooling made this easier, and it also created a single
+          network for all services, thus allowing containers to communicate with
+          each other easily without exposing ports to external traffic. Finally,
+          Docker allowed us to enforce a start up order.
+        </p>
+
+        <h2 id="future-plans">8 Future Plans</h2>
 
         <ul>
-          <li>Optimized for handling service-to-service traffic</li>
-          <li>One place to aggregate logs and manage traffic rules</li>
-          <li>Simple to deploy and operate</li>
-          <li>Fewer built-in features are acceptable</li>
+          <li>Additional visualization/monitoring integration</li>
           <li>
-            Does not require changes to deployment pattern for existing services
-            (e.g. does not require existing services to be containerized), since
-            this may be difficult or not possible at all in PaaS solutions
-          </li>
-          <li>Lower availability is acceptable</li>
-          <li>Lower scalability is acceptable</li>
-        </ul>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.1) Apex trade-offs.png"
-            alt="Apex trade-offs"
-          />
-        </div>
-
-        <p>These are precisely the trade-offs we chose when building Apex.</p>
-
-        <h3 id="proxy-server-with-middleware-layers">
-          5.2) Proxy server with middleware layers
-        </h3>
-
-        <p>Apex’s architecture includes 5 components:</p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.2) Apex architecture.png"
-            alt="Apex architecture"
-          />
-        </div>
-
-        <ol>
-          <li>Proxy server</li>
-          <li>Logs database</li>
-          <li>Configuration store</li>
-          <li>Admin API</li>
-          <li>Admin UI</li>
-        </ol>
-
-        <p>
-          Apex’s core component, the <code>apex-proxy</code> server sits on the
-          path of network traffic between every pair of communicating
-          microservices, such as that between <code>orders</code> and
-          <code>shipping</code> above. In the case of systems with more than two
-          services, the following diagram shows how Apex would be deployed.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.2) Mediating all service-to-service traffic.png"
-            alt="Apex mediates internal traffic between every pair of services"
-          />
-        </div>
-
-        <p>
-          Recall that an API gateway is just a proxy server that handles all
-          client-server traffic coming into a system, and routes client requests
-          to the correct service. In a similar way, Apex can be thought of as a
-          stripped-down, internally deployed API gateway, which routes not
-          traffic between clients and servers, but traffic between services.
-        </p>
-
-        <p>
-          Zooming further into <code>apex-proxy</code>, there are several
-          middleware layers that each provide additional functionality beyond
-          simple proxying, such as authentication, routing, retries and logging.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.2) Apex architecture with middleware.png"
-            alt="Apex architecture with middleware"
-          />
-        </div>
-
-        <h3 id="logging-and-tracing-service-to-service-traffic">
-          5.3) Logging and tracing service-to-service traffic
-        </h3>
-
-        <p>
-          Since <code>apex-proxy</code> intercepts all network traffic between
-          microservices, it is able to aggregate logs for every request and
-          response, and send them to <code>apex-logs-db</code> to be persisted
-          and queried in one place.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.3) apex-logs-db.png"
-            alt="All requests and responses get logged to one place"
-          />
-        </div>
-
-        <p>
-          Additionally, <code>apex-proxy</code> provides the ability to trace
-          requests and responses that belong to the same request-response cycle.
-          Any request that comes into <code>apex-proxy</code> is given an extra
-          <code>correlation-id</code> HTTP header value (<code>f84nw2</code> in
-          the example diagram below), if it doesn’t have one already, before
-          being logged. This same <code>correlation-id</code> value is then also
-          included as the request is forwarded to the responding service. When a
-          response comes back from the responding service, Apex adds this same
-          <code>correlation-id</code> value to the response, before forwarding
-          this updated response back to the requesting service. As a result, all
-          requests and responses belonging to the same request-response cycle
-          have the same <code>correlation-id</code> value when they are logged,
-          making it easy to query them together.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.3) Adding correlation_id header.png"
-            alt="Requests and responses in the same cycle get given the same correlation-id when logged"
-          />
-        </div>
-
-        <p>
-          This same feature also makes it possible to connect requests and
-          responses belonging to workflows that span multiple services. As long
-          as each service adds some logic to propagate any
-          <code>correlation-id</code> header value that already exists in
-          incoming requests, then all requests and responses belonging to the
-          same workflow will have the same <code>correlation-id</code> value in
-          <code>apex-logs-db</code>.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.3) Tracing multi-service workflow.png"
-            alt="In a multi-service workflow, all requests and responses get the same correlation-id when logged"
-          />
-        </div>
-
-        <p>
-          Now, figuring out where a request failed within a workflow is just a
-          matter of querying
-          <code>apex-logs-db</code> for that one
-          <code>correlation-id</code> value. This solves our first problem of
-          diagnosing faults in workflows that span multiple microservices.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.3) Querying logs by correlation_id.png"
-            alt="apex-admin-ui interface for querying apex-logs-db by correlation_id"
-          />
-        </div>
-
-        <p>
-          Below, we demonstrate this feature on an actual deployed instance of
-          Apex.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/gifs/apex_query_logs_2.gif"
-            alt="Actual Apex admin UI for querying apex-logs-db by correlation_id"
-          />
-        </div>
-
-        <h3 id="one-place-to-manage-fault-handling-logic">
-          5.4) One place to manage fault-handling logic
-        </h3>
-
-        <p>
-          Similar to the service mesh, Apex also has a single configuration
-          server, the
-          <code>apex-config-store</code>, where developers can define logic for
-          retries, routing etc. In this way, Apex can be thought of as a
-          stripped-down service mesh.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.4) apex-config-store.png"
-            alt="Apex configuration store"
-          />
-        </div>
-
-        <p>
-          <code>apex-config-store</code> contains the following configuration
-          data:
-        </p>
-
-        <ul>
-          <li>
-            <code>service-credentials</code> is used for authentication. It
-            stores the list of service names along with their passwords. Every
-            service that sends a request to Apex must authenticate itself with a
-            token generated using its name and password.
-          </li>
-          <li>
-            <code>service-hosts</code> is used for routing. It lists the IP
-            address or domain name where each service can be found.
-          </li>
-          <li>
-            <code>default-default</code> is used for defining global defaults
-            for service-to-service traffic. In the above diagram, currently by
-            default a request times out if a response is not received within
-            3,500 ms, and can be retried a maximum of 4 times. Each new retry
-            attempt must wait, or ‘back off’, for 5,000 ms after the last failed
-            request.
-          </li>
-          <li>
-            <code>orders-shipping</code> and <code>shipping-inventory</code> are
-            examples of service-specific rules that override the global
-            defaults:
+            Security
             <ul>
-              <li>
-                Whenever <code>orders</code> sends a request to
-                <code>shipping</code>, requests time out after 5,000 ms, and can
-                only be retried no more than 2 times, with a backoff of 2500 ms.
-              </li>
-              <li>
-                When <code>shipping</code> sends a request to
-                <code>inventory</code>, however, requests time out after 2,000
-                ms, and there shall be no retries at all.
-              </li>
+              <li>option for LAN</li>
+              <li>client-server communication with TLS</li>
             </ul>
           </li>
+          <li>Compression option for large messages</li>
+          <li>Add robust & automated testing</li>
         </ul>
 
-        <p>
-          For every request sent to Apex, <code>apex-config-store</code> is
-          queried for authentication, routing and retry logic - in that order.
-          Only after all three are complete do requests get forwarded onto the
-          responding service.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.4) apex-proxy + apex-config-store.png"
-            alt="apex-proxy queries apex-config-store for authentication, routing and retry logic on every request"
-          />
-        </div>
-
-        <p>
-          With this one place to define and update configuration data, Apex’s
-          architecture provides a solution to our second problem of managing
-          fault-handling logic (as well as other network concerns) that is often
-          similar across services.
-        </p>
-
-        <p>
-          Below is the actual Apex UI for defining retry logic for when the
-          <code>orders</code> service calls the shipping service.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.4) orders-shipping custom configuration_2.png"
-            alt="Custom configuration logic for when the orders service calls the shipping service"
-          />
-        </div>
-
-        <p>
-          Applying the same company analogy that we used for the service mesh,
-          Apex is comparable to having just one team assistant
-          (<code>apex-proxy</code>) for the whole team, rather than one personal
-          assistant per team member, mediate all communication between team
-          members. Every time any team member needs to communicate with another
-          team member, they send their messages through the team assistant. On
-          every incoming message, the team assistant checks a centralized folder
-          (<code>apex-config-store</code>) containing all the relevant
-          information on team members and company policies, to verify the
-          identity of the sender, determine who should receive the message, as
-          well as how many times to retry should the first attempt fail.
-        </p>
-
-        <h3 id="trading-off-availability-and-scalability">
-          5.5) Trading off availability and scalability
-        </h3>
-
-        <p>
-          Though Apex provides a solution to the two microservices challenges
-          that were described back in Section 3, it comes with trade-offs,
-          namely lower availability, and lower scalability.
-        </p>
-
-        <p>
-          One of the strengths of the full service mesh is that there is no one
-          component that sits on the path of all service-to-service traffic. If
-          a sidecar proxy crashes or gets overloaded, only its parent service
-          becomes unavailable, while the remaining services can continue to
-          operate normally. With Apex, however, the
-          <code>apex-proxy</code> becomes a single point of failure and traffic
-          bottleneck. Any outage in <code>apex-proxy</code> will halt all
-          service-to-service traffic and render the entire system unavailable.
-        </p>
-
-        <p>
-          Ultimately, there is an inherent trade-off between the number of
-          proxies in the system (and hence availability and scalability), and
-          how easy it is to deploy and operate the system. Apex and service
-          meshes occupy opposite ends of this spectrum.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/5.5) Apex and service meshes on spectrum.png"
-            alt="Apex is easier to deploy and operate, while service meshes offer higher availability and scalability"
-          />
-        </div>
-
-        <h3 id="transitioning-to-a-service-mesh">
-          5.6) Transitioning to a service mesh
-        </h3>
-
-        <p>
-          Despite the seemingly divergent set of trade-offs between Apex and the
-          service mesh, Apex’s architecture is in fact acknowledged by several
-          service mesh vendors as a possible transitional architecture on the
-          journey toward a full service mesh. NGINX calls this architecture a
-          ‘Router Mesh’ [<a href="#footnote-17">17</a>]; Citrix calls it a
-          ‘Service Mesh Lite’ [<a href="#footnote-18">18</a>], and Kong calls it
-          an ‘Internal API gateway’ [<a href="#footnote-19">19</a>].
-        </p>
-
-        <p>
-          Therefore, any team that adopts Apex’s architecture can rest assured
-          that they are not taking a path that is mutually exclusive to
-          eventually adopting a full service mesh. The truth is quite the
-          opposite - this architecture is “relatively easy to implement,
-          powerful, efficient, and fast”, and forms part of a “progression”
-          toward a service mesh [<a href="#footnote-20">20</a>].
-        </p>
-
-        <h2 id="implementation-deployment">6) Implementation & deployment</h2>
-
-        <p>
-          When implementing Apex, we made technology choices based on the
-          trade-offs we described in Section 5.1. In particular, we prioritized
-          ease of deployment and operation over feature-richness, high
-          availability and high scalability. The technologies we ended up
-          choosing include Node.js and Express.js, TimescaleDB, Redis, React and
-          Docker.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/6) Apex architecture with technologies.png"
-            alt="Apex architectural components use several technologies"
-          />
-        </div>
-
-        <p>Below, we briefly elaborate upon each of these choices.</p>
-
-        <h3 id="apex-proxy---node_js-and-express_js">
-          6.1) <code>apex-proxy</code> - Node.js and Express.js
-        </h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/6.1) apex-proxy in Node and Express.png"
-            alt="Apex proxy uses Node.js and Express.js"
-          />
-        </div>
-
-        <p>
-          For the main proxy server, we had the choice between using any popular
-          web development framework (e.g. Rails), and building atop an existing
-          proxy (e.g. Envoy, NGINX). Since one of our design goals was to be
-          ‘simply to deploy and operate’, we preferred a solution that did not
-          come built-in with any extra features that are irrelevant to our
-          target user. With this in mind, we decided on the “fast,
-          unopinionated, minimalist” Express.js framework [<a
-            href="#footnote-21"
-            >21</a
-          >] built in Node.js, a language known for its ability to “handle a
-          huge number of simultaneous connections with high throughput” [<a
-            href="#footnote-22"
-            >22</a
-          >] and widespread usage among developers.
-        </p>
-
-        <h3 id="apex-logs-db---timescaledb">
-          6.2) <code>apex-logs-db</code> - TimescaleDB
-        </h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/6.2) apex-logs-db in TimescaleDB.png"
-            alt="The logs database is an instance of TimescaleDB"
-          />
-        </div>
-
-        <p>
-          The request and response logs generated by <code>apex-proxy</code> are
-          a type of time-series data. [<a href="#footnote-23">23</a>] To store
-          them in one place, we chose TimescaleDB, a time-series database that
-          can ingest data at a rate of more than 100,000 rows per second, even
-          as a database reaches billions of rows [<a href="#footnote-24">24</a
-          >]. This high ingestion rate mitigates the risk that writing logs to
-          storage will become a bottleneck in the system.
-        </p>
-
-        <h3 id="apex-config-store---redis">
-          6.3) <code>apex-config-store</code> - Redis
-        </h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/6.3) apex-config-store in Redis.png"
-            alt="A Redis key-value store holds configuration data"
-          />
-        </div>
-
-        <p>
-          One of Apex’s core features is providing service owners with one place
-          to modify service information (e.g. register their service, generate
-          new credentials for authentication), and update fault-handling logic
-          (e.g. retry logic) for their own service. To enable this, we had
-          several options for where to store the configuration data: 1) in an
-          environment file that is loaded into memory when
-          <code>apex-proxy</code> spins up, 2) in a file that is read by
-          <code>apex-proxy</code> for every request, or 3) in an external
-          configuration data store.
-        </p>
-
-        <p>
-          Option 1 of using an environment file was immediately ruled out, as it
-          requires that the
-          <code>apex-proxy</code> process be restarted every time the file is
-          updated. Between the two remaining options, storing configuration in a
-          file on disk leads to faster reads, since in general disk IO is faster
-          than fetching data over the network. However, files can be easily
-          corrupted, if say multiple processes write to the same file at the
-          same time.
-        </p>
-
-        <p>
-          In the end, we decided on Option 3, and implemented a Redis key-value
-          store that gets queried for configuration data on every request. Redis
-          stores all its data in memory, and so enables reads at over 72,000
-          requests per second [<a href="#footnote-25">25</a>]. This somewhat
-          makes up for Option 3’s slower read speed compared to Option 2. In
-          addition, Redis persists data to disk once every second, ensuring that
-          configuration data will remain intact even if the Redis instance
-          crashes and must restart.
-        </p>
-
-        <h3 id="apex-admin-api---node_js-and-express_js">
-          6.4) <code>apex-admin-api</code> - Node.js and Express.js
-        </h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/6.4) apex-admin-api in Node and Express.png"
-            alt="The admin API is another Node.js and Express.js application"
-          />
-        </div>
-
-        <p>
-          For convenience, we built a REST API that enables users to
-          programmatically query their logs in TimescaleDB and update config
-          data in Redis (as opposed to having to SSH into those instances and
-          issue commands in the terminal). This API also provides the option for
-          admins to build additional UIs for different access roles e.g. a
-          logs-only UI for users who are not authorized to update configuration
-          data.
-        </p>
-
-        <h3 id="apex-admin-ui---react">
-          6.5) <code>apex-admin-ui</code> - React
-        </h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/6.5) apex-admin-ui in React.png"
-            alt="The admin user interface was built with React"
-          />
-        </div>
-
-        <p>
-          Finally, <code>apex-admin-ui</code> communicates with the
-          <code>apex-admin-api</code> backend and provides service owners with a
-          convenient way to register new services, edit existing service
-          information, add and edit custom configuration, and query logs by
-          <code>correlation_id</code>.
-        </p>
-
-        <h3 id="deployment---docker-and-docker-compose">
-          6.6) Deployment - Docker and Docker Compose
-        </h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/6.6) Deploying in Docker containers.png"
-            alt="Each component deploys in its own Docker container"
-          />
-        </div>
-
-        <p>
-          Installing and running five interconnected components will likely be a
-          time-consuming process fraught with unpredictable environment-specific
-          errors. Standing by our design goal of being ‘simple to deploy and
-          operate’, Apex’s components are all containerized using Docker, and
-          deployed in a coordinated fashion with Docker Compose. This ensures
-          Apex’s components are all deployed in the same (containerized)
-          environment for every user.
-        </p>
-
-        <p>
-          As shown below, deploying Apex with Docker Compose locally requires
-          just one
-          <code>docker-compose up</code> command.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/gifs/apex_deploy_2.gif"
-            alt="Deploying Apex's components with Docker Compose"
-          />
-        </div>
-
-        <p>
-          Apex’s documentation also provides step-by-step instructions for
-          deploying Apex to AWS’s Elastic Container Service (ECS).
-        </p>
-
-        <h2 id="implementation-challenges">7) Implementation challenges</h2>
-
-        <h3 id="logging-large-request-and-response-bodies">
-          7.1) Logging large request and response bodies
-        </h3>
-
-        <p>
-          Sending large request and response bodies from
-          <code>apex-proxy</code> to <code>apex-logs-db</code> can add
-          significant latency to request-response cycles, spin up long-running
-          processes in <code>apex-proxy</code> that decrease its throughput, and
-          fill up <code>apex-logs-db</code> far faster than necessary.
-        </p>
-
-        <p>
-          To solve these problems, we ultimately chose to avoid decompressing
-          any log bodies that arrive in a compressed format, and send logs
-          asynchronously from an in-memory queue.
-        </p>
-
-        <h4>7.1.1) Solution 1: keep bodies compressed</h4>
-
-        <p>
-          Quite simply, sending compressed bodies means fewer bytes transmitted
-          and stored. For a typical web page that arrives at
-          <code>apex-proxy</code> in a compressed format (e.g. CNN’s homepage),
-          we found that sending the compressed body to
-          <code>apex-logs-db</code> typically took less than 1 second, compared
-          with 5-10 seconds for the decompressed version.
-        </p>
-
-        <p>
-          While keeping bodies compressed was a sensible choice, it came with
-          the trade-off of inconvenience for users of <code>apex-logs-db</code>,
-          who must now take the extra step to decompress bodies to make them
-          human-readable again.
-        </p>
-
-        <h4>7.1.2) Solution 2: queue logs and send them asynchronously</h4>
-
-        <p>
-          Queuing logs to be sent asynchronously has the effect of decoupling
-          writes to
-          <code>apex-logs-db</code> from request-response cycles through
-          <code>apex-proxy</code>. If <code>apex-proxy</code> happens to receive
-          a particularly large response body that must be logged, it can simply
-          enqueue this log, and move on to forwarding the response back to the
-          requesting service and then on to processing the next request. The
-          request-response cycle can complete regardless of when, or whether,
-          the log eventually gets sent to <code>apex-logs-db</code>.
-        </p>
-
-        <p>
-          Adding a queue in this way also lays the foundation for a further
-          optimization - sending logs to TimescaleDB in batches. TimescaleDB’s
-          own docs explain that this could further increase its data ingestion
-          rate. [<a href="#footnote-26">26</a>]
-        </p>
-
-        <p>
-          However, this solution comes with two trade-offs. The first is that
-          several large log queues within concurrent processes could consume a
-          lot of memory, straining the host server. Given TimescaleDB’s high
-          ingestion rate, we made the decision to accept this trade-off, in the
-          belief that the logs will dequeue fast enough to avoid hitting such a
-          limit.
-        </p>
-
-        <p>
-          The second trade-off is that should <code>apex-proxy</code> crash, any
-          logs that have not yet been dequeued would now be lost from memory.
-          Since each individual log is relatively unimportant data, we also
-          deemed this an acceptable trade-off.
-        </p>
-
-        <h3 id="persisting-logs-and-config-data-in-containers">
-          7.2) Persisting logs and config data in containers
-        </h3>
-
-        <p>
-          While containerizing TimescaleDB and Redis made deployment simpler for
-          users, it also increased the risk of losing logs and configuration
-          data. This is due to the ephemeral nature of Docker containers. [<a
-            href="#footnote-27"
-            >27</a
-          >]
-        </p>
-
-        <p>
-          Fortunately, Docker containers support ‘volumes’, a mechanism to
-          persist data to a container’s host filesystem, and beyond the
-          container’s lifespan. [<a href="#footnote-28">28</a>] When deploying
-          containers locally with Docker Compose, enabling this feature requires
-          just an extra line of code in the
-          <code>docker-compose.yml</code> configuration file.
-        </p>
-
-        <p>
-          Deploying Docker containers to AWS’s Elastic Container Service (ECS),
-          though, requires more care. ECS offers two launch types [<a
-            href="#footnote-29"
-            >29</a
-          >]: the EC2 launch type provides more control, by allowing developers
-          to choose the type and quantity of EC2 instances to provision for
-          their containers. Its downside is that it requires more steps to
-          deploy. The Fargate launch type, in contrast, abstracts away the
-          entire resource-provisioning process, reducing the deployment process
-          to running just 6 or so commands. Crucially, only the EC2 launch type
-          supports Docker volumes. [<a href="#footnote-30">30</a>]
-        </p>
-
-        <p>
-          We had initially wanted to support the Fargate launch type, in
-          alignment with our design goal of being ‘simple to deploy’. However,
-          it was clear to us that the ability to persist logs and configuration
-          data beyond the lifecycle of individual containers will be important
-          for any Apex user, and in the end we spent a significant amount of
-          extra time configuring Apex to support the EC2 launch type.
-        </p>
-
-        <h2 id="future-work">8) Future work</h2>
-
-        <h3 id="handle-bursty-traffic-with-a-queue">
-          8.1) Handle bursty traffic with a queue
-        </h3>
-
-        <p>
-          Apex, as is, represents a single point of failure for a system. To
-          protect it from being overwhelmed by bursty traffic, a best practice
-          is to deploy a FIFO (‘first in, first out’) queue in front of
-          <code>apex-proxy</code>. Another option we are considering is to
-          deploy a standard queue without FIFO guarantees, which offers higher
-          throughput rates, but requires additional middleware in
-          <code>apex-proxy</code> to ensure messages are consumed in the right
-          order.
-        </p>
-
-        <h3 id="back-up-logs-and-config">8.2) Back up logs and config</h3>
-
-        <p>
-          While Docker volumes offer strong persistence guarantees for Apex’s
-          logs and configuration data, the compute instances (e.g. AWS EC2)
-          hosting the containers are ephemeral and not suitable for long-term
-          storage. For users who need even stronger persistence guarantees,
-          <code>apex-logs-db</code> and <code>apex-config-store</code> can be
-          configured to periodically back up data to a cloud storage service
-          (e.g. AWS S3 and S3 Glacier).
-        </p>
-
-        <h3 id="reduce-latency-by-caching-config-in-apex-proxy">
-          8.3) Reduce latency by caching config in <code>apex-proxy</code>
-        </h3>
-
-        <p>
-          Currently, every incoming request to Apex triggers multiple reads from
-          the Redis
-          <code>apex-config-store</code>. As Apex is designed for small teams
-          with a finite and small number of services, most of these reads from
-          Redis will be for the same configuration data. Therefore, we can
-          significantly reduce the read rate by caching a copy of all
-          configuration data in memory within <code>apex-proxy</code>, and
-          updating the cache whenever any user makes a change on Redis.
-        </p>
-
         <section id="footnotes">
-          <h2 id="references">9) References</h2>
+          <h2 id="references">9 References</h2>
+
+          <h5>9.1 Footnotes</h5>
 
           <ol>
             <li id="footnote-1">
-              <a
-                href="https://martinfowler.com/articles/microservice-trade-offs.html"
-                target="_blank"
-                >https://martinfowler.com/articles/microservice-trade-offs.html</a
+              <a href="https://en.wikipedia.org/wiki/Log_file" target="_blank"
+                >https://en.wikipedia.org/wiki/Log_file</a
               >
             </li>
             <li id="footnote-2">
               <a
-                href="https://www.cl.cam.ac.uk/research/srg/netos/projects/ipc-bench/results.html"
+                href="https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying"
                 target="_blank"
-                >https://www.cl.cam.ac.uk/research/srg/netos/projects/ipc-bench/results.html</a
-              >
+                >https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
+              </a>
             </li>
             <li id="footnote-3">
-              <a
-                href="https://samnewman.io/books/monolith-to-microservices/"
-                target="_blank"
-                >https://samnewman.io/books/monolith-to-microservices/</a
-              >
+              <a href="https://12factor.net/" target="_blank"
+                >https://12factor.net/
+              </a>
             </li>
+
             <li id="footnote-4">
               <a
-                href="https://martinfowler.com/articles/microservice-trade-offs.html#diversity"
+                href="https://docs.confluent.io/current/streams/concepts.html"
                 target="_blank"
-                >https://martinfowler.com/articles/microservice-trade-offs.html#diversity</a
-              >
+                >https://docs.confluent.io/current/streams/concepts.html
+              </a>
             </li>
             <li id="footnote-5">
               <a
-                href="https://martinfowler.com/articles/microservice-trade-offs.html#deployment"
+                href="https://cruft.io/posts/centralised-logging-with-rsyslog/"
                 target="_blank"
-                >https://martinfowler.com/articles/microservice-trade-offs.html#deployment</a
-              >
+                >https://cruft.io/posts/centralised-logging-with-rsyslog/
+              </a>
             </li>
-            <li id="footnote-6">
-              <a
-                href="https://martinfowler.com/articles/microservices.html#AreMicroservicesTheFuture"
-                target="_blank"
-                >https://martinfowler.com/articles/microservices.html#AreMicroservicesTheFuture</a
-              >
+            <li>
+              <a href="https://kafka.apache.org/documentation.html#kafka_mq">
+                https://kafka.apache.org/documentation.html#kafka_mq
+              </a>
             </li>
             <li id="footnote-7">
-              <a
-                href="https://www.oreilly.com/library/view/the-enterprise-path/9781492041795/"
-                target="_blank"
-                >https://www.oreilly.com/library/view/the-enterprise-path/9781492041795/</a
-              >
-            </li>
-            <li id="footnote-8">
-              <a href="https://stripe.com/docs/libraries" target="_blank"
-                >https://stripe.com/docs/libraries</a
-              >
-            </li>
-            <li id="footnote-9">
-              <a
-                href="https://www.oreilly.com/library/view/the-enterprise-path/9781492041795/"
-                target="_blank"
-                >https://www.oreilly.com/library/view/the-enterprise-path/9781492041795/</a
-              >
-            </li>
-            <li id="footnote-10">
-              <a
-                href="https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/"
-                target="_blank"
-                >https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/</a
-              >
-            </li>
-            <li id="footnote-11">
-              <a
-                href="https://www.nginx.com/blog/building-microservices-using-an-api-gateway/"
-                target="_blank"
-                >https://www.nginx.com/blog/building-microservices-using-an-api-gateway/</a
-              >
-            </li>
-            <li id="footnote-12">
-              <a
-                href="https://www.nginx.com/blog/do-you-really-need-different-kinds-of-api-gateways-hint-no/"
-                target="_blank"
-                >https://www.nginx.com/blog/do-you-really-need-different-kinds-of-api-gateways-hint-no/</a
-              >
-            </li>
-            <li id="footnote-13">
-              <a
-                href="https://www.oreilly.com/library/view/the-enterprise-path/9781492041795/"
-                target="_blank"
-                >https://www.oreilly.com/library/view/the-enterprise-path/9781492041795/</a
-              >
-            </li>
-            <li id="footnote-14">
-              <a
-                href="https://www.oreilly.com/library/view/the-enterprise-path/9781492041795/"
-                target="_blank"
-                >https://www.oreilly.com/library/view/the-enterprise-path/9781492041795/</a
-              >
-            </li>
-            <li id="footnote-15">
-              <a
-                href="https://www.nginx.com/blog/microservices-reference-architecture-nginx-fabric-model/"
-                target="_blank"
-                >https://www.nginx.com/blog/microservices-reference-architecture-nginx-fabric-model/</a
-              >
-            </li>
-            <li id="footnote-16">
-              <a
-                href="https://www.nginx.com/blog/do-i-need-a-service-mesh/"
-                target="_blank"
-                >https://www.nginx.com/blog/do-i-need-a-service-mesh/</a
-              >
-            </li>
-            <li id="footnote-17">
-              <a
-                href="https://www.nginx.com/blog/microservices-reference-architecture-nginx-router-mesh-model/"
-                target="_blank"
-                >https://www.nginx.com/blog/microservices-reference-architecture-nginx-router-mesh-model/</a
-              >
-            </li>
-            <li id="footnote-18">
-              <a
-                href="https://thenewstack.io/part-4-when-a-service-mesh-lite-proxy-is-right-for-your-organization/"
-                target="_blank"
-                >https://thenewstack.io/part-4-when-a-service-mesh-lite-proxy-is-right-for-your-organization/</a
-              >
-            </li>
-            <li id="footnote-19">
-              <a
-                href="https://konghq.com/blog/kong-service-mesh/"
-                target="_blank"
-                >https://konghq.com/blog/kong-service-mesh/</a
-              >
-            </li>
-            <li id="footnote-20">
-              <a
-                href="https://www.nginx.com/blog/microservices-reference-architecture-nginx-router-mesh-model/"
-                target="_blank"
-                >https://www.nginx.com/blog/microservices-reference-architecture-nginx-router-mesh-model/</a
-              >
-            </li>
-            <li id="footnote-21">
-              <a href="https://expressjs.com/" target="_blank"
-                >https://expressjs.com/</a
-              >
-            </li>
-            <li id="footnote-22">
-              <a
-                href="https://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js"
-                target="_blank"
-                >https://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js</a
-              >
-            </li>
-            <li id="footnote-23">
-              <a
-                href="https://blog.timescale.com/blog/what-the-heck-is-time-series-data-and-why-do-i-need-a-time-series-database-dcf3b1b18563/"
-                target="_blank"
-                >https://blog.timescale.com/blog/what-the-heck-is-time-series-data-and-why-do-i-need-a-time-series-database-dcf3b1b18563/</a
-              >
-            </li>
-            <li id="footnote-24">
-              <a
-                href="https://docs.timescale.com/latest/introduction/timescaledb-vs-postgres"
-                target="_blank"
-                >https://docs.timescale.com/latest/introduction/timescaledb-vs-postgres</a
-              >
-            </li>
-            <li id="footnote-25">
-              <a href="https://redis.io/topics/benchmarks" target="_blank"
-                >https://redis.io/topics/benchmarks</a
-              >
-            </li>
-            <li id="footnote-26">
-              <a
-                href="https://docs.timescale.com/latest/using-timescaledb/ingesting-data"
-                target="_blank"
-                >https://docs.timescale.com/latest/using-timescaledb/ingesting-data</a
-              >
-            </li>
-            <li id="footnote-27">
-              <a href="https://docs.docker.com/storage/" target="_blank"
-                >https://docs.docker.com/storage/</a
-              >
-            </li>
-            <li id="footnote-28">
-              <a href="https://docs.docker.com/storage/volumes/" target="_blank"
-                >https://docs.docker.com/storage/volumes/</a
-              >
-            </li>
-            <li id="footnote-29">
-              <a
-                href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html"
-                target="_blank"
-                >https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html</a
-              >
-            </li>
-            <li id="footnote-30">
-              <a
-                href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-volumes.html#docker-volume-considerations"
-                target="_blank"
-                >https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-volumes.html#docker-volume-considerations</a
-              >
+              <a href="https://logdna.com/what-is-syslog/" target="_blank"
+                >https://logdna.com/what-is-syslog/
+              </a>
             </li>
           </ol>
+          <!--
 
-          Icons made by
-          <a
-            href="https://www.flaticon.com/authors/freepik"
-            title="Freepik"
-            target="_blank"
-            >Freepik</a
-          >,
-          <a
-            href="https://www.flaticon.com/authors/those-icons"
-            title="Those Icons"
-            target="_blank"
-            >Those Icons</a
-          >,
-          <a
-            href="https://www.flaticon.com/authors/kiranshastry"
-            title="Kiranshastry"
-            target="_blank"
-            >Kiranshastry</a
-          >,
-          <a
-            href="https://www.flaticon.com/authors/smashicons"
-            title="Smashicons"
-            target="_blank"
-            >Smashicons</a
-          >,
-          <a
-            href="https://www.flaticon.com/authors/pixel-perfect"
-            title="Pixel perfect"
-            target="_blank"
-            >Pixel perfect</a
-          >, and
-          <a
-            href="https://www.flaticon.com/authors/eucalyp"
-            title="Eucalyp"
-            target="_blank"
-            >Eucalyp</a
-          >
-          from
-          <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">
-            www.flaticon.com</a
-          >.
+          <h5>9.2 Resources</h5>
+
+          <ol>
+
+            <li><a
+
+                href="https://www.manning.com/books/serverless-architectures-on-aws"
+
+                target="_blank">Serverless Architecture on AWS</a>
+
+            </li>
+
+          </ul>
+
+-->
         </section>
       </section>
     </main>
@@ -2012,38 +1931,63 @@
     <section id="our-team">
       <h1>Our Team</h1>
 
-      <p>
-        We are looking for opportunities. If you liked what you saw and want to
-        talk more, please reach out!
-      </p>
+      <p>If you liked what you saw and want to talk more, please reach out!</p>
 
       <ul>
         <li class="individual">
-          <img
-            src="https://avatars1.githubusercontent.com/u/10019150?s=460&u=916f068a14b51f7f173c26943a966a49642bbdc4&v=4"
-            alt="Derick Gross"
-          />
+          <img src="https://github.com/4g3m.png?" alt="Faazil Shaikh" />
 
-          <h3 id="derick-gross">Derick Gross</h3>
+          <h3>Faazil Shaikh</h3>
 
-          <p>New York, NY</p>
+          <p>San Francisco, CA</p>
 
           <ul class="social-icons">
             <li>
-              <a href="mailto:derick.gross@gmail.com" target="">
+              <a href="mailto:faazil.shaikh@gmail.com" target="">
                 <img src="images/icons/email_icon.png" alt="email" />
               </a>
             </li>
 
             <li>
-              <a href="https://github.com/derickgross" target="_blank">
+              <a href="https://fshaikh.com" target="_blank">
+                <img src="images/icons/website_icon.png" alt="website" />
+              </a>
+            </li>
+
+            <li>
+              <a href="http://bit.ly/2NpWXS6" target="_blank">
+                <img src="images/icons/linked_in_icon.png" alt="linkedin" />
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="individual">
+          <img
+            src="https://github.com/jkurthoconnor.png"
+            alt="Kurth O'Connor"
+          />
+
+          <h3>Kurth O'Connor</h3>
+
+          <p>New York, NY</p>
+
+          <ul class="social-icons">
+            <li>
+              <a href="mailto:kurth@kurthoconnor.com" target="">
+                <img src="images/icons/email_icon.png" alt="email" />
+              </a>
+            </li>
+
+            <li>
+              <a href="http://kurthoconnor.com" target="_blank">
                 <img src="images/icons/website_icon.png" alt="website" />
               </a>
             </li>
 
             <li>
               <a
-                href="https://www.linkedin.com/in/derickgross/"
+                href="https://www.linkedin.com/in/kurth-o-connor-01986a169"
                 target="_blank"
               >
                 <img src="images/icons/linked_in_icon.png" alt="linkedin" />
@@ -2053,27 +1997,30 @@
         </li>
 
         <li class="individual">
-          <img src="images/avatars/kelvin_wong.jpg" alt="Kelvin Wong" />
+          <img src="https://github.com/alex-solo.png" alt="Alex Soloviev" />
 
-          <h3 id="kelvin-wong">Kelvin Wong</h3>
+          <h3>Alex Soloviev</h3>
 
-          <p>London, UK</p>
+          <p>Toronto, Canada</p>
 
           <ul class="social-icons">
             <li>
-              <a href="mailto:kjhwong@gmail.com" target="">
+              <a href="mailto:alex.soloviev@gmail.com" target="">
                 <img src="images/icons/email_icon.png" alt="email" />
               </a>
             </li>
 
             <li>
-              <a href="https://github.com/kelvinjhwong" target="_blank">
+              <a href="https://alex-solo.github.io" target="_blank">
                 <img src="images/icons/website_icon.png" alt="website" />
               </a>
             </li>
 
             <li>
-              <a href="https://www.linkedin.com/in/kjhwong/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/alex-soloviev-61155a185/"
+                target="_blank"
+              >
                 <img src="images/icons/linked_in_icon.png" alt="linkedin" />
               </a>
             </li>

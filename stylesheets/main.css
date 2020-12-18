@@ -1,46 +1,16 @@
 /* ---------------------------------
 
-                fonts
+                general
 
 ------------------------------------ */
 
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans&display=swap");
 
-/* @font-face {
-  font-family: 'Founders Grotesk';
-  /* src: url('/fonts/FoundersGrotesk-Semibold.otf') format('opentype'); */
-/* src: url('../fonts/FoundersGrotesk-Semibold.otf') format('opentype');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Founders Grotesk';
-  /* src: url('/fonts/FoundersGrotesk-SemiboldItalic.otf') format('opentype'); */
-/* src: url('../fonts/FoundersGrotesk-SemiboldItalic.otf') format('opentype');
-  font-weight: bold;
-  font-style: italic;
-} */
-
-/* ---------------------------------
-
-                general
-
------------------------------------- */
-
-:root {
-  --font-family-header: "Anton", sans-serif;
-  --font-family-body: "Work Sans", sans-serif;
-  --color-black: #1a105e;
-  --color-downy: #f7a240;
-  --color-jelly-bean: #ff4f0a;
-  --color-iron: #dee3e2;
-  --color-alabaster: #f7f7f7;
-}
-
 body {
-  font-family: var(--font-family-body);
+  /*  background-color: #fff;*/
+  color: #282828;
+  font-family: "Work Sans", sans-serif;
 }
 
 main {
@@ -52,15 +22,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: var(--font-family-header);
-}
-
-h1 + p.subheader {
-  color: #999;
-}
-
-#case-study p.subheader {
-  font-size: 1.5rem;
+  font-family: "Anton", "Open Sans", sans-serif;
 }
 
 h1 {
@@ -68,30 +30,15 @@ h1 {
 }
 
 h2 {
-  font-size: 3.5rem;
-}
-
-h3 {
   font-size: 2.5rem;
 }
 
+h3 {
+  font-size: 1.7rem;
+}
+
 h4 {
-  font-size: 2rem;
-}
-
-a,
-a:link,
-a:visited,
-a:active {
-  color: var(--color-jelly-bean);
-}
-
-a:hover {
-  color: var(--color-downy);
-}
-
-.strikethrough {
-  text-decoration: line-through;
+  font-size: 1.25rem;
 }
 
 .integration {
@@ -100,22 +47,19 @@ a:hover {
 }
 
 .integration:first-of-type {
-  background: #b82a52;
-  color: var(--color-alabaster);
+  background: #8ee4af;
   padding-top: 20px;
   padding-bottom: 40px;
 }
 
 .integration:nth-of-type(2) {
-  background: var(--color-iron);
+  background: #8ec3e4;
+  border-bottom: 2px solid #dfe0e2;
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-.integration:nth-of-type(3) {
-  background: var(--color-alabaster);
-  padding-top: 40px;
-  padding-bottom: 40px;
+.integration:nth-of-type(2) div.box {
 }
 
 .text-box {
@@ -128,7 +72,6 @@ a:hover {
 
 .text-box p {
   font-size: 2rem;
-  margin-top: 75px;
 }
 
 .box {
@@ -177,7 +120,7 @@ main > section {
 }
 
 blockquote {
-  border-left: 0.3rem solid var(--color-downy);
+  border-left: 0.3rem solid #8ee4af;
   color: #999;
   margin: 0.9rem 1rem;
   padding: 0.7rem;
@@ -207,7 +150,7 @@ sup a {
 }
 
 sup a:hover {
-  color: var(--color-downy);
+  color: #ed6a40;
 }
 
 /* ---------------------------------
@@ -222,16 +165,15 @@ img {
   max-width: 800px;
 }
 
-#apex-logo {
-  font-family: var(--font-family-header);
-  font-weight: bold;
+#crato-logo {
+  font-family: "Anton", sans-serif;
   font-size: 1.5rem;
-  color: #b82a52;
+  color: #ed6a40;
   cursor: pointer;
   width: 50px;
   position: fixed;
   top: 20px;
-  right: 33px;
+  right: 40px;
   z-index: 4;
 }
 
@@ -319,9 +261,9 @@ pre code {
 }
 
 code {
-  background-color: var(--color-alabaster);
-  color: var(--color-jelly-bean);
+  color: #ed6a40;
   font-family: "Fira Code", monospace;
+  font-size: 1rem;
 }
 
 code.gruvbox-code {
@@ -346,7 +288,7 @@ nav#site-navigation {
 
 nav#site-navigation ul {
   display: inline-block;
-  font-family: var(--font-family-body);
+  font-family: "Anton", "Open Sans", sans-serif;
   font-size: 1.5rem;
 }
 
@@ -360,7 +302,6 @@ nav#site-navigation p {
 }
 
 nav#site-navigation a {
-  font-family: var(--font-family-header);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -384,21 +325,18 @@ header h1 {
 
 header p {
   color: #b82a52;
-  font-family: var(--font-family-header);
-  font-size: 4rem;
-  letter-spacing: 0.1rem;
+  font-family: "Anton", "Open Sans", sans-serif;
+  font-size: 3.5rem;
   left: 50%;
   position: absolute;
   text-align: center;
   transform: translateY(-50%) translateX(-50%);
   width: 750px;
-  margin-top: 125px;
-  margin-bottom: 75px;
   padding-bottom: 20px;
 }
 
 header span {
-  color: var(--color-downy);
+  color: #ed6a40;
 }
 
 header h1 img {
@@ -416,47 +354,32 @@ header h1 img {
 ------------------------------------ */
 #side-nav {
   display: none;
-  left: 4rem;
+
+  left: 1rem;
   position: fixed;
-  top: 5%;
-  height: 25%;
+  top: 17%;
+  transform: translateY(-50%);
 }
 
 #side-nav img {
+  width: 100%;
   max-width: 250px;
-  margin: 0 auto;
+  height: auto;
 }
 
 #case-study nav {
   display: none;
   left: 2rem;
   position: fixed;
-  top: 35%;
-  max-width: 300px;
-  height: 60%;
-  overflow-y: scroll;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-#case-study nav::-webkit-scrollbar {
-  display: none;
+  top: 70%;
+  transform: translateY(-60%);
 }
 
 #case-study nav li {
-  color: #b82a52;
+  color: #999;
   font-size: 1.3rem;
   list-style: circle;
-  margin-bottom: 1.5vh;
-  padding-left: 1rem;
-}
-
-#case-study nav li[data-tag-type="H3"] {
-  display: none;
-}
-
-#case-study nav li[data-tag-type="H3"].active-child {
-  display: block;
+  margin-bottom: 2vh;
 }
 
 #case-study nav li:last-of-type {
@@ -464,19 +387,15 @@ header h1 img {
 }
 
 #case-study nav a {
-  color: #b82a52;
+  color: #999;
   font-size: 0.9rem;
-  font-weight: bold;
+  margin-left: 1rem;
   text-decoration: none;
   vertical-align: 0.1rem;
 }
 
-#case-study nav li[data-tag-type="H3"] a {
-  font-weight: normal;
-}
-
 #case-study nav a:hover {
-  color: var(--color-downy);
+  color: #ed6a40;
 }
 
 #case-study h3,
@@ -494,8 +413,8 @@ header h1 img {
 }
 
 #case-study h2 {
-  color: #b82a52;
-  font-family: var(--font-family-header);
+  color: #ed6a40;
+  font-family: "Anton", "Open Sans", sans-serif;
   margin: 75px auto 20px auto;
 }
 
@@ -511,8 +430,7 @@ h3 {
 #case-study h3,
 #case-study h4,
 #case-study h5 {
-  color: #ff4d0a;
-  margin-top: 75px;
+  color: #444343;
 }
 
 #case-study p {
@@ -560,13 +478,13 @@ h3 {
   margin-left: 2rem;
 }
 
-/* #case-study li code {
+#case-study li code {
   font-size: 0.8rem;
 }
 
 #case-study ol li code {
   font-size: 1rem;
-} */
+}
 
 #case-study ol li {
   list-style: decimal;
@@ -594,7 +512,7 @@ h3 {
   text-align: center;
 }
 
-.apexButton {
+.cratoButton {
   background: #3a7dca;
   width: 25%;
   cursor: pointer;
@@ -645,12 +563,8 @@ h3 {
 
 ------------------------------------ */
 
-a[href^="footnote-"] {
-  cursor: pointer;
-}
-
 h2#references {
-  color: var(--color-jelly-bean);
+  color: #ef431b;
   font-size: 1.7rem;
   margin-top: 75px;
 }
@@ -672,7 +586,7 @@ h2#references {
 }
 
 #footnotes a:hover {
-  color: var(--color-downy);
+  color: #ef431b;
 }
 
 /* ---------------------------------
@@ -682,14 +596,13 @@ h2#references {
 ------------------------------------ */
 
 #our-team {
-  background-color: var(--color-alabaster);
-  color: var(--color-black);
+  background-color: #edf5e1;
+  color: #1e4470;
   margin-top: 100px;
   padding-bottom: 25px;
 }
 
 #our-team h1 {
-  color: var(--color-downy);
   font-weight: 700;
   padding-top: 100px;
   margin-bottom: 30px;
@@ -720,17 +633,12 @@ h2#references {
 }
 
 #our-team h3 {
-  color: var(--color-downy);
   margin-bottom: 10px;
 }
 
 #our-team a {
   color: #282828;
   text-decoration: none;
-}
-
-#our-team a img {
-  cursor: pointer;
 }
 
 #our-team li > img {
@@ -854,14 +762,9 @@ small {
 }
 
 @media (max-width: 1030px) {
-  header h1 img {
-    width: 300px;
-  }
-
   #home p {
     box-sizing: border-box;
     width: 100%;
-    margin-top: 200px;
     padding: 0 90px;
   }
 }
@@ -899,14 +802,12 @@ small {
   .text-box h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
-    text-align: center;
   }
 
   .text-box p {
     font-size: 1.5rem;
     padding: 0;
     margin: 0;
-    text-align: center;
   }
 
   #our-team > p {
@@ -949,7 +850,7 @@ small {
 
   /* Logos */
 
-  #apex-logo {
+  #crato-logo {
     width: 40px;
     top: 18px;
     right: 40px;
@@ -981,13 +882,11 @@ small {
   header h1 {
     font-size: 2.5rem;
     padding: 18px 21px;
-    line-height: 3.5rem;
+    line-height: 2.3rem;
   }
 
   #home p {
-    font-size: 3rem;
-    margin-top: 200px;
-    padding: 0 45px;
+    font-size: 2.5rem;
   }
 
   section#case-study {
@@ -1004,10 +903,10 @@ small {
     line-height: 1.6rem;
   }
 
-  /* code,
+  code,
   .command {
     font-size: 0.9rem;
-  } */
+  }
 
   pre code {
     font-size: 1.5vw;
@@ -1068,7 +967,8 @@ small {
   /* Main */
 
   #home p {
-    padding: 0 30px;
+    font-size: 2.3rem;
+    padding: 0 60px;
   }
 
   section#case-study {
@@ -1126,12 +1026,8 @@ small {
 }
 
 @media (max-width: 500px) {
-  header h1 img {
-    max-width: 80%;
-  }
-
   #home p {
-    margin-top: 150px;
+    font-size: 1.7rem;
   }
 
   #case-study img {
@@ -1166,7 +1062,7 @@ small {
 }
 
 @media (max-width: 400px) {
-  #apex-logo {
+  #crato-logo {
     width: 33px;
     right: 40px;
   }
@@ -1189,10 +1085,6 @@ small {
   }
 
   /* section */
-
-  #home p {
-    margin-top: 200px;
-  }
 
   .text-box p {
     font-size: 1.7rem;
@@ -1246,32 +1138,10 @@ small {
 
 ------------------------------------ */
 
-@media (max-height: 750px) {
-  header {
-    min-height: 750px;
-  }
-
-  header h1 img {
-    padding: 40px 0;
-  }
-
-  #home p {
-    font-size: 2.5rem;
-    margin-top: 150px;
-  }
-}
-
-@media (max-height: 650px) {
-  #home p {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-height: 550px) {
+@media (max-height: 500px) {
   header {
     display: flex;
     align-items: center;
-    min-height: 650px;
   }
 
   header h1 {
@@ -1279,12 +1149,10 @@ small {
   }
 
   header h1 img {
-    margin-top: -250px;
     padding: 0;
   }
 
-  #home p {
-    font-size: 2rem;
-    margin-top: 175px;
+  header p {
+    display: none;
   }
 }
