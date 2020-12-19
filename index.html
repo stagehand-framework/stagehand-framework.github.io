@@ -92,7 +92,7 @@
     <div class="logo-links">
       <p id="river-logo">MENU</p>
 
-      <a href="https://github.com/river-live" target="_blank">
+      <a href="https://github.com/stagehand-framework" target="_blank">
         <img
           src="images/logos/river_github-black.png"
           alt="github logo"
@@ -130,7 +130,7 @@
     <header id="home">
       <h1>
         <img src="images/logos/stagehand_logo-full.png" alt="Stagehand logo" />
-        <p>A drop-in real-time service for web applications</p>
+        <p>Automated review apps for modern frontend applications</p>
       </h1>
     </header>
 
@@ -146,7 +146,8 @@
       <article class="box">
         <div class="text-box">
           <h1>
-            River allows developers to easily publish events from backend APIs.
+            Stagehand allows you to deploy and manage your review apps on your
+            own infrastructure.
           </h1>
         </div>
       </article>
@@ -155,7 +156,10 @@
     <section class="integration">
       <article class="box">
         <div class="text-box">
-          <h1>River is cloud-native, easily deployed, and ready to scale.</h1>
+          <h1>
+            Stagehand automates review apps for you. All you needs is a GitHub
+            and AWS account.
+          </h1>
         </div>
       </article>
 
@@ -173,38 +177,45 @@
         <h1>Case Study</h1>
 
         <div id="side-nav">
-          <img src="images/logos/river_logo-mark.png" alt="River logo" />
+          <img
+            src="images/logos/stagehand_logo-full.png"
+            alt="Stagehand logo"
+          />
         </div>
 
         <nav>
           <ul></ul>
         </nav>
 
-        <h2 id="what-is-river">1) What is River?</h2>
+        <h2 id="what-is-river">1) What is Stagehand?</h2>
 
         <p>
-          River is a drop-in real-time service for web applications. It provides
-          an easy-to-deploy and ready-to-scale solution for existing
-          applications with real-time needs.
+          Stagehand is a drop-in solution that provides review apps for modern
+          frontend applications. We are a framework that automatically manages
+          review apps for your application’s GitHub repository on your own cloud
+          infrastructure. We use AWS, GitHub Actions, and some Stagehand
+          client-side code to set-up, deploy, manage, and teardown review apps
+          for your frontend application.
         </p>
 
         <p>
-          For the application developer, River abstracts away the complexity of
-          setting up a resilient infrastructure and removes the hassle of
-          managing WebSocket connections. It allows backend services to publish
-          events and makes these events available to web clients in real-time.
-          River is a great fit for existing applications looking for a way to
-          easily add real-time functionality.
+          All you have to do is install the Stagehand CLI via our NPM package
+          and run our init command from your local repo. We will handle the
+          rest. Then you will have review apps automatically deployed for you to
+          view and share whenever you open a pull request on your GitHub
+          repository.
         </p>
 
         <p>
-          In this case study, we describe how we designed and built River, the
-          specific tradeoffs we made, and some of the technical challenges we
-          encountered. But first, we will start with a quick overview of
-          real-time in web applications.
+          In this case study, we describe what review apps are as well as their
+          value for modern frontend applications. We then look over existing
+          solutions for review apps and where Stagehand fits into the mix. Then
+          we will look at how we built Stagehand as well as challenges we faced
+          along the way. Finally, we will go over some future work we would like
+          to develop.
         </p>
 
-        <h2 id="what-is-real-time">2) What is real-time?</h2>
+        <h2 id="what-is-real-time">2) What are review apps?</h2>
 
         <h3>2.1) What is real-time in the context of web applications?</h3>
 
