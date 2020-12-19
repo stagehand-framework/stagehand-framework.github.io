@@ -1,16 +1,31 @@
 /* ---------------------------------
 
+                fonts
+
+------------------------------------ */
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans&display=swap");
+
+/* ---------------------------------
+
                 general
 
 ------------------------------------ */
 
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans&display=swap");
+:root {
+  --font-family-header: "Anton", sans-serif;
+  --font-family-body: "Work Sans", sans-serif;
+  --color-blue: #1a1053;
+  --color-turquoise: #b82a52;
+  --color-beige: #f7a240;
+  --color-black: #000000;
+}
 
 body {
-  /*  background-color: #fff;*/
-  color: #282828;
-  font-family: "Work Sans", sans-serif;
+  background-color: #fff;
+  color: var(--color-black);
+  font-family: var(--font-family-body);
 }
 
 main {
@@ -22,7 +37,15 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Anton", "Open Sans", sans-serif;
+  font-family: var(--font-family-header);
+}
+
+h1 + p.subheader {
+  color: #999;
+}
+
+#case-study p.subheader {
+  font-size: 1.5rem;
 }
 
 h1 {
@@ -30,15 +53,30 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 
 h3 {
-  font-size: 1.7rem;
+  font-size: 2.5rem;
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 2rem;
+}
+
+a,
+a:link,
+a:visited,
+a:active {
+  color: var(--color-turquoise);
+}
+
+a:hover {
+  color: var(--color-turquoise);
+}
+
+.strikethrough {
+  text-decoration: line-through;
 }
 
 .integration {
@@ -47,19 +85,24 @@ h4 {
 }
 
 .integration:first-of-type {
-  background: #8ee4af;
+  background: var(--color-turquoise);
+  color: white;
   padding-top: 20px;
   padding-bottom: 40px;
 }
 
 .integration:nth-of-type(2) {
-  background: #8ec3e4;
-  border-bottom: 2px solid #dfe0e2;
+  background: var(--color-blue);
+  color: white;
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-.integration:nth-of-type(2) div.box {
+.integration:nth-of-type(3) {
+  background: var(--color-beige);
+  color: var(--color-blue);
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .text-box {
@@ -72,6 +115,7 @@ h4 {
 
 .text-box p {
   font-size: 2rem;
+  margin-top: 75px;
 }
 
 .box {
@@ -92,37 +136,16 @@ h4 {
   padding-top: 40px;
 }
 
-.integration img#banner-deploy {
-  padding-top: 0;
-  width: 85%;
-}
-
-.button {
-  padding: 25px 50px;
-  background: #fff;
-  color: #35363a;
-  text-transform: uppercase;
-  font-size: 24px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  cursor: pointer;
-  line-height: 34px;
-  text-decoration: none;
-}
-
-.button:hover {
-  background: #fff;
-}
-
 main > section {
   margin: 80px 0 100px 0;
   width: 75%;
 }
 
 blockquote {
-  border-left: 0.3rem solid #8ee4af;
+  border-left: 0.3rem solid var(--color-turquoise);
   color: #999;
-  margin: 0.9rem 1rem;
+  margin: 1.9rem 3rem;
+  font-size: 1.5rem;
   padding: 0.7rem;
 }
 
@@ -150,7 +173,7 @@ sup a {
 }
 
 sup a:hover {
-  color: #ed6a40;
+  color: var(--color-turquoise);
 }
 
 /* ---------------------------------
@@ -165,16 +188,26 @@ img {
   max-width: 800px;
 }
 
-#crato-logo {
-  font-family: "Anton", sans-serif;
+#river-logo {
+  font-family: var(--font-family-header);
+  font-weight: bold;
   font-size: 1.5rem;
-  color: #ed6a40;
+  color: var(--color-blue);
   cursor: pointer;
   width: 50px;
   position: fixed;
   top: 20px;
-  right: 40px;
+  right: 33px;
   z-index: 4;
+}
+
+#rocket-logo {
+  padding-top: 0;
+  width: 200px;
+}
+
+#banner-deploy {
+  padding-top: 20px;
 }
 
 #github-logo {
@@ -183,10 +216,6 @@ img {
   position: fixed;
   top: 75px;
   right: 35px;
-}
-
-#github-logo:hover {
-  filter: invert(20%);
 }
 
 #toTop-logo {
@@ -203,17 +232,8 @@ img {
   opacity: 1;
 }
 
-#crato-deploy {
-  background-color: #282828;
-  border: 10px solid #282828;
-  border-radius: 10px;
-  height: 300px;
-  width: auto;
-}
-
 #case-study img {
   margin: 50px auto;
-
   margin-bottom: 10px;
   max-width: 50vw;
   height: auto;
@@ -257,13 +277,14 @@ pre {
 }
 
 pre code {
-  font-size: 0.6rem;
+  /* font-size: 0.6rem; */
 }
 
 code {
-  color: #ed6a40;
+  background-color: white;
+  color: var(--color-turquoise);
   font-family: "Fira Code", monospace;
-  font-size: 1rem;
+  /* font-size: 1rem; */
 }
 
 code.gruvbox-code {
@@ -288,7 +309,7 @@ nav#site-navigation {
 
 nav#site-navigation ul {
   display: inline-block;
-  font-family: "Anton", "Open Sans", sans-serif;
+  font-family: var(--font-family-body);
   font-size: 1.5rem;
 }
 
@@ -302,6 +323,7 @@ nav#site-navigation p {
 }
 
 nav#site-navigation a {
+  font-family: var(--font-family-header);
   text-decoration: none;
   white-space: nowrap;
 }
@@ -314,7 +336,7 @@ nav#site-navigation a {
 
 header {
   height: 100vh;
-  background: #f7a240;
+  background: var(--color-beige);
 }
 
 header h1 {
@@ -324,27 +346,30 @@ header h1 {
 }
 
 header p {
-  color: #b82a52;
-  font-family: "Anton", "Open Sans", sans-serif;
-  font-size: 3.5rem;
+  color: var(--color-blue);
+  font-family: var(--font-family-header);
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
   left: 50%;
   position: absolute;
   text-align: center;
   transform: translateY(-50%) translateX(-50%);
   width: 750px;
+  margin-top: 125px;
+  margin-bottom: 75px;
   padding-bottom: 20px;
 }
 
 header span {
-  color: #ed6a40;
+  color: var(--color-turquoise);
 }
 
 header h1 img {
   display: block;
   width: 30%;
   max-width: 850px;
-  margin: 40px auto;
-  padding: 80px 0;
+  margin: 0 auto;
+  padding: 40px 0;
 }
 
 /* ---------------------------------
@@ -362,8 +387,9 @@ header h1 img {
 }
 
 #side-nav img {
-  width: 100%;
+  width: 60%;
   max-width: 250px;
+  margin: 20px auto;
   height: auto;
 }
 
@@ -395,7 +421,7 @@ header h1 img {
 }
 
 #case-study nav a:hover {
-  color: #ed6a40;
+  color: var(--color-turquoise);
 }
 
 #case-study h3,
@@ -413,8 +439,8 @@ header h1 img {
 }
 
 #case-study h2 {
-  color: #ed6a40;
-  font-family: "Anton", "Open Sans", sans-serif;
+  color: var(--color-blue);
+  font-family: var(--font-family-header);
   margin: 75px auto 20px auto;
 }
 
@@ -430,7 +456,8 @@ h3 {
 #case-study h3,
 #case-study h4,
 #case-study h5 {
-  color: #444343;
+  color: var(--color-blue);
+  margin-top: 75px;
 }
 
 #case-study p {
@@ -446,7 +473,6 @@ h3 {
 
 .softened {
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-
   border-radius: 5px;
 }
 
@@ -478,14 +504,6 @@ h3 {
   margin-left: 2rem;
 }
 
-#case-study li code {
-  font-size: 0.8rem;
-}
-
-#case-study ol li code {
-  font-size: 1rem;
-}
-
 #case-study ol li {
   list-style: decimal;
 }
@@ -506,65 +524,18 @@ h3 {
   display: block;
 }
 
-.buttons {
-  width: 250px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.cratoButton {
-  background: #3a7dca;
-  width: 25%;
-  cursor: pointer;
-  padding: 4px 0;
-  text-align: center;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #fff;
-  padding: 7px;
-  margin-right: 2%;
-
-  border-radius: 8%;
-  border: none;
-}
-
-/* ---------------------------------
-
-              commands
-
------------------------------------- */
-
-.command {
-  background-color: #eee;
-  border-radius: 2px;
-  color: #282828;
-  /*display: inline-block;*/
-  /*font-size: 1.2rem;*/
-  font-weight: bold;
-  margin-bottom: 20px;
-  padding: 0.3rem;
-}
-
-#list-command code {
-  color: #ebdbb2;
-}
-
-#list-command .heading {
-  color: #98971a;
-}
-
-#list-command .crato-resource {
-  color: #b8bb26;
-}
-
 /* ---------------------------------
 
               footnotes
 
 ------------------------------------ */
 
+a[href^="footnote-"] {
+  cursor: pointer;
+}
+
 h2#references {
-  color: #ef431b;
+  color: var(--color-blue);
   font-size: 1.7rem;
   margin-top: 75px;
 }
@@ -586,7 +557,7 @@ h2#references {
 }
 
 #footnotes a:hover {
-  color: #ef431b;
+  color: var(--color-turquoise);
 }
 
 /* ---------------------------------
@@ -596,13 +567,14 @@ h2#references {
 ------------------------------------ */
 
 #our-team {
-  background-color: #edf5e1;
-  color: #1e4470;
+  background-color: var(--color-beige);
+  color: var(--color-black);
   margin-top: 100px;
   padding-bottom: 25px;
 }
 
 #our-team h1 {
+  color: var(--color-blue);
   font-weight: 700;
   padding-top: 100px;
   margin-bottom: 30px;
@@ -633,12 +605,17 @@ h2#references {
 }
 
 #our-team h3 {
+  color: var(--color-turquoise);
   margin-bottom: 10px;
 }
 
 #our-team a {
-  color: #282828;
+  color: var(--color-blue);
   text-decoration: none;
+}
+
+#our-team a img {
+  cursor: pointer;
 }
 
 #our-team li > img {
@@ -676,10 +653,6 @@ small {
   text-align: center;
   font-style: italic;
   opacity: 0.5;
-}
-
-#our-team small a {
-  color: #9eba2a;
 }
 
 /* ---------------------------------
@@ -762,9 +735,14 @@ small {
 }
 
 @media (max-width: 1030px) {
+  header h1 img {
+    width: 300px;
+  }
+
   #home p {
     box-sizing: border-box;
     width: 100%;
+    margin-top: 200px;
     padding: 0 90px;
   }
 }
@@ -802,12 +780,14 @@ small {
   .text-box h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   .text-box p {
     font-size: 1.5rem;
     padding: 0;
     margin: 0;
+    text-align: center;
   }
 
   #our-team > p {
@@ -850,8 +830,7 @@ small {
 
   /* Logos */
 
-  #crato-logo {
-    color: #582a52;
+  #river-logo {
     width: 40px;
     top: 18px;
     right: 40px;
@@ -883,11 +862,13 @@ small {
   header h1 {
     font-size: 2.5rem;
     padding: 18px 21px;
-    line-height: 2.3rem;
+    line-height: 3.5rem;
   }
 
   #home p {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin-top: 200px;
+    padding: 0 45px;
   }
 
   section#case-study {
@@ -902,11 +883,6 @@ small {
   #case-study blockquote p {
     font-size: 1.1rem;
     line-height: 1.6rem;
-  }
-
-  code,
-  .command {
-    font-size: 0.9rem;
   }
 
   pre code {
@@ -968,8 +944,7 @@ small {
   /* Main */
 
   #home p {
-    font-size: 2.3rem;
-    padding: 0 60px;
+    padding: 0 30px;
   }
 
   section#case-study {
@@ -1027,8 +1002,12 @@ small {
 }
 
 @media (max-width: 500px) {
+  header h1 img {
+    max-width: 80%;
+  }
+
   #home p {
-    font-size: 1.7rem;
+    margin-top: 150px;
   }
 
   #case-study img {
@@ -1063,7 +1042,7 @@ small {
 }
 
 @media (max-width: 400px) {
-  #crato-logo {
+  #river-logo {
     width: 33px;
     right: 40px;
   }
@@ -1139,10 +1118,29 @@ small {
 
 ------------------------------------ */
 
-@media (max-height: 500px) {
+@media (max-height: 750px) {
+  header h1 img {
+    padding: 40px 0;
+  }
+
+  #home p {
+    font-size: 2.5rem;
+    margin-top: 150px;
+  }
+}
+
+@media (max-height: 650px) {
+  #home p {
+    font-size: 2.5rem;
+    margin-top: 100px;
+  }
+}
+
+@media (max-height: 550px) {
   header {
     display: flex;
     align-items: center;
+    min-height: 425px;
   }
 
   header h1 {
@@ -1150,10 +1148,12 @@ small {
   }
 
   header h1 img {
+    margin-top: -150px;
     padding: 0;
   }
 
-  header p {
-    display: none;
+  #home p {
+    font-size: 2rem;
+    margin-top: 100px;
   }
 }

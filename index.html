@@ -4,12 +4,12 @@
   <head>
     <meta charset="UTF-8" />
 
-    <meta name="title" property="og:title" content="Crato" />
+    <meta name="title" property="og:title" content="River" />
 
     <meta
       name="description"
       property="og:description"
-      content="Crato is an open source framework for small web applications to easily deploy a centralized logging solution that maintains ownership of data"
+      content="River is a drop-in real-time service for web applications. It provides an easy-to-deploy and ready-to-scale solution for existing applications with real-time needs."
     />
 
     <meta name="type" property="og:type" content="website" />
@@ -17,35 +17,51 @@
     <meta
       name="url"
       property="og:url"
-      content="https://crato-logging.github.io/"
+      content="https://river-live.github.io/"
     />
 
     <meta
       name="image"
       property="og:image"
-      content="images/logos/crato-logo.png"
+      content="images/logos/river_logo-full.png"
     />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta
-      name="author"
-      content="Faazil Shaikh, Kurth O'Connor, Alex Soloviev"
+    <meta name="author" content="Catherine Emond, Mark Hyams" />
+
+    <title>River</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/icons/favicons/apple-touch-icon.png"
     />
-
-    <title>CRATO</title>
-
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/icons/favicons/favicon-32x32.png"
+    />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="images/icons/favicon_package_v0.16/favicon-16x16.png"
+      href="/images/icons/favicons/favicon-16x16.png"
     />
-
+    <link rel="manifest" href="/images/icons/favicons/site.webmanifest" />
     <link
-      href="https://fonts.googleapis.com/css?family=Hind|Hind:700|Open+Sans:700|Teko:700&display=swap"
-      rel="stylesheet"
+      rel="mask-icon"
+      href="/images/icons/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
     />
+    <link rel="shortcut icon" href="/images/icons/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta
+      name="msapplication-config"
+      content="/images/icons/favicons/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- <style>reset</style> -->
 
@@ -68,18 +84,17 @@
     <!-- <script></script> -->
 
     <script src="javascripts/application.js"></script>
+
+    <style></style>
   </head>
 
   <body>
     <div class="logo-links">
-      <p id="crato-logo">MENU</p>
+      <p id="river-logo">MENU</p>
 
-      <a
-        href="https://github.com/stagehand-framework/stagehand"
-        target="_blank"
-      >
+      <a href="https://github.com/river-live" target="_blank">
         <img
-          src="images/logos/github_black.png"
+          src="images/logos/river_github-black.png"
           alt="github logo"
           id="github-logo"
         />
@@ -114,30 +129,25 @@
 
     <header id="home">
       <h1>
-        <img src="images/logos/stagehand_logo-full.png" alt="Crato logo" />
+        <img src="images/logos/stagehand_logo-full.png" alt="Stagehand logo" />
+        <p>A drop-in real-time service for web applications</p>
       </h1>
-      <p>
-        frontend review apps that make getting to production as painless as
-        possible
-      </p>
     </header>
 
     <section class="integration">
       <div class="box">
-        <img src="images/crato_horizontal.png" alt="best practices" />
+        <img
+          id="banner-deploy"
+          src="images/diagrams/first-banner.png"
+          alt="A simplified diagram of River's infrastructure"
+        />
       </div>
 
       <article class="box">
         <div class="text-box">
-          <h1>Centralize your logs</h1>
-
-          <p>
-            Crato is an open-source framework for small applications to easily
-            deploy a centralized logging solution that maintains ownership of
-            data.
-          </p>
-
-          <!-- <a class="button" href="#case-study">Learn More</a> -->
+          <h1>
+            River allows developers to easily publish events from backend APIs.
+          </h1>
         </div>
       </article>
     </section>
@@ -145,19 +155,15 @@
     <section class="integration">
       <article class="box">
         <div class="text-box">
-          <h1>Easy To Deploy</h1>
-
-          <p>Get started with a few simple commands.</p>
-
-          <!-- <a class="button" href="#case-study">Learn More</a> -->
+          <h1>River is cloud-native, easily deployed, and ready to scale.</h1>
         </div>
       </article>
+
       <div class="box">
         <img
-          id="banner-deploy"
-          src="images/diagrams/gifs/crato_docker_deploy.gif"
-          class="softened"
-          alt="Gif of crato's install-kafka and deploy commands"
+          id="rocket-logo"
+          src="images/logos/768px-rocket.svg.png"
+          alt="A launching rocket logo"
         />
       </div>
     </section>
@@ -167,1762 +173,2099 @@
         <h1>Case Study</h1>
 
         <div id="side-nav">
-          <img src="images/logos/crato-logo.png" alt="Crato logo" />
+          <img src="images/logos/river_logo-mark.png" alt="River logo" />
         </div>
 
         <nav>
           <ul></ul>
         </nav>
 
-        <h2 id="introduction">1 Introduction</h2>
-
-        <h3>1.1 What is Crato?</h3>
+        <h2 id="what-is-river">1) What is River?</h2>
 
         <p>
-          Crato is an open source framework for small applications to easily
-          deploy centralized logging.
+          River is a drop-in real-time service for web applications. It provides
+          an easy-to-deploy and ready-to-scale solution for existing
+          applications with real-time needs.
         </p>
 
         <p>
-          Applications and system services record their events to local log
-          files, but by default these log messages remain on local systems and
-          are eventually either archived away never to be seen or permanently
-          deleted. Without intervening then, developers and administrators lose
-          valuable insight into the history, performance, and security of their
-          systems and applications.
+          For the application developer, River abstracts away the complexity of
+          setting up a resilient infrastructure and removes the hassle of
+          managing WebSocket connections. It allows backend services to publish
+          events and makes these events available to web clients in real-time.
+          River is a great fit for existing applications looking for a way to
+          easily add real-time functionality.
         </p>
 
         <p>
-          Crato allows developers to quickly and easily deploy a centralized
-          logging infrastructure to address this problem. Using Crato, each
-          machine sends its logs to a central collection server, where
-          developers can gain insight into their entire system by analyzing the
-          consolidated logs across the entire deployed fleet of systems and
-          applications. Besides log data consolidation and analysis (via
-          InfluxDB), Crato also provides smart compression and archiving (via
-          Amazon S3 and S3 Glacier). Crato makes configuring, deploying, and
-          maintaining all these pieces easy and fast.
+          In this case study, we describe how we designed and built River, the
+          specific tradeoffs we made, and some of the technical challenges we
+          encountered. But first, we will start with a quick overview of
+          real-time in web applications.
+        </p>
+
+        <h2 id="what-is-real-time">2) What is real-time?</h2>
+
+        <h3>2.1) What is real-time in the context of web applications?</h3>
+
+        <p>
+          Real-time is about a fast exchange of messages. A change happens
+          somewhere in our system, and other parts of the system should be
+          notified as fast as possible. What "as fast as possible" means,
+          though, varies quite a lot depending on the context. Are we talking
+          about microseconds latency? Is a missed deadline considered a system
+          failure? For us, the answer to these questions is: no. We are in the
+          context of <em>web applications</em>: this is not about an airplane
+          control system.
         </p>
 
         <p>
-          Before we get into Crato, let's take a step back and discuss what logs
-          are.
+          Even within the realm of web apps, some systems are much more
+          sensitive to delays than others: gaming or financial stock trading are
+          good examples. In this case, a higher latency can have serious
+          consequences. These are sometimes called "firm" real-time.
         </p>
 
-        <h2 id="logging">2 Logging</h2>
-
-        <h3>2.1 What is a Log?</h3>
-
         <p>
-          Developers rely on logs of all sorts on a daily basis. In the simplest
-          case, we can think of logs as distinct events that get written to
-          files<sup><a href="#footnote-1">1</a></sup
-          >. Log data is often the primary way to determine application health,
-          debug a problem, or derive aggregate metrics. It's the first place any
-          developer looks to try to piece together what happened in an event of
-          an error or exception. Logs are critical and every piece of software,
-          from infrastructure to operating system services, are continuously
-          logging events as soon as the system is up.
+          "Soft" real-time, on the other hand, is much more flexible. In that
+          case, a higher latency will result in a degraded user experience, not
+          a system failure. Collaborative apps are a good example. One can think
+          of a collaborative text editor, such as Google docs, a discussion
+          forum like Slack, or a shared calendar. The idea is that the real-time
+          application should update to the correct state
+          <em>without user intervention</em> [<a href="#footnote-1">1</a>].
+          These are the type of applications we had in mind when building River.
         </p>
 
-        <h3>2.2 Logs as Files</h3>
+        <h3>2.2) How is real-time achieved?</h3>
 
         <p>
-          In most UNIX systems, these events are written to log files. For the
-          most common applications and services, these files can be found in the
-          <code>var/log</code> directory. Within that directory, some services
-          will create sub-directories to organize their logs. For example, MySQL
-          generates its own log file and the <code>httpd</code> sub directory
-          contains log files for the Apache web server
-          <code>access_log</code> and <code>error_log</code>. There are also
-          system process logs that can be found in files like
-          <code>kern.log</code> or <code>auth.log</code>
-          that contain information logged by the kernel and system authorization
-          information, respectively.
-        </p>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/logs_as_files.png" alt="Logs as files" />
-        </div>
-
-        <p>
-          Because log messages are generated by some process and get written to
-          files on our local file system, it's natural to think of logs simply
-          as files. If logs are just files, then we use commands like
-          <code>grep</code> to match against some string or regular expression
-          in the log file.
+          In the past few decades, we have seen an evolution from hypertext
+          documents and web pages to dynamic and interactive web applications.
+          HTTP was not designed for web apps. HTTP was designed with simplicity
+          in mind and is not an ideal choice for real-time communication [<a
+            href="#footnote-2"
+            >2</a
+          >].
         </p>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/gifs/grep.gif"
-            class="softened"
-            id="grep"
-            alt="Logs as files"
+            src="images/diagrams/06_request-response.png"
+            alt="A diagram comparing the request and response cycle with the persistent connection needed for message-driven communication."
           />
-
-          <p>
-            We can use <code>grep</code> to search a file for logs generated in
-            the last 10 minutes.
-          </p>
         </div>
 
         <p>
-          But in order to better understand the structure of application logs,
-          let's consider another description of what a log is. We know that a
-          log is a file but that's not the full story.
-        </p>
-
-        <h3>2.3 Logs as Append-Only Data Structures</h3>
-
-        <blockquote>
-          <p>
-            "A log is perhaps the simplest possible storage abstraction. It is
-            an append-only, totally-ordered sequence of records ordered by time"
-          </p>
-
-          <p>- Jay Kreps</p>
-        </blockquote>
-
-        <p>
-          In the simplest case, we have an application that runs on a single
-          server, and our life is relatively easy. When the application is
-          contained on one server, so is its log data - when something goes
-          wrong we know where to look and it's fairly straightforward to paint
-          the entire picture of the application state. However, as applications
-          continue to grow in complexity so does the volume of their log data -
-          the many components, devices and microservices that produce log data
-          are often distributed on multiple servers and even with a relatively
-          small number of users, this can quickly become a big problem of
-          incomplete information. For this reason there has been a greater need
-          to unify log data, both by location as well as format. On top of data
-          consolidation, there's also been a growing need to synthesize the
-          proliferation of logs for business insights. This also implies a
-          growing need for machines to process log data.
-        </p>
-
-        <p>
-          In order for a machine to parse and aggregate log data to then be
-          consumed by humans, a text file may no longer be sufficient. But how
-          do we store log data, if not in a file?
-        </p>
-
-        <p>
-          The key is to recognize that logs as files are just one form of a more
-          general concept of a log as a data structure. That is, if we regard a
-          log as a time-ordered, append only sequence of records, we can see log
-          files as just one example. In this light, a log and its basic
-          properties can be represented by the following diagram.
+          If we think of the HTTP request-response model, "without user
+          intervention" would mean "without the client sending a request". This
+          is usually not an option. We want an open channel of communication
+          through which messages can be sent between the server and the client,
+          a bit more like an on-going conversation than a formal request. This
+          bi-directional, message-based communication is such an appealing idea
+          that it has given rise to a few different strategies and technologies
+          over the years.
         </p>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/log_data_structure.png" alt="Log" />
+          <figure>
+            <img
+              src="images/diagrams/07_xhr-sse-ws.png"
+              alt="A diagram comparing XHR Polling, Server-Sent Events, and WebSocket"
+            />
+            <figcaption>
+              Diagram from: High Performance Browser Networking [<a
+                href="#footnote-3"
+                >3</a
+              >]
+            </figcaption>
+          </figure>
         </div>
 
-        <p>
-          Each entry in a log is added sequentially making this an append-only
-          data structure. We start on the left and each subsequent entry is then
-          added to the right. The entries on the left are then by definition
-          older than entries on the right, giving this data structure a built-in
-          ordering<sup><a href="#footnote-2">2</a></sup
-          >. Since reads also proceed from left to write, in the context of
-          building an application, if each entry in a log represents some event,
-          we can know the order in which the events occurred. In this way, logs
-          provide a historical context for our applications.
-        </p>
-
-        <h3>2.4 Logs as Streams</h3>
+        <h4>2.2.1) XHR Polling</h4>
 
         <p>
-          The "Twelve-Factor App" is a set of best practices for building robust
-          and maintainable web applications. One of the guidelines directly
-          address logging, suggesting that we should treat logs not as files but
-          as event streams, and that a web application shouldn’t concern itself
-          with the storage of this information. Instead, these logs should be
-          treated as a continuous stream that is captured and stored by a
-          separate service<sup><a href="#footnote-3">3</a></sup
-          >.
-        </p>
-
-        <p>
-          Of course it's natural to think of logs as files since it's a common
-          way to interact with logs and because log file generation is typically
-          an automatic process that happens behind the scenes. But log messages
-          get written to files mainly because it's a convenient method of
-          storing data. As we have seen, outside of the context of a file,
-          individual log messages can be viewed as time ordered streams of
-          events that <em>can</em>
-          be written to files but that can also be processed in other ways. To
-          borrow another quote from Jay Kreps, "Log is another word for stream
-          and logs are at the heart of stream processing". Streams of data can
-          be directed or split into multiple streams and sent to different
-          locations for further processing.
-        </p>
-
-        <p>
-          If we use a command line utility like <code>tail</code> it's possible
-          to see a live stream of logs that are coming from an application or
-          any other process we'd like to monitor. So while messages are being
-          written to files, from this view it's easier to think of logs as a
-          collection of events that we can view in real time as they occur -
-          something that's ongoing, with no beginning or an end.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/gifs/tail.gif"
-            class="softened"
-            id="tail"
-            alt="Logs as streams"
-          />
-
-          <p>
-            Ongoing, collated collection of events viewed in real time with the
-            <code>tail</code> utility.
-          </p>
-        </div>
-
-        <h3>2.5 Logs Capture Change</h3>
-
-        <p>
-          To review, a log at its core is an append-only sequence of records
-          that has a natural notion of "time" because newer records are appended
-          to the end of the log. Taken together, these properties mean that a
-          log effectively captures changes over time, thereby
-          <i>creating a full history of the application</i>.
-        </p>
-
-        <p>
-          We most often think of our application's database, where we keep the
-          business logic of our application, as the source of truth. If some
-          data on the UI doesn't look right, we consult the database to
-          determine whether it's correct. But even a database can't tell you how
-          the data got to that state. In some situations, knowing the historical
-          context for how we got to a particular state can be even more
-          important. As espoused by Martin Kleppman, Jay Kreps, and others, this
-          idea is known as the "Stream-Table Duality".
-        </p>
-
-        <h3>2.6 Stream-Table Duality</h3>
-
-        <p>
-          Stream-Table duality is another way of saying that there are distinct
-          but related ways to represent data. The familiar way is of course with
-          a table which represents a snapshot of current state. Let's consider a
-          simple example below using relational data in tables. There are two
-          users and they are transferring funds between one another. As changes
-          occur over time, the data in a table is updated to reflect a new
-          current state.
-        </p>
-
-        <div class="buttons">
-          <button id="resetButton" class="cratoButton">Reset</button>
-
-          <button id="nextButton" class="cratoButton">&rarr;</button>
-        </div>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/table_states/state1.png"
-            id="table-state"
-            data-id="1"
-            alt="Table State1"
-          />
-
-          <p>
-            As changes occur over time, the data in a table is updated to
-            reflect a new current state. But how did we get there?
-          </p>
-        </div>
-
-        <p>
-          From this example, we can see that data in the table is mutable since
-          the old values are replaced by new values. When we isolate a table and
-          look at it at any point in time, it's possible to answer questions
-          about the current state - for example, what <em>is</em> the current
-          balance of a customer with username big_ed. However, looking only at a
-          database record at one point in time doesn't paint a full picture -
-          there are many ways you could have arrived from one state to another
-          and it is only the log that can describe that journey. The log is the
-          database's changelog and it's there that we can find the full story of
-          how the current data arrived at its current state.
-        </p>
-
-        <p>
-          Representing the same history that we saw above but this time as a
-          stream of changes would look like this:
-        </p>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/gifs/stream.gif" alt="Stream" />
-
-          <p>
-            A stream captures the changes between the table's states as distinct
-            events.
-          </p>
-        </div>
-
-        <p>
-          From a log-as-stream perspective, the data is immutable since the
-          values are not updated. Instead, distinct and immutable events are
-          appended to the end of the log. What is captured in the blue boxes are
-          the changes between the table's states. This stream of changes can
-          supplement the core business logic that lives in tables and helps
-          answer not only <em>what</em> changed but also <em>why</em> and
-          <em>how</em> it changed<sup><a href="#footnote-4">4</a></sup
-          >.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/stream_table_duality.png"
-            alt="Stream-table duality"
-          />
-
-          <p>
-            Tables show us current state and streams capture how we got there.
-          </p>
-        </div>
-
-        <p>
-          And a log is useful in another way besides providing historical
-          context for existing data. Because a log captures the changes
-          themselves, it is possible to rebuild the current state of any
-          database from the database logs alone. In fact, it is possible to
-          rebuild the "current state" of any point in time of the database from
-          logs.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/stream_to_table.png"
-            alt="Stream to a table"
-          />
-
-          <p></p>
-        </div>
-
-        <p>
-          In this way, it's possible to think of a log as the real source of
-          truth since we can recreate a snapshot of the database at any point in
-          time from logs. That is, we can aggregate streams to arrive at tables,
-          but we cannot understand the historical context from only tables.
-        </p>
-
-        <h3>2.7 Why Does Logging Matter for Small Applications?</h3>
-
-        <p>
-          There are obvious benefits to logging that are important in day to day
-          development. Developers use logs every day for analysis and debugging,
-          infrastructure monitoring and for deriving useful metrics. Some types
-          of applications are also required to keep logs long term for audit
-          purposes. However, besides these uses, carefully curated logs related
-          to your application can provide valuable historical context that
-          unlocks other benefits:
+          The simplest form of XHR polling is sometimes called "short" polling:
+          the client will simply make a request on a periodic interval to see if
+          new data is available. There are, of course, quite a few downsides to
+          this approach:
         </p>
 
         <ul>
-          <li>We can see precisely how our applications are being used</li>
-          <li>Data can be used to find trends, patterns, and behaviors</li>
           <li>
-            With historical event logs we can rebuild a snapshot of our
-            application state at any point in time
+            The requests sent by the client are unnecessary if no new data is
+            available. This can create extra load on the server.
+          </li>
+          <li>
+            Every request and response sent will carry metadata overhead. For
+            small and frequent messages, this is far from ideal.
+          </li>
+          <li>
+            Depending on the HTTP version used, the TCP connection may need to
+            be repeatedly established. This is usually avoided by using the
+            <code>keepalive</code> connection header to establish a persistent
+            connection [<a href="#footnote-4">4</a>].
           </li>
         </ul>
 
         <p>
-          For a small but growing application, there are many options to get
-          started with logging. Despite the myriad of options, many companies
-          opt to deprioritize logging from the outset. Yet, the power of logs
-          can only be realized later; by the time an application owner decides
-          she wants to look at historical data, it's too late to get started as
-          previous data is already lost. By default, many systems delete log
-          data; in some cases, it's archived into various machines and unusable
-          for meaningful analysis. Most small application owners do not think
-          about a logging strategy until significant data is lost.
+          Long-polling attempts to improve the situation by having the server
+          "wait" after receiving the HTTP request, allowing it to respond only
+          when there are new events to be sent. While it is an improvement, the
+          general impression - as stated in the RFC6202 [<a href="#footnote-5"
+            >5</a
+          >] - is that long polling "strech[es] the original semantics of HTTP
+          and that the HTTP protocol was not designed for bidirectional
+          communication".
+        </p>
+
+        <h4>2.2.2) Server-Sent Events</h4>
+
+        <p>
+          Server-Sent Events allow server-to-client streaming of text-based
+          data. While they work over HTTP, they deviate from the usual
+          request-response cycle and allow a truly message-based communication.
+          This is sometimes referred to as server "push" to contrast it with a
+          client "pull". As the name implies, after the connection is
+          established, it is a one-way flow of data: the client cannot send
+          messages to the server over that channel. With that limitation in
+          mind, SSEs work very well to deliver fast updates, such as push
+          notifications. When considering SSE for River, the two main drawbacks
+          were the unidirectional data flow and the limitation on the maximum
+          number of open connections [<a href="#footnote-6">6</a>].
+        </p>
+
+        <h4>2.2.3) WebSockets</h4>
+
+        <p>
+          WebSockets are widely adopted and used by popular sites such as GitHub
+          and Slack. They are also what we chose to use with River. They are not
+          new: the RFC for the WebSocket protocol [<a href="#footnote-7">7</a>]
+          came out in 2011, precisely to solve the challenges of real-time
+          communication. They are now supported by all major browsers [<a
+            href="#footnote-8"
+            >8</a
+          >]. WebSocket is a distinct protocol allowing for a persistent TCP
+          connection between server and client.
         </p>
 
         <p>
-          In the next section, we'll discuss how to get started with Syslog, the
-          standard log recording format on UNIX, and the various architectural
-          deployment options that small application owners have for centralizing
-          and storing their log data.
+          WebSockets allow for efficient two-way data communication through this
+          open connection by minimizing metadata and avoiding the overhead of
+          frequently opening and closing connections [<a href="#footnote-9">9</a
+          >]. Even more interesting, WebSockets give developers a lot of
+          flexibility regarding the format of the messages sent. This can be
+          good or bad - it has been described as some kind of "free for all" [<a
+            href="#footnote-10"
+            >10</a
+          >] - but it allows us to layer on top of WebSockets higher-level
+          protocols, such as the publish and subscribe model. This is something
+          we leveraged when designing River and we will come back to it later.
         </p>
 
-        <h2 id="syslog">3 Syslog</h2>
-
-        <h3>3.1 Single Host Architecture</h3>
-
-        <p>
-          Previously, we talked about how log files are automatically generated
-          by a logging system on the operating system. Syslog is the most widely
-          used logging system. In fact, syslog is a UNIX standard that defines a
-          message format and allows for standardization of how logs are
-          generated and processed.
-        </p>
-
-        <p>
-          Since the original inception of Syslog in the 1980's, there are now
-          various implementations of the syslog daemon, with rsyslog and
-          syslog-ng being the most notable examples. For the purposes of our
-          discussion here, we'll use the generic syslog daemon in our diagrams,
-          however any of the more modern implementations can be used in its
-          place.
-        </p>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/syslog_local.png" alt="Syslog local" />
-          <p></p>
-        </div>
-
-        <p>
-          First let's take a look at what syslog looks like locally. In a simple
-          case, for example on a single node system, the log daemon will receive
-          log messages and then write them to the local file system as we saw
-          earlier - typically the files are written to the
-          <code>var/log</code> directory.
-        </p>
-
-        <p>
-          There is a separate process called "log rotation" that is responsible
-          for compressing, archiving and eventually removing old log files. Log
-          rotation occurs daily, weekly or when a file reaches a certain size -
-          this depends on the configuration<sup><a href="#footnote-5">5</a></sup
-          >. For example, you can choose to keep 3 days worth of logs, in which
-          case the log rotation process will rename the log file to make room
-          for the next file, eventually leaving the most recent three files:
-          <code>example.log.1</code>, <code>example.log.2</code> and
-          <code>example.log.3</code>
-        </p>
-
-        <p>
-          During the next iteration, the <code>example.log.3</code> file will
-          get rotated out and <code>example.log.2</code> file takes its place
-          and is renamed <code>example.log.3</code>.
-        </p>
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/syslog_local2.png"
-            alt="Syslog local on client"
-          />
-          <p></p>
-        </div>
-
-        <p>
-          This process occurs behind the scenes in a localized system. But
-          applications are rarely deployed on a single node. There are typically
-          many moving parts and various components across different servers.
-          Each of these components is generating its own log data in real time,
-          so the question is how do you as a developer sift through this data
-          and correlate events from each component?
-        </p>
-
-        <p>
-          Imagine that you have an error and you need to refer to your logs to
-          see what went wrong. In this case you would have to individually
-          connect to every single one of the servers one at a time, locate logs
-          on each machine and try to find the information that you are looking
-          for, and then try to correlate different events across different
-          machines, perhaps by their timestamp, to understand what went wrong.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/gifs/local_logging.gif"
-            alt="Localized logging"
-          />
-          <p></p>
-        </div>
-
-        <p>
-          This is not what we want. Having all these different logs hosted in
-          different locations makes the correlation and analysis difficult and
-          on top of that, through the process of log rotation, it might be
-          possible that the log file you're looking for has been rotated out and
-          deleted forever. Ideally we would bring together all these logs into
-          one central place, where we can analyze the logs in aggregate and come
-          up with a uniform back-up strategy for them.
-        </p>
-
-        <h3>3.2 Forwarding Messages to a Central Server</h3>
-
-        <p>
-          Syslog can also help with forwarding log events across machines. It
-          does this by having facilities for both sending and receiving log
-          events: a syslog daemon for each log-sending machine and a syslog
-          daemon on the log-receiving machine where all log data is to be
-          centralized.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/syslog_centralized.png"
-            alt="Centralized syslog"
-          />
-          <p></p>
-        </div>
-
-        <p>
-          This time, the syslog daemon on each of your components captures log
-          messages but instead of simply writing them to a file, it forwards
-          messages to a remote machine where another syslog daemon accepts them.
-          Here, it's possible to view our logs as a consolidated whole. Already
-          this is a big improvement from the disjointed scenario we had above.
-        </p>
-
-        <p>
-          Now you can inspect all your logs from a single place and you don’t
-          have to rely on connecting to every machine individually; you can
-          directly see the logs from the same filesystem. This also makes for a
-          far more reliable way to access logs because even if one of these
-          clients becomes inaccessible, all logs up to the point of the client's
-          failure are already in the central server.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/centralized_logging.png"
-            alt="Centralized logging"
-          />
-          <p></p>
-        </div>
-
-        <p>
-          Now we have a much more desirable and more manageable situation and
-          this is the basis for a centralized logging architecture. Once all
-          logs that are relevant to your application are consolidated in one
-          place, their value in aggregate starts to become more apparent.
-        </p>
-
-        <p>
-          Whether you want to use simple command line utilities like
-          <code>grep</code>, ship your logs somewhere else, or visualize them
-          using the many monitoring and visualization tools that exist, it can
-          only be possible once the logs are centralized. In the next section,
-          we'll enumerate over some solutions to help developers set up a
-          centralized logging architecture.
-        </p>
-
-        <h2 id="current-solutions">4 Current Solutions</h2>
-
-        <p>
-          What solutions exist for a small and growing application that wants to
-          manage its own logs?
-        </p>
-
-        <h3>4.1 Three Main Options</h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/three_options.png"
-            alt="options for centralized logging"
-          />
-
-          <p>Three main types of log management solutions</p>
-        </div>
-
-        <p>
-          To quickly survey the available options, let's distinguish between
-          three main categories of log management solutions.
-          <em>Logging as a Service</em> (LaaS) consists of paid, proprietary,
-          typically cloud-based systems. The <em>Do it Yourself</em> (DIY) path
-          involves designing and building a custom, self-hosted solution from a
-          variety of components. Finally, the
-          <em>Open-Source Software</em> (OSS) solutions are open-source,
-          pre-designed centralized logging systems that you deploy on your own
-          machines.
-        </p>
-
-        <h3>4.2 LaaS: Full Service Log Management</h3>
-
-        <p>
-          Full-service Logging as a Service (LaaS) products provide their
-          customers with the full range of options, including most - if not all
-          - of the following log management functions: Log Collection, Ingestion
-          &amp; Storage, Search &amp; Analysis, Monitoring &amp; Alerting,
-          Visualization &amp; Reporting.
-        </p>
-
-        <p>
-          LaaS solutions are generally cloud-based. They&#39;re designed to be
-          easy-to-use and they provide a rich feature-set along with technical
-          support. The most difficult part in working with a LaaS may be
-          configuring your machine(s) to forward logs into the service. Once the
-          data is ingested, the LaaS handles the rest. The major advantage of
-          buying a LaaS product is convenience and ease of setup.
-        </p>
-
-        <p>
-          The drawbacks however are also apparent. The services aren't free, and
-          costs can fluctuate based on a number of factors, including the volume
-          of data being ingested, the number of users, and storage or retention
-          plans. Nor is it simply an issue of costs. Whether cloud-based or
-          on-premise, proprietary solutions are marked by a lack of ownership:
-          users cede control of their data to a third party, and they are unable
-          to inspect, modify, or audit proprietary code.
-        </p>
-
-        <p>
-          For some, giving up control of sensitive data is prohibitive, so
-          another option would be to build your own.
-        </p>
-
-        <h3 id="diy">4.3 DIY</h3>
-
-        <p>
-          Another approach to managing logs is to Do It Yourself (DIY). The DIY
-          approach allows developers to design and build a system out of
-          pre-existing components. The key components for a centralized log
-          management infrastructure are below.
-        </p>
-
-        <ol>
-          <li>Log Collection</li>
-          <li>Processing &amp; Aggregation</li>
-          <li>Ingestion &amp; Storage</li>
-          <li>Monitoring &amp; Visualization</li>
-        </ol>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/components/components.png"
-            alt="key components in log management"
-          />
-
-          <p>Key components in a log management system</p>
-        </div>
-
-        <h4 id="collection">4.3.1 Collection</h4>
-        <p>
-          Log collection occurs on each machine with Syslog daemons, also known
-          as agents, listening for messages generated by applications and system
-          processes. When new events are generated, the agent(s) collects them.
-          There are alternatives for <code>Syslogd</code>, the standard Syslog
-          daemon which can collect, process, and transport logs<sup
-            ><a href="#footnote-7">7</a></sup
-          >.
-        </p>
-
-        <div class="buttons">
-          <button id="resetSystemBtn" class="cratoButton">Reset</button>
-
-          <button id="nextSystemBtn" class="cratoButton">&rarr;</button>
-        </div>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/log_collection/log_collection.png"
-            id="log-collection"
-            data-id="1"
-            alt="Log Collection1"
-          />
-
-          <p>
-            Logs can be collected and transported from each client machine and
-            forwarded to a central log server using different systems built on
-            top of the Syslog daemon.
-          </p>
-        </div>
-
-        <h5 id="syslog-protocol-its-implementations">
-          4.3.1.1 Syslog Protocol &amp; its Implementations
-        </h5>
-
-        <p>
-          Syslog, and its more recent implementations rsyslog and syslog-ng, are
-          commonly found on <code>*nix</code> systems, and are even available on
-          Windows. Because of this ubiquity, DIY systems are often able to
-          directly work with one or another of these syslog implementations for
-          log collection. Other options exist as well but syslog implementation
-          is the standard.
-        </p>
-
-        <h4 id="processing-aggregration">4.3.2 Processing &amp; Aggregation</h4>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/components/collection_aggregation.png"
-            alt="log collection and aggregation"
-          />
-
-          <p>
-            Once collected from each client, logs are aggregated in a central
-            location
-          </p>
-        </div>
-
-        <p>
-          After collecting logs from each client, the next step is to aggregate
-          these logs on a single machine. To accomplish this, a logging system
-          must 'ship' or forward the logs to a centralized server. Here, the
-          logs may be parsed and transformed into formats like JSON, enriched
-          with context and stored. There is a healthy amount of options from
-          which to choose here, and choices will depend largely on application
-          need.
-        </p>
-
-        <h4 id="ingestion-storage">4.3.3 Ingestion &amp; Storage</h4>
-        <p></p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/components/zoomed_in/ingestion_storage2.png"
-            alt="log ingestion"
-          />
-
-          <p>Logs ingested into storage</p>
-        </div>
-
-        <p>
-          Once logs are collected, the goal is to transport them to a storage
-          service from which they can be searched and analyzed. If the write
-          rate of the chosen data store is compatible with potentially bursty
-          influx of logs into the system, then the logs could be sent directly
-          to storage. However, not all applications will be able to rely on this
-          throughput parity. Applications that need to scale, or that expect
-          wide fluctuations in data flow, would likely do better by decoupling
-          log aggregation and storage. This can be handled in a number of ways,
-          and a common option is to use a messaging system. Doing so would
-          provide a more robust, fault-tolerant system, along with the ability
-          to handle higher throughput. But it also introduces additional
-          complexity.
-        </p>
-
-        <p>
-          Here, as with the other components, there are a number of options to
-          choose from. The design and implementation choices will depend on a
-          number of factors. Relevant considerations include the following:
-        </p>
+        <p>Two major pain points when working with WebSockets are:</p>
 
         <ul>
-          <li>How much data is being ingested?</li>
-          <li>Who is going to be using the data?</li>
-          <li>What is the structure of the log?</li>
-          <li>What search, analysis, and indexing capabilities are needed?</li>
+          <li>
+            <b>Compatibility with existing infrastructure</b>: WebSocket is a
+            different protocol, distinct from HTTP.
+          </li>
+          <li>
+            <b>Scale and security</b>: many of the existing components of the
+            infrastructure (e.g. servers and load balancers) are built,
+            configured, and maintained with HTTP in mind [<a href="#footnote-11"
+              >11</a
+            >].
+          </li>
         </ul>
 
-        <h4 id="monitoring-visualization">
-          4.3.4 Monitoring &amp; Visualization
-        </h4>
-        <p>
-          Finally, once data is in a database, we can connect it to a
-          visualization tool for more user friendly analysis and reporting. Some
-          of these tools also provide alerting and system configuration
-          capabilities. The visual representation of data allows users to
-          transform and aggregate in more effective ways. There are many open
-          source options here, with Kibana and Grafana as the leaders.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/components/visualization.png"
-            alt="system visualization"
-          />
-
-          <p>
-            Visualization tools provide convenient insight into a system's
-            performance
-          </p>
-        </div>
+        <h3>2.3) Is real-time hard?</h3>
 
         <p>
-          Ultimately, if you decide to DIY a central log management system, at
-          each layer you will have several options available.
+          We want to address one final question in this section: how hard is it
+          to build a real-time application? The answer, obviously, depends on
+          the requirements of the application. Does it require data persistence?
+          Does it need to scale? How secure should it be?
         </p>
 
         <p>
-          Overall, doing it yourself (DIY) and building a custom system allows
-          for greater control and flexibility at the cost of complexity. Custom
-          systems can address very precise needs, and they can provide high
-          control of data and security. But it requires a dedicated team to
-          setup, configure, and maintain the system.
+          Building a simple chat app is very easy to do: many open-source
+          libraries make working with WebSockets easier. If an application
+          developer wants to add real-time functionality to an existing codebase
+          of a certain size, though, it could be another story. He might need to
+          make many modifications to the code, and it can be worth considering
+          putting that logic in a separate place. The same goes for building a
+          resilient and scalable application: this is a new set of problems that
+          could be difficult to handle if all the logic sits in one place. In
+          the next section, we will explore the idea of a separate real-time
+          service in more depth.
         </p>
 
-        <h3 id="oss">4.4 OSS</h3>
-        <p>
-          The final category of log management solutions consists of open source
-          pre-designed systems. These tools allow a developer to maintain higher
-          levels of data control with an ease-of-use closer to LaaS tools.
-          However, they typically require self-management and hosting. The two
-          main solutions here are the Elastic Stack and Graylog.
-        </p>
+        <h2 id="a-separate-service">3) A separate service</h2>
 
-        <h4 id="elastic-stack">4.4.1 Elastic Stack</h4>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/elastic_stack_diagram.png"
-            alt="Elastic Stack"
-          />
-
-          <p>Elastic Stack Architecture</p>
-        </div>
+        <h3>3.1) A separate server</h3>
 
         <p>
-          Elastic develops a collection of open-source log management products
-          designed to work well together. Altogether, they have products that
-          cover each of the four key phases of centralized log management. In
-          fact, 'ELK' refers to a frequently-used combination of their tools,
-          comprised of the text-search storage system ElasticSearch, the log
-          collection and storage service Logstash, and the
-          visualization/monitoring tool Kibana.
-        </p>
-
-        <h4 id="graylog">4.4.2 Graylog</h4>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/graylog_diagram.png"
-            alt="Graylog architecture"
-          />
-
-          <p>Graylog architecture</p>
-        </div>
-
-        <p>
-          Graylog is a company and open-source centralized log management
-          server. It is built on top of ElasticSearch and MongoDB and offers a
-          web interface connected to the server. In addition to their OSS
-          self-hosted option, Graylog provides a LaaS as well.
+          As we mentioned in the beginning, River is a “drop-in” real-time
+          service. This means that River is a separate component meant to be
+          added to an existing application. Any time we add an extra piece to a
+          system, it brings in some additional complexity. It is a tradeoff that
+          should be carefully considered and the need for a separate real-time
+          service has to be justified. In this section, we want to start by
+          looking more carefully at the drawbacks of using WebSockets that we
+          mentioned in passing before.
         </p>
 
         <p>
-          The Elastic Stack and Graylog are very popular open-source self-hosted
-          solutions. Each offers the expected ease of use, along with the
-          potential for data ownership and security assurances that come from
-          self-hosting. There is a rich ecosystem of plugins for each tool, thus
-          offering extended flexibility. However, these systems are more complex
-          than LaaS. You'll need to configure, deploy, maintain, and potentially
-          scale these systems yourself.
-        </p>
-
-        <h2 id="crato-design">5 Crato Design</h2>
-
-        <p>
-          We can now finally situate Crato. To do so, we will first quickly
-          summarize the landscape of options and their tradeoffs.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/complexity_ownership_diagram.png"
-            alt="2-axis-comparison"
-          />
-        </div>
-
-        <p>
-          While LaaS options provide the quickest and most simple path, their
-          advantages come with costs. Not only must users pay for LaaS services,
-          but their applications' data is yielded to a third party. DIY options
-          grant users the most control, and can be designed and built to include
-          precisely the features wanted. But there are tradeoffs here as well.
-          The high level of control and customizability comes with increased
-          complexity and additional design and maintenance commitments. Finally,
-          the pre-designed OSS options aim to split the difference between LaaS
-          and DIY. OSS options return data control to the users (typically
-          lacking in LaaS) while reducing complexity and design and maintenance
-          commitments (both of which tend to be high in DIY projects).
-        </p>
-
-        <p>
-          But even here in the OSS options, there is a range of complexity,
-          which is largely attributable to the database and full-text search
-          choices of the OSS stacks. Crato reduces complexity even more by
-          eliminating the need to set up and maintain a full-text search engine.
-          Thus,
-          <em
-            >Crato is designed to provide the core features of centralized
-            logging while reducing complexity and time commitments</em
-          >.
-        </p>
-
-        <h4>Design Goals</h4>
-
-        <ul>
-          <li>Open Source</li>
-          <li>Provide core centralized logging functions</li>
-          <li>
-            Easy to use: knowledge and skills for configuration, deployment and
-            use are likely to be found in the development team
-          </li>
-          <li>
-            Lightweight: modify as little as possible on client machines; does
-            not require changes to user's application code
-          </li>
-          <li>Allow data ownership and control over storage</li>
-        </ul>
-
-        <h3 id="51cratoarchitectureoverview">
-          5.1 Crato Architecture Overview
-        </h3>
-
-        <p>
-          Crato consists of two main components: the <i>Crato Client</i> and
-          <i>Crato Core</i>. The client is installed and run on each machine
-          from which logs are to be collected. The core infrastructure is
-          deployed via Docker onto a separate server or VPS.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/crato/crato_architecture.png"
-            alt="crato architecture"
-          />
-        </div>
-
-        <h3 id="52cratoclient">5.2 Crato Client</h3>
-
-        <p>
-          Crato Client is designed to have a light footprint on each client
-          system. Downloading the client adds only two files to each system: the
-          <code>crato</code> bash script and <code>crato-config</code>, a text
-          file to record user preferences. Running Crato client interferes with
-          the native logging of the system as little as possible. Crato adds
-          only a single configuration file that supplements, not overrides,
-          default settings.
-        </p>
-
-        <h4 id="cratoconfig"><code>crato-config</code></h4>
-
-        <div class="img-wrapper">
-          <img
-            src="images/crato_config_file.png"
-            class="softened"
-            alt="crato client config file"
-          />
-        </div>
-
-        <p>
-          To simplify deployment and reduce complexity, the Crato client CLI
-          exposes only a handful of configuration options. Crato client
-          configuration options are set in the <code>crato-config</code> text
-          file. Using key-value pairs, enter any number of logs for Crato to
-          track, along with their tags and severity levels. Then enter the ip
-          address of the central server.
-        </p>
-
-        <p>
-          For users needing more granular control over settings, the full range
-          of configuration options are available by directly editing the default
-          <code>*.conf</code> files. Because Crato does not override
-          applications' logging processes, these can be configured as before.
-        </p>
-
-        <p>
-          The Crato client command interface is also designed to be simple and
-          easy to use.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/crato_client_commands.png"
-            alt="Crato Client Commands"
-          />
-        </div>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/gifs/crato_usage.gif"
-            class="softened"
-            alt="client cli usage"
-          />
-          <p>Crato client's CLI commands in use</p>
-        </div>
-
-        <p>
-          Apply the current configuration and start Crato client with
-          <code>crato -c</code> or <code>crato --configure</code>. Running this
-          command checks that permissions, <code>rsyslog</code> version and base
-          configuration is appropriate for Crato client. It then dynamically
-          generates a <code>/etc/rsyslog.d/49-crato.conf</code> file (numbered
-          to avoid collision with default configuration files) to hold Crato
-          configuration, and checks the validity of the resulting
-          <code>rsyslog</code> configuration. It then either throws an error
-          with instructions for debugging or (re)starts logging with the new
-          settings.
-        </p>
-
-        <p>
-          <code>crato -s</code> or <code>crato --suspend</code> suspends Crato's
-          logging on the client and returns the machine to default logging.
-          <code>crato -r</code> or <code>crato --resume</code> restarts Crato
-          logging on the client with the suspended settings resumed. If Crato
-          client was not suspended at the time of execution, then the command
-          makes no changes.
-        </p>
-
-        <p>
-          <code>crato -d</code> or <code>crato --delete</code> removes current
-          or suspended Crato client configurations, confirms that resulting
-          default configuration is valid and restarts logging with default
-          settings or throws an error with instructions for debugging.
-        </p>
-
-        <p>
-          <code>crato -h</code>, <code>crato --help</code>, or even
-          <code>crato</code>
-          without flags provides help by displaying a usage screen.
-        </p>
-
-        <h3 id="53cratocore">5.3 Crato Core</h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/gifs/crato_docker_deploy.gif"
-            class="softened"
-            alt="deployment via Docker"
-          />
-
-          <p>
-            Crato infrastructure installs and deploys with just two commands
-          </p>
-        </div>
-
-        <p>
-          The Crato CLI is designed for developer convenience. It abstracts away
-          from Docker CLI, installs services in-order, and provides common CLI
-          log management functionality such as live-tailing and shell access.
-        </p>
-
-        <p>
-          As an example of the convenience provided by the CLI, let's look at
-          the <code>crato install-kafka</code> command. Apache Kafka is often
-          considered hard to configure, but this one command starts Zookeeper,
-          creates a pre-configured three broker cluster, and also creates a
-          textlogs and a jsonlogs topic.
-        </p>
-
-        <p>
-          The <code>install-kafka</code> command is one instance of the Crato
-          CLI that abstracts away multi-step commands. Kafka is often regarded
-          as difficult to install and configure. In fact, even with a service
-          like Docker handling most of the configuration there is still some
-          manual work needed. Compared to the Crato CLI, the equivalent commands
-          via Docker are still numerous and not easy to recall. There are 5
-          steps:
-        </p>
-
-        <ol>
-          <li><code>docker-compose up -d zookeeper</code></li>
-          <li><code>docker-compose up -d kafka</code></li>
-          <li>
-            <code
-              >docker-compose exec kafka kafka-topics --create --zookeeper
-              zookeeper:8092 --replication-factor 3 --partitions 6 --topic
-              textlogs</code
-            >
-          </li>
-          <li>
-            <code
-              >docker-compose exec kafka kafka-topics --create --zookeeper
-              zookeeper:8092 --replication-factor 3 --partitions 6 --topic
-              jsonlogs</code
-            >
-          </li>
-          <li><code>docker-compose stop</code></li>
-        </ol>
-
-        <p>
-          The Crato CLI as shown above simplifies this process into 1 step:
-          <code>crato install-kafka</code>. Below are some other Crato CLI
-          commands.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/crato_core_commands.png"
-            alt="Crato Core Commands"
-          />
-        </div>
-
-        <h2 id="crato-implementation">6 Crato Implementation</h2>
-
-        <h3 id="61collectionaggregation-1">6.1 Collection &amp; Aggregation</h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/crato/crato_collection_aggregation.png"
-            alt="collection and aggregation"
-          />
-        </div>
-
-        <p>
-          Following our design goal of being a lightweight, easy-to-use system,
-          Crato collects logs using <code>rsyslog</code>, a standard tool
-          available on most <code>*nix</code> systems.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/client_system.png"
-            alt="inner client diagram"
-          />
-
-          <p>
-            System logs and designated application logs collected into single
-            stream.
-          </p>
-        </div>
-
-        <p>
-          At the user’s discretion, Crato can collect any text-based log
-          messages your servers, applications, databases, etc generate. Captured
-          log messages are consolidated into a single stream along with system
-          logs. Together, these messages are persisted to disk in the
-          <code>syslog</code> file on each client machine and also routed for
-          processing and forwarding.
-        </p>
-
-        <h3 id="62shippingingestion">6.2 Shipping &amp; Ingestion</h3>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/crato/crato_shipping_ingestion.png"
-            alt="shipping and ingestion"
-          />
-
-          <p>
-            Crato clients monitor logs, forwarding messages as they arrive for
-            ingestion into the core Crato infrastructure.
-          </p>
-        </div>
-
-        <h4 id="621shipping">6.2.1 Shipping</h4>
-
-        <p>
-          So far, the logs are grouped into a single stream, which is being
-          written to a single file. This occurs on each client (physical machine
-          or virtual server). But the primary goal of centralized log management
-          is to collect logs from many different sources into a single, central
-          (offsite) location. To accomplish that goal, we need to ship the logs
-          to some other server.
-        </p>
-
-        <p>
-          Each system running a Crato client forwards the stream of captured log
-          messages via <code>tcp</code> to the offsite core of Crato's
-          infrastructure. To mitigate message loss resulting from a network
-          partition or problems with the central server, each Crato client
-          implements a disk-assisted memory queue in front of the forwarding
-          action.
-        </p>
-
-        <p>
-          Why default to TCP? At our expected volumes, the disk-assisted memory
-          queue (a linked list capable of holding 10000 individual log messages,
-          with 1Gb disk space available if needed) should mitigate the need to
-          fire and forget to keep up with traffic. Thus, Crato opts for TCP and
-          its guarantees of delivery and packet order over UDP's potential speed
-          gains and absence of guarantees.
-        </p>
-
-        <h4 id="622ingestion">6.2.2 Ingestion</h4>
-
-        <p>
-          As it receives new log events from the dispersed clients, the central
-          log server appends each message to its own log file. At this point,
-          the central collection server's <code>syslog</code> file contains all
-          captured messages from the clients along with those from the
-          collection server itself. The full text is available for CLI query
-          using familiar text processing tools like <code>grep</code>,
-          <code>tail</code>, <code>sort</code>, and <code>awk</code>.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/crato/crato_central_server.png"
-            alt="Logs from across system read from single place."
-          />
-
-          <p>
-            Central point for insight into entire system: all messages available
-            to familiar Unix tools.
-          </p>
-        </div>
-
-        <p>
-          Central log servers also forward logs into Crato’s pub-sub system,
-          where they are made available to both the archiving server and to the
-          database.
-        </p>
-
-        <h3 id="63messagestreaming">6.3 Message Streaming</h3>
-
-        <h4 id="631weneedtostorelogsbuthow">
-          6.3.1 We Need to Store Logs...but How?
-        </h4>
-
-        <p>
-          It is common practice for log management systems to persist log data
-          not only to save it from automatic log rotation jobs, but also to
-          facilitate metrics and other system analysis. Crato follows this
-          practice as well, with logs being saved for archiving and also made
-          available for querying.
-        </p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/crato/generic_dbs.png"
-            alt="Central server sending logs to two datastores"
-          />
-        </div>
-
-        <p>
-          But then couldn't Crato's central server send logs directly to the
-          persistence layer? Yes, in fact it's earliest iterations did exactly
-          that, but this approach is sub-optimal for a number of related
-          reasons.
-        </p>
-
-        <p>
-          Logs are produced at different rates than they are consumed.
-          Furthermore, the same log data will be used by multiple processes.
-          Each use can be expected to have different needs, to operate at a
-          different rate, and to have potentially different bottlenecks or
-          failure rates. As a result, sending a copy of each log message to each
-          consumer as they come in is likely to lead to dropped messages with no
-          good way of recovery. Crato needed a buffering system to capture logs
-          and allow each consumer to draw data at its own rate.
-        </p>
-
-        <p>
-          One way to address this problem would be to use a queue. Log messages
-          are sent into a queue, and a consumer shifts the next message off as
-          needed. This may would work well for an individual consumer, but Crato
-          needs to handle multiple consumers, and as each consumer grabs the
-          next available message from the queue, all the others miss out. The
-          message is no longer available. What Crato would need would be a queue
-          in front of each potential consumer. To implement that, the central
-          server would need to send a copy of each log message to n queues in
-          front of n consumers.
-        </p>
-
-        <p>
-          Another potential solution would be to use a publish-subscribe
-          messaging system. The central server would publish each new log
-          message to the platform, and all subscribers would receive the log as
-          it is available. While this model allows the central server to forward
-          its stream to a single destination, it does not account for the
-          different rates of consumption.
-        </p>
-
-        <h4 id="632decouplingloggenerationusewithkafka">
-          6.3.2 Decoupling Log Generation &amp; Use with Kafka
-        </h4>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/crato/crato_kafka.png"
-            alt="Architecture with Kafka highlighted"
-          />
-
-          <p></p>
-        </div>
-
-        <p>
-          What Crato needs is a way to provide the same stream of log messages
-          to multiple consumers, to allow producers and consumers to work at
-          their own paces, and for each to always be able to resume its work at
-          the exact point it left off. It needs the advantages of a queue and a
-          pub-sub system folded into a single platform. Apache Kafka provides
-          exactly that.
+          In the previous section, we presented the idea of persistent
+          connections and how different it is from the usual request-response
+          cycle. What we haven’t mentioned yet is that our server - a process -
+          is now responsible for maintaining the open WebSocket connections. A
+          stateless request-response cycle like HTTP and persistent connections
+          like WebSockets have different technical requirements. These, in turn,
+          can influence the server's configuration and cause issues that will be
+          amplified as the load on the server increases. This problem is often
+          mentioned in the technical literature:
         </p>
 
         <blockquote>
-          <p>
-            The consumer group concept in Kafka generalizes these two concepts.
-            As with a queue the consumer group allows you to divide up
-            processing over a collection of processes (the members of the
-            consumer group). As with publish-subscribe, Kafka allows you to
-            broadcast messages to multiple consumer groups.
-          </p>
+          HTTP is optimized for short and bursty transfers. As a result, many of
+          the servers, proxies, and other intermediaries are often configured to
+          aggressively timeout idle HTTP connections, which, of course, is
+          exactly what we don’t want to see for long-lived WebSocket sessions.
+          [<a href="#footnote-12">12</a>]
         </blockquote>
 
         <p>
-          By decoupling log creation or ingestion from log use, Kafka solves the
-          problem noted above, namely Crato's need for exactly once delivery of
-          log messages to multiple users operating at different paces. At the
-          same time, it also allows Crato to be more extensible in the future.
-          Any additional uses for the same data can be added as consumers.
+          Having a separate server dedicated to maintaining WebSocket
+          connections allows us to offload the management of persistent
+          connections from our main application server. Again, this is common
+          wisdom, as expressed here by Armin Ronacher, the Flask framework's
+          creator, in an article on lessons learned from using WebSockets:
+        </p>
+
+        <blockquote>
+          Keep your WebSockets miles away from the rest of your application
+          code. Keep them in a separate server if you can. They have completely
+          different performance characteristics than your regular HTTP requests.
+          [<a href="#footnote-13">13</a>]
+        </blockquote>
+
+        <p>
+          This comes back to the well-known principle of separation of concerns:
+          we have two different pieces of functionality, they do something
+          different, and we should keep them in a separate place.
+        </p>
+
+        <h3>3.2) Multiple backend services</h3>
+
+        <p>
+          What if we need to work not only with one server but with multiple
+          backend services? This is commonly referred to as a microservices
+          architecture. Instead of working with one gigantic codebase, your
+          application logic is split into multiple smaller services where each
+          component can scale independently according to its needs.
         </p>
 
         <p>
-          But if Kafka is so effective at managing this decoupling, wouldn't
-          Crato benefit from skipping the central server model and simply have
-          each client produce directly to remote Kafka brokers instead? There
-          are advantages to this approach. It would reduce complexity in Crato's
-          core infrastructure, and there is no doubt that Kafka could handle the
-          load from multiple distributed clients as well as it does from a
-          single central log server.
+          If we want to add real-time functionality to such a system, does it
+          mean that each backend service must manage both HTTP and WebSocket
+          connections? This would look something like this:
         </p>
-
-        <p>
-          That said, this design would increase the complexity on the client
-          side by introducing additional configuration requirements and
-          dependencies. If we want to use the <code>syslog</code> protocol on
-          each client (see the justification above), then an
-          <code>rsyslog</code> central server poses fewer problems for client’s
-          installation. Also, removing the central server would eliminate one of
-          Crato's UI advantages, because without a central collection point it
-          would lose the ability to provide system-wide observability using the
-          familiar *nix text processing tools. One of the design goals is 'easy
-          to use'. Asking users to query Kafka for observability pushes hard
-          against that goal.
-        </p>
-
-        <h4 id="633producingtokafka">6.3.3 Producing to Kafka</h4>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/crato/omkafka.png"
-            alt="omkafka producing to Kafka brokers"
+            src="images/diagrams/15_services-clients.png"
+            alt="Multiple backend services communicating with multiple clients"
           />
         </div>
 
         <p>
-          With Kafka in place, Crato's central collection server sends plain
-          text and JSON formatted log messages to Kafka brokers via
-          <code>rsyslog</code>'s <code>omkafka</code> module. Early tests of
-          Crato with a single Kafka broker revealed that the broker would not
-          always be available to receive messages. To reduce the potential for
-          log loss, Crato is now built with a three broker Kafka cluster, thus
-          preserving service even if two brokers fail. Additionally, it employs
-          on its central server a disk-assisted memory queue to mitigate
-          partitions between server and Kafka cluster, and to provide an
-          emergency store of unsent messages if <code>rsyslogd</code> shuts
-          down, or in the event that all Kafka brokers are down.
+          Or probably more like this, since each backend service needs to
+          maintain an open connection with each client if it wants to provide
+          real-time functionality:
         </p>
-
-        <h4 id="634consumingfromkafka">6.3.4 Consuming from Kafka</h4>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/crato/crato_consumers2.png"
-            alt="consuming from Kafka brokers"
+            src="images/diagrams/16_services-clients-messy.png"
+            alt="Multiple backend services communicating with multiple clients. Arrows showing that each service needs to maintain the connection with each client."
           />
         </div>
 
         <p>
-          Although the logs are buffered, and Kafka provides delivery guarantees
-          for Crato's multiple consumers, the actual consumption is not
-          automatic. That is, Kafka will hold the messages for their specified
-          time-to-live (pending available disk space), but the consumers must
-          make the requests and manage flow to suit their endpoint's needs.
+          What we really want is a separate real-time component responsible for
+          managing the WebSocket connections and providing real-time
+          functionality:
         </p>
-
-        <p>
-          As a result of this pull model, Crato is built with two consumer
-          groups, one for batching and one for streaming. The batching consumers
-          save logs to a json file until it reaches a configurable size, and
-          then send the file to Amazon S3 Glacier. The streaming consumers
-          redirect incoming log messages and serve them to their appropriate
-          measurements in InfluxDB.
-        </p>
-
-        <h3 id="64storage">6.4 Storage</h3>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/crato/crato_storage.png"
-            alt="two kinds of storage needs"
+            src="images/diagrams/17_services-clients-rtlayer.png"
+            alt="Multiple backend services communicating with multiple clients. A real-time layer manages the open connections."
           />
         </div>
 
-        <h4 id="641dualstorageneeds">6.4.1 Dual Storage Needs</h4>
+        <p>
+          The backend services can now send standard HTTP requests to the
+          real-time service. In a sense, they are now decoupled from the
+          clients, as the real-time service is responsible for sending the
+          messages to the clients.
+        </p>
+
+        <h3>3.3) Where does the real-time service fit in?</h3>
 
         <p>
-          In order to provide the full advantages associated with centralized
-          logging, a platform would need to store logs and to make them
-          available for queries. Of course, this could be accomplished with a
-          single data store, but Crato takes a different approach, because there
-          are actually two very different needs here.
+          At a very high-level, what are the pieces of a real-time application?
+        </p>
+
+        <blockquote>
+          Real-time applications consist of clients, a real-time communication
+          layer, and backend servers working together to achieve business
+          objectives. [<a href="#footnote-14">14</a>]
+        </blockquote>
+
+        <p>
+          We want to take a moment to go over a few communication patterns and
+          see where that “real-time layer” fits in.
+        </p>
+
+        <h4>3.3.1) A browser-facing publish-subscribe system</h4>
+
+        <p>
+          We have mentioned before the terms “publish” and “subscribe” in the
+          context of messaging. This is often referred to as the pub/sub
+          messaging pattern. The exchange of messages can happen between backend
+          services, or between the backend and the frontend. In all cases, it is
+          a many-to-many relationship: multiple publishers can send events,
+          while subscribers can subscribe to specific channels (sometimes called
+          topics) to receive events from those channels. A middle layer allows
+          the decoupling of publishers and subscribers: they do not need to be
+          aware of each other. This layer simply needs to provide an interface
+          for publishing, subscribing, and unsubscribing.
         </p>
 
         <p>
-          First, (as discussed above) there is value in archiving logs, i.e.
-          setting them aside in files for long-term preservation. Second,
-          storing individual log messages for metrics based queries provides
-          unique insight into a system's performance. Crato's storage is
-          designed with the idea that these different needs should be addressed
-          separately. As a result, Crato uses two forms of storage with distinct
-          sets of criteria.
+          While the pub/sub pattern is often associated with Event-Driven
+          Architecture in the context of backend services, River is not an
+          internal message broker like Apache Kafka. We find event streaming to
+          be a very powerful model, but we had a more modest goal in mind: a
+          real-time service responsible for managing WebSocket connections.
+          Thus, it is important to keep in mind that we are talking about a
+          <em>browser-facing</em> pub/sub system. The backend services publish
+          events to the real-time service, which sends them to the
+          client-subscribers - in this case, browsers. Implemented as a custom
+          protocol on top of WebSocket connections, publish/subscribe is widely
+          used [<a href="#footnote-15">15</a>] and remains a powerful pattern
+          with a few obvious advantages.
         </p>
 
-        <h5>Archives:</h5>
-        <ul>
-          <li>log <i>files</i> saved for as long as desired</li>
-          <li>delayed access to logs is acceptable</li>
-          <li>stored offsite as a backup</li>
-        </ul>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/19_pub-rt-sub.png"
+            alt="Publishers and subscribers communicating through a real-time service."
+          />
+        </div>
 
-        <h5>Queryable storage:</h5>
-        <ul>
-          <li>log <i>messages</i> saved for limited time</li>
-          <li>immediate access to query is required</li>
-          <li>location is not essential</li>
-        </ul>
-
-        <h4 id="642archivesamazons3glacier">
-          6.4.2 Archives: Amazon S3 Glacier
-        </h4>
-
-        <p>
-          Crato uses Amazon S3 Glacier for archival log storage. Users enter
-          their AWS credentials and a destination S3 bucket name when deploying
-          Crato core, and Crato takes care of the rest. Establishing and
-          configuring an AWS account are handled directly through Amazon.
-        </p>
-
-        <p>
-          Using S3 for log file archiving gives Crato's users offsite storage
-          with 99.99..% durability and automatic lifecycle management
-          (configured via AWS console) at a competitive price. Furthermore,
-          because Crato archives in JSON format, the files themselves are
-          queryable from AWS console. As a result users may have an easier time
-          determining which files they wish to extract.
-        </p>
-
-        <h4 id="643queryablestorageneeds">6.4.3 Queryable Storage Needs</h4>
-
-        <p>
-          Emphasizing metrics-based queries, Crato should be able to track
-          entities (e.g. servers, applications, processes) through their logs as
-          they change across time. Seen in this light, logs can be understood as
-          containing time series data, and therefore as ideal candidates for
-          time series databases. Consider the following distinguishing
-          characteristics of time series data and databases.
-        </p>
-
-        <p>
-          <b>Time Series Data</b>: sequences of data points from individual
-          sources over time
-        </p>
+        <p>The pub/sub pattern:</p>
 
         <ul>
-          <li>Time is one axis when TS data is plotted on a graph</li>
-          <li>Relationships between entities (tables) not important</li>
-        </ul>
-
-        <p>
-          <b>Time Series Databases</b>: databases built for collecting, storing,
-          retrieving &amp; processing TS data
-        </p>
-
-        <ul>
+          <li>decouples the publishers from the subscribers</li>
+          <li>allows multiple receivers for a single event</li>
+          <li>allows a single client to subscribe to multiple channels</li>
           <li>
-            Retention policy / aggregation of fine-grained data as it ages
+            provides developers with a simple interface for sending messages in
+            a consistent format over the WebSocket protocol
           </li>
-          <li>Query &amp; summarization tools</li>
-          <li>Integration with metrics visualization tools</li>
         </ul>
+
+        <h4>3.3.2) The "triangular" pattern</h4>
 
         <div class="img-wrapper">
           <img
-            src="images/diagrams/tsdb_relational_comparison.png"
-            alt="Time Series Database"
+            src="images/diagrams/21_triangular-pattern.png"
+            alt="A diagram representing the interaction between an existing application and an external real-time service"
           />
-
-          <p>Comparison of time series and relational databases</p>
         </div>
 
         <p>
-          Although other forms of database can be used for time series data,
-          they often lack the tooling to make working with time series easy .
-          The chart above compares time series and relational databases. Time
-          series databases tend to be optimized for fast indexing by time. While
-          other database types tend to slow down due to indexing as the data set
-          grows, time series databases tend to keep a consistently high
-          ingestion rate. Also, time series databases make running a continuous
-          query simple. When performed over a short retention period
-          measurement, a continuous query allows live monitoring of, for
-          example, a server's response rate.
+          The triangular pattern is a variation of the pub/sub pattern.
+          Generally, events can be almost anything: a change in the database, or
+          a message received from an external API. With this triangular pattern,
+          messages sent by the client to the server over a normal HTTP request
+          and response cycle are treated as events to be published. The
+          real-time service is added to an existing application without the need
+          to modify the existing HTTP communication. We will expand on this idea
+          in the next section.
         </p>
 
-        <h4 id="644queryablestorageinfluxdb">
-          6.4.4 Queryable Storage: InfluxDB
-        </h4>
+        <h2 id="adding-real-time">4) Adding real-time</h2>
 
         <p>
-          Crato deploys an instance of InfluxDB for queryable storage. Since
-          most time series databases have similar optimizations, and they tend
-          to be immersed in an ecosystem that allows easy integration with
-          visualization tools, the decisive factor in using InfluxDB is the fact
-          that it is schema-free. As a result, when a Crato consumer sends logs
-          to InfluxDB it automatically creates a new measurement (table) for
-          each new log source. That means that Crato's users can benefit
-          immediately, and will also be able to add new clients without having
-          to declare new schema.
+          In this section, we will look at what is needed to add real-time
+          functionality to an <em>existing</em> application, by using a
+          discussion forum as an example. A traditional discussion forum does
+          not usually have real-time features. What are the steps needed to add
+          real-time functionality to a discussion forum, such that a user
+          doesn’t have to refresh her browser to see new messages?
         </p>
 
-        <h2 id="challenges">7 Challenges</h2>
+        <h3>4.1) Without River</h3>
 
-        <h3 id="71collectinglogs">7.1 Collecting Logs</h3>
-
-        <p>
-          A problem that arose early in Crato's design was how to efficiently
-          and reliably collect logs from client systems without imposing on the
-          developers' application code. The very nature of centralized logging
-          framework requires extraction of logs from machines and environments
-          over which the framework has little or no control. As a result, every
-          byte of code deployed on a client system is a potential liability.
-          Ideally, Crato would be able to collect logs from clients without
-          altering any code or impacting the original environment in any way.
-          But this is just an ideal. Instead, we chose to work with the least
-          invasive techniques we could find that still allowed reliable log
-          collection. We evaluated and excluded two popular options before
-          deciding to use rsyslog.
-        </p>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/23_df-post-to-forum.png"
+            alt="Discussion Forum client post request to server"
+          />
+        </div>
 
         <p>
-          The first option was to install an active collection agent on user's
-          servers. This approach would give Crato as much control as possible
-          over the conditions of log collection, so it was tempting to follow
-          this approach. Nonetheless, it carries with it considerable risks of
-          deploying code into an untested situation, and of interfering with the
-          original applications. We considered this approach too invasive, and
-          it certainly violated Crato's goal of being lightweight.
-        </p>
-
-        <p>
-          The other main option we considered was to integrate with an
-          application logging library. The idea would be to use an existing
-          library to send logs into Crato's core infrastructure. The first
-          obvious advantage to this option is that many application logging
-          libraries are already familiar tools to developers. If Crato were to
-          integrate with a familiar library, it would not itself need to
-          intervene directly in any way on a user's machine. Furthermore, users
-          could continue to use familiar tools. Unfortunately this approach
-          would substantially narrow the scope of users to those already working
-          with the library, or at least those already coding in a given language
-          or with a certain framework. Also, this approach would limit the logs
-          collected to only those intercepted by the library in question.
-        </p>
-
-        <p>
-          So, with the first option too heavy-handed and risky, and the second
-          too limiting, we opted to adapt <code>rsyslogd</code>, an already in
-          place system-level logging daemon to collect from applications as well
-          as from its default system processes. By doing so, Crato is able to
-          create customized configurations that supplement, not override, the
-          functioning of existing <code>rsyslog</code> configurations.
-        </p>
-
-        <h3 id="72producingtokafka">7.2 Producing to Kafka</h3>
-
-        <p>
-          Crato uses the Rsyslog Omkafka module to produce to Kafka. Although
-          this approach simplifies the technical aspects of sending logs to
-          Kafka, writing the configuration scripts requires learning Rsyslog's
-          DSL, Rainerscript (named for Rsyslog's founder). While the DSL is
-          well-documented, we decided this would be too much to ask of Crato's
-          users. As a result, we decided to include these ourselves,
-          automatically configuring Rsyslog when the central server is started
-          up.
-        </p>
-
-        <p>
-          In testing we quickly realized that our original configuration of
-          Omkafka left Rsyslog too tightly bound to Kafka. With even a
-          momentarily unavailable Kafka broker, we began to see error messages
-          propagate through the system. While seeing these messages in Kafka
-          demonstrated that the pipeline was resilient and had continued to
-          work, they also indicated that Crato needed to decouple rsyslog from
-          Kafka. More specifically, it need to decouple rsyslog from any
-          particular Kafka broker. We approached the decoupling from both sides.
-        </p>
-
-        <p>
-          On rsyslog's side, to address complete Kafka failures, connection
-          partitions, and bursts of logs that exceeded forwarding capacity, we
-          added disk-assisted queuing to the rsyslog output module. This greatly
-          increases the probability that log messages will eventually get to
-          Kafka even under adverse conditions.
-        </p>
-
-        <p>
-          On the Kafka side, we added two more brokers. With a total of three
-          nodes, the Kafka cluster would continue to provide service with as
-          many as two failed or otherwise unavailable brokers. Doing so took
-          some of the burden off of the disk-assisted queues, but more
-          importantly it increased the fault-tolerance and reliability of the
-          entire ingestion side of Crato.
-        </p>
-
-        <h3 id="73measurements">7.3 InfluxDB Measurements</h3>
-        <p>
-          Crato is built to handle logs from multiple clients, and on each
-          client, multiple applications and services are likely to be logging.
-          With so much diverse data coming into the system, finding order in the
-          chaos and storing the logs in an easy to reason about way is a top
-          priority. An initially promising approach is to use the logs'
-          <code>host</code> property to route and store logs from each machine
-          in their own measurements. (InfluxDB measurements are roughly
-          analogous to SQL tables, with each measurement storing related data
-          over time.)
-        </p>
-
-        <p>
-          Indeed, this may be a good option in many or even most cases, but it
-          is not always ideal to group logs by host. Given that many services
-          may be logging from each host, it may be that storing kernel logs in
-          the same measurement as web framework logs won't be very enlightening.
-          We certainly need to be able to identify logs by their host origins,
-          but defaulting to this overlooks the possibility of greater
-          granularity in our filtering and routing.
-        </p>
-
-        <p>
-          With these factors in mind, ultimately we chose to group logs by their
-          <code>syslog-tag</code> property. With this option users of Crato have
-          the most flexibility. Because this property is configurable on each
-          Crato client, users may determine the grouping of logs into
-          measurements in InfluxDB. So, for instance, users could group together
-          logs that share a similar <em>function</em>
-          as opposed to simply bundling them by source, although this remains a
-          possibility as well.
-        </p>
-
-        <p>
-          As written, then, Crato allows users to automatically configure the
-          filtering of messages into measurements simply by adding the same
-          <code>syslog-tag</code>
-          to each log source in Crato client, whether on a single machine or on
-          many. Additionally, Crato filters and stores all messages with 'err'
-          severity or greater in a single measurement, and groups all
-          authentication messages into another.
-        </p>
-
-        <h3 id="74docker">7.4 Docker</h3>
-
-        <p>
-          After testing Crato using independent, hand-configured servers, we had
-          to consider how to package everything together in a feasible manner
-          for any developer. A framework designed to make logging easy can
-          hardly ask users to hand code configurations or even to copy a set of
-          provided files from a repository. Nor can they be expected to deal
-          with any of the following concerns.
-        </p>
-
-        <p>
-          In order to deploy Crato, we needed reliable networking so that our
-          services could easily communicate with each other and remain secure.
-          We also needed a way to implement ordering of services, so that
-          services (E.g. Kafka) would only attempt to communicate with one
-          another when dependent services (E.g. Zookeeper) were ready.
-          Furthermore, we needed a system that would orchestrate and run all
-          necessary commands to create each service including our application.
-          Finally, we needed a powerful interface to manage these services. In
-          order to meet all these needs, and to hide the complexity from Crato
-          users, we decided to use Docker. Using Docker, we were able to package
-          all of the aforementioned services in containers, simplify networking,
-          and provide a robust but clean interface to manage service
-          interaction.
+          The above diagram shows an existing discussion forum application. Of
+          course, there are many clients, but we will look at just one at a time
+          here for simplicity and clarity. Just like any other CRUD application,
+          to add a new message to the forum, the client sends an HTTP POST
+          request to the server. The server then validates the request, saves it
+          to its database, and...
         </p>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/docker-diagram.png" alt="Docker" />
-
-          <p>
-            Docker uses the <code>docker-compose.yml</code> file to find images
-            and build containers for services.
-          </p>
+          <img
+            src="images/diagrams/24_df-200ok.png"
+            alt="Discussion Forum server 200 OK response"
+          />
         </div>
 
         <p>
-          Using Docker brought many advantages. With Docker containerizing each
-          of our services, we were able to isolate issues and expose an
-          interface for additional development work and querying via shell. By
-          using officially supported Docker images for Apache Kafka, Apache
-          Zookeeper and InfluxDB we were able to ensure Crato's services will
-          always be up-to-date. The project required us to build a custom image
-          of Rsyslog to install necessary modules and to copy key configuration
-          files. Docker's tooling made this easier, and it also created a single
-          network for all services, thus allowing containers to communicate with
-          each other easily without exposing ports to external traffic. Finally,
-          Docker allowed us to enforce a start up order.
+          ...sends back a response with a new webpage with the client’s new
+          post. This is as expected, but what happens when a second client makes
+          a post?
         </p>
 
-        <h2 id="future-plans">8 Future Plans</h2>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/25_df-2nd-client.png"
+            alt="second client posts to server, first client does not know"
+          />
+        </div>
+
+        <p>
+          Here we see a second client making a new post to the discussion forum,
+          but the first client can’t know about it without refreshing her
+          browser. There is no open channel of communication between the server
+          and the first client.
+        </p>
+
+        <p>
+          What would it look like if we did have an open channel of
+          communication?
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/26_df-2nd-client-ws.png"
+            alt="second client posts, first client has websocket connection"
+          />
+        </div>
+
+        <p>
+          To be able to add real-time functionality to the application, we open
+          a WebSocket connection between the client and server. We will use this
+          WebSocket connection to send updates to the client when a new message
+          comes in.
+        </p>
+
+        <p>
+          Now when “dogfan55”, the second client, sends her message declaring
+          her love for dogs, the server is able to update the first client
+          without any need for her to refresh her browser. This update happens
+          via a WebSocket message sent over the open connection between the
+          server and the first client.
+        </p>
+
+        <p>
+          So far we have talked about how to add real-time functionality to an
+          application without adding any external pieces to our infrastructure,
+          which can be a valid approach for many use cases. But River is a
+          separate service. How does a separate service work with an
+          <em>existing</em> application, like our discussion forum here?
+        </p>
+
+        <h3>4.2) With River</h3>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/27_df-now-river.png"
+            alt="river in the triangular pattern with discussion forum"
+          />
+        </div>
+
+        <p>
+          Now we see River in the picture. The discussion forum application
+          still has its existing HTTP communication paths. We want to add
+          real-time functionality as simply as possible, so we are not going to
+          alter these paths at all. What is the first step that needs to happen?
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/28_df-client-subscribes.png"
+            alt="client connects to river and subscribes to channel"
+          />
+        </div>
+
+        <p>
+          First, the client needs to open a WebSocket connection with River. It
+          is through this connection that the client will receive updates,
+          without having to refresh her browser.
+        </p>
+
+        <p>
+          Second, the client needs to tell River which messages she wants to
+          receive. River may be sending updates concerning many forums or
+          sub-forums, and she doesn’t want to receive every new forum post, only
+          those new posts for the forum she is currently viewing.
+        </p>
+
+        <p>
+          She is currently on the “dogs” forum, so she <em>subscribes</em> to
+          the “dogs” channel.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/29_df-client-posts.png"
+            alt="client http post request to server as usual"
+          />
+        </div>
+
+        <p>
+          The client makes a new forum post in the usual manner, via an HTTP
+          POST request to the server, and the server saves the new forum post to
+          its database.
+        </p>
+
+        <p>
+          Now, the server needs to somehow notify River of this new forum post
+          in the “dogs” forum, so that all clients that are subscribed to the
+          “dogs” channel can be given the update of the new forum post.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/30_df-app-publishes.png"
+            alt="app server publishes on channel to river"
+          />
+        </div>
+
+        <p>
+          To do this, our server <em>publishes</em> to a specific
+          <em>channel</em>, here the “dogs” channel, via an HTTP POST request to
+          River.
+        </p>
+
+        <p>
+          We can think of this publishing as an <em>event</em> about which all
+          subscribed clients will be notified.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/31_df-river-sends-event.png"
+            alt="river sends event message to all clients subscribed to that channel"
+          />
+        </div>
+
+        <p>
+          Finally, River takes this publishing of an event, turns it into a
+          WebSocket message, and sends it to <em>all</em> the clients that have
+          subscribed to the “dogs” channel.
+        </p>
+
+        <p>
+          Here, again, we are showing just one client for clarity, but we can
+          imagine many clients all looking at the “dogs” forum, and receiving
+          this message in real-time.
+        </p>
+
+        <h3>4.3) Overall pattern</h3>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/32_df-triangle-full.png"
+            alt="triangular pattern takes shape"
+          />
+        </div>
+
+        <p>
+          Now we can see the overall pattern of the “browser-facing
+          publish-subscribe model” take shape. Our existing application does not
+          modify its HTTP channels of communication, the application publishes
+          events to River, and the clients open a persistent WebSocket
+          connection and subscribe to, and receive events from River.
+        </p>
+
+        <p>
+          We can see the bi-directional nature of the communication between
+          River and its clients. The need for bi-directional communication is
+          the reason we chose to use WebSockets over Server-Sent Events.
+          Server-Sent Events only permit one-way communication, from server to
+          client. Clients need not only to receive messages, but also to freely
+          send messages to subscribe to and unsubscribe from channels.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/33_df-triangle-many-clients.png"
+            alt="triangular pattern many clients"
+          />
+        </div>
+
+        <p>Of course we can have many clients, not just one client...</p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/34_df-triangle-many-services.png"
+            alt="triangular pattern many clients and backend services"
+          />
+        </div>
+
+        <p>…and many backend services.</p>
+
+        <p>
+          River is unconcerned with which clients are subscribing, and also
+          unconcerned with which backend services are publishing. It simply
+          accepts publish events on a specific channel, and broadcasts that
+          event to subscribed clients.
+        </p>
+
+        <h2 id="existing-solutions">5) Existing solutions</h2>
+
+        <p>
+          In the previous section, we described how a real-time service such as
+          River fits in with an existing application. At this point, before
+          going into how we actually built River, we want to say a word about
+          some of the existing solutions. Once an application developer has
+          decided that a separate real-time service would work well for the
+          needs of his application, he has quite a few options.
+        </p>
+
+        <h3>5.1) Open-source solutions</h3>
+
+        <p>
+          Broadly speaking, the existing solutions can be divided into two
+          categories. On one side, there are many open-source libraries to serve
+          a very wide variety of needs. Centrifugo [<a href="#footnote-16">16</a
+          >], for example, is a scalable real-time messaging server written in
+          Go. It runs as a separate service and maintains persistent WebSocket
+          connections with clients. It follows a very similar pattern to what we
+          previously described and presents itself as a user-facing pub/sub
+          server [<a href="#footnote-17">17</a>]. Its use case is very similar
+          to ours. It has been tested at scale and is under active development.
+          On the downside, while it has been used at scale, it is not
+          out-of-the-box ready to scale. The deployment scenario is left to the
+          application developer: while there are some good instructions on how
+          to deploy and configure the server, that complexity is still in the
+          developer's hands.
+        </p>
+
+        <h3>5.2) Commercial solutions</h3>
+
+        <p>
+          On the other side of this problem space, there are many profitable
+          companies that offer hosted paid services. Pusher [<a
+            href="#footnote-18"
+            >18</a
+          >] is one of the major players in this space and it offers many
+          advantages for application developers. It is very easy to use. It
+          provides a simple web interface for creating real-time APIs, libraries
+          for multiple languages, and strong guarantees. On the downside, it is
+          not open-source and, depending on usage, it can be expensive. The free
+          plan only supports up to 100 concurrent connections. To support 10,000
+          concurrent connections, Pusher charges $500 per month [<a
+            href="#footnote-19"
+            >19</a
+          >].
+        </p>
+
+        <p>
+          Looking at the available options, though, we thought there was a space
+          in-between these two categories. The open-source solutions were great
+          but difficult to deploy. The commercial solutions were easy to use but
+          costly. So we decided to build a simplified open-source version of
+          Pusher. Our main goals were to be easy to deploy and ready to scale -
+          exactly what was missing from the open-source solutions we looked at.
+          The trade-off we made was to keep it simple. We don’t offer many
+          features beyond the core publish and subscribe functionality.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/39_existing-solutions-table.png"
+            alt="A table comparing different solutions and their tradeoffs"
+          />
+        </div>
+
+        <h3>5.3) DAZN in-house WebSocket solution</h3>
+
+        <p>
+          There is another non-open-source solution we looked at and want to
+          mention. DAZN [<a href="#footnote-20">20</a>] is a sports streaming
+          company. We were interested in a specific problem they solved with
+          their own in-house solution. The problem wasn’t the streaming itself
+          of live events, but publishing live updates to millions of users
+          eagerly waiting for this critical information. They looked at Amazon
+          Web Services for a good solution and didn’t find something that
+          matched their needs out-of-the-box. So they came up with their own
+          solution and wrote a few good articles about it [<a
+            href="#footnote-21"
+            >21</a
+          >].
+        </p>
+
+        <p>
+          Their requirements were very similar to ours, so this piqued our
+          interest. They needed to publish sports updates to users, allow users
+          to subscribe to channels in order to receive the messages associated
+          with a specific sports event, and perform with high-traffic on a
+          global scale. The following diagram describes the infrastructure they
+          chose for this specific solution, a system they call Pubby:
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/41_pubby.png"
+            alt="A diagram representing the infrastructure of Pubby, DAZN in-house WebSocket solution"
+          />
+        </div>
+
+        <p>
+          This was an inspiration for us while building River as we knew it had
+          been tested in real-life, under high load, and proven robust. What we
+          want to point out is simply the overall shape of the system. At the
+          right, users subscribe and receive updates through the application
+          load balancer. To the left, backend services can publish events. The
+          center section is the real-time layer and the WebSocket server itself
+          lives as a containerized application deployed through the AWS Elastic
+          Container Service. For us, it was a validation of the use case we had
+          in mind and a glimpse into the kind of infrastructure that could
+          support such a use case. In the next section, we will describe how we
+          designed River and the specific choices we made while building it.
+        </p>
+
+        <h2 id="building-river">6) Building River</h2>
+
+        <p>
+          In this section, we will discuss how we built River. From design
+          choices, we will go through a piece-by-piece build of our
+          infrastructure, and also describe one path that we did not follow.
+        </p>
+
+        <h3>6.1) Designing River</h3>
+
+        <p>
+          We wanted it to be easy to use, easy to deploy, and ready to scale. To
+          achieve these goals, we had to make a few tradeoffs. First, River has
+          a simple interface, and not many features or options. When River is
+          deployed, there is no configuration.
+        </p>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/43_trade_offs.png"
+            alt="Goals and tradeoffs for River"
+          />
+        </div>
+
+        <p>
+          River deploys on Amazon Web Services (AWS). Of course AWS is a very
+          powerful platform, and is the major player in cloud services,
+          controlling about 40 percent of the cloud market [<a
+            href="#footnote-22"
+            >22</a
+          >], but there are some downsides to working with AWS, too. One,
+          obviously, is that we are now locked in to AWS. We can’t take an AWS
+          architecture and port it to another cloud vendor like Google Cloud
+          Platform. But probably the biggest downside that comes with working
+          with AWS, and anyone who has worked with or used AWS can attest to
+          this, is the complexity it brings. A platform that aims to abstract so
+          much away from the developer is bound to have a lot of complexity.
+        </p>
+
+        <p>
+          This complexity produced some of our greatest challenges when building
+          River.
+        </p>
+
+        <h3>6.2) Building, piece-by-piece</h3>
+
+        <p>
+          So far, we have looked at how River interacts with an existing
+          application, and have explored this triangular pattern. Now let’s zoom
+          in on River itself, and look at the components and resources that make
+          up its internal infrastructure.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/44_river-zoom-in.png"
+            alt="triangular pattern, everthing except River greyed out"
+          />
+        </div>
+
+        <h4>6.2.1) A Node.js process</h4>
+
+        <p>
+          At its heart, River is a Node.js process running a WebSocket server.
+          That’s it! While a single process on a local machine can provide all
+          the functionality and features of River, we had something else in
+          mind. We built River to be resilient and ready to scale.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/46_node-process.png"
+            alt="infrastructure node.js process only"
+          />
+        </div>
+
+        <p>
+          Here we see our same familiar triangular pattern, but turned on its
+          side. We still have our three pieces, the backend services, the
+          clients, and River, but here River is represented as a single Node.js
+          process, which is where we started in our development. Notice that our
+          Node.js process is not only accepting and holding WebSocket
+          connections, but it is also accepting the publishing of events from
+          the backend services, via HTTP POST requests.
+        </p>
+
+        <p>
+          Since we decided to work with AWS, we needed a place to put our
+          Node.js process…
+        </p>
+
+        <h4>6.2.2) One EC2</h4>
+
+        <p>
+          To start with, we put it in an EC2 instance, AWS’s standard virtual
+          private server.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/47_one-ec2.png"
+            alt="infrastructure node.js process with EC2 instance on Amazon Web Services"
+          />
+        </div>
+
+        <p>
+          At this point River has all the functionality that we have discussed
+          so far, and can actually be the separate real-time service that we
+          have been describing.
+        </p>
+
+        <h4>6.2.3) Another EC2</h4>
+
+        <p>
+          We knew we wanted to be able to have more than one instance of the
+          River server running. One, for resiliency, such that if one server
+          goes down, another is available while the first one gets back on its
+          feet. And two, to be ready to scale horizontally, to be able to handle
+          more traffic than one EC2 could reasonably handle.
+        </p>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/48_two-ec2s.png"
+            alt="infrastructure with two EC2 instances on Amazon Web Services"
+          />
+        </div>
+
+        <p>
+          But this second instance introduces new problems. How do the nodes
+          (EC2 instances) communicate with each other? If an event gets
+          published to one node, how does the other node know about it?
+        </p>
+
+        <h4>6.2.4) Redis pub/sub</h4>
+
+        <p>
+          To solve this first problem, we added the ElastiCache for Redis
+          service, which is AWS’s drop-in replacement for Redis. Redis is
+          usually thought of as a key-value cache, something that it does very
+          well, but we are actually <em>not</em> using it as a cache. Redis also
+          has a very powerful built-in publish-subscribe mechanism. In this
+          case, the <em>nodes</em> are the actual publishers and subscribers,
+          and Redis allows the nodes to communicate with each other.
+        </p>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/49_redis.png"
+            alt="infrastructure with two EC2 instances and Redis ElastiCache on Amazon Web Services"
+          />
+        </div>
+
+        <p>
+          We considered other internal pub/sub services, such as Kafka, or
+          Amazon’s Simple Notification Service, but ultimately decided on Redis.
+          Our server is leveraging the socket.io library for handling WebSocket
+          connections, and we are using an adapter called “socket.io-redis” that
+          makes working with socket.io on multiple nodes and Redis very
+          straightforward and seamless.
+        </p>
+
+        <p>
+          Just to reiterate the point here: this is an example of an internal,
+          or back-end service pub/sub. It is not the same pattern that River
+          fits into that we have been talking about overall, which is that of a
+          <em>browser-facing</em> pub/sub service.
+        </p>
+
+        <p>
+          We still have a problem on the other side of our nodes now. We don’t
+          want to have two different URLs for accessing River, so…
+        </p>
+
+        <h4>6.2.5) Load balancer</h4>
+
+        <p>
+          We added a load balancer, in this case AWS's Application Load Balancer
+          (ALB). ALB comes with native support for WebSockets, serves to
+          distribute traffic between our nodes, and provides a single point of
+          entry for our clients and services.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/50_load-balancer.png"
+            alt="infrastructure with two EC2, Redis, and Application Load Balancer"
+          />
+        </div>
+
+        <p>
+          At this point we felt pretty happy about our system, but we noticed
+          one issue, and that is the fact that our node processes are handling
+          <em>both</em> WebSocket connections and HTTP requests for publishing
+          events. We are mixing WebSockets and HTTP, and, as alluded to earlier,
+          this might not be the best idea for some use cases.
+        </p>
+
+        <p>
+          Is there a way we can have a separation of concerns? Since Redis is
+          acting as the publish-subscribe mechanism for our nodes, is there some
+          way we can publish to Redis directly?
+        </p>
+
+        <h4>6.2.6) Publishing backchannel</h4>
+
+        <p>
+          To publish to Redis directly, we added this “backchannel”, as we like
+          to call it, for publishing events via HTTP. Now River has two entry
+          points, one for browser-based WebSocket connections, and one for
+          services to publish events to River via HTTP. The WebSocket
+          connections are now completely decoupled from the HTTP publish
+          requests.
+        </p>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/51_backchannel.png"
+            alt="infrastructure with two EC2, Redis, Load balancer, API Gateway and Lambda"
+          />
+        </div>
+
+        <p>
+          The API Gateway service exposes a public URL. When a publish event
+          comes in via an HTTP POST request, the Lambda function validates this
+          request, and sends a publish event to Redis. Redis then publishes the
+          event to the node subscribers, and then on to our connected clients.
+        </p>
+
+        <p>
+          Now we have a pretty robust system, with a nice separation of
+          concerns, but thinking about two of our goals, being easy to use
+          <em>and</em>
+          easy to deploy, we have an issue here. EC2 is a great service, and
+          gives developers a lot of power and customization, but also comes with
+          some burdens. Upon deployment, we need to apply security updates, and
+          we need to make sure the correct version of Node.js is installed. On
+          an ongoing basis, we need to apply further security updates, manage
+          the logs, and just in general, all of the work that comes with
+          managing servers.
+        </p>
+
+        <p>
+          We wanted to abstract all of this away for the users of River, so we
+          decided to containerize our Node.js process, and move to a different
+          AWS service.
+        </p>
+
+        <h4>6.2.7) Containerized</h4>
+
+        <p>
+          Now we have the final version of our infrastructure. We have moved
+          from EC2 instances to Amazon’s Elastic Container Service (ECS). We
+          have taken our WebSocket server, and put it in a Docker container,
+          which allows us to focus solely on the business logic of River, and
+          not concern ourselves with server maintenance at all. We no longer
+          have to worry about Node.js version conflicts or logs filling up, and
+          can simply deploy our Docker container without thinking about
+          underlying dependencies.
+        </p>
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/52_with_ECS.png"
+            alt="final infrastructure with Elastic Container Service, Docker containers"
+          />
+        </div>
+
+        <p>
+          We also put our internal infrastructure inside a Virtual Private
+          Cloud. This allows us to provision a logically isolated section of the
+          AWS Cloud, and creates a virtual network over which we have complete
+          control. [<a href="#footnote-23">23</a>]
+        </p>
+
+        <h4>6.2.8) AWS Fargate</h4>
+
+        <p>
+          Elastic Container Service is a fully-managed container orchestration
+          service. At its core, ECS runs Docker containers.
+        </p>
+        <!-- <div class="img-wrapper">
+          <img src="images/diagrams/example.png" alt="new ECS diagram" />
+        </div> -->
+
+        <p>
+          Our Node.js process lives inside this Docker container, which is
+          stored on Docker Hub as an image, which is referenced in a
+          <em>task definition</em>. The task definition contains information
+          about how the container should be run, its allocated CPU and memory,
+          port mappings, and environment variables, among other such things. The
+          task definition is then referenced by a <em>service definition</em>.
+          The service definition dictates how many tasks are run concurrently,
+          for example if we want to have three identical Docker containers of
+          our Node.js process running for scalability and reliability purposes,
+          this would be spelled out in the service definition. Any auto-scaling
+          policy is also referenced by the service definition, as well as things
+          like re-starting tasks that have crashed.
+        </p>
 
         <ul>
-          <li>Additional visualization/monitoring integration</li>
-          <li>
-            Security
-            <ul>
-              <li>option for LAN</li>
-              <li>client-server communication with TLS</li>
-            </ul>
-          </li>
-          <li>Compression option for large messages</li>
-          <li>Add robust & automated testing</li>
+          <li>EC2-type lauch-type: customer-managed fleet of EC2 instances</li>
+          <li>Fargate launch-type: AWS-managed fleet of EC2 instances</li>
         </ul>
+
+        <p>
+          ECS has two launch-type choices, the EC2 launch type, and the Fargate
+          launch-type. We chose to use the Fargate launch-type, which Amazon
+          describes as “serverless compute for containers.” [<a
+            href="#footnote-24"
+            >24</a
+          >]
+        </p>
+
+        <p>
+          With the EC2 launch-type (which we did <em>not</em> choose) the
+          developer still has to manage the instances on which ECS runs. The
+          developer must provision and scale clusters, patch and update servers,
+          and other tasks associated with server maintenance. In other words,
+          the same problems we were trying to move away from when choosing a
+          containerized approach.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/52a_Fargate.png" alt="" />
+        </div>
+
+        <p>
+          With the Fargate launch-type, AWS abstracts all of this server
+          infrastructure away. We only need to define how our containers should
+          be run, and Fargate takes care of everything else. This allowed us to
+          meet our goal for River of not only being easy to deploy, but easy to
+          use as well.
+        </p>
+
+        <p>
+          Moving from a Node.js process on EC2 to a Docker container on ECS
+          Fargate allowed us to abstract away server management, but this move
+          brought some complexities along with it. We had a goal of making River
+          easy to deploy, and while moving to ECS Fargate makes running River
+          easier and maintenance-free, this switch made setting up River much
+          more complex. When trying to automate the setup process to meet our
+          goal of easy deployment, we faced some of our most significant
+          challenges.
+        </p>
+
+        <h3>6.3) The road not taken</h3>
+
+        <p>
+          Now that River’s final infrastructure is in view, we would like to
+          mention one path we did not take. While building River piece-by-piece,
+          we moved towards AWS services that abstracted away as much
+          infrastructure as possible. Would it be possible to go even further
+          down this “serverless” path? With its seemingly infinite number of
+          services for just about everything, does AWS provide a WebSocket
+          service that we could use directly?
+        </p>
+
+        <h4>6.3.1) AWS WebSocket API</h4>
+
+        <p>
+          In late 2018 when WebSocket API was introduced as a feature on the
+          venerable API Gateway service, AWS had this to say about WebSockets:
+        </p>
+
+        <blockquote>
+          Historically, building WebSocket APIs required setting up fleets of
+          hosts that were responsible for managing the persistent connections
+          that underlie the WebSocket protocol. Now, with API Gateway, this is
+          no longer necessary. API Gateway handles the connections between the
+          client and service. It lets you build your business logic using
+          HTTP-based backends such as AWS Lambda, Amazon Kinesis, or any other
+          HTTP endpoint. [<a href="#footnote-25">25</a>]
+        </blockquote>
+
+        <p>
+          This seems to be describing River’s infrastructure. If AWS provides
+          this service, why didn’t we use it? Let’s see how a WebSocket API
+          works.
+        </p>
+
+        <p>
+          When using a WebSocket API, clients connect via WebSockets and then a
+          <em>connection identifier</em> is stored somewhere, usually in a
+          DynamoDB table. In order for a message to be sent to this client, the
+          client’s connection identifier is retrieved, and then an HTTP POST
+          request containing this identifier is made to the WebSocket API, which
+          triggers an outgoing message to this client.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/52b_websocketAPI.png"
+            alt="WebSocket API on AWS, one message, one client"
+          />
+        </div>
+
+        <p>
+          So in other words, to send one WebSocket message to one client, we
+          must make one HTTP request to the WebSocket API.
+        </p>
+
+        <p>
+          DAZN, with their internal solution we explored earlier, was also
+          interested in WebSocket API, but they found it didn’t fit their use
+          case.
+        </p>
+
+        <blockquote>
+          There’s no way to broadcast messages to all connected clients with one
+          API call. In fact, you need to make an API call for each connection
+          you want to send a message to. Publishing a single update to 1m
+          clients requires fetching all 1m connection IDs out of the database
+          and making 1m API calls, which is a deal breaker. [<a
+            href="#footnote-26"
+            >26</a
+          >]
+        </blockquote>
+
+        <p>
+          Recall that they are concerned with broadcasting sports updates to
+          users, so this means there could be one football match to which one
+          million clients are subscribed. To notify all of these clients about a
+          new score, they wanted to be able to publish once, not one million
+          times.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/52c_websocketAPI.png"
+            alt="Websocket API on AWS, one message, one thousand clients"
+          />
+        </div>
+
+        <p>
+          While River isn’t designed to operate on a global scale, we do have a
+          similar use case, where one event can trigger a message to many, many
+          clients. As we target small to medium web applications, a developer
+          using River may encounter a situation where she needs to update one
+          thousand users of one event.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/52d_websocketAPI-River.png"
+            alt="River, one messge, one thousand clients, one API call"
+          />
+        </div>
+
+        <p>River is able to do this with one API call.</p>
+
+        <h2 id="automating-deployment">7) Automating deployment</h2>
+
+        <p>
+          While building River, we faced significant challenges. That was only
+          half the battle though, as we didn’t want to only build River for
+          ourselves. We wanted to automate the deployment so that other people
+          could easily use it.
+        </p>
+
+        <h3>7.1) Interacting with AWS</h3>
+
+        <div class="img-wrapper">
+          <figure>
+            <img
+              src="images/diagrams/55_AWS-interactions.png"
+              alt="A diagram representing different ways to interact with AWS"
+            />
+            <figcaption>
+              Diagram from: AWS in Action [<a href="#footnote-27">27</a>]
+            </figcaption>
+          </figure>
+        </div>
+
+        <p>
+          This diagram represents different ways to interact with Amazon Web
+          Services, from manual towards automation. These are alternatives that
+          application developers can choose depending on their needs. Many
+          developers will be familiar with the web-based management console and
+          it is a good entry-point in the world of AWS. It allows developers to
+          create resources easily by clicking through the web interface. It was
+          not an option for us, though, as we wanted to automate the deployment
+          process. AWS web console is user-friendly, but it doesn’t make the
+          process repeatable. For that, we needed to look at Software
+          Development Kits (SDKs) and blueprints.
+        </p>
+
+        <p>
+          SDKs allow developers to write scripts in a familiar programming
+          language, say JavaScript, to build their infrastructure. This is a
+          great tool, but anyone who has worked with these scripts can attest
+          that it is still a lot of work. Defining resources in a specific order
+          and having them interact one with another is not always an easy task.
+          In response to that, a new category of tools has emerged, often called
+          blueprints.
+        </p>
+
+        <p>
+          The difference between SDKs and blueprints is the difference between
+          “how” and “what”, between an imperative language and a declarative
+          language. With an imperative language, we give specific instructions
+          on how to achieve an outcome. With a declarative language, we simply
+          describe what outcome we want. SQL is an example of a declarative
+          language that many will be familiar with.
+        </p>
+
+        <h3>7.2) Creating a Lambda: an example</h3>
+
+        <p>
+          The tradeoffs between these different approaches will become clearer
+          with an example.
+        </p>
+
+        <h4>7.2.1) With AWS CLI</h4>
+
+        <div class="img-wrapper">
+          <figure>
+            <img
+              src="images/diagrams/56_lambda-cli.png"
+              alt="A screenshot of the AWS documentation for creating a Lambda function"
+            />
+            <figcaption>
+              From: AWS documentation [<a href="#footnote-28">28</a>]
+            </figcaption>
+          </figure>
+        </div>
+
+        <p>
+          This screenshot is taken from the AWS documentation and describes how
+          to create a Lambda function using the CLI. The developer needs to
+          first define the function itself and manually zip it, then run a long
+          command from the terminal with many flags. In the last line of that
+          long command, the Lambda function is assigned a role. This is often a
+          major pain point when deploying AWS resources. Our infrastructure will
+          have many different resources and these resources need to communicate
+          in a secure way. To achieve that, AWS uses roles and permissions. In
+          this specific example, the role was created by another long command
+          that we haven’t included here. The developer also needs to create a
+          policy to add permissions to that role and attach the policy to the
+          role: more commands.
+        </p>
+
+        <h4>7.2.2) With AWS CloudFormation</h4>
+
+        <p>
+          Of course, the CLI was not an option for us as it doesn’t allow for
+          automation. We looked next into these blueprints we mentioned before,
+          with AWS CloudFormation templates being one example. These are JSON or
+          YAML templates that allow developers to simply describe what resources
+          they want and what these resources should look like. Developers will
+          still need to describe roles and permissions, but it makes the
+          deployment consistent and repeatable.
+        </p>
+
+        <p>
+          This was definitely a step forward for us, but on the downside, these
+          templates are not very user-friendly. They can run over many hundreds
+          of lines of code and most of these are simply default settings.
+          Developers often end up copy-pasting boilerplate templates provided by
+          AWS and looking through those hundreds of lines for the specific
+          parameters they need to change.
+        </p>
+
+        <div class="img-wrapper">
+          <figure>
+            <img
+              src="images/diagrams/57_lambda-cloudformation.png"
+              alt="A screenshot of a CloudFormation template for creating a Lambda function"
+            />
+            <figcaption>
+              From: AWS documentation [<a href="#footnote-29">29</a>]
+            </figcaption>
+          </figure>
+        </div>
+
+        <h4>7.2.3) With AWS Cloud Development Kit</h4>
+
+        <p>
+          While researching better options, we came across AWS Cloud Development
+          Kit (CDK) [<a href="#footnote-30">30</a>]. It is an abstraction on top
+          of AWS CloudFormation templates that makes them much easier to work
+          with. AWS CDK is a very interesting concept as it allows developers to
+          write code in a familiar language, e.g. JavaScript or Python, and
+          model their infrastructure using Object-Oriented code. Under the hood,
+          it will generate CloudFormation templates, preconfigured with sensible
+          defaults. It makes infrastructure components easy to customize and
+          easy to share. And it makes the whole infrastructure easy to deploy
+          and easy to tear down.
+        </p>
+
+        <p>
+          On the downside, AWS CDK is very new (2018) and under active
+          development. While the docs are good, there are no books yet on the
+          topic and not a lot of good examples for more specific configuration
+          requirements.
+        </p>
+
+        <p>
+          Overall, though, it worked really well for us and this is an example
+          of what it looks like.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/59_lambda-cdk.png"
+            alt="A code snippet showing how to use AWS CDK to create a Lambda function"
+          />
+        </div>
+
+        <p>
+          Another advantage is how easy it becomes for resources to interact one
+          with another. As they are defined as JavaScript objects, they can
+          easily communicate one with another in the code itself. The complexity
+          of defining roles and permissions that we mentioned before is
+          abstracted away from the developer.
+        </p>
+
+        <p>
+          The line <code>vpc: props.vpc</code> is all that is needed to include
+          the Lambda in a Virtual Private Cloud (VPC) that allows it to interact
+          with other resources belonging to the same private network. That VPC
+          itself was created as an object in the same file and it is easy for us
+          to refer to it from within the code itself. The roles and permissions
+          needed to allow the Lambda to participate in the VPC will be created
+          under the hood. While a lot of complexity is abstracted away, it is
+          not magic: the CloudFormation templates are auto-generated, but, if
+          needed, we can go over them and verify that everything is as it
+          should.
+        </p>
+
+        <p>
+          Our main deployment file is about 150 lines of code and that file
+          generates more than a thousand lines of CloudFormation templates,
+          these long YAML files. For us, this was a clear win.
+        </p>
+
+        <h2 id="how-to-use-river">8) How to use River</h2>
+
+        <p>
+          In the previous sections, we described how we built River and
+          automated its deployment. What we want to emphasize at this point is
+          that our goal was to take that complexity away and provide a tool that
+          is easy to use. This is the topic of this concluding section.
+        </p>
+
+        <h3>8.1) Deployment</h3>
+
+        <p>
+          Deploying River is <em>one</em> command: after cloning the repository,
+          the developer only needs to type <code>cdk deploy "*"</code>.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/gifs/cdk-deploy.gif"
+            alt="A GIF showing the deployment of resources from the terminal"
+          />
+        </div>
+
+        <p>
+          The end result is that all the resources needed will be created on the
+          user's AWS account. The deployment process takes a while, as seen in
+          the below screenshot, but it is meant to be done once. Similarly, it
+          is one command to roll back all these changes, so it makes it easy for
+          application developers to test if River is a good fit for their needs.
+          This is one of the big advantages of a well-automated deployment
+          process.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/62_river-outputs.png"
+            alt="A screenshot showing both the resources created on an AWS account and the outputs seen in the terminal"
+          />
+        </div>
+
+        <h3>8.2) Libraries</h3>
+
+        <p>
+          As we mentioned in the beginning, River is meant to be used alongside
+          an existing application. Besides deploying it, the developer will also
+          need to interact with it. This is what the outputs are for. They
+          provide the load balancer endpoint through which clients will
+          establish the connection, the API Gateway endpoint needed to publish
+          events, an API key, and a secret needed for security reasons.
+        </p>
+
+        <p>
+          We provide libraries with a clean and simple interface to make it easy
+          to interact with River.
+        </p>
+
+        <h4>8.2.1) Server-side</h4>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/64_server-library.png"
+            alt="Server-side code showing how to use River"
+          />
+        </div>
+
+        <p>
+          This is an example Express app on the server-side. The application
+          developer can simply include the River library as a module. He
+          initializes it with his own API Gateway endpoint and key. Whenever the
+          developer wants to publish a message, he simply needs to add one line
+          of code. In this example, every time a POST request is received for
+          the “add-task” path, that event will be published.
+        </p>
+
+        <h4>8.2.2) Client-side</h4>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/65_client-library.png"
+            alt="Client-side code showing how to use River"
+          />
+        </div>
+
+        <p>
+          Similarly, on the client-side, the developer can include River as a
+          module. If he is not working in a WebPack-like environment, we also
+          have a script that exposes a global variable. The developer only needs
+          to provide his load balancer endpoint and a valid JSON Web Token.
+        </p>
+
+        <p>
+          Subscribing to any channel is one line of code. The developer can
+          instruct River on how it should react to specific events with an event
+          name and a callback function.
+        </p>
+
+        <h4>8.2.3) A simple demo</h4>
+
+        <div class="img-wrapper">
+          <img
+            src="images/gifs/todo-realtime.gif"
+            alt="A GIF showing a demo real-time application"
+          />
+        </div>
+
+        <p>
+          As the end result of these few lines of code, an existing application
+          is now transformed into a real-time application. These are two
+          different browser tabs and they represent two users that could live in
+          different cities. When one user updates the state of the application,
+          the UI gets immediately updated for both users, without the need to
+          issue an HTTP request. On the functionality level, our goal is
+          achieved. This is, of course, a very simple demo but the
+          publish-subscribe functionality can be used in many scenarios where
+          developers want to easily add real-time to an existing application.
+        </p>
+
+        <h3>8.3) Authentication</h3>
+        <p>
+          Previously we had mentioned the problem of how does this separate
+          service know who is connecting to it? Our solution is to use JSON Web
+          Tokens.
+        </p>
+
+        <h4>8.3.1) JSON Web Token</h4>
+
+        <p>
+          JSON Web Token (JWT) is an internet standard described in RFC 7519 [<a
+            href="#footnote-31"
+            >31</a
+          >]. It is described here as a “compact, URL-safe means of representing
+          claims to be transferred between two parties.”
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/68_jwt-secret-generated.png"
+            alt="JSON web token secret generated upon deployment"
+          />
+        </div>
+
+        <p>
+          When River is deployed, a 256-bit secret key is generated, which is
+          then used to digitally sign JWTs. These tokens are what allows River
+          to be decoupled from the application server, but also able to
+          authenticate clients. When a client connects to River, a valid JWT is
+          expected.
+        </p>
+
+        <p>
+          Let’s look at an example of how these tokens might be generated and
+          passed around among the three pieces of our “triangular” pattern.
+        </p>
+
+        <h4>8.3.2) Example workflow</h4>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/69_jwt-secret-shared.png"
+            alt="secret shared with existing application"
+          />
+        </div>
+
+        <p>
+          After River generates the 256-bit secret, this secret is shared with
+          the existing application.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/70_jwt-client-request-jwt.png"
+            alt="client requests JSON web token from application server"
+          />
+        </div>
+
+        <p>
+          Before attempting to connect to River, the client requests a JWT from
+          the application server, and sends along its cookies.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/71_jwt-server-create-jwt.png"
+            alt="server creates json web token using shared secret"
+          />
+        </div>
+
+        <p>
+          And since this client is presumably logged in, the server will have
+          some notion of who this client is from its cookies, and will verify
+          that indeed this client should receive a JWT. The server then
+          generates and returns a valid JWT, signed with the River secret.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/72_jwt-client-connects.png"
+            alt="client connects to River via websocket"
+          />
+        </div>
+
+        <p>
+          The client then establishes a connection with River. Note that River
+          allows a connection to be established from any client, but it expects
+          a valid JWT within the first fifteen seconds of connection, otherwise
+          the connection is terminated.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/73_jwt-client-sends-jwt.png"
+            alt="client sends json web token to River"
+          />
+        </div>
+
+        <p>
+          The client then sends a WebSocket message containing the valid JWT.
+          River uses the secret to verify the JWT.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/74_jwt-river-auth.png"
+            alt="River authenticates using secret to verify json web token"
+          />
+        </div>
+
+        <p>
+          River sends back a message notifying the client of successful
+          authentication. Finally, River adds this client to its pool of
+          authenticated clients, which allows it to subscribe to channels and
+          receive messages on those channels.
+        </p>
+
+        <p>
+          Note that this is just an example workflow, and River doesn’t make any
+          demands on how JWTs are issued, passed around, or how their expiration
+          time is set. This is left up to the application developer using River.
+          River only requires a valid JSON Web Token within that first 15
+          seconds of connection.
+        </p>
+
+        <h3>8.4) Load testing</h3>
+
+        <p>
+          Recall that one of our goals for River was to be ready to scale. To
+          know if we had actually met that goal, we needed to test River under
+          some sort of load and attempt to simulate, as much as possible,
+          real-world conditions of a small to medium web application.
+        </p>
+
+        <h4>8.4.1) Goals</h4>
+
+        <p>
+          To know if River could stand up to the demands of a small to medium
+          web application, we set some goal numbers. We wanted to have:
+        </p>
+
+        <ul>
+          <li>thousands of stable, concurrent, open WebSocket connections</li>
+          <li>thousands of messages per second being sent by the server</li>
+          <li>100 new connections per second</li>
+        </ul>
+
+        <h4>8.4.2) Setup</h4>
+
+        <p>
+          To synthetically generate clients, we used the artillery.io testing
+          library, which gives native support to socket.io, River’s underlying
+          engine. We set up two EC2 instances to run artillery. We used two
+          instead of one, because if we asked artillery.io to generate clients
+          too quickly, it generated “high CPU” warnings, which could have led to
+          erroneous test results. So we split the load of creating clients onto
+          two EC2 instances.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/77_loadtest-setup.png"
+            alt="loadtest setup with artillery.io"
+          />
+        </div>
+
+        <p>
+          Two containers was just an arbitrary number we picked, so we could
+          extrapolate how much load the system could handle for a given number
+          of containers. In our task definition for the container, we can
+          specify how many virtual CPUs and memory to give our container. We
+          chose one virtual CPU and two gigabytes of memory.
+        </p>
+
+        <p>
+          To have our server generate lots of WebSocket messages, we used the
+          concept of a “presence channel”. This is a special kind of channel,
+          where, when a client subscribes, this subscription event prompts the
+          server to send a message to all the existing subscribers on the
+          channel.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/78_loadtest-presence-channel.png"
+            alt="presence-channel explanation, one client subscribes, notifying other three clients"
+          />
+        </div>
+
+        <p>
+          In the above diagram, we see a fourth subscriber on the left, causing
+          the server to send a message to each of the three existing
+          subscribers. One can imagine, as the number of subscribers grows, the
+          number of messages being sent each second grows very quickly. For
+          example, the 1,000th subscriber to this presence channel will prompt
+          the server to send 999 messages, and if we are generating many, many
+          clients every second, we can see that there will be a lot of messages
+          flying around once we have many clients connected and subscribed.
+        </p>
+
+        <h4>8.4.3) Tuning the task definition</h4>
+
+        <p>
+          At first the test was resulting in a lot (3,000 out of 10,000) of XHR
+          Polling errors once above about 7,000 connections. This meant that the
+          connections were dropping and the socket.io clients were falling back
+          to polling, but the polling was failing.
+        </p>
+
+        <p>
+          To remedy this, we increased the "nofile"
+          <code>ulimit</code> parameters of the container, allowing more open
+          file descriptors, since each new connection results in a new one [<a
+            href="#footnote-32"
+            >32</a
+          >]. ECS gives a soft limit default of 1024 and a hard limit default of
+          4096, so it makes sense that we were seeing connection errors as we
+          closed in on 7,000 connections with two tasks (containers) running.
+        </p>
+
+        <p>
+          <code>ulimits</code> were increased to the following:
+          <code class="nohighlight">
+            <pre>
+          "ulimits": [ 
+            {
+              "name": "nofile",
+              "softLimit": 50000,
+              "hardLimit": 65536
+            } 
+          ]</pre
+            >
+          </code>
+        </p>
+        <p>Once this was updated, the test ran without any errors.</p>
+
+        <h4>8.4.4) Results</h4>
+
+        <ul>
+          <li>20,000 concurrent connections without errors</li>
+          <li>to start, 100 new connections/second</li>
+          <li>at end, 15-20 new connections/second</li>
+          <li>
+            at peak, servers sending “presence channel” messages at a rate of
+            300,000 messages/second
+          </li>
+        </ul>
+
+        <p>
+          Once we adjusted the ulimits parameters, we were able to support
+          20,000 concurrent connections, without any errors. At the beginning of
+          the test, River was able to add 100 new connections per second, but by
+          the time we got to the end of the phase of the test where we were
+          adding clients, this rate decreased to about 15 new connections per
+          second, probably due to the large number of presence channel messages
+          flying around at that point.
+        </p>
+
+        <p>
+          During the peak of the presence channel messages, we estimate these
+          were being sent at the rate of 300,000 messages per second. This may
+          sound like a lot of messages, but keep in mind that these are very
+          lightweight, text-based messages, around 37 bytes each. Also note that
+          these are not HTTP request-response cycles, but messages being sent
+          over an existing TCP connection, our WebSocket connection.
+        </p>
+
+        <p>
+          Despite not reaching the goal of a steady addition of 100 users per
+          second, we felt that we met our overall goal for River to be useful as
+          a real-time service within the context of small to medium web
+          applications.
+        </p>
+
+        <h2 id="future-work">9) Future work</h2>
+
+        <p>
+          We are proud of what we have accomplished with River. It fills in a
+          gap in the real-time-as-a-service space by providing an easy-to-deploy
+          and robust infrastructure able to handle up to 20,000 concurrent
+          connections with zero errors. Of course, if you're planning on
+          building the next Netflix, River would not be the right choice. But
+          for small to medium-sized applications looking for an easy way to add
+          real-time functionality, River is a great fit.
+        </p>
+
+        <p>
+          That being said, we do have a backlog of improvements that we plan to
+          work on in the future.
+        </p>
+
+        <h4>Encrypted Websockets, out-of-the-box</h4>
+
+        <p>
+          AWS's Application Load Balancer service, the endpoint where clients
+          connect via WebSockets, does not come with TLS out of the box. To
+          enable encrypted WebSockets, a developer using River would need to add
+          his custom domain and encryption keys to the ALB service. This is a
+          straightforward task, but we would like to add an option during
+          deployment to automate this.
+        </p>
+
+        <h4>Leverage AWS for better security</h4>
+
+        <p>
+          Right now we have an API key and secret for authentication, but we
+          could use some AWS services to provide stronger security for both the
+          API Gateway, and the secret that validates JSON Web Tokens. We could
+          leverage the AWS Cognito service as an identity provider for JSON Web
+          Token authorization for the API Gateway. AWS also has a service called
+          “Secrets Manager”, that would allow a rotating secret for River’s
+          WebSocket server.
+        </p>
+
+        <h4>Message history cache</h4>
+
+        <p>
+          Imagine if a user lost her WebSocket connection for a short period of
+          time, like going between cell towers, or a train going through a
+          tunnel. Then when she reconnects, she picks up with River right where
+          she left off, not by accessing the application’s database, but by
+          accessing River’s cache of recent messages.
+        </p>
 
         <section id="footnotes">
-          <h2 id="references">9 References</h2>
-
-          <h5>9.1 Footnotes</h5>
+          <h2 id="references">10) References</h2>
 
           <ol>
             <li id="footnote-1">
-              <a href="https://en.wikipedia.org/wiki/Log_file" target="_blank"
-                >https://en.wikipedia.org/wiki/Log_file</a
+              <a
+                href="https://pragprog.com/titles/sbsockets/real-time-phoenix/"
+                target="_blank"
+                >https://pragprog.com/titles/sbsockets/real-time-phoenix/</a
               >
             </li>
             <li id="footnote-2">
-              <a
-                href="https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying"
-                target="_blank"
-                >https://engineering.linkedin.com/distributed-systems/log-what-every-software-engineer-should-know-about-real-time-datas-unifying
-              </a>
+              <a href="https://hpbn.co/brief-history-of-http/" target="_blank"
+                >https://hpbn.co/brief-history-of-http/</a
+              >
             </li>
             <li id="footnote-3">
-              <a href="https://12factor.net/" target="_blank"
-                >https://12factor.net/
-              </a>
-            </li>
-
-            <li id="footnote-4">
               <a
-                href="https://docs.confluent.io/current/streams/concepts.html"
+                href="https://hpbn.co/websocket/#performance-checklist"
                 target="_blank"
-                >https://docs.confluent.io/current/streams/concepts.html
-              </a>
+                >https://hpbn.co/websocket/#performance-checklist</a
+              >
+            </li>
+            <li id="footnote-4">
+              A keepalive connection is the default since HTTP/1.1, see
+              <a href="https://hpbn.co/brief-history-of-http/" target="_blank"
+                >https://hpbn.co/brief-history-of-http/</a
+              >
             </li>
             <li id="footnote-5">
               <a
-                href="https://cruft.io/posts/centralised-logging-with-rsyslog/"
+                href="https://tools.ietf.org/html/rfc6202#section-2.2"
                 target="_blank"
-                >https://cruft.io/posts/centralised-logging-with-rsyslog/
-              </a>
+                >https://tools.ietf.org/html/rfc6202#section-2.2</a
+              >
             </li>
-            <li>
-              <a href="https://kafka.apache.org/documentation.html#kafka_mq">
-                https://kafka.apache.org/documentation.html#kafka_mq
-              </a>
+            <li id="footnote-6">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events"
+                target="_blank"
+                >MDN on SSE</a
+              >. The limit per browser is set to 6 open connections. This is not
+              an issue when using SSE with HTTP/2, since HTTP/2 allows
+              multiplexing, see
+              <a
+                href="https://www.infoq.com/articles/websocket-and-http2-coexist/"
+                target="_blank"
+                >https://www.infoq.com/articles/websocket-and-http2-coexist/</a
+              >
             </li>
             <li id="footnote-7">
-              <a href="https://logdna.com/what-is-syslog/" target="_blank"
-                >https://logdna.com/what-is-syslog/
-              </a>
+              <a href="https://tools.ietf.org/html/rfc6455" target="_blank"
+                >https://tools.ietf.org/html/rfc6455</a
+              >
+            </li>
+            <li id="footnote-8">
+              <a href="https://caniuse.com/#search=WebSockets" target="_blank"
+                >https://caniuse.com/#search=WebSockets</a
+              >
+            </li>
+            <li id="footnote-9">
+              <a
+                href="https://learning.oreilly.com/library/view/websocket/9781449369262/"
+                target="_blank"
+                >https://learning.oreilly.com/library/view/websocket/9781449369262/</a
+              >
+            </li>
+            <li id="footnote-10">
+              <a
+                href="https://shapeshed.com/api-design-for-an-event-driven-world/"
+                target="_blank"
+                >https://shapeshed.com/api-design-for-an-event-driven-world/</a
+              >
+            </li>
+            <li id="footnote-11">
+              <a
+                href="https://www.infoq.com/articles/websocket-and-http2-coexist/"
+                target="_blank"
+                >https://www.infoq.com/articles/websocket-and-http2-coexist/</a
+              >
+            </li>
+            <li id="footnote-12">
+              <a
+                href="https://hpbn.co/websocket/#performance-checklist"
+                target="_blank"
+                >https://hpbn.co/websocket/#performance-checklist</a
+              >
+            </li>
+            <li id="footnote-13">
+              <a
+                href="https://lucumr.pocoo.org/2012/9/24/websockets-101/"
+                target="_blank"
+                >https://lucumr.pocoo.org/2012/9/24/websockets-101/</a
+              >
+            </li>
+            <li id="footnote-14">
+              <a
+                href="https://pragprog.com/titles/sbsockets/real-time-phoenix/"
+                target="_blank"
+                >https://pragprog.com/titles/sbsockets/real-time-phoenix/</a
+              >
+            </li>
+            <li id="footnote-15">
+              <a
+                href="https://pusher.com/docs/channels/library_auth_reference/pusher-websockets-protocol#subscription-events"
+                target="_blank"
+                >https://pusher.com/docs/channels/library_auth_reference/pusher-websockets-protocol#subscription-events</a
+              >,
+              <a
+                href="https://www.pubnub.com/docs/platform/messages/publish"
+                target="_blank"
+                >https://www.pubnub.com/docs/platform/messages/publish</a
+              >,
+              <a
+                href="https://www.ably.io/documentation/core-features/channels"
+                target="_blank"
+                >https://www.ably.io/documentation/core-features/channels</a
+              >
+            </li>
+            <li id="footnote-16">
+              <a
+                href="https://centrifugal.github.io/centrifugo/"
+                target="_blank"
+                >https://centrifugal.github.io/centrifugo/</a
+              >
+            </li>
+            <li id="footnote-17">
+              <a
+                href="https://centrifugal.github.io/centrifugo/getting_started/"
+                target="_blank"
+                >https://centrifugal.github.io/centrifugo/getting_started/</a
+              >
+            </li>
+            <li id="footnote-18">
+              <a href="https://pusher.com/" target="_blank"
+                >https://pusher.com/</a
+              >
+            </li>
+            <li id="footnote-19">
+              <a href="https://pusher.com/channels/pricing" target="_blank"
+                >https://pusher.com/channels/pricing</a
+              >
+            </li>
+            <li id="footnote-20">
+              <a href="https://www.dazn.com" target="_blank"
+                >https://www.dazn.com</a
+              >
+            </li>
+            <li id="footnote-21">
+              <a
+                href="https://medium.com/dazn-tech/aws-serverless-websockets-at-scale-8a79cd5a9f3b"
+                target="_blank"
+                >https://medium.com/dazn-tech/aws-serverless-websockets-at-scale-8a79cd5a9f3b</a
+              >,
+              <a
+                href="https://medium.com/dazn-tech/introducing-pubby-our-custom-websockets-solution-c5764e3a7dcb"
+                target="_blank"
+                >https://medium.com/dazn-tech/introducing-pubby-our-custom-websockets-solution-c5764e3a7dcb</a
+              >
+            </li>
+            <li id="footnote-22">
+              <a
+                href="https://en.wikipedia.org/wiki/Amazon_Web_Services"
+                target="_blank"
+                >https://en.wikipedia.org/wiki/Amazon_Web_Services</a
+              >
+            </li>
+            <li id="footnote-23">
+              <a href="https://aws.amazon.com/vpc/" target="_blank"
+                >https://aws.amazon.com/vpc/</a
+              >
+            </li>
+            <li id="footnote-24">
+              <a href="https://aws.amazon.com/ecs/" target="_blank"
+                >https://aws.amazon.com/ecs/</a
+              >
+            </li>
+            <li id="footnote-25">
+              <a
+                href="https://aws.amazon.com/blogs/compute/announcing-websocket-apis-in-amazon-api-gateway/"
+                target="_blank"
+                >https://aws.amazon.com/blogs/compute/announcing-websocket-apis-in-amazon-api-gateway/</a
+              >
+            </li>
+            <li id="footnote-26">
+              <a
+                href="https://medium.com/dazn-tech/introducing-pubby-our-custom-WebSockets-solution-c5764e3a7dcb"
+                target="_blank"
+                >https://medium.com/dazn-tech/introducing-pubby-our-custom-WebSockets-solution-c5764e3a7dcb</a
+              >
+            </li>
+            <li id="footnote-27">
+              <a
+                href="https://www.manning.com/books/amazon-web-services-in-action"
+                target="_blank"
+                >https://www.manning.com/books/amazon-web-services-in-action</a
+              >
+            </li>
+            <li id="footnote-28">
+              <a
+                href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-awscli.html"
+                target="_blank"
+                >https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-awscli.html</a
+              >
+            </li>
+            <li id="footnote-29">
+              <a
+                href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html"
+                target="_blank"
+                >https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html</a
+              >
+            </li>
+            <li id="footnote-30">
+              <a href="https://aws.amazon.com/cdk/" target="_blank"
+                >https://aws.amazon.com/cdk/</a
+              >
+            </li>
+            <li id="footnote-31">
+              <a href="https://tools.ietf.org/html/rfc7519" target="_blank"
+                >https://tools.ietf.org/html/rfc7519</a
+              >
+            </li>
+            <li id="footnote-32">
+              <a
+                href="https://centrifugal.github.io/centrifugo/blog/scaling_websocket/"
+                target="_blank"
+                >https://centrifugal.github.io/centrifugo/blog/scaling_websocket/</a
+              >
             </li>
           </ol>
-          <!--
 
-          <h5>9.2 Resources</h5>
-
-          <ol>
-
-            <li><a
-
-                href="https://www.manning.com/books/serverless-architectures-on-aws"
-
-                target="_blank">Serverless Architecture on AWS</a>
-
-            </li>
-
-          </ul>
-
--->
+          Icons made by
+          <a
+            href="https://www.flaticon.com/authors/freepik"
+            title="Freepik"
+            target="_blank"
+            >Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">
+            www.flaticon.com</a
+          >.
         </section>
       </section>
     </main>
@@ -1930,31 +2273,40 @@
     <section id="our-team">
       <h1>Our Team</h1>
 
-      <p>If you liked what you saw and want to talk more, please reach out!</p>
+      <p>
+        We are looking for opportunities. If you liked what you saw and want to
+        talk more, please reach out!
+      </p>
 
       <ul>
         <li class="individual">
-          <img src="https://github.com/4g3m.png?" alt="Faazil Shaikh" />
+          <img
+            src="images/avatars/catherine-profile_460x460.jpg"
+            alt="Catherine Emond"
+          />
 
-          <h3>Faazil Shaikh</h3>
+          <h3>Catherine Emond</h3>
 
-          <p>San Francisco, CA</p>
+          <p>Montreal, Canada</p>
 
           <ul class="social-icons">
             <li>
-              <a href="mailto:faazil.shaikh@gmail.com" target="">
+              <a href="mailto:catherine.dnome@gmail.com" target="">
                 <img src="images/icons/email_icon.png" alt="email" />
               </a>
             </li>
 
             <li>
-              <a href="https://fshaikh.com" target="_blank">
+              <a href="https://catherineemond.github.io/" target="_blank">
                 <img src="images/icons/website_icon.png" alt="website" />
               </a>
             </li>
 
             <li>
-              <a href="http://bit.ly/2NpWXS6" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/catherine-emond-5867171a6/"
+                target="_blank"
+              >
                 <img src="images/icons/linked_in_icon.png" alt="linkedin" />
               </a>
             </li>
@@ -1963,63 +2315,29 @@
 
         <li class="individual">
           <img
-            src="https://github.com/jkurthoconnor.png"
-            alt="Kurth O'Connor"
+            src="images/avatars/mark_hyams_avatar_460x460.jpg"
+            alt="Mark Hyams"
           />
 
-          <h3>Kurth O'Connor</h3>
+          <h3>Mark Hyams</h3>
 
-          <p>New York, NY</p>
+          <p>Portland, Oregon &amp; Albuquerque, New Mexico</p>
 
           <ul class="social-icons">
             <li>
-              <a href="mailto:kurth@kurthoconnor.com" target="">
+              <a href="mailto:markhyams@gmail.com" target="">
                 <img src="images/icons/email_icon.png" alt="email" />
               </a>
             </li>
 
             <li>
-              <a href="http://kurthoconnor.com" target="_blank">
+              <a href="https://markhyams.com" target="_blank">
                 <img src="images/icons/website_icon.png" alt="website" />
               </a>
             </li>
 
             <li>
-              <a
-                href="https://www.linkedin.com/in/kurth-o-connor-01986a169"
-                target="_blank"
-              >
-                <img src="images/icons/linked_in_icon.png" alt="linkedin" />
-              </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="individual">
-          <img src="https://github.com/alex-solo.png" alt="Alex Soloviev" />
-
-          <h3>Alex Soloviev</h3>
-
-          <p>Toronto, Canada</p>
-
-          <ul class="social-icons">
-            <li>
-              <a href="mailto:alex.soloviev@gmail.com" target="">
-                <img src="images/icons/email_icon.png" alt="email" />
-              </a>
-            </li>
-
-            <li>
-              <a href="https://alex-solo.github.io" target="_blank">
-                <img src="images/icons/website_icon.png" alt="website" />
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="https://www.linkedin.com/in/alex-soloviev-61155a185/"
-                target="_blank"
-              >
+              <a href="https://www.linkedin.com/in/mark-hyams/" target="_blank">
                 <img src="images/icons/linked_in_icon.png" alt="linkedin" />
               </a>
             </li>
