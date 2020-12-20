@@ -16,9 +16,9 @@
 :root {
   --font-family-header: "Anton", sans-serif;
   --font-family-body: "Work Sans", sans-serif;
-  --color-blue: #1a1053;
-  --color-turquoise: #b82a52;
-  --color-beige: #f7a240;
+  --color-purple: #1a1053;
+  --color-maroon: #b82a52;
+  --color-yellow: #f7a240;
   --color-black: #000000;
 }
 
@@ -68,11 +68,11 @@ a,
 a:link,
 a:visited,
 a:active {
-  color: var(--color-turquoise);
+  color: var(--color-maroon);
 }
 
 a:hover {
-  color: var(--color-turquoise);
+  color: var(--color-maroon);
 }
 
 .strikethrough {
@@ -85,22 +85,22 @@ a:hover {
 }
 
 .integration:first-of-type {
-  background: var(--color-turquoise);
+  background: var(--color-maroon);
   color: white;
   padding-top: 20px;
   padding-bottom: 40px;
 }
 
 .integration:nth-of-type(2) {
-  background: var(--color-blue);
+  background: var(--color-purple);
   color: white;
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
 .integration:nth-of-type(3) {
-  background: var(--color-beige);
-  color: var(--color-blue);
+  background: var(--color-yellow);
+  color: var(--color-purple);
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -142,7 +142,7 @@ main > section {
 }
 
 blockquote {
-  border-left: 0.3rem solid var(--color-turquoise);
+  border-left: 0.3rem solid var(--color-maroon);
   color: #999;
   margin: 1.9rem 3rem;
   font-size: 1.5rem;
@@ -173,7 +173,7 @@ sup a {
 }
 
 sup a:hover {
-  color: var(--color-turquoise);
+  color: var(--color-maroon);
 }
 
 /* ---------------------------------
@@ -192,7 +192,7 @@ img {
   font-family: var(--font-family-header);
   font-weight: bold;
   font-size: 1.5rem;
-  color: var(--color-blue);
+  color: var(--color-purple);
   cursor: pointer;
   width: 50px;
   position: fixed;
@@ -282,7 +282,7 @@ pre code {
 
 code {
   background-color: white;
-  color: var(--color-turquoise);
+  color: var(--color-maroon);
   font-family: "Fira Code", monospace;
   /* font-size: 1rem; */
 }
@@ -336,7 +336,7 @@ nav#site-navigation a {
 
 header {
   height: 100vh;
-  background: var(--color-beige);
+  background: var(--color-yellow);
 }
 
 header h1 {
@@ -346,7 +346,7 @@ header h1 {
 }
 
 header p {
-  color: var(--color-blue);
+  color: var(--color-purple);
   font-family: var(--font-family-header);
   font-size: 4rem;
   letter-spacing: 0.1rem;
@@ -361,7 +361,7 @@ header p {
 }
 
 header span {
-  color: var(--color-turquoise);
+  color: var(--color-maroon);
 }
 
 header h1 img {
@@ -420,7 +420,7 @@ header h1 img {
 }
 
 #case-study nav a:hover {
-  color: var(--color-turquoise);
+  color: var(--color-maroon);
 }
 
 #case-study h3,
@@ -438,7 +438,7 @@ header h1 img {
 }
 
 #case-study h2 {
-  color: var(--color-blue);
+  color: var(--color-purple);
   font-family: var(--font-family-header);
   margin: 75px auto 20px auto;
 }
@@ -455,7 +455,7 @@ h3 {
 #case-study h3,
 #case-study h4,
 #case-study h5 {
-  color: var(--color-blue);
+  color: var(--color-purple);
   margin-top: 75px;
 }
 
@@ -534,7 +534,7 @@ a[href^="footnote-"] {
 }
 
 h2#references {
-  color: var(--color-blue);
+  color: var(--color-purple);
   font-size: 1.7rem;
   margin-top: 75px;
 }
@@ -556,7 +556,7 @@ h2#references {
 }
 
 #footnotes a:hover {
-  color: var(--color-turquoise);
+  color: var(--color-maroon);
 }
 
 /* ---------------------------------
@@ -566,14 +566,14 @@ h2#references {
 ------------------------------------ */
 
 #our-team {
-  background-color: var(--color-beige);
+  background-color: var(--color-yellow);
   color: var(--color-black);
   margin-top: 100px;
   padding-bottom: 25px;
 }
 
 #our-team h1 {
-  color: var(--color-blue);
+  color: var(--color-purple);
   font-weight: 700;
   padding-top: 100px;
   margin-bottom: 30px;
@@ -604,12 +604,12 @@ h2#references {
 }
 
 #our-team h3 {
-  color: var(--color-turquoise);
+  color: var(--color-maroon);
   margin-bottom: 10px;
 }
 
 #our-team a {
-  color: var(--color-blue);
+  color: var(--color-purple);
   text-decoration: none;
 }
 
