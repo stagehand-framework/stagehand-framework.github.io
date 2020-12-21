@@ -192,7 +192,7 @@ img {
   font-family: var(--font-family-header);
   font-weight: bold;
   font-size: 1.5rem;
-  color: var(--color-purple);
+  color: var(--color-maroon);
   cursor: pointer;
   width: 50px;
   position: fixed;
@@ -346,7 +346,7 @@ header h1 {
 }
 
 header p {
-  color: var(--color-purple);
+  color: var(--color-maroon);
   font-family: var(--font-family-header);
   font-size: 4rem;
   letter-spacing: 0.1rem;
@@ -438,7 +438,7 @@ header h1 img {
 }
 
 #case-study h2 {
-  color: var(--color-purple);
+  color: var(--color-maroon);
   font-family: var(--font-family-header);
   margin: 75px auto 20px auto;
 }
@@ -455,7 +455,7 @@ h3 {
 #case-study h3,
 #case-study h4,
 #case-study h5 {
-  color: var(--color-purple);
+  color: var(--color-maroon);
   margin-top: 75px;
 }
 
@@ -534,7 +534,7 @@ a[href^="footnote-"] {
 }
 
 h2#references {
-  color: var(--color-purple);
+  color: var(--color-maroon);
   font-size: 1.7rem;
   margin-top: 75px;
 }
