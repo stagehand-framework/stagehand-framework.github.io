@@ -28,6 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+  $('.sequence').slick({
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: 'linear',
+    fade: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  });
+
   let topNavVisible = false;
   let smallNavVisible = false;
   const getScrollPosition = () => window.scrollY;

@@ -236,6 +236,7 @@ img {
   margin: 50px auto;
   margin-bottom: 10px;
   max-width: 50vw;
+  max-height: 75vh;
   height: auto;
 }
 
