@@ -197,7 +197,7 @@
           <ul></ul>
         </nav>
 
-        <h2 id="what-is-river">1. What is Stagehand?</h2>
+        <h2 id="what-is-stagehand">1. What is Stagehand?</h2>
 
         <p>
           Stagehand is a drop-in solution that provides review apps for modern
@@ -481,9 +481,54 @@
 
         <h3>2.3. Frontend Review Apps</h3>
 
+        <p>
+          Now that we understand what review apps are and their value, we will
+          take a look at what we mean that Stagehand is for “modern frontend
+          applications”. First we will look at why frontend applications are a
+          great use case for review apps and then we will look at what a modern
+          frontend application actually is.
+        </p>
+
         <h4>2.3.1. Why Frontend Review Apps?</h4>
 
+        <p>
+          Review apps are an incredibly helpful tool for developers of all types
+          of applications. But their benefits are particularly helpful for
+          developers of frontend applications. Why is this?
+        </p>
+
+        <p>
+          First, because frontend applications deal heavily with the end user
+          experience, more visual testing and verification in a deployed
+          environment is needed. You want to be able to mimic the eventual user
+          experience as much as possible during development.
+        </p>
+
+        <p>
+          Second, frontend applications are more lightweight. Therefore, they do
+          not need to spin up as much infrastructure nor allocate as many
+          resources as a full stack application. Also, because frontend
+          applications are decoupled from data level concerns, they better mimic
+          the final production environment as a full stack application.
+        </p>
+
+        <p>
+          Finally, because the functionality of frontend applications are more
+          user or consumer facing, there may need to be more sharing of new
+          features and functionality with non-technical stakeholders. You need a
+          way to easily deploy and share your latest changes with them during
+          development. Introducing review apps to your frontend development team
+          fits all of these needs.
+        </p>
+
         <h4>2.3.2. Frontend Applicaton Architecture</h4>
+
+        <p>
+          Stagehand provides review apps for frontend applications. What is a
+          frontend application? It will be helpful to first look at the
+          architecture of a full stack application for contrast. Here is how a
+          typical 3-tier web application architecture works:
+        </p>
 
         <div class="sequence">
           <div class="img-wrapper">
@@ -506,6 +551,27 @@
           </div>
         </div>
 
+        <p>
+          First, a request comes in from a client for our application and is
+          handled by our web server. Then the application server will handle the
+          business logic for the application, including fetching data from the
+          database and generating the assets for the response. Finally, the
+          response is sent back to the client in the form of HTML, CSS, and
+          JavaScript.
+        </p>
+
+        <p>
+          The key takeaway from this full stack architecture is that the assets
+          are generated at request time. So it is only when the client requests
+          our application that the assets are actually built. This is in
+          contrast to what happens in a frontend application.
+        </p>
+
+        <p>
+          In a frontend application architecture, such as a site built with a
+          static site generator, things happen in the opposite direction:
+        </p>
+
         <div class="sequence">
           <div class="img-wrapper">
             <img src="images/diagrams/ssg-1.png" alt="ssg flow 1" />
@@ -520,6 +586,21 @@
             <img src="images/diagrams/ssg-4.png" alt="ssg flow 4" />
           </div>
         </div>
+
+        <p>
+          First, when a change is made to the code or content of our
+          application, that is when the assets are built. Then those pre-built
+          assets are typically pushed to a content delivery network (CDN) for
+          hosting. When a client makes a request for our application, these
+          latest pre-built assets can be instantly served from an edge location
+          on the CDN.
+        </p>
+
+        <p>
+          Stagehand supports frontend applications like this that can be
+          pre-built and instantly served from a CDN. We also support a more
+          modern dynamic type of frontend application:
+        </p>
 
         <div class="sequence">
           <div class="img-wrapper">
@@ -538,6 +619,167 @@
             <img src="images/diagrams/jamstack-5.png" alt="jamstack flow 5" />
           </div>
         </div>
+
+        <p>
+          In a more modern dynamic frontend application, the app is served in a
+          similar way to the previous frontend architecture above. First, the
+          assets are pre-built and pushed to a CDN whenever the code for the app
+          changes. And when requests come in from a client, those latest
+          pre-built assets are instantly served from the CDN.
+        </p>
+
+        <p>
+          However with modern dynamic frontend applications, more complex
+          client-side JavaScript is sent back to the client in the response.
+          Then data can be fetched by that client-side code from external APIs.
+          This gives these applications more dynamic functionality, similar to a
+          full stack application.
+        </p>
+
+        <p>
+          This type of modern dynamic application includes Single Page
+          Applications built with something like React, as well as JAMstack
+          applications built with a frontend framework like Gatsby. Because
+          these applications can be served as pre-built assets from a CDN,
+          Stagehand also supports automated review apps for them.
+        </p>
+
+        <h2>3. Existing Solutions</h2>
+
+        <p>
+          Before we look at Stagehand, we will look at various existing
+          solutions that can empower developers with review apps. There are
+          generally two categories of existing solutions: feature solutions and
+          service solutions.
+        </p>
+
+        <h3>3.1. Feature vs. Service Solutions</h3>
+
+        <p>
+          Feature solutions (Reviews As A Feature) offer review app
+          functionality as part of a larger hosting service. In order to take
+          advantage of their review apps feature, you typically must host your
+          entire application on their hosting service. Examples include Netlify
+          with their “Deploy Previews” feature, Vercel with their “Preview
+          Deployments” feature, and Heroku with their “Review Apps” feature.
+        </p>
+
+        <p>
+          Service solutions (Reviews As A Service) exist specifically for
+          providing review apps for developers. They provide developers review
+          app functionality without having to host their entire application on
+          their platform. There are a wide range of examples here as well,
+          including FeaturePeek, Release, and Tugboat.
+        </p>
+
+        <p>
+          Let’s compare the tradeoffs with these two types of review app
+          solutions:
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/table-1.png" alt="tradeoffs table 1" />
+        </div>
+
+        <p>
+          Neither of these types of solutions are truly open source. They do not
+          give you control over the infrastructure or code used to manage your
+          review apps. However, they are both very convenient solutions as they
+          automate the deployment and management of review apps for you.
+        </p>
+
+        <p>
+          Service solutions are more flexible as they specialize in review apps
+          and do not tie developers to a larger service. But both solutions host
+          your review apps for you and are feature-rich right out of the box.
+        </p>
+
+        <p>
+          But what if you are a developer who wants to be able to self-host your
+          review apps on your own infrastructure? And what if you also want the
+          extensibility and control of an open source solution. One option is to
+          do it yourself as we will cover next.
+        </p>
+
+        <h3>3.2. DIY</h3>
+
+        <p>
+          To manually develop a solution for deploying and managing your own
+          review apps, you will have to provision and configure a rather large
+          number of resources:
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/DIY.png" alt="DIY diagram" />
+        </div>
+
+        <p>
+          First, you will need a cloud storage solution to store all of the
+          build assets for each of your review apps. Then you will need to
+          provision and configure a CDN (content delivery network) for secure
+          and fast hosting. For any processing needs such as routing, you may
+          have to write and deploy a number of serverless functions.
+        </p>
+
+        <p>
+          The most extensive resource that you will have to provision and
+          configure is a build server. You will have to set it up to automate
+          the building, deploying, and tearing down of your review apps. And you
+          will have to figure out a way to integrate it with wherever your
+          repository is located, such as on GitHub. Finally, you will need some
+          services to secure your review apps according to your needs.
+        </p>
+
+        <p>
+          Let’s compare the DIY approach with the previous types of review app
+          solutions we explored:
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/table-2.png" alt="tradeoffs table 2" />
+        </div>
+
+        <p>
+          The DIY approach gives of all of the benefits of open source as we now
+          own the infrastructure and code. But provisioning and configuring so
+          many resources to get review apps up and running is far from
+          convenient. The DIY approach is flexible as we are not tied to a
+          larger hosting service. And we can now self-host our review apps on
+          our own infrastructure. However, we will have to develop any features
+          we need beyond basic functionality ourselves.
+        </p>
+
+        <p>
+          What if there was a non-hosted, open-source framework that does not
+          require all of the work of the DIY approach? This is where Stagehand
+          fits in and why we built it.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/table-3.png" alt="tradeoffs table 3" />
+        </div>
+
+        <p>
+          Stagehand gives you the same tradeoffs as the DIY approach, but we
+          automate the whole process for you. Stagehand is fully open source,
+          giving you control of the infrastructure and code. And we automate the
+          provisioning and configuration of all of that infrastructure for you.
+        </p>
+
+        <p>
+          We are a drop-in solution that does not tie you into a larger service
+          just to take advantage of review apps. We allow you to self-host your
+          review apps on your own infrastructure. Like the DIY approach, we are
+          not feature-rich out of the box outside of basic review app
+          functionality.
+        </p>
+
+        <p>
+          Next we will dive into how Stagehand works as well as how we designed
+          and built it.
+        </p>
+
+        <h2 id="stagehand-section">Stagehand</h2>
 
         <h3>4.1) AWS</h3>
 
@@ -599,17 +841,6 @@
 
         <p>H</p>
 
-        <h2 id="existing-solutions">5) Existing solutions</h2>
-
-        <p>
-          In the previous section, we described how a real-time service such as
-          River fits in with an existing application. At this point, before
-          going into how we actually built River, we want to say a word about
-          some of the existing solutions. Once an application developer has
-          decided that a separate real-time service would work well for the
-          needs of his application, he has quite a few options.
-        </p>
-
         <h3>4.4) CLI</h3>
 
         <div class="img-wrapper">
@@ -618,7 +849,7 @@
 
         <p>H</p>
 
-        <h2 id="existing-solutions">5) Challenges</h2>
+        <h2 id="challenges">5) Challenges</h2>
 
         <p>I</p>
 
