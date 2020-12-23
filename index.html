@@ -236,7 +236,7 @@
           frontend applications”.
         </p>
 
-        <h3>2.1 Staging Environments</h3>
+        <h3>2.1. Staging Environments</h3>
 
         <p>
           To see where review apps fit into the overall continuous development
@@ -329,7 +329,7 @@
 
         <img
           src="images/diagrams/scenario_2.png"
-          alt="multiple developera w/ shared staging environment"
+          alt="multiple developers w/ shared staging environment"
         />
 
         <p>
@@ -354,11 +354,124 @@
 
         <h3>2.2. What Are Review Apps?</h3>
 
-        <h3>2.3 Frontend Review Apps</h3>
+        <p>
+          Review apps are ephemeral, fully-functional versions of a production
+          application that can be easily deployed and shared with others. Let’s
+          take this definition apart a piece at a time:
+        </p>
 
-        <h4>2.3.1 Why Frontend Review Apps?</h4>
+        <ul>
+          <li>
+            Ephemeral - Review apps are temporary environments that can be built
+            and torn down at any time without affecting the production
+            application.
+          </li>
 
-        <h4>2.3.2 Frontend Applicaton Architecture</h4>
+          <li>
+            Fully-Functional - Review apps have end-to-end production-like
+            functionality. They are temporary versions of the main application.
+          </li>
+
+          <li>
+            Easily-Deployed - Review apps can be instantly built and deployed
+            whenever there is a change in an application’s code, like when a new
+            feature is added.
+          </li>
+
+          <li>
+            Self-Contained - Review apps exist in isolation from the main
+            production application. This allows developers to try out new
+            features and functionality in a deployed production-like environment
+            without touching the production code.
+          </li>
+        </ul>
+
+        <p>
+          Consider the value of review apps for the development team scenario
+          from above:
+        </p>
+
+        <img
+          src="images/diagrams/scenario_3.png"
+          alt="multiple developers w/ review apps"
+        />
+
+        <p>
+          Your team has introduced a review app solution like Stagehand to the
+          mix. With review apps, each developer on your team now has their own
+          isolated environment where you can easily deploy and share your new
+          features. You and your team no longer have to fight over a shared
+          staging environment just to be able to quickly deploy and share your
+          new features with others.
+        </p>
+
+        <p>
+          Each review app can be accessed via a unique shareable URL. You can
+          share this with your product manager and even non-technical
+          stakeholders, getting more feedback more quickly while you are
+          developing your new feature.
+        </p>
+
+        <p>
+          Review apps also enable greater collaboration within your development
+          team itself. As you, Alice, and Bob are coding up your new features,
+          you can quickly deploy them with review apps and share them with each
+          other. So you do not have to pull down each other’s code and get it
+          running locally to collaborate.
+        </p>
+
+        <p>
+          Review apps make checking out your work in a production-like
+          environment as you are developing as simple as possible. But what do
+          they look like in action from a developer’s point of view?
+        </p>
+
+        <p>
+          Here on the GitHub repository for your team’s application, you have
+          opened a pull request for your new navigation bar feature. The product
+          manager will have to see the change and give approval before your code
+          can move on to production.
+        </p>
+
+        <img
+          src="images/diagrams/wireframe_1.png"
+          alt="github pull request with one review app"
+        />
+
+        <p>
+          As soon as the pull request is opened, a review app is automatically
+          built and deployed for you. A unique URL for this particular review
+          app is automatically posted as well. You share this review app with
+          your product manager. She wants you to move the navigation bar icon to
+          the other side of the page.
+        </p>
+
+        <img
+          src="images/diagrams/wireframe_2.png"
+          alt="github pull request with two review app"
+        />
+
+        <p>
+          After making the change and making a new commit to the open pull
+          request, a whole new review app is built and deployed. This new review
+          app exists at the same time as the previous review app. You can even
+          open each one via their URLs simultaneously and compare them
+          side-by-side.
+        </p>
+
+        <p>
+          You share the link for the new review app with your product manager.
+          She is now satisfied with the changes. You are clear to promote your
+          new navigation bar feature to production. When this pull request is
+          closed, all review apps associated with it will be automatically
+          disposed of which will free up any unnecessary cloud resources.
+        </p>
+
+        <h3>2.3. Frontend Review Apps</h3>
+
+        <h4>2.3.1. Why Frontend Review Apps?</h4>
+
+        <h4>2.3.2. Frontend Applicaton Architecture</h4>
 
         <div class="sequence">
           <div class="img-wrapper">
@@ -380,7 +493,7 @@
             />
           </div>
         </div>
-        <p>T</p>
+
         <div class="sequence">
           <div class="img-wrapper">
             <img src="images/diagrams/ssg-1.png" alt="ssg flow 1" />
@@ -413,117 +526,6 @@
             <img src="images/diagrams/jamstack-5.png" alt="jamstack flow 5" />
           </div>
         </div>
-
-        <h3>2.1)Staging Environments</h3>
-
-        <p>T</p>
-
-        <div class="img-wrapper">
-          <img
-            src="images/diagrams/environments.png"
-            alt="environments diagram"
-          />
-        </div>
-
-        <p></p>
-
-        <p>
-          T
-          <em>without user intervention</em> [<a href="#footnote-1">1</a>]. T
-        </p>
-
-        <h3>2.2) What are Review Apps?</h3>
-
-        <p>communication [<a href="#footnote-2">2</a>].</p>
-
-        <p>I</p>
-
-        <div class="img-wrapper">
-          <figure>
-            <img
-              src="images/diagrams/diagram.png"
-              alt="A diagram with footnote"
-            />
-            <figcaption>D [<a href="#footnote-3">3</a>]</figcaption>
-          </figure>
-        </div>
-
-        <h4>2.2.1) h4 sub sub heading</h4>
-
-        <p>T</p>
-
-        <ul>
-          <li>List item 1</li>
-          <li>List item 2</li>
-          <li>
-            code: <code>keepalive</code> connection header to establish a
-            persistent connection [<a href="#footnote-4">4</a>].
-          </li>
-        </ul>
-
-        <p>L</p>
-
-        <h3>2.3) Frontend Review Apps</h3>
-
-        <p></p>
-
-        <p>B</p>
-
-        <h2 id="existing-solutions">3) Existing Solutions</h2>
-
-        <p>A</p>
-
-        <h3>3.1) Review Apps as a Feature</h3>
-
-        <p>A</p>
-
-        <p>I</p>
-
-        <blockquote>Quote. [<a href="#footnote-12">12</a>]</blockquote>
-
-        <p>h</p>
-
-        <blockquote>Quote [<a href="#footnote-13">13</a>]</blockquote>
-
-        <p>T</p>
-
-        <h3>3.2) Review Apps as a Service</h3>
-
-        <p>W</p>
-
-        <p>I</p>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Random diagram" />
-        </div>
-
-        <p>O</p>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Random diagram" />
-        </div>
-
-        <p>W</p>
-
-        <h3>3.3) DIY</h3>
-
-        <p>A</p>
-
-        <blockquote>Quote. [<a href="#footnote-14">14</a>]</blockquote>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Random diagram" />
-        </div>
-
-        <p>A</p>
-
-        <h2 id="stagehand">3) Stagehand</h2>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Random diagram" />
-        </div>
-
-        <p>T</p>
 
         <h3>4.1) AWS</h3>
 
