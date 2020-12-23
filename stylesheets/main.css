@@ -277,9 +277,9 @@ pre {
   text-align: left;
 }
 
-pre code {
-  /* font-size: 0.6rem; */
-}
+/* pre code {
+  /* font-size: 0.6rem;
+} */
 
 code {
   background-color: white;

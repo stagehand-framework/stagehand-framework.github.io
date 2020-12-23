@@ -81,12 +81,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
 
-        <!-- slick carousel style -->
-    
-    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <!-- slick carousel style -->
+
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 
     <!-- <script></script> -->
 
@@ -194,7 +197,7 @@
           <ul></ul>
         </nav>
 
-        <h2 id="what-is-river">1) What is Stagehand?</h2>
+        <h2 id="what-is-river">1. What is Stagehand?</h2>
 
         <p>
           Stagehand is a drop-in solution that provides review apps for modern
@@ -222,7 +225,78 @@
           to develop.
         </p>
 
-        <h2 id="what-are-review-apps">2) What are review apps?</h2>
+        <h2 id="what-are-review-apps">2. What are review apps?</h2>
+
+        <p>
+          Stagehand automates the deployment and management of review apps for
+          modern frontend applications. To understand why we built Stagehand, we
+          need to understand what review apps are. In this section we will dive
+          into review apps and the value they bring to frontend developers as
+          well as what we mean when we say that Stagehand is for “modern
+          frontend applications”.
+        </p>
+
+        <h3>2.1 Staging Environments</h3>
+
+        <p>
+          To see where review apps fit into the overall continuous development
+          of a production application, let’s consider the various environments
+          involved in that application.
+        </p>
+
+        <p>** ENVIRONMENTS DIAGRAM **</p>
+
+        <p>
+          Whenever code changes in a production application, such as with adding
+          a new feature, it starts in a development environment. This
+          environment involves a developer coding up the new feature and testing
+          it on their local machine.
+        </p>
+
+        <p>
+          Once the new feature code is finished and tested locally, it typically
+          moves on to a dedicated testing environment. This environment is
+          optimized for whatever aspects of the application are being tested
+          (specific units, end-to-end functionality, etc.).
+        </p>
+
+        <p>
+          Prior to deploying live, the new feature code is moved to a staging
+          environment. This environment is supposed to match the production
+          environment as closely as possibly for any final checks. Finally, the
+          new code moves to the production environment to go live.
+        </p>
+
+        <p>
+          Review apps generally fall under the same category as staging
+          environments, though their usefulness may expand beyond that. So it
+          will be useful to look at staging environments in more detail.
+        </p>
+
+        <p>What are staging environments? Here is a good definition:</p>
+
+        <blockquote>
+          “A staging environment (sometimes called a pre-production environment)
+          is the environment where your code is ‘staged’ prior to being run in
+          front of users so you can ensure it works as designed.” [<a
+            href="#footnote-12"
+            >12</a
+          >]
+        </blockquote>
+
+        <p>
+          A staging environment can be used for quality assurance teams,
+          automated end-to-end testing, and for product managers and/or other
+          stakeholders to be able to validate that new features and
+          functionality work as intended.
+        </p>
+
+        <p>
+          Consider this scenario where you are a developer of a frontend
+          application:
+        </p>
+
+        <p>** SINGLE DEV, SINGLE ENV DIAGRAM **</p>
 
         <div class="sequence">
           <div class="img-wrapper">
@@ -244,74 +318,43 @@
             />
           </div>
         </div>
-        <p>
-          T
-        </p>
+        <p>T</p>
         <div class="sequence">
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/ssg-1.png"
-              alt="ssg flow 1"
-            />
+            <img src="images/diagrams/ssg-1.png" alt="ssg flow 1" />
           </div>
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/ssg-2.png"
-              alt="ssg flow 2"
-            />
+            <img src="images/diagrams/ssg-2.png" alt="ssg flow 2" />
           </div>
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/ssg-3.png"
-              alt="ssg flow 3"
-            />
+            <img src="images/diagrams/ssg-3.png" alt="ssg flow 3" />
           </div>
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/ssg-4.png"
-              alt="ssg flow 4"
-            />
+            <img src="images/diagrams/ssg-4.png" alt="ssg flow 4" />
           </div>
         </div>
 
         <div class="sequence">
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/jamstack-1.png"
-              alt="jamstack flow 1"
-            />
+            <img src="images/diagrams/jamstack-1.png" alt="jamstack flow 1" />
           </div>
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/jamstack-2.png"
-              alt="jamstack flow 2"
-            />
+            <img src="images/diagrams/jamstack-2.png" alt="jamstack flow 2" />
           </div>
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/jamstack-3.png"
-              alt="jamstack flow 3"
-            />
+            <img src="images/diagrams/jamstack-3.png" alt="jamstack flow 3" />
           </div>
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/jamstack-4.png"
-              alt="jamstack flow 4"
-            />
+            <img src="images/diagrams/jamstack-4.png" alt="jamstack flow 4" />
           </div>
           <div class="img-wrapper">
-            <img
-              src="images/diagrams/jamstack-5.png"
-              alt="jamstack flow 5"
-            />
+            <img src="images/diagrams/jamstack-5.png" alt="jamstack flow 5" />
           </div>
         </div>
 
         <h3>2.1)Staging Environments</h3>
 
-        <p>
-          T
-        </p>
+        <p>T</p>
 
         <div class="img-wrapper">
           <img
@@ -320,28 +363,18 @@
           />
         </div>
 
-        <p>
-          
-        </p>
+        <p></p>
 
         <p>
           T
-          <em>without user intervention</em> [<a href="#footnote-1">1</a>].
-          T
+          <em>without user intervention</em> [<a href="#footnote-1">1</a>]. T
         </p>
 
         <h3>2.2) What are Review Apps?</h3>
 
-        <p>
-          communication [<a
-            href="#footnote-2"
-            >2</a
-          >].
-        </p>
+        <p>communication [<a href="#footnote-2">2</a>].</p>
 
-        <p>
-          I
-        </p>
+        <p>I</p>
 
         <div class="img-wrapper">
           <figure>
@@ -349,166 +382,97 @@
               src="images/diagrams/diagram.png"
               alt="A diagram with footnote"
             />
-            <figcaption>
-              D [<a
-                href="#footnote-3"
-                >3</a
-              >]
-            </figcaption>
+            <figcaption>D [<a href="#footnote-3">3</a>]</figcaption>
           </figure>
         </div>
 
         <h4>2.2.1) h4 sub sub heading</h4>
 
-        <p>
-          T
-        </p>
+        <p>T</p>
 
         <ul>
+          <li>List item 1</li>
+          <li>List item 2</li>
           <li>
-            List item 1
-          </li>
-          <li>
-            List item 2
-          </li>
-          <li>
-            code: <code>keepalive</code> connection header to establish a persistent
-            connection [<a href="#footnote-4">4</a>].
+            code: <code>keepalive</code> connection header to establish a
+            persistent connection [<a href="#footnote-4">4</a>].
           </li>
         </ul>
 
-        <p>
-          L
-        </p>
+        <p>L</p>
 
         <h3>2.3) Frontend Review Apps</h3>
 
-        <p>
-          
-        </p>
+        <p></p>
 
-        <p>
-          B
-        </p>
+        <p>B</p>
 
         <h2 id="existing-solutions">3) Existing Solutions</h2>
 
-        <p>
-          A
-        </p>
+        <p>A</p>
 
         <h3>3.1) Review Apps as a Feature</h3>
 
-        <p>
-          A
-        </p>
+        <p>A</p>
 
-        <p>
-          I
-        </p>
+        <p>I</p>
 
-        <blockquote>
-          Quote.
-          [<a href="#footnote-12">12</a>]
-        </blockquote>
+        <blockquote>Quote. [<a href="#footnote-12">12</a>]</blockquote>
 
-        <p>
-          h
-        </p>
+        <p>h</p>
 
-        <blockquote>
-          Quote
-          [<a href="#footnote-13">13</a>]
-        </blockquote>
+        <blockquote>Quote [<a href="#footnote-13">13</a>]</blockquote>
 
-        <p>
-          T
-        </p>
+        <p>T</p>
 
         <h3>3.2) Review Apps as a Service</h3>
 
-        <p>
-          W
-        </p>
+        <p>W</p>
 
-        <p>
-          I
-        </p>
+        <p>I</p>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>
-          O
-        </p>
+        <p>O</p>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>
-          W
-        </p>
+        <p>W</p>
 
         <h3>3.3) DIY</h3>
 
-        <p>
-          A
-        </p>
+        <p>A</p>
 
-        <blockquote>
-          Quote. [<a href="#footnote-14">14</a>]
-        </blockquote>
+        <blockquote>Quote. [<a href="#footnote-14">14</a>]</blockquote>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>
-          A
-        </p>
+        <p>A</p>
 
         <h2 id="stagehand">3) Stagehand</h2>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>
-          T
-        </p>
+        <p>T</p>
 
         <h3>4.1) AWS</h3>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>
-          T
-        </p>
+        <p>T</p>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
         <p>
@@ -518,15 +482,10 @@
         </p>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>
-          H
-        </p>
+        <p>H</p>
 
         <h3>4.2) Github Actions</h3>
         <div class="sequence">
@@ -555,21 +514,14 @@
             />
           </div>
         </div>
-        <p>
-          H
-        </p>
+        <p>H</p>
         <h3>4.3) Client Side Code</h3>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>
-          H
-        </p>
+        <p>H</p>
 
         <h2 id="existing-solutions">5) Existing solutions</h2>
 
@@ -585,71 +537,42 @@
         <h3>4.4) CLI</h3>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>
-          H
-        </p>
+        <p>H</p>
 
         <h2 id="existing-solutions">5) Challenges</h2>
 
-        <p>
-          I
-        </p>
+        <p>I</p>
 
         <h3>5.1) Relative Paths</h3>
 
-        <p>
-          Broadly[<a href="#footnote-16">16</a>],
-        </p>
+        <p>Broadly[<a href="#footnote-16">16</a>],</p>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
         <h3>5.2) Github Action Optimizations</h3>
 
-        <p>
-          Broadly[<a href="#footnote-17">17</a>],
-        </p>
+        <p>Broadly[<a href="#footnote-17">17</a>],</p>
 
-        <p>
-          L
-        </p>
+        <p>L</p>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
         <h2 id="future work">6) Future Work</h2>
 
-        <p>
-          W
-        </p>
+        <p>W</p>
 
         <div class="img-wrapper">
-          <img
-            src="images/diagrams/daigram.png"
-            alt="Random diagram"
-          />
+          <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <blockquote>
-          Quote. [<a
-            href="#footnote-26"
-            >26</a
-          >]
-        </blockquote>
+        <blockquote>Quote. [<a href="#footnote-26">26</a>]</blockquote>
 
         <div class="img-wrapper">
           <figure>
@@ -662,7 +585,6 @@
             </figcaption>
           </figure>
         </div>
-       
 
         <p>
           <code>ulimits</code> were increased to the following:
@@ -679,7 +601,6 @@
           </code>
         </p>
         <p>Once this was updated, the test ran without any errors.</p>
-
 
         <section id="footnotes">
           <h2 id="references">7) References</h2>
@@ -790,7 +711,10 @@
         </li>
 
         <li class="individual">
-          <img src="images/avatars/emil_profile_pic_12_20_20.jpg" alt="Emil Reji" />
+          <img
+            src="images/avatars/emil_profile_pic_12_20_20.jpg"
+            alt="Emil Reji"
+          />
 
           <h3>Emil Reji</h3>
 
@@ -810,7 +734,10 @@
             </li>
 
             <li>
-              <a href="https://www.linkedin.com/in/emil-reji-88b548144/" target="_blank">
+              <a
+                href="https://www.linkedin.com/in/emil-reji-88b548144/"
+                target="_blank"
+              >
                 <img src="images/icons/linked_in_icon.png" alt="linkedin" />
               </a>
             </li>
