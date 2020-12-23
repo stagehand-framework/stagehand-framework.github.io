@@ -847,7 +847,19 @@
           <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>H</p>
+        <p>Now that we understand how stagehand is built, we can discuss how it works from a user perspective. We provide a straight forward CLI tool to the user to manage their Stagehand apps. It is a node npm package so set up is just one command in the CLI: </p>
+        <p><code>npm install -g stagehand-framework</code></p>
+        <p>The init command forms the meat of our command line tool. You use it by navigating to the root directory of a project that you want to use stagehand on. Then when you run the command, a list of easy to use prompts are provided. They gather app configuration details such as the github token to use for github API access, the app setup and build command, the stagehand app’s name, etc.</p>
+        <p>Then various local files are added. The .github directory, which is provided to all github projects, is populated with GitHub Actions workflows. A .stagehand directory is created or updated in the user’s HOME directory as well. It holds persistent information about the local stagehand applications the user has access to. </p>
+        <p>Then this command runs the AWS CloudFormation template to provision all necessary AWS infrastructure. Once this is complete, the process uses the outputs of our template to automatically add our required secrets to the user’s repo via the GitHub API. All in all, this process makes setting up review apps as simple as running this command and waiting for the process to finish before continuing with the normal developer workflow of commits, pull requests, etc.</p>
+        <p>*stagehand init gif*</p>
+        <p>The list command is used to list all stagehand applications you have access to. Once those are displayed, you can select a single app and view all available review apps within it. Then, as the gif shows, you can select a single review app from the terminal to automatically open it in the browser. This allows you to interact with review apps without having to navigate to github.com and look at pull requests.</p>
+        <p>*stagehand list gif*</p>
+        <p>The add and access command work together to alter and view access control. They allow collaboration between users on different devices who want to use the same stagehand app. </p>
+        <p>The user who has access to a stagehand app locally can run stagehand access to view the access controls on an app as the gif shows. That user can also add or remove another user’s access to the project by entering the new user’s email address. Once this change is complete, the stagehand app’s S3 bucket name is outputted. This bucket can be manually provided to the user who was just added. This new user can then run stagehand add and provide this S3 bucket to ensure that they have local access to that stagehand app.</p>
+        <p>*stagehand access gif; maybe add gifs for entire workflow of collaboration*</p>
+        <p>The destroy command is the opposite of the init command. Similar to init, it is run in the root of an existing stagehand application. It removes all related local files such as the workflow files in the .github directory. It also removes references to this app from inside the .stagehand directory so this app won’t show up when running other commands like stagehand list. And last but definitely not least, this command tears down the AWS infrastructure and removes any secrets in our corresponding github repo.</p>
+        <p>*stagehand destroy gif*</p>
 
         <h2 id="challenges">5) Challenges</h2>
 
