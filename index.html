@@ -244,7 +244,10 @@
           involved in that application.
         </p>
 
-        <p>** ENVIRONMENTS DIAGRAM **</p>
+        <img
+          src="images/diagrams/environments.png"
+          alt="environments diagram"
+        />
 
         <p>
           Whenever code changes in a production application, such as with adding
@@ -296,7 +299,66 @@
           application:
         </p>
 
-        <p>** SINGLE DEV, SINGLE ENV DIAGRAM **</p>
+        <img
+          src="images/diagrams/scenario_1.png"
+          alt="single developer w/ staging environment"
+        />
+
+        <p>
+          The product manager wants a responsive navigation bar added to the
+          application and you are assigned this task. After coding up and
+          testing your new navigation bar feature, you deploy your changes to a
+          staging environment.
+        </p>
+
+        <p>
+          In this staging environment, the product manager and other
+          stakeholders can view your changes in a production-like environment.
+          They can play around with the new functionality, making sure it is
+          what they want and that everything works properly. Then, once your new
+          feature is approved, it can be moved into production to be released.
+        </p>
+
+        <p>
+          But what if you are part of a development team that is assigned a wide
+          variety of features. Now you, Alice, and Bob are all working on
+          different parts of the frontend application at the same time. You are
+          working on the navigation bar feature, Alice is working on the footer,
+          and Bob is working on the page content:
+        </p>
+
+        <img
+          src="images/diagrams/scenario_2.png"
+          alt="multiple developera w/ shared staging environment"
+        />
+
+        <p>
+          All of these features will have to be deployed to a shared staging
+          environment. There the new features can each be verified by the
+          product manager and other stakeholders before being approved to go
+          into production.
+        </p>
+
+        <p>
+          But because this environment is shared, maybe you and Alice have to
+          wait until Bob is done using it before you can deploy and share your
+          new features. Furthermore, you or Alice may have to clean up the
+          staging environment if Bob made changes to it. And if your code now
+          conflicts with Bob’s, you may have to resolve these conflicts.
+        </p>
+
+        <p>
+          This type of bottleneck in the development cycle is one of many
+          scenarios where having review apps can be incredibly helpful.
+        </p>
+
+        <h3>2.2. What Are Review Apps?</h3>
+
+        <h3>2.3 Frontend Review Apps</h3>
+
+        <h4>2.3.1 Why Frontend Review Apps?</h4>
+
+        <h4>2.3.2 Frontend Applicaton Architecture</h4>
 
         <div class="sequence">
           <div class="img-wrapper">
