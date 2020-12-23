@@ -1213,7 +1213,21 @@
 
         <h2 id="future work">6) Future Work</h2>
 
-        <p>W</p>
+        <h3>6.1 Develop dashboard templates</h3>
+
+        <p>Our current dashboard, while useful, is a minimal, one size fits all solution. We would like to create one or more dashboard templates optimized for common use cases. For example, some sites may want a more complex dashboard that allows the inputting of feedback within the review app itself. It would be nice if we could provide this out of the box instead of requiring the user to create it themselves.</p>
+
+        <h3>6.2 Implementation using other cloud providers</h3>
+
+        <p>Our current solution uses AWS for its infrastrucutre. While this is a good, common choice amongst the various other cloud providers, it would be great if our solution were operational amongst all the alternatives such as Digital Ocean, Google Cloud, etc.</p>
+
+        <h3>6.3 Provide option for self-hosted GitHub Runners</h3>
+
+        <p>Right now, in order to run the automated jobs required by our github actions workflow files, github always uses thier default servers. While this is great for convenience, it does reduce the amount of control the user has. Some users may prefer to run github actions workflow files on thier own VPS (Virtual Private Server). We would like to provide the option to do this by adding further integrations with cloud providers of VPSs like AWS's EC2, Digital Ocean's droplets, etc.</p>
+
+        <h3>6.4 Create an automated test suite</h3>
+
+        <p>Last, but definitely not least, we could like to create a comprehensive automated test suite. This will make adding additional features and general testing work required much easier.</p>
 
         <div class="img-wrapper">
           <img src="images/diagrams/daigram.png" alt="Random diagram" />
