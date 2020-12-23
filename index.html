@@ -539,31 +539,127 @@
           </div>
         </div>
 
-        <h3>4.1) AWS</h3>
+        <h2>4. Stagehand</h2>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Random diagram" />
-        </div>
-
-        <p>T</p>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Random diagram" />
+          <img src="images/diagrams/final-architecture.png" alt="Stagehand final architecture" />
         </div>
 
         <p>
-          ...sends back a response with a new webpage with the client’s new
-          post. This is as expected, but what happens when a second client makes
-          a post?
+          Stagehand is divided into 3 components, AWS Infrastructure, GitHub Actions, and Client-side code.
+        </p>
+
+        <h3>4.1. AWS</h3>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/aws-final.png" alt="Final aws architecture" />
+        </div>
+
+        <p>
+          There are two flows through our AWS infrastructure. The first is when review apps are being created or torn down, the second is when requests to view the review apps are made.
+        </p>
+
+        <h4>4.1.1. S3 Bucket</h4>
+
+        <p>
+          The S3 Bucket is our storage solution, it is a database for files. This is where each of our review apps for a particular Stagehand application are stored in its entirety. The review apps need a way to be deciphered from one another.
         </p>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Random diagram" />
+          <img src="images/diagrams/aws-s3-basepath.png" alt="Branch/Commit identifier" />
         </div>
 
-        <p>H</p>
+        <p>
+          To handle this we group review apps by the branch name in which the feature is being worked on and a hash of the commit. This approach helps us in two ways. The first is that the branch gives context as to what feature is being developed and it allows us to group review apps logically by feature being worked on. The commit hash identifier will then ensure that each review app has a unique namespace within the s3 bucket.
+        </p>
 
-        <h3>4.2) Github Actions</h3>
+        <h4>4.1.2. CloudFront</h4>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/aws-cloudfront.png" alt="Aws cloudfront flow" />
+        </div>
+
+        <p>
+          We use CloudFront as our CDN and hosting solution. All incoming HTTPS requests for review apps first go through CloudFront and then CloudFront retrieves the correct asset from the S3 Bucket and returns it to the user. The bonus of using CloudFront is that it handles securing requests with TLS and provides us with an out of the box domain to use. There’s no need to configure a DNS, get an SSL certificate, or link CloudFront to an existing domain.
+        </p>
+
+        <h4>4.1.3. IAM</h4>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/aws-iam.png" alt="Aws iam flow" />
+        </div>
+        
+        <p>
+          The last AWS infrastructure piece is Identity and Access Management (IAM). This enables us to tightly secure the access to CloudFront and S3. It also ensures that the AWS credentials that we use to spin up the infrastructure can’t access any other AWS resources on the account of where this infrastructure is located. The developer who initialized Stagehand to the repository now doesn’t have to worry about what individuals who have access to the repository, whether malicious or not, may do.
+        </p>
+
+        <h4>4.1.4. CloudFormation</h4>
+        
+        <div class="img-wrapper">
+          <img src="images/diagrams/aws-cloudformation.png" alt="Aws cloudformation flow" />
+        </div>
+
+        <p>
+          To deploy our AWS infrastructure we used CloudFormation. It allows us to use a template with listed resources, configuration, and outputs and it’ll spin up all the infrastructure we need. We didn’t need to customize each AWS stack to each Stagehand App so a template was a perfect approach. This also allows us to use the outputs that this CloudFormation Stack creation gives us and then automate setting up the users GitHub account with the proper configuration. Another bonus of having all of our resources grouped together is not only the ease in spinning it up, but also in tearing it down.
+        </p>
+
+        <h3>4.2. Github Actions</h3>
+
+        <h4>4.2.1. Why Does Github Actions Exist?</h4>
+
+        <p>
+          To understand what GitHub Actions is and why it exists, we’ll go over a very common scenario for a GitHub user:
+          You want to build your Gatsby (a framework for building frontend apps) application every time a commit to your codebase is made. To make this happen what would you need to do? 
+        </p>
+        <div class="sequence">
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/gh-gatsby-fail-1.png"
+              alt="Gatsby fail 1"
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/gh-gatsby-fail-2.png"
+              alt="Gatsby fail 2"
+            />
+          </div>
+        </div>
+        <p>
+          The repository itself can’t run code, we need some place for the Gatsby build to be executed.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/gh-buildserver.png"
+            alt="Gatsby build server"
+          />
+        </div>
+
+        <p>
+          We can solve this by having a server somewhere, which will receive a notification from GitHub letting us know when to start the build process. Then we’d pull down the code from the repository onto the server and then run the build command. GitHub noticed that this was an incredibly common flow of events its users would want to execute, running code in the context of their repository. GitHub wanted to devise a way for you to run code directly within your repository, eliminating the need to spin up or configure your own server. This inspired the creation of GitHub Actions.
+        </p>
+
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/gh-buildrepo.png"
+            alt="Gatsby GitHub Actions build"
+          />
+        </div>
+
+        <p>
+          There is now a way to run code within the context of your repository. GitHub provides each repository with a server that it can use the run code on in response to GitHub events.
+        </p>
+        <p>
+          If you recall, the events we’re concerned about (pull requests, commits) are repository level events. GitHub Actions is perfect for our use case because we can leverage the server GitHub provides us to build our review apps.
+        </p>
+
+        <h4>4.2.2. Using GitHub Actions</h4>
+
+        <p>
+          The only piece of information that needs to be provided to GitHub so that it knows when and how to run the code is a Workflow file. These Workflow files will live in your GitHub repository under a special folder <code>.github</code> to alert GitHub to check for the workflow files. We provide all the workflow files that a user of Stagehand needs during setup.
+        </p>
+
         <div class="sequence">
           <div class="img-wrapper">
             <img
@@ -590,14 +686,171 @@
             />
           </div>
         </div>
-        <p>H</p>
-        <h3>4.3) Client Side Code</h3>
+        <p>The above is the flow of a GitHub Action, it is separated into four steps. If we were to map each of these steps to a Stagehand's Create Review App workflow it would look like this:</p>
+        <ol>
+          <li>
+            A pull request is created in your repository, creating a pull request event
+          </li>
+          <li>
+            GitHub will see that the Create workflow file inside your repository is listening for this event to occur, triggering the workflow to begin
+          </li>
+          <li>
+            GitHub will read the workflow file and provision a server for you set up with the appropriate environment credentials
+          </li>
+          <li>
+            GitHub server will execute the contents of the Create workflow. This will build the review app, copy the build to S3, and publish a comment containing the URL of the review app
+          </li>
+        </ol>
+
+        <p>
+          We also provide one more workfile that will be triggered when a pull request is closed or merged. This will tear down any review apps associated with that branch, and invalidate CloudFront’s cache so the review apps will no longer be accessible.
+        </p>
+
+        <h3>4.3. Client Side Code</h3>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Random diagram" />
+          <img src="images/diagrams/client-overview.png" alt="Client overview" />
         </div>
 
-        <p>H</p>
+        <p>
+          There are three fundamental pieces to our client side code. The customizable dashboard, the iframe to serve the review app content, and the service worker to handle routing. All this code lives in an HTML file and two JavaScript files that we provide to every review app.
+        </p>
+
+        <h3>4.3.1. Dashboard and Iframe</h3>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-dashboard.png" alt="Client dashboard" />
+        </div>
+
+        <p>
+          The HTML file provides the scaffolding of a dashboard. The Stagehand dashboard visually sits on top of the review app to give extra context to the viewer of the review app and reminding them that they’re looking at a review app, not production. While the information that our dashboard gives at the moment is a banner, this setup allows the user of Stagehand to easily build out a custom dashboard to do and say whatever they want. This could be as simple as building out dashboard content, host it elsewhere and link to it in your provided Stagehand HTML file. Alternatively, it can be built directly within the provided HTML/JavaScript files.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-iframe.png" alt="Client iframe" />
+        </div>
+
+        <p>
+          We use an iframe to get this dashboard overlay effect.
+        </p>
+        <blockquote>
+          “The iframe represents a nested browsing context, embedding another HTML page into the current one.” [<a
+            href="#footnote-12"
+            >FIX LATER</a
+          >]
+        </blockquote>
+        <p>
+          It is basically a webpage within another webpage, created with just a simple HTML tag. It can be styled so that it looks as though it’s the main window, which is how we achieve this. Another feature of an iframe is that if the main window is the same origin (ie <code>https://1245.cloudfront.net</code>) as the iframe, then the main window can access certain properties of the iframe like its content and location.
+        </p>
+
+        <h3>4.3.2. Service Workers and Routing</h3>
+
+        <p>
+          Those familiar with Service Workers may notice that we’re using them in an unorthodox way. More often than not they’re used for Progressive Web Apps (*link to PWA explanation*) and take advantage of many browser APIs like the built in Cache and Database options. All this information about Service Workers is not important to understand how we’re using them, so we’re going to talk about them only in the context that they’re being used.
+        </p>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-serviceworker.png" alt="Client service worker" />
+        </div>
+        <p>
+          A Service Worker is a browser feature, it is not infrastructure, it is code that is run inside a browser process. Once it is registered to a domain (ie 1245.cloudfront.net) it intercepts all requests going in and out of that domain. We can both alter the request and response in the cycle. In our case we’re going to intercept HTTP requests.
+        </p>
+        <p>
+          The important takeaways for how we’re using them is to know that they are an in-browser proxy, and they are able to send and receive messages to the domain they are registered to.
+        </p>
+
+        <h3>4.3.3. Viewing the Review App</h3>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-createapp.png" alt="Client build app flow" />
+        </div>
+
+        <p>
+          Before we begin walking through the client request cycle, we need to revisit the GitHub Server. Now that we have client files in the mix, we need to add both the review app build and the Stagehand client files to the S3 Bucket. This means that each review app will have its own version of the Stagehand Client files. These client files are very small and have no outside dependencies.
+        </p>
+
+        <p>
+          Once our app is built and all of the appropriate review app files are in the s3 bucket we can view the review app.
+        </p>
+
+        <div class="sequence">
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/client-flow-1.png"
+              alt="Client flow 1"
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/client-flow-2.png"
+              alt="Client flow 2"
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/client-flow-3.png"
+              alt="Client flow 3"
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/client-flow-4.png"
+              alt="Client flow 4"
+            />
+          </div>
+        </div>
+
+        <ol>
+          <li>
+            Client fetches the Stagehand HTML file provided to each review app
+          </li>
+          <li>
+            Client renders both the dashboard and the iframe that will later house the review app
+          </li>
+          <li>
+            Stagehand JavaScript and Service Worker files are requested.
+          </li>
+          <li>
+            Service Worker begins installation
+          </li>
+        </ol>
+
+        <p>
+          It's possible that the service worker may need extra time to register. A simple refresh will do the trick. The service worker only needs to install once per each Stagehand application, not once per review app.
+        </p>
+
+        <div class="sequence">
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/client-flow-5.png"
+              alt="Client flow 5"
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/client-flow-6.png"
+              alt="Client flow 6"
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/client-flow-7.png"
+              alt="Client flow 7"
+            />
+          </div>
+        </div>
+
+        <ol start="5">
+          <li>
+            All HTTP requests will be intercepted by the service worker
+          </li>
+          <li>
+            Service worker will fix the requested path and forward the request to CloudFront
+          </li>
+          <li>
+            Service worker will forward the response to the iframe, populating it with the assets it needs
+          </li>
+        </ol>
 
         <h2 id="existing-solutions">5) Existing solutions</h2>
 
