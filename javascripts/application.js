@@ -1,7 +1,7 @@
 /* global document, window, hljs, $ */
 
 document.addEventListener("DOMContentLoaded", () => {
-  const riverLogo = document.querySelector("#river-logo");
+  const stagehandLogo = document.querySelector("#stagehand-logo");
   const nav = document.querySelector("nav");
   const navLinks = document.querySelectorAll("#site-navigation a");
   const main = document.querySelector("main");
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     $([document.documentElement, document.body]).animate(
       {
-        scrollTop: $("#what-is-river").offset().top,
+        scrollTop: $("#what-is-stagehand").offset().top,
       },
       2000
     );
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const isNarrowScreen = () => getWindowWidth() < 1100;
 
   const logos = [...document.querySelectorAll(".logo-links img")]
-    .filter((logo) => !/river/.test(logo.id))
+    .filter((logo) => !/stagehand/.test(logo.id))
     .map((logo) => logo.id.split("-")[0]);
 
   const snakeCaseify = (text) => text.toLowerCase().split(/ +/).join("-");
@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const highlightSection = (li, a) => {
     li.style.listStyle = "disc";
 
-    li.style.color = "#0779e4";
-    a.style.color = "#0779e4";
+    li.style.color = "#b82a52";
+    a.style.color = "#b82a52";
   };
 
   const mobileCaseStudyLinks = [];
@@ -115,9 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const logoUrls = {
-    githubWhite: "./images/logos/river_github-white.png",
-    githubBlack: "./images/logos/river_github-black.png",
-    githubBlue: "./images/logos/river_github-blue.png",
+    githubWhite: "./images/logos/stagehand_github-white.png",
+    githubBlack: "./images/logos/stagehand_github-black.png",
+    githubBlue: "./images/logos/stagehand_github-blue.png",
   };
 
   const isOnHeader = (logo) => {
@@ -238,17 +238,17 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const handleNavColors = () => {
-    const onHeader = isOnHeader("river");
-    const onTeam = isOnTeamSection("river");
+    const onHeader = isOnHeader("stagehand");
+    const onTeam = isOnTeamSection("stagehand");
     const onMain = !(onHeader || onTeam);
     const isWideScreen = !isNarrowScreen();
 
     if (isWideScreen && !onMain && topNavVisible) {
-      styleNavColors("#f7f7f7", "#0779e4", "#28c9ae");
-      changeImgSrc("river-logo", "images/logos/river_logo-full.png"); // black
+      styleNavColors("#f7f7f7", "#1a1053", "#b82a52");
+      changeImgSrc("stagehand-logo", "images/logos/stagehand_logo-mark.png"); // black
     } else {
-      styleNavColors("#f7f7f7", "#0779e4", "#28c9ae");
-      changeImgSrc("river-logo", "images/logos/river_logo-full.png");
+      styleNavColors("#f7f7f7", "#1a1053", "#b82a52");
+      changeImgSrc("stagehand-logo", "images/logos/stagehand_logo-mark.png");
     }
   };
 
@@ -257,11 +257,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const narrowScreen = isNarrowScreen();
     topNavVisible = true;
 
+    stagehandLogo.style.height = "36px";
+    stagehandLogo.style.width = "36px";
+    stagehandLogo.style.padding = "2px 2px 2px 12px";
+
     handleNavColors();
     scrollPosition = position;
 
     if (narrowScreen) document.body.style.backgroundColor = "#282828";
     $(nav).slideDown("fast");
+
   };
 
   const showSite = () => {
@@ -282,6 +287,10 @@ document.addEventListener("DOMContentLoaded", () => {
     handleNavColors();
     $(nav).slideUp("fast");
     showSite();
+    
+    stagehandLogo.style.height = "40px";
+    stagehandLogo.style.width = "40px";
+    stagehandLogo.style.padding = "0 0 0 10px";
   };
 
   const toggleNav = () => {
@@ -303,7 +312,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  riverLogo.addEventListener("click", handleNavDisplay);
+  stagehandLogo.addEventListener("click", handleNavDisplay);
+  stagehandLogo.addEventListener("mouseenter", handleNavDisplay);
   main.addEventListener("mouseenter", hideNav);
   ourTeam.addEventListener("mouseenter", hideNav);
   header.addEventListener("mouseenter", hideNav);
@@ -343,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   $githubLogo.on("mouseover touchstart", function () {
-    $githubLogo.prop("src", logoUrls.githubBlue);
+    $githubLogo.prop("src", logoUrls.githubWhite);
   });
 
   $githubLogo.on("mouseout touchend", function () {

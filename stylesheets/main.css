@@ -23,8 +23,9 @@
 }
 
 body {
-  background-color: #fff;
-  color: var(--color-black);
+  background: #f7a240ff;
+;
+  color: var(--color-purple);
   font-family: var(--font-family-body);
 }
 
@@ -42,6 +43,11 @@ h5 {
 
 h1 + p.subheader {
   color: #999;
+}
+
+#case-study {
+  background: #f3f3f3ff;
+  border-radius: 20px;
 }
 
 #case-study p.subheader {
@@ -138,7 +144,8 @@ a:hover {
 
 main > section {
   margin: 80px 0 100px 0;
-  width: 75%;
+  width: 85%;
+  padding: 40px;
 }
 
 blockquote {
@@ -188,7 +195,7 @@ img {
   max-width: 800px;
 }
 
-#river-logo {
+#stagehand-logo {
   font-family: var(--font-family-header);
   font-weight: bold;
   font-size: 1.5rem;
@@ -199,6 +206,15 @@ img {
   top: 20px;
   right: 33px;
   z-index: 4;
+  padding-left: 10px;
+  z-index: 999;
+  position: fixed; 
+  display: inline; 
+  left: 0; 
+  height: 40px; 
+  width: 40px;
+  top: 18px;
+  margin: 0;
 }
 
 #rocket-logo {
@@ -214,8 +230,9 @@ img {
   cursor: pointer;
   width: 35px;
   position: fixed;
-  top: 75px;
+  top: 18px;
   right: 35px;
+  z-index: 999;
 }
 
 #toTop-logo {
@@ -235,8 +252,8 @@ img {
 #case-study img {
   margin: 50px auto;
   margin-bottom: 10px;
-  max-width: 50vw;
-  max-height: 75vh;
+  max-width: 40vw;
+  max-height: 60vh;
   height: auto;
 }
 
@@ -253,6 +270,18 @@ img {
   max-height: 282px;
   width: auto;
 }
+/*
+.slick-prev:before {
+  content: "<";
+  color: #f7a240ff;
+  font-size: 30px;
+}
+
+.slick-next:before {
+  content: ">";
+  color: #f7a240ff;
+  font-size: 30px;
+}*/
 
 /* ---------------------------------
 
@@ -312,6 +341,8 @@ nav#site-navigation ul {
   display: inline-block;
   font-family: var(--font-family-body);
   font-size: 1.5rem;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 nav#site-navigation ul li {
@@ -402,7 +433,7 @@ header h1 img {
 }
 
 #case-study nav li {
-  color: #999;
+  color: var(--color-purple);
   font-size: 1.3rem;
   list-style: circle;
   margin-bottom: 2vh;
@@ -413,7 +444,7 @@ header h1 img {
 }
 
 #case-study nav a {
-  color: #999;
+  color: var(--color-purple);
   font-size: 0.9rem;
   margin-left: 1rem;
   text-decoration: none;
@@ -421,7 +452,7 @@ header h1 img {
 }
 
 #case-study nav a:hover {
-  color: var(--color-maroon);
+  color: #F55723;
 }
 
 #case-study h3,
@@ -461,7 +492,7 @@ h3 {
 }
 
 #case-study p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.8rem;
 }
 
@@ -830,10 +861,16 @@ small {
 
   /* Logos */
 
-  #river-logo {
+  #stagehand-logo {
+    padding-left: 10px;
+    z-index: 999;
+    position: fixed; 
+    display: inline; 
+    left: 0; 
+    height: 40px; 
     width: 40px;
     top: 18px;
-    right: 40px;
+    margin: 0;
   }
 
   #github-logo {
@@ -1042,7 +1079,7 @@ small {
 }
 
 @media (max-width: 400px) {
-  #river-logo {
+  #stagehand-logo {
     width: 33px;
     right: 40px;
   }
