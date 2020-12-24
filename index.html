@@ -1121,7 +1121,7 @@
         <p>Our biggest challenge by far was the handling of relative paths. However before we get into the problem and how we solved it, we need to review some previously mentioned information.</p>
 
         <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Final Architecture Diagram" />
+          <img src="images/diagrams/final-architecture.png" alt="Final Architecture Diagram" />
         </div>
 
         <p>Remember that our final architecture uses a service worker on the client side code to handle routing. An iframe was used to add a dashboard as well. While this was our final approach, our original solution looked quite a bit different. </p>
@@ -1143,7 +1143,7 @@
         </div>
         <p>This results in a 404 failure across all relative assets. Instead of going to google.com/maps/routes, we are going to google.com/routes which doesn’t have a valid asset. How do we ensure that all of the requests from the maps app go to the correct location?</p>
         <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Relative Paths 5" />
+          <img src="images/diagrams/chall-routing-webserver.png" alt="Relative Paths 5" />
         </div>
         <p>The traditional way to handle this issue would be for a web server to intercept all requests coming to google.com and figure out which application to forward it to. This way, only the web server needs to know which path belongs to which app.</p>
         <div class="img-wrapper">
@@ -1188,13 +1188,13 @@
         <p>Initially, stagehand.html is requested and that returns a dashboard as part of the main page and an iframe which will later contain the review app. Then a service worker is requested and installed. Thus, any future requests from the iframe for the review app will be intercepted by the service worker to ensure the basepath is always added as the image shows. </p>
         <p>Here we’re handling routing on the client side without having any additional infrastructure involved. Because of this benefit and the various aforementioned problems with the infrastructure interception solution, the browser interception solution was what we ended up choosing for Stagehand. However, our work didn’t end there.</p>
         <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Update main window part 1" />
+          <img src="images/diagrams/chall-iframe-msg.png" alt="Update main window part 1" />
         </div>
         <p>Now that we have solved our routing issue with client side code, there is another issue that comes up. What happens once a relative link is clicked? Well, the iframe content will be updated but the url in the main page will remain the same since it hasn’t changed. However the user can only see the main window url and the lack of change can be confusing, not to mention inaccurate. So we needed to update the main window so that it matches the page that the review app is on. </p>
         <p>Note that we needed to update it using URL fragments (ex. cloudfront.net/basepath/#path). Otherwise the main window would automatically make a new http request whenever its url was changed. </p>
         <p>Our first attempts used the postMessage API and then the Broadcast Channel API. Both of these APIs were tricky to get the messages to the right client when you had multiple review apps. There were also some cross-browser support issues. As a result, we needed another solution</p>
         <div class="img-wrapper">
-          <img src="images/diagrams/daigram.png" alt="Update main window part 2" />
+          <img src="images/diagrams/chall-iframe-poll.png" alt="Update main window part 2" />
         </div>
         <p>We decided to have the main window continuously poll the iframe to see if the path had been updated. If the path had been updated, we updated the main window accordingly. This polling occurred twice a second. As a result, the main window url almost always matched the iframe content. If it didn’t match at some point, this would be quickly resolved within half a second.</p>
         <p>Note that this solution uses the iframe location as the source of truth. The ability for this solution to work is dependent on the iframe having the same origin as the main window. Two sites have the same origin provided they have the same host, protocol, and port number. In Stagehand’s case, the iframe always has the same origin as the main window due to them both using the same cloudfront url. If this weren’t the case, then we would have to rely on our initial attempts of using the postMessage API and the Broadcast Channel API.</p>
@@ -1213,7 +1213,21 @@
 
         <h2 id="future-work">6) Future Work</h2>
 
-        <p>W</p>
+        <h3>6.1 Develop dashboard templates</h3>
+
+        <p>Our current dashboard, while useful, is a minimal, one size fits all solution. We would like to create one or more dashboard templates optimized for common use cases. For example, some sites may want a more complex dashboard that allows the inputting of feedback within the review app itself. It would be nice if we could provide this out of the box instead of requiring the user to create it themselves.</p>
+
+        <h3>6.2 Implementation using other cloud providers</h3>
+
+        <p>Our current solution uses AWS for its infrastrucutre. While this is a good, common choice amongst the various other cloud providers, it would be great if our solution were operational amongst all the alternatives such as Digital Ocean, Google Cloud, etc.</p>
+
+        <h3>6.3 Provide option for self-hosted GitHub Runners</h3>
+
+        <p>Right now, in order to run the automated jobs required by our github actions workflow files, github always uses thier default servers. While this is great for convenience, it does reduce the amount of control the user has. Some users may prefer to run github actions workflow files on thier own VPS (Virtual Private Server). We would like to provide the option to do this by adding further integrations with cloud providers of VPSs like AWS's EC2, Digital Ocean's droplets, etc.</p>
+
+        <h3>6.4 Create an automated test suite</h3>
+
+        <p>Last, but definitely not least, we could like to create a comprehensive automated test suite. This will make adding additional features and general testing work required much easier.</p>
 
         <div class="img-wrapper">
           <img src="images/diagrams/daigram.png" alt="Random diagram" />
