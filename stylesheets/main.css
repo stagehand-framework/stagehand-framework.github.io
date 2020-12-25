@@ -252,7 +252,7 @@ img {
 #case-study img {
   margin: 50px auto;
   margin-bottom: 10px;
-  max-width: 40vw;
+  max-width: 90%;
   max-height: 60vh;
   height: auto;
 }
