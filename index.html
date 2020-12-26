@@ -208,12 +208,18 @@
           for your frontend application.
         </p>
 
+        <div class="img-wrapper">
+          <img
+            src="images/diagrams/steps.png"
+            alt="steps to get Stagehand working"
+          />
+        </div>
+
         <p>
           All you have to do is install the Stagehand CLI via our NPM package
           and run our init command from your local repo. We will handle the
-          rest. Then you will have review apps automatically deployed for you to
-          view and share whenever you open a pull request on your GitHub
-          repository.
+          rest. Once your code is pushed to a GitHub repository, you will have review apps automatically deployed for you to
+          view and share whenever you open a pull request or make any additional commits on that pull request.
         </p>
 
         <p>
@@ -631,7 +637,7 @@
         <p>
           However with modern dynamic frontend applications, more complex
           client-side JavaScript is sent back to the client in the response.
-          Then data can be fetched by that client-side code from external APIs.
+          Then data can be fetched by that client-side code from external APIs. These APIs could be third party such as Stripe, Auth0, Firebase or your own custom built API.
           This gives these applications more dynamic functionality, similar to a
           full stack application.
         </p>
@@ -781,12 +787,39 @@
 
         <h2 id="building-stagehand">4. Building Stagehand</h2>
 
+        <p>
+          Before we dive into what the pieces of Stagehand look like, let's revisit what we are able to offer. We'll demonstrate by revisiting the Bob and Alice example from earlier.
+        </p>
+
+        <div class="sequence">
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/wireframe_2.png"
+              alt="pull request wireframe"
+            />
+          </div>
+          <div class="img-wrapper">
+            <img
+              src="images/diagrams/stagehand-pr-demo.png"
+              alt="stagehand pull request demo"
+            />
+          </div>
+        </div>
+
+        <p>
+          Stagehand is built to be integrated directly with GitHub pull requests. Stagehand is built to be agnostic to any frontend that can be pre-built and served from a CDN. This includes frameworks such as Gatsby, Next, Hugo, React, etc.
+        </p>
+
+        <p>
+          We built Stagehand in such a way to be less-dependent on if frameworks change certain configurations or if a new hot framework shows up on the market. We ask for your build commands, and how your app outputs its html assets. This is all the information we need to set up your local repository. Let's dive into how we built it.
+        </p>
+
         <div class="img-wrapper">
           <img src="images/diagrams/final-architecture.png" alt="Stagehand final architecture" />
         </div>
 
         <p>
-          Stagehand is divided into 3 components, AWS Infrastructure, GitHub Actions, and Client-side code.
+          Stagehand is divided into 3 components, AWS Infrastructure, GitHub Actions, and Client-side code. We'll go through them in that order so you'll be able to fully understand each piece seen in the diagram above.
         </p>
 
         <h3>4.1. AWS</h3>
@@ -796,13 +829,13 @@
         </div>
 
         <p>
-          There are two flows through our AWS infrastructure. The first is when review apps are being created or torn down, the second is when requests to view the review apps are made.
+          There are two flows through our AWS infrastructure. The first is when review apps are being created or torn down, the second is when someone views a review app.
         </p>
 
         <h4>4.1.1. S3 Bucket</h4>
 
         <p>
-          The S3 Bucket is our storage solution, it is a database for files. This is where each of our review apps for a particular Stagehand application are stored in its entirety. The review apps need a way to be deciphered from one another.
+          The S3 Bucket is our storage solution, it is a database for files. This is where each of our review apps for a particular Stagehand application are stored in its entirety. The review apps stored will have identical files, for example, each review app will have an <code>index.html</code> file. This means we need a way for the review apps to be deciphered from one another. We need to make sure all <code>index.html</code> files are uniquely name spaced, and that it is uniquely name spaced together with all the other assets for that review app.
         </p>
 
         <div class="img-wrapper">
@@ -830,7 +863,7 @@
         </div>
         
         <p>
-          The last AWS infrastructure piece is Identity and Access Management (IAM). This enables us to tightly secure the access to CloudFront and S3. It also ensures that the AWS credentials that we use to spin up the infrastructure can’t access any other AWS resources on the account of where this infrastructure is located. The developer who initialized Stagehand to the repository now doesn’t have to worry about what individuals who have access to the repository, whether malicious or not, may do.
+          The last AWS infrastructure piece is Identity and Access Management (IAM). During <code>stagehand init</code> we create credentials for you that have strict access and those are the credentials used in your GitHub repository. This enables us to tightly secure the access to CloudFront and S3. It also ensures that the AWS credentials that are used to spin up the infrastructure can’t access any other AWS resources on the account of where this infrastructure is located. The developer who initialized Stagehand to the repository now doesn’t have to worry about what individuals who have access to the repository, whether malicious or not, may do.
         </p>
 
         <h4>4.1.4. CloudFormation</h4>
@@ -840,16 +873,23 @@
         </div>
 
         <p>
-          To deploy our AWS infrastructure we used CloudFormation. It allows us to use a template with listed resources, configuration, and outputs and it’ll spin up all the infrastructure we need. We didn’t need to customize each AWS stack to each Stagehand App so a template was a perfect approach. This also allows us to use the outputs that this CloudFormation Stack creation gives us and then automate setting up the users GitHub account with the proper configuration. Another bonus of having all of our resources grouped together is not only the ease in spinning it up, but also in tearing it down.
+          To deploy our AWS infrastructure we used CloudFormation. It allows us to use a template with listed resources, configuration, and outputs and it’ll spin up a CloudFormation Stack with all the infrastructure we need. We didn’t need to customize each CloudFormation Stack to each Stagehand app so a template was a perfect approach. This also allows us to use the outputs that this CloudFormation Stack creation gives us and then automate setting up the users GitHub account with the proper configuration. Another bonus of having all of our resources grouped together is not only the ease in spinning it up, but also in tearing it down.
         </p>
 
         <h3>4.2. Github Actions</h3>
 
+        <p>
+          GitHub Actions is a fairly new tool offered by GitHub. It was launched only a couple years ago[<a
+            href="#footnote-1"
+            >1</a
+          >], and has been continuously improving over that time. With this feature in its infancy, it may help to understand first why GitHub offered it before we move onto how it actually functions.
+        </p>
+
         <h4>4.2.1. Why Does Github Actions Exist?</h4>
 
         <p>
-          To understand what GitHub Actions is and why it exists, we’ll go over a very common scenario for a GitHub user:
-          You want to build your Gatsby (a framework for building frontend apps) application every time a commit to your codebase is made. To make this happen what would you need to do? 
+          To understand why GitHub Actions exists and the problem it solves, we’ll go over a very common scenario for a GitHub user:
+          You want to build your Gatsby (a framework for building frontend apps) application every time a commit to your repository is made. To make this happen what would you need to do? 
         </p>
         <div class="sequence">
           <div class="img-wrapper">
@@ -866,7 +906,7 @@
           </div>
         </div>
         <p>
-          The repository itself can’t run code, we need some place for the Gatsby build to be executed.
+          The repository itself can’t run the code needed to build the Gatsby app, the repository does not have a runtime. We need some place with a runtime for the Gatsby build to be executed.
         </p>
 
         <div class="img-wrapper">
@@ -877,7 +917,10 @@
         </div>
 
         <p>
-          We can solve this by having a server somewhere, which will receive a notification from GitHub letting us know when to start the build process. Then we’d pull down the code from the repository onto the server and then run the build command. GitHub noticed that this was an incredibly common flow of events its users would want to execute, running code in the context of their repository. GitHub wanted to devise a way for you to run code directly within your repository, eliminating the need to spin up or configure your own server. This inspired the creation of GitHub Actions.
+          We can solve this by having a server somewhere, which will receive a notification from GitHub letting us know when to start the build process. Then we’d pull down the code from the repository onto the server and then run the build command. This is a lot of work to setup this seemingly simple task.
+        </p>
+        <p>
+          GitHub noticed that this was an incredibly common flow of events its users would want to execute, running code in the context of their repository. GitHub wanted to devise a way for you to run code directly within your repository, eliminating the need to spin up or configure your own server. This inspired the creation of GitHub Actions.
         </p>
 
         <div class="img-wrapper">
@@ -888,7 +931,7 @@
         </div>
 
         <p>
-          There is now a way to run code within the context of your repository. GitHub provides each repository with a server that it can use the run code on in response to GitHub events.
+          There is now a way to run code within the context of your repository. GitHub provides each repository access to a server that it can use the run code on in response to GitHub events.
         </p>
         <p>
           If you recall, the events we’re concerned about (pull requests, commits) are repository level events. GitHub Actions is perfect for our use case because we can leverage the server GitHub provides us to build our review apps.
@@ -926,19 +969,24 @@
             />
           </div>
         </div>
-        <p>The above is the flow of a GitHub Action, it is separated into four steps. If we were to map each of these steps to a Stagehand's Create Review App workflow it would look like this:</p>
+        <p>
+          The above is the flow of a GitHub Action, it is separated into four steps. The event, the event listener, provisioning the server, and executing the workflow file.
+        </p>
+        <p>
+          Let's look at those four steps in the context of when Stagehand's <code>create_review_app.yml</code> workflow file is run.
+        </p>
         <ol>
           <li>
             A pull request is created in your repository, creating a pull request event
           </li>
           <li>
-            GitHub will see that the Create workflow file inside your repository is listening for this event to occur, triggering the workflow to begin
+            GitHub will see that <code>create_review_app.yml</code> inside your repository is listening for when pull requests are opened, triggering the workflow to begin
           </li>
           <li>
-            GitHub will read the workflow file and provision a server for you set up with the appropriate environment credentials
+            GitHub will read <code>create_review_app.yml</code> and provision a server for you set up with the appropriate environment credentials
           </li>
           <li>
-            GitHub server will execute the contents of the Create workflow. This will build the review app, copy the build to S3, and publish a comment containing the URL of the review app
+            GitHub server will execute the contents of <code>create_review_app.yml</code>. This will build the review app, copy the build to S3, and publish a comment containing the URL of the review app
           </li>
         </ol>
 
@@ -953,7 +1001,7 @@
         </div>
 
         <p>
-          There are three fundamental pieces to our client side code. The customizable dashboard, the iframe to serve the review app content, and the service worker to handle routing. All this code lives in an HTML file and two JavaScript files that we provide to every review app.
+          Let's look at an overview of the pieces in our client-side code. There are three fundamental pieces: the customizable dashboard (as seen by the banner providing some context about the review app), the iframe (to serve the review app content), and the service worker (to handle all http communication coming in and out of the iframe). All this code lives in an HTML file and two JavaScript files that we provide to every review app.
         </p>
 
         <h3>4.3.1. Dashboard and Iframe</h3>
@@ -963,40 +1011,43 @@
         </div>
 
         <p>
-          The HTML file provides the scaffolding of a dashboard. The Stagehand dashboard visually sits on top of the review app to give extra context to the viewer of the review app and reminding them that they’re looking at a review app, not production. While the information that our dashboard gives at the moment is a banner, this setup allows the user of Stagehand to easily build out a custom dashboard to do and say whatever they want. This could be as simple as building out dashboard content, host it elsewhere and link to it in your provided Stagehand HTML file. Alternatively, it can be built directly within the provided HTML/JavaScript files.
+          The HTML file provides the scaffolding for a dashboard. The Stagehand dashboard visually sits on top of the review app to give extra context to the viewer of the review app and reminding them that they’re looking at a review app, not production. While the information that our dashboard gives at the moment is a banner, this setup allows the user of Stagehand to easily build out a custom dashboard to do and say whatever they want. This could be as simple as building out dashboard content, host it elsewhere and link to it in your provided Stagehand HTML file. Alternatively, it can be built directly within the provided HTML/JavaScript files.
         </p>
-
-        <div class="img-wrapper">
-          <img src="images/diagrams/client-iframe.png" alt="Client iframe" />
-        </div>
 
         <p>
-          We use an iframe to get this dashboard overlay effect.
+          To get this dashboard to sit on top of the review app without interfering with it we use an iframe.
         </p>
+
         <blockquote>
           “The iframe represents a nested browsing context, embedding another HTML page into the current one.” [<a
             href="#footnote-12"
             >FIX LATER</a
           >]
         </blockquote>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-iframe.png" alt="Client iframe" />
+        </div>
+
         <p>
-          It is basically a webpage within another webpage, created with just a simple HTML tag. It can be styled so that it looks as though it’s the main window, which is how we achieve this. Another feature of an iframe is that if the main window is the same origin (ie <code>https://1245.cloudfront.net</code>) as the iframe, then the main window can access certain properties of the iframe like its content and location.
+          It is basically a webpage within another webpage, created with just a simple HTML tag. It can be styled so that it looks as though it’s the main window, which is how we achieve this. Another feature of an iframe is that if the main window is the same origin (ie <code>https://1245.cloudfront.net</code>) as the iframe, then the main window can access certain properties of the iframe like its content and location. We use this feature of the iframe to solve an important issue later on.
         </p>
 
         <h3>4.3.2. Service Workers and Routing</h3>
 
         <p>
-          Those familiar with Service Workers may notice that we’re using them in an unorthodox way. More often than not they’re used for Progressive Web Apps (*link to PWA explanation*) and take advantage of many browser APIs like the built in Cache and Database options. All this information about Service Workers is not important to understand how we’re using them, so we’re going to talk about them only in the context that they’re being used.
+          Those familiar with Service Workers may notice that we’re using them in an unorthodox way. More often than not they’re used for Progressive Web Apps (*link to PWA explanation*) and take advantage of many browser APIs like the built in Cache and Database options to serve app content quicker and enable offline use. All this information about Service Workers is not important to understand how we’re using them, so we’re going to talk about them only in the context that they’re being used.
         </p>
 
         <div class="img-wrapper">
           <img src="images/diagrams/client-serviceworker.png" alt="Client service worker" />
         </div>
         <p>
-          A Service Worker is a browser feature, it is not infrastructure, it is code that is run inside a browser process. Once it is registered to a domain (ie 1245.cloudfront.net) it intercepts all requests going in and out of that domain. We can both alter the request and response in the cycle. In our case we’re going to intercept HTTP requests.
+          A Service Worker is a browser feature, it is not infrastructure, it is code that is run inside a browser process. Once it is registered to a domain (ie <code>1245.cloudfront.net</code>) it intercepts all requests going in and out of that domain. We can both alter the request and response in the cycle. In our case we’re going to intercept HTTP requests.
         </p>
+
         <p>
-          The important takeaways for how we’re using them is to know that they are an in-browser proxy, and they are able to send and receive messages to the domain they are registered to.
+          The important takeaways for how we’re using them is to know that they are an in-browser proxy, and they are able to send and receive messages to the domain they are registered to. We are using them strictly to make sure each request coming out of the review app has the correct path.
         </p>
 
         <h3>4.3.3. Viewing the Review App</h3>
@@ -1056,7 +1107,7 @@
         </ol>
 
         <p>
-          It's possible that the service worker may need extra time to register. A simple refresh will do the trick. The service worker only needs to install once per each Stagehand application, not once per review app.
+          It's possible that the service worker may need extra time to register for Stagehand to work. A simple refresh will do the trick. The service worker only needs to install once per each Stagehand application, not once per review app. This is because the service worker registers to the CloudFront domain, which encompasses <em>all</em> of the review apps.
         </p>
 
         <div class="sequence">
@@ -1098,41 +1149,46 @@
           <img src="images/diagrams/daigram.png" alt="Random diagram" />
         </div>
 
-        <p>Now that we understand how stagehand is built, we can discuss how it works from a user perspective. We provide a straight forward CLI tool to the user to manage their Stagehand apps. It is a node npm package so set up is just one command in the CLI: </p>
+        <p>Now that we understand how Stagehand is built, we can discuss how it works from a user perspective. We provide a straight forward CLI tool to the user to manage their Stagehand apps. It is a node npm package so set up is just one command in the CLI: </p>
         <p><code>npm install -g stagehand-framework</code></p>
-        <p>The init command forms the meat of our command line tool. You use it by navigating to the root directory of a project that you want to use stagehand on. Then when you run the command, a list of easy to use prompts are provided. They gather app configuration details such as the github token to use for github API access, the app setup and build command, the stagehand app’s name, etc.</p>
-        <p>Then various local files are added. The .github directory, which is provided to all github projects, is populated with GitHub Actions workflows. A .stagehand directory is created or updated in the user’s HOME directory as well. It holds persistent information about the local stagehand applications the user has access to. </p>
-        <p>Then this command runs the AWS CloudFormation template to provision all necessary AWS infrastructure. Once this is complete, the process uses the outputs of our template to automatically add our required secrets to the user’s repo via the GitHub API. All in all, this process makes setting up review apps as simple as running this command and waiting for the process to finish before continuing with the normal developer workflow of commits, pull requests, etc.</p>
+        <p>The <code>init</code> command forms the meat of our command line tool. You use it by navigating to the root directory of a project that you want to use stagehand on. Then when you run the command, a list of easy to use prompts are provided. It will gather app configuration details such as the GitHub token to use for GitHub API access, the app setup and build command, the Stagehand app’s name, etc.</p>
+        <p>Then various local files are added. The <code>.github</code> directory, which is provided to all github projects, is populated with GitHub Actions workflows. A <code>.stagehand</code> directory is created or updated in the user’s <code>HOME</code> directory as well. It holds persistent information about the local Stagehand applications the user has access to. </p>
+        <p>Then this command runs the AWS CloudFormation template to provision all necessary AWS infrastructure. Once this is complete, the process uses the outputs of our template to automatically add our required secrets to the user’s repository via the GitHub API. All in all, this process makes setting up review apps as simple as running this command and waiting for the process to finish before continuing with the normal developer workflow of commits, pull requests, etc.</p>
         <p>*stagehand init gif*</p>
-        <p>The list command is used to list all stagehand applications you have access to. Once those are displayed, you can select a single app and view all available review apps within it. Then, as the gif shows, you can select a single review app from the terminal to automatically open it in the browser. This allows you to interact with review apps without having to navigate to github.com and look at pull requests.</p>
+        <p>The <code>list</code> command is used to list all stagehand applications you have access to. Once those are displayed, you can select a single app and view all available review apps within it. Then, as the gif shows, you can select a single review app from the terminal to automatically open it in the browser. This allows you to interact with review apps without having to navigate to GitHub and look through all your pull requests for the review app URLs.</p>
         <p>*stagehand list gif*</p>
-        <p>The add and access command work together to alter and view access control. They allow collaboration between users on different devices who want to use the same stagehand app. </p>
-        <p>The user who has access to a stagehand app locally can run stagehand access to view the access controls on an app as the gif shows. That user can also add or remove another user’s access to the project by entering the new user’s email address. Once this change is complete, the stagehand app’s S3 bucket name is outputted. This bucket can be manually provided to the user who was just added. This new user can then run stagehand add and provide this S3 bucket to ensure that they have local access to that stagehand app.</p>
+        <p>The <code>add</code> and <code>access</code> command work together to alter and view access control. They allow collaboration between users on different devices who want to use the same Stagehand app. </p>
+        <p>The user who has access to a Stagehand app locally can run <code>stagehand access</code> to view the access controls on an app as the gif shows. That user can also add or remove another user’s access to the project by entering the new user’s email address. Once this change is complete, the Stagehand app’s S3 bucket name is outputted. This bucket can be manually provided to the user who was just added. This new user can then run <code>stagehand add</code> and provide this S3 bucket to ensure that they have local access to that Stagehand app.</p>
         <p>*stagehand access gif; maybe add gifs for entire workflow of collaboration*</p>
-        <p>The destroy command is the opposite of the init command. Similar to init, it is run in the root of an existing stagehand application. It removes all related local files such as the workflow files in the .github directory. It also removes references to this app from inside the .stagehand directory so this app won’t show up when running other commands like stagehand list. And last but definitely not least, this command tears down the AWS infrastructure and removes any secrets in our corresponding github repo.</p>
+        <p>The <code>destroy</code> command is the opposite of the <code>init</code> command. Similar to init, it is run in the root of an existing Stagehand application. It removes all related local files such as the workflow files in the <code>.github</code> directory. It also removes the app from the local datastore so this app won’t show up when running other commands like <code>stagehand list</code>. And last but definitely not least, this command tears down the AWS infrastructure and removes any secrets in our corresponding GitHub repository.</p>
         <p>*stagehand destroy gif*</p>
 
-        <h2 id="challenges">5) Challenges</h2>
+        <h2 id="challenges">5. Challenges</h2>
 
         <p>Now that we know how Stagehand was created and how it can be used, we will delve into some of the specific technical challenges involved in its creation.</p>
 
-        <h3>5.1) Relative Paths</h3>
+        <h3>5.1. Relative Paths</h3>
 
-        <p>Our biggest challenge by far was the handling of relative paths. However before we get into the problem and how we solved it, we need to review some previously mentioned information.</p>
+        <p>A reoccuring problem through our development was relative paths. However before we get into the problem and how we solved it, let's review Stagehand's architecture.</p>
 
         <div class="img-wrapper">
           <img src="images/diagrams/final-architecture.png" alt="Final Architecture Diagram" />
         </div>
 
-        <p>Remember that our final architecture uses a service worker on the client side code to handle routing. An iframe was used to add a dashboard as well. While this was our final approach, our original solution looked quite a bit different. </p>
-        <h4>5.1.1 An Introduction to Relative Routing</h4>
+        <p>Remember that our final architecture uses a service worker in the client side code to handle routing. We also used an iframe to serve the review app, which enabled us to have a dashboard wrapped around the review app. While this was our final approach, our original solution looked quite a bit different. </p>
+
+        <h4>5.1.1. An Introduction to Relative Routing</h4>
+
         <div class="img-wrapper">
           <img src="images/diagrams/daigram.png" alt="Relative Paths 1" />
         </div>
+
         <p>In order to understand the routing problem, a certain amount of historical context is needed. Let’s say you’re a google engineer and you’re given the task to create a maps app. When the app is coded up, and then its assets are built, it has no awareness of where it’s going to be hosted, or what its domain will be. Because of this, the app is coded using relative paths which are shown above. So, what are relative paths?</p>
+
         <div class="img-wrapper">
           <img src="images/diagrams/daigram.png" alt="Relative Paths 2" />
         </div>
+
         <p>Relative paths assume the domain to be used is the same as the current domain. Therefore, relative paths only specify how to get to the new asset relative to the current file’s location. If you’re hosting the maps app at google.com, all of its assets will be relative to that domain. Thus /routes will navigate to google.com/routes. Because relative paths are used when navigating within an app, this means the application code is unaware that it is hosted at google.com.</p>
         <div class="img-wrapper">
           <img src="images/diagrams/daigram.png" alt="Relative Paths 3" />
@@ -1269,9 +1325,9 @@
           <ol>
             <li id="footnote-1">
               <a
-                href="https://pragprog.com/titles/sbsockets/real-time-phoenix/"
+                href="https://news.ycombinator.com/item?id=18231097"
                 target="_blank"
-                >https://pragprog.com/titles/sbsockets/real-time-phoenix/</a
+                >GitHub launches Actions, its workflow automation tool</a
               >
             </li>
             <li id="footnote-2">
