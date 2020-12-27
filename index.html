@@ -190,6 +190,9 @@
             alt="Stagehand logo"
           />
         </div>
+        <nav>
+          <ul></ul>
+        </nav>
 
         <h2 id="what-is-stagehand">1. What is Stagehand?</h2>
 
@@ -227,7 +230,7 @@
           to develop.
         </p>
 
-        <h2 id="what-are-review-apps">2. What are review apps?</h2>
+        <h2 id="what-are-review-apps">2. What are Review Apps?</h2>
 
         <p>
           Stagehand automates the deployment and management of review apps for
@@ -363,7 +366,7 @@
           scenarios where having review apps can be incredibly helpful.
         </p>
 
-        <h3>2.2. What Are Review Apps?</h3>
+        <h3>2.2. Review Apps</h3>
 
         <p>
           Review apps are ephemeral, fully-functional versions of a production
@@ -486,7 +489,7 @@
           disposed of which will free up any unnecessary cloud resources.
         </p>
 
-        <h3>2.3. Frontend Review Apps</h3>
+        <h2 id="frontend-review-apps">3. Frontend Review Apps</h3>
 
         <p>
           Now that we understand what review apps are and their value, we will
@@ -496,7 +499,7 @@
           frontend application actually is.
         </p>
 
-        <h4>2.3.1. Why Frontend Review Apps?</h4>
+        <h4>3.1. Why Frontend Review Apps?</h4>
 
         <p>
           Review apps are an incredibly helpful tool for developers of all types
@@ -528,7 +531,7 @@
           fits all of these needs.
         </p>
 
-        <h4>2.3.2. Frontend Applicaton Architecture</h4>
+        <h4>3.2. Frontend Applicaton Architecture</h4>
 
         <p>
           Stagehand provides review apps for frontend applications. What is a
@@ -652,7 +655,7 @@
           Stagehand also supports automated review apps for them.
         </p>
 
-        <h2 id="existing-solutions">3. Existing Solutions</h2>
+        <h2 id="existing-solutions">4. Existing Solutions</h2>
 
         <p>
           Before we look at Stagehand, we will look at various existing
@@ -661,7 +664,7 @@
           service solutions.
         </p>
 
-        <h3>3.1. Feature vs. Service Solutions</h3>
+        <h3>4.1. Feature vs. Service Solutions</h3>
 
         <p>
           Feature solutions (Reviews As A Feature) offer review app
@@ -709,7 +712,7 @@
           do it yourself as we will cover next.
         </p>
 
-        <h3>3.2. DIY</h3>
+        <h3>4.2. DIY</h3>
 
         <p>
           To manually develop a solution for deploying and managing your own
@@ -787,7 +790,7 @@
           and built it.
         </p>
 
-        <h2 id="building-stagehand">4. Building Stagehand</h2>
+        <h2 id="building-stagehand">5. Building Stagehand</h2>
 
         <p>
           Before we dive into what the pieces of Stagehand look like, let's
@@ -839,7 +842,7 @@
           above.
         </p>
 
-        <h3>4.1. AWS</h3>
+        <h2 id="aws">6. AWS</h3>
 
         <div class="img-wrapper">
           <img
@@ -854,7 +857,7 @@
           views a review app.
         </p>
 
-        <h4>4.1.1. S3 Bucket</h4>
+        <h4>6.1. S3 Bucket</h4>
 
         <p>
           The S3 Bucket is our storage solution, it is a database for files.
@@ -885,7 +888,7 @@
           bucket.
         </p>
 
-        <h4>4.1.2. CloudFront</h4>
+        <h4>6.2. CloudFront</h4>
 
         <div class="img-wrapper">
           <img
@@ -904,7 +907,7 @@
           certificate, or link CloudFront to an existing domain.
         </p>
 
-        <h4>4.1.3. IAM</h4>
+        <h4>6.3. IAM</h4>
 
         <div class="img-wrapper">
           <img src="images/diagrams/aws-iam.png" alt="Aws iam flow" />
@@ -923,7 +926,7 @@
           whether malicious or not, may do.
         </p>
 
-        <h4>4.1.4. CloudFormation</h4>
+        <h4>6.4. CloudFormation</h4>
 
         <div class="img-wrapper">
           <img
@@ -945,7 +948,7 @@
           it down.
         </p>
 
-        <h3>4.2. Github Actions</h3>
+        <h2 id="github-actions">7. GitHub Actions</h3>
 
         <p>
           GitHub Actions is a fairly new tool offered by GitHub. It was launched
@@ -955,7 +958,7 @@
           we move onto how it actually functions.
         </p>
 
-        <h4>4.2.1. Why Does Github Actions Exist?</h4>
+        <h4>7.1 Why Does Github Actions Exist?</h4>
 
         <p>
           To understand why GitHub Actions exists and the problem it solves,
@@ -1025,7 +1028,7 @@
           build our review apps.
         </p>
 
-        <h4>4.2.2. Using GitHub Actions</h4>
+        <h4>7.2. Using GitHub Actions</h4>
 
         <p>
           The only piece of information that needs to be provided to GitHub so
@@ -1101,7 +1104,7 @@
           review apps will no longer be accessible.
         </p>
 
-        <h3>4.3. Client Side Code</h3>
+        <h2 id="client-side-code">8. Client Side Code</h3>
 
         <div class="img-wrapper">
           <img
@@ -1120,7 +1123,7 @@
           every review app.
         </p>
 
-        <h3>4.3.1. Dashboard and Iframe</h3>
+        <h3>8.1. Dashboard and Iframe</h3>
 
         <div class="img-wrapper">
           <img
@@ -1168,7 +1171,7 @@
           issue later on.
         </p>
 
-        <h3>4.3.2. Service Workers and Routing</h3>
+        <h3>8.2. Service Workers and Routing</h3>
 
         <p>
           Those familiar with Service Workers may notice that we’re using them
@@ -1204,7 +1207,7 @@
           the correct path.
         </p>
 
-        <h3>4.3.3. Viewing the Review App</h3>
+        <h3>8.3. Viewing the Review App</h3>
 
         <div class="img-wrapper">
           <img
@@ -1287,7 +1290,7 @@
           </li>
         </ol>
 
-        <h3>4.4) CLI</h3>
+        <h2 id="using-stagehand">9. Using Stagehand</h3>
 
         <p>
           Now that we understand how Stagehand is built, we can discuss how it
@@ -1323,7 +1326,7 @@
         </p>
         <div class="img-wrapper">
           <img
-            src="images/diagrams/stagehand-init-fast.gif"
+            src="images/diagrams/init.gif"
             alt="Stagehand init gif"
           />
         </div>
@@ -1372,7 +1375,7 @@
           <img src="images/diagrams/destroy.gif" alt="Stagehand destroy gif" />
         </div>
     
-        <h2 id="challenges">5. Challenges</h2>
+        <h2 id="challenges">10. Challenges</h2>
 
         <p>
           Now that we know how Stagehand was created and how it can be used, we
@@ -1380,7 +1383,7 @@
           its creation.
         </p>
 
-        <h3>5.1. Relative Paths</h3>
+        <h3>10.1. Relative Paths</h3>
 
         <p>
           A reoccuring problem through our development was relative paths.
@@ -1403,7 +1406,7 @@
           solution looked quite a bit different.
         </p>
 
-        <h4>5.1.1. An Introduction to Relative Routing</h4>
+        <h4>10.1.1. An Introduction to Relative Routing</h4>
 
       <p>In order to understand the routing problem we faced, let's go over how applications were traditionally served. Let’s say you’re
         a google engineer and you’re given the task to create a Maps app. When the app is coded up, and then its assets
@@ -1470,7 +1473,7 @@
         <img src="images/diagrams/infrastructure-intercept.png" alt="infrastructure-intercept with lambdas" />
       </div>
 
-      <h4>5.1.2 Stagehand’s Routing Problem</h4>
+      <h4>10.1.2. Stagehand’s Routing Problem</h4>
 
       <div class="img-wrapper">
         <img src="images/diagrams/sh-basepaths.png" alt="stagehand basepaths" />
@@ -1491,7 +1494,7 @@
         domain. The above CloudFront domain (<code>1245.cloudfront.net</code>) will serve <em>all</em> of the review apps for a single Stagehand application. Each unique basepath will correspond to a single review app within the Stagehand app. This is similar to our google maps example from earlier where we
         wanted multiple apps hosted under <code>google.com</code> within different paths.</p>
       <div class="img-wrapper">
-        <img src="images/diagrams/diagram.png" alt="adding a basepath image" />
+        <img src="images/diagrams/basepath.png" alt="adding a basepath image" />
       </div>
       
       <p>The major problem we then need to handle in Stagehand is how do we add a basepath to our site so relative links
@@ -1501,7 +1504,7 @@
       <p>However, we don’t have a web server that can automatically intercept every request to CloudFront and manipulate
         it to add the basepath. Therefore, what actually occurs is shown on the same image at the bottom right. The
         relative path is added to the domain without a basepath and a 404 error occurs. Our initial approach used an infrastructure interception solution which added Serverless Functions to our CDN.</p>
-      <h4>5.1.3 Infrastructure Interception Solution</h4>
+      <h4>10.1.3. Infrastructure Interception Solution</h4>
       <div class="img-wrapper">
         <img src="images/diagrams/aws-lambda.png" alt="lambda@Edge intro image" />
       </div>
@@ -1524,7 +1527,7 @@
         Because of this, we went with the browser interception solution that used service workers on the client side
         code.</p>
 
-      <h4>5.1.4. Updating the Main Window URL from an Iframe</h4>
+      <h4>10.1.4. Updating the Main Window URL from an Iframe</h4>
       
       <div class="img-wrapper">
         <img src="images/diagrams/client-overview.png" alt="Client overview">
@@ -1555,7 +1558,7 @@
         We wanted accurate information in the URL bar, while also not overwhelming the application, we opted to poll twice a second. As a result, the main window URL almost always matched the iframe content. If it didn’t match at some point, this would be quickly resolved within half a second. We used the iframe location as the source of truth.
       </p>
 
-      <h3>5.2. GitHub Action Optimizations</h3>
+      <h3>10.2. GitHub Action Optimizations</h3>
 
       <p>
         We're now going to shift gears away from routing and focus on GitHub Actions. We're going to go through one of the ways we optimized our GitHub Action run times. To explain our optimizations we're going to narrow down on the workflow file, the only piece of code you need to provide in your repository to use GitHub Actions.
@@ -1603,16 +1606,16 @@
         AWS offers a JavaScript action that easily sets up a user's AWS credentials. This JavaScript action is setup and run in a couple seconds because the code is run directly on the GitHub server. After we had the AWS credentials on the server, it was no issue to run all the commands we needed using the AWS CLI directly on the GitHub server. This change dropped our average workflow time from over 2 minutes, to under a minute.
       </p>
 
-      <h2 id="future-work">7. Future Work</h2>
+      <h2 id="future-work">11. Future Work</h2>
 
-      <h3>7.1 Develop Dashboard Templates</h3>
+      <h3>11.1 Develop Dashboard Templates</h3>
 
       <p>Our current dashboard, while useful, is a minimal, one size fits all solution. We would like to create one or
         more dashboard templates optimized for common use cases. For example, some sites may want a more complex
         dashboard that allows the inputting of feedback within the review app itself. It would be nice if we could
         provide this out of the box instead of requiring the user to create it themselves.</p>
 
-      <h3>7.2 Implementation using other cloud providers</h3>
+      <h3>11.2 Implementation using other cloud providers</h3>
 
       <p>
         Our current solution uses AWS for its infrastrucutre. While this is a
@@ -1621,7 +1624,7 @@
         alternatives such as Digital Ocean, Google Cloud, etc.
       </p>
 
-      <h3>7.3 Provide option for self-hosted GitHub Runners</h3>
+      <h3>11.3 Provide option for self-hosted GitHub Runners</h3>
 
       <p>Right now, in order to run the automated jobs required by our GitHub actions workflow files, GitHub always uses
         thier default servers. While this is great for convenience, it does reduce the amount of control the user has.
@@ -1630,7 +1633,7 @@
         EC2, Digital Ocean's droplets, etc.</p>
 
 
-      <h3>6.4 Create an automated test suite</h3>
+      <h3>11.4 Create an automated test suite</h3>
 
       <p>
         Last, but definitely not least, we could like to create a
@@ -1638,6 +1641,67 @@
         features and general testing work required much easier.
       </p>
 
+        <section id="footnotes">
+          <h2 id="references">7) References</h2>
+
+          <ol>
+            <li id="footnote-1">
+              <a
+                href="https://www.plesk.com/blog/product-technology/staging-environment-vs-test-environment"
+                target="_blank"
+                >Staging Environment vs. Testing Environment</a
+              >
+            </li>
+            <li id="footnote-2">
+              <a
+                href="https://releaseapp.io/staging-environments"
+                target="_blank"
+                >Staging Environments</a
+              >
+            </li>
+            <li id="footnote-3">
+              Review apps are also known as ephemeral environments. See:
+              <a
+                href="https://layerci.com/blog/what-is-an-ephemeral-environment"
+                target="_blank"
+                >What Is An Ephemeral Environment?</a
+              >
+            </li>
+            <li id="footnote-4">
+              <a
+                href="https://news.ycombinator.com/item?id=18231097"
+                target="_blank"
+                >GitHub launches Actions, its workflow automation tool</a
+              >
+            </li>
+            <li id="footnote-5">
+              <a
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events"
+                target="_blank"
+                >MDN on SSE</a
+              >. The limit per browser is set to 6 open connections. This is not
+              an issue when using SSE with HTTP/2, since HTTP/2 allows
+              multiplexing, see
+              <a
+                href="https://www.infoq.com/articles/websocket-and-http2-coexist/"
+                target="_blank"
+                >https://www.infoq.com/articles/websocket-and-http2-coexist/</a
+              >
+            </li>
+          </ol>
+
+          Icons made by
+          <a
+            href="https://www.flaticon.com/authors/freepik"
+            title="Freepik"
+            target="_blank"
+            >Freepik</a
+          >
+          from
+          <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">
+            www.flaticon.com</a
+          >.
+        </section>
       </section>
     </main>
 
