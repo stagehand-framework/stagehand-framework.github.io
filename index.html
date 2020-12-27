@@ -1155,7 +1155,7 @@
       <h4>5.1.1. An Introduction to Relative Routing</h4>
 
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Relative Paths 1" />
+        <img src="images/diagrams/paths-1.png" alt="Relative Paths 1" />
       </div>
 
       <p>In order to understand the routing problem, a certain amount of historical context is needed. Let’s say you’re
@@ -1164,7 +1164,7 @@
         the app is coded using relative paths which are shown above. So, what are relative paths?</p>
 
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Relative Paths 2" />
+        <img src="images/diagrams/paths-2.png" alt="Relative Paths 2" />
       </div>
 
       <p>Relative paths assume the domain to be used is the same as the current domain. Therefore, relative paths only
@@ -1173,25 +1173,25 @@
         Because relative paths are used when navigating within an app, this means the application code is unaware that
         it is hosted at google.com.</p>
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Relative Paths 3" />
+        <img src="images/diagrams/paths-3.png" alt="Relative Paths 3" />
       </div>
       <p>However, there is already an app being served from google.com. Thus, we want to serve our entire maps app from
         the /maps path. Unfortunately the application code will be unaware of this change and will be looking for the
         asset in the wrong place.</p>
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Relative Paths 4" />
+        <img src="images/diagrams/paths-4.png" alt="Relative Paths 4" />
       </div>
       <p>This results in a 404 failure across all relative assets. Instead of going to google.com/maps/routes, we are
         going to google.com/routes which doesn’t have a valid asset. How do we ensure that all of the requests from the
         maps app go to the correct location?</p>
       <div class="img-wrapper">
-        <img src="images/diagrams/chall-routing-webserver.png" alt="Relative Paths 5" />
+        <img src="images/diagrams/chall-routing-webserver.png" alt="Routing Webserver" />
       </div>
       <p>The traditional way to handle this issue would be for a web server to intercept all requests coming to
         google.com and figure out which application to forward it to. This way, only the web server needs to know which
         path belongs to which app.</p>
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Relative Paths 6" />
+        <img src="images/diagrams/paths-5.png" alt="Relative Paths 5" />
       </div>
       <p>Now in our google maps example, all of our application requests are going to the correct location. But how do
         you solve this issue if you don’t have a web server? For example, what if all of our assets are hosted on a CDN?
@@ -1204,7 +1204,7 @@
       </ol>
       <h4>5.1.2 Stagehand’s Problem</h4>
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="url path name spacing diagram" />
+        <img src="images/diagrams/url-path-name-spacing.png" alt="url path name spacing diagram" />
       </div>
       <p>To understand how relative routing relates to stagehand, lets recall that each review app had a branch name and
         a unique commit identifier. These two pieces together are referred to as the basepath. The basepath in the S3
@@ -1216,7 +1216,7 @@
         wanted multiple apps hosted under google.com within different paths. So why does this matter for stagehand
         specifically?</p>
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="adding a basepath diagramurl path name spacing diagram" />
+        <img src="images/diagrams/diagram.png" alt="adding a basepath image" />
       </div>
       <p>The major problem we then need to handle in Stagehand is how do we add a basepath to our site so relative links
         work within a review app that is nested under a specific basepath? What we expect to happen with Stagehand’s
@@ -1228,7 +1228,7 @@
         an infrastructure interception solution which added Serverless Functions to our CDN.</p>
       <h4>5.1.3 Infrastructure Interception Solution</h4>
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="lambda@Edge intro image" />
+        <img src="images/diagrams/aws-lambda.png" alt="lambda@Edge intro image" />
       </div>
       <p>Our infrastructure introduced Lambda@Edge functions to intercept the requests coming in and to ensure that the
         relative paths were going to the correct location. AWS’s Lambda functions are Serverless Functions used to run
@@ -1239,7 +1239,7 @@
         events, such as an incoming request, and a request to the S3 bucket. Next, we’ll go into more detail of how we
         used Lambdas for processing.</p>
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="infrastructure solution diagram" />
+        <img src="images/diagrams/infrastructure-intercept-highlevel.png" alt="infrastructure solution diagram" />
       </div>
       <p>Here we have a Lambda@Edge that triggers for a cloudfront request. We also have another Lambda@Edge that
         triggers after cloudfront routes the request to an s3 bucket. Both of these work together to enable us to do any
@@ -1249,7 +1249,7 @@
         Because of this, we went with the browser interception solution that used service workers on the client side
         code.</p>
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png"
+        <img src="images/diagrams/selecting-browser-solution.png"
           alt="transition image showing us selecting service worker solution over lambda@Edge" />
       </div>
       <p>Let’s quickly review this solution.</p>
