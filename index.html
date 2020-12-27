@@ -1254,8 +1254,29 @@
       </div>
       <p>Let’s quickly review this solution.</p>
       <h4>5.1.4 Browser Interception Solution</h4>
-      <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Client Side solution review" />
+
+      <div class="sequence">
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-flow-1.png" alt="Client flow 1" />
+        </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-flow-2.png" alt="Client flow 2" />
+        </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-flow-3.png" alt="Client flow 3" />
+        </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-flow-4.png" alt="Client flow 4" />
+        </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-flow-5.png" alt="Client flow 5" />
+        </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-flow-6.png" alt="Client flow 6" />
+        </div>
+        <div class="img-wrapper">
+          <img src="images/diagrams/client-flow-7.png" alt="Client flow 7" />
+        </div>
       </div>
       <p>Initially, stagehand.html is requested and that returns a dashboard as part of the main page and an iframe
         which will later contain the review app. Then a service worker is requested and installed. Thus, any future
@@ -1315,7 +1336,7 @@
         updating files, etc. are done there based on what is described in the workflow file.</p>
 
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Workflow File Image" />
+        <img src="images/diagrams/workflow.png" alt="Workflow File Image" />
       </div>
 
       <p>While we can specify exactly what needs to be done in the workflow file word for word, we can also pull in
@@ -1331,7 +1352,7 @@
         would only get worse as application complexity increased. </p>
 
       <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Github Actions Optimizations Image" />
+        <img src="images/diagrams/gh-docker.png" alt="Github Actions Optimizations Docker Image" />
       </div>
 
       <p>After running some tests and doing some research to see how to improve the speed and efficiency of our Github
@@ -1340,6 +1361,10 @@
         lot of overhead to our workflow by requiring installation of the software, setting up containers, and tearing
         down containers. Because the isolation didn’t benefit our use case, we decided to switch to use Javascript
         actions instead. </p>
+
+      <div class="img-wrapper">
+        <img src="images/diagrams/gh-javascript.png" alt="Github Actions Optimizations JS Image" />
+      </div>
 
       <p>Now Javascript actions are used to set up the environment variables required for AWS. Then any work to be done
         such as uploading files to the S3 bucket are done using standard commands (ex. AWS CLI tool commands). This
