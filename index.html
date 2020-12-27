@@ -174,7 +174,7 @@
         to develop.
       </p>
 
-      <h2 id="what-are-review-apps">2. What are review apps?</h2>
+      <h2 id="what-are-review-apps">2. What are Review Apps?</h2>
 
       <p>
         Stagehand automates the deployment and management of review apps for
@@ -295,7 +295,7 @@
         scenarios where having review apps can be incredibly helpful.
       </p>
 
-      <h3>2.2. What Are Review Apps?</h3>
+      <h3>2.2. Review Apps</h3>
 
       <p>
         Review apps are ephemeral, fully-functional versions of a production
@@ -407,7 +407,7 @@
         disposed of which will free up any unnecessary cloud resources.
       </p>
 
-      <h3>2.3. Frontend Review Apps</h3>
+      <h2 id="frontend-review-apps">3. Frontend Review Apps</h3>
 
       <p>
         Now that we understand what review apps are and their value, we will
@@ -417,7 +417,7 @@
         frontend application actually is.
       </p>
 
-      <h4>2.3.1. Why Frontend Review Apps?</h4>
+      <h4>3.1. Why Frontend Review Apps?</h4>
 
       <p>
         Review apps are an incredibly helpful tool for developers of all types
@@ -449,7 +449,7 @@
         fits all of these needs.
       </p>
 
-      <h4>2.3.2. Frontend Applicaton Architecture</h4>
+      <h4>3.2. Frontend Applicaton Architecture</h4>
 
       <p>
         Stagehand provides review apps for frontend applications. What is a
@@ -1121,8 +1121,7 @@
       <div class="img-wrapper">
         <img src="images/diagrams/access.gif" alt="Stagehand access gif" />
       </div>
-      <p>The <code>destroy</code> command is the opposite of the <code>init</code> command. Similar to init, it is run
-        in the root of an existing Stagehand application. It removes all related local files such as the workflow files
+      <p>The <code>destroy</code> command is the opposite of the <code>init</code> command. It removes all related local files such as the workflow files
         in the <code>.github</code> directory. It also removes the app from the local datastore so this app won’t show
         up when running other commands like <code>stagehand list</code>. And last but definitely not least, this command
         tears down the AWS infrastructure and removes any secrets in our corresponding GitHub repository.</p>
@@ -1154,77 +1153,99 @@
         <img src="images/diagrams/paths-1.png" alt="Relative Paths 1" />
       </div>
 
-      <p>In order to understand the routing problem, a certain amount of historical context is needed. Let’s say you’re
-        a google engineer and you’re given the task to create a maps app. When the app is coded up, and then its assets
+      <p>In order to understand the routing problem we faced, let's go over how applications were traditionally served. Let’s say you’re
+        a google engineer and you’re given the task to create a Maps app. When the app is coded up, and then its assets
         are built, it has no awareness of where it’s going to be hosted, or what its domain will be. Because of this,
-        the app is coded using relative paths which are shown above. So, what are relative paths?</p>
+        the app is coded using relative paths which are shown above.</p>
 
       <div class="img-wrapper">
         <img src="images/diagrams/paths-2.png" alt="Relative Paths 2" />
       </div>
 
-      <p>Relative paths assume the domain to be used is the same as the current domain. Therefore, relative paths only
-        specify how to get to the new asset relative to the current file’s location. If you’re hosting the maps app at
-        google.com, all of its assets will be relative to that domain. Thus /routes will navigate to google.com/routes.
-        Because relative paths are used when navigating within an app, this means the application code is unaware that
-        it is hosted at google.com.</p>
-      <div class="img-wrapper">
-        <img src="images/diagrams/paths-3.png" alt="Relative Paths 3" />
+      <p>Relative paths assume the domain to be used is the same as the current domain. For example, if you're on <code>google.com</code> the relative path for <code>/routes</code> will assume you want to look for the asset at <code>google.com/routes</code>.
+      </p>
+      <p>
+       Relative paths only
+        specify how to get to the new asset relative to the current domain.
+        Relative paths are used when navigating as well as getting any application specific assets (javascripts, styling, etc.) within an app, this means the application code does not care where it is hosted. The application is self-contained. Therefore, it is unaware that it is hosted, or will be hosted, at <code>google.com</code>.</p>
+
+      <div class="sequence">
+        <div class="img-wrapper">
+          <img src="images/diagrams/paths-3.png" alt="Relative Paths 3" />
+        </div>
+
+        <div class="img-wrapper">
+          <img src="images/diagrams/paths-4.png" alt="Relative Paths 4" />
+        </div>
       </div>
-      <p>However, there is already an app being served from google.com. Thus, we want to serve our entire maps app from
-        the /maps path. Unfortunately the application code will be unaware of this change and will be looking for the
+
+      <p>However, as you may have guessed, there is already an app being served from <code>google.com</code>. Thus, we want to serve our entire Maps app from a different path, such as <code>/maps</code>. Unfortunately the application code will be unaware of this change and will be looking for the
         asset in the wrong place.</p>
-      <div class="img-wrapper">
-        <img src="images/diagrams/paths-4.png" alt="Relative Paths 4" />
-      </div>
-      <p>This results in a 404 failure across all relative assets. Instead of going to google.com/maps/routes, we are
-        going to google.com/routes which doesn’t have a valid asset. How do we ensure that all of the requests from the
+      
+      <p>This results in a 404 failure across all relative assets. Instead of going to <code>google.com/maps/routes</code>, we are
+        going to <code>google.com/routes</code> where no asset exists. How do we ensure that all of the requests from the
         maps app go to the correct location?</p>
+
       <div class="img-wrapper">
         <img src="images/diagrams/chall-routing-webserver.png" alt="Routing Webserver" />
       </div>
-      <p>The traditional way to handle this issue would be for a web server to intercept all requests coming to
-        google.com and figure out which application to forward it to. This way, only the web server needs to know which
-        path belongs to which app.</p>
+
+      <p>The traditional way to handle serving multiple applications from one domain would be for a web server to intercept all requests coming to
+        <code>google.com</code> and figure out which application to forward it to. This way, only the web server needs to know which
+        path belongs to which app. This separates the concerns of routing and hosting from the application code.</p>
+
       <div class="img-wrapper">
         <img src="images/diagrams/paths-5.png" alt="Relative Paths 5" />
       </div>
-      <p>Now in our google maps example, all of our application requests are going to the correct location. But how do
-        you solve this issue if you don’t have a web server? For example, what if all of our assets are hosted on a CDN?
+
+      <p>With the introduction of a webserver into our infrastructure all of our requests are going to the correct application. But how do
+        you solve this issue if you don’t have a web server? For example, in Stagehand's situation, all of our review apps' assets are hosted on a CDN.
         This means we can’t have a single web server intercept all requests. We need another way to intercept the
         request/response cycle and make sure that it’s going to the correct place.</p>
       <p>There are two ways we can do this:</p>
-      <ol>
-        <li>Infrastructure Interception Solution: add Serverless Functions to our CDN</li>
-        <li>Browser Interception Solution: add a Service Worker on our client side code</li>
-      </ol>
-      <h4>5.1.2 Stagehand’s Problem</h4>
+      <h5>Browser Interception Solution: add a Service Worker on our client side code</h5>
+      <div class="img-wrapper">
+        <img src="images/diagrams/browser-intercept.png" alt="browser-intercept with service worker" />
+      </div>
+
+      <p>This above solution we went over in our previous section as it was the solution we ended up using. We won't spend much time on that solution, instead, the following solution we'll explore more in the upcoming section and discuss why we ended up not going this route.
+
+      <h5>Infrastructure Interception Solution: add Serverless Functions to our CDN</h5>
+      <div class="img-wrapper">
+        <img src="images/diagrams/infrastructure-intercept.png" alt="infrastructure-intercept with lambdas" />
+      </div>
+
+      <h4>5.1.2 Stagehand’s Routing Problem</h4>
+
+      <div class="img-wrapper">
+        <img src="images/diagrams/sh-basepaths.png" alt="stagehand basepaths" />
+      </div>
+
+      <p>
+        When we looked at the google example from earlier, we needed to figure out how to add a basepath (ie <code>/maps</code>) to each application's relative request. Stagehand can't use the same strategy as our basepaths are dynamically created at build time. We don't know what the basepath will be until the review app is built.
+      </p>
+
       <div class="img-wrapper">
         <img src="images/diagrams/url-path-name-spacing.png" alt="url path name spacing diagram" />
       </div>
-      <p>To understand how relative routing relates to stagehand, lets recall that each review app had a branch name and
-        a unique commit identifier. These two pieces together are referred to as the basepath. The basepath in the S3
-        bucket (ex. /test/12512) corresponds to the URL path in the browser (ex. 1245.cloudfront.net/test/12512). </p>
-      <p>Each of the review apps for a single stagehand app are hosted at a unique basepath under the same cloudfront
-        url. So if you look at the above image on the left, you can see 1 cloudfront url which corresponds to a single
-        stagehand app. On the same image’s bottom right, you can see different basepaths which correspond to different
-        review apps within a single cloudfront domain. This is similar to our google maps example from earlier where we
-        wanted multiple apps hosted under google.com within different paths. So why does this matter for stagehand
-        specifically?</p>
+
+      <p>Recall that each review app had a branch name and
+        a unique commit identifier. These two pieces together will form the <em>basepath</em>. The basepath in the S3
+        bucket, <code>s3://bucket/feature-branch-1/1w2e3r/</code>, corresponds to the URL path in the browser, <code>1245.cloudfront.net/feature-branch-1/1w2e3r/</code>.</p>
+      <p>Each of the review apps for a single Stagehand app are hosted at a unique basepath under the same CloudFront
+        domain. The above CloudFront domain (<code>1245.cloudfront.net</code>) will serve <em>all</em> of the review apps for a single Stagehand application. Each unique basepath will correspond to a single review app within the Stagehand app. This is similar to our google maps example from earlier where we
+        wanted multiple apps hosted under <code>google.com</code> within different paths.</p>
       <div class="img-wrapper">
         <img src="images/diagrams/diagram.png" alt="adding a basepath image" />
       </div>
-      <!-- <div class="img-wrapper">
-        <img src="images/diagrams/sh-basepaths.png" alt="adding a basepath image" />
-      </div> -->
+      
       <p>The major problem we then need to handle in Stagehand is how do we add a basepath to our site so relative links
-        work within a review app that is nested under a specific basepath? What we expect to happen with Stagehand’s
+        work within a review app that corresponds to specific basepath in the S3 Bucket? What we expect to happen with Stagehand’s
         relative links is shown in the above image at the top right. We expect the relative link to automatically add
         the basepath after the domain and before the relative path clicked. </p>
-      <p>However, we don’t have a web server that can automatically intercept every request to cloudfront and manipulate
+      <p>However, we don’t have a web server that can automatically intercept every request to CloudFront and manipulate
         it to add the basepath. Therefore, what actually occurs is shown on the same image at the bottom right. The
-        relative path is added to the domain without a basepath and a 404 error occurs. We initially solved this using
-        an infrastructure interception solution which added Serverless Functions to our CDN.</p>
+        relative path is added to the domain without a basepath and a 404 error occurs. Our initial approach used an infrastructure interception solution which added Serverless Functions to our CDN.</p>
       <h4>5.1.3 Infrastructure Interception Solution</h4>
       <div class="img-wrapper">
         <img src="images/diagrams/aws-lambda.png" alt="lambda@Edge intro image" />
@@ -1232,164 +1253,121 @@
       <p>Our infrastructure introduced Lambda@Edge functions to intercept the requests coming in and to ensure that the
         relative paths were going to the correct location. AWS’s Lambda functions are Serverless Functions used to run
         code without having to provision a full server like an AWS EC2 instance. </p>
-      <p>AWS’s Lambda@Edge functions are specialized serverless functions that are tied into Cloudfront CDN. They allow
-        the running of code on the edge of the network of servers that make up Cloudfront. They are event based, and
-        their code will execute in response to a trigger. This means we can run code in response to certain Cloudfront
+      <p>AWS’s Lambda@Edge functions are specialized serverless functions that are tied into CloudFront CDN. They allow
+        the running of code on the edge of the network of servers that make up CloudFront. They are event based, and
+        their code will execute in response to a trigger. This means we can run code in response to certain CloudFront
         events, such as an incoming request, and a request to the S3 bucket. Next, we’ll go into more detail of how we
         used Lambdas for processing.</p>
       <div class="img-wrapper">
         <img src="images/diagrams/infrastructure-intercept-highlevel.png" alt="infrastructure solution diagram" />
       </div>
-      <p>Here we have a Lambda@Edge that triggers for a cloudfront request. We also have another Lambda@Edge that
-        triggers after cloudfront routes the request to an s3 bucket. Both of these work together to enable us to do any
+      <p>Here we have a Lambda@Edge that triggers for a CloudFront request. We also have another Lambda@Edge that
+        triggers after CloudFront routes the request to an S3 Bucket. Both of these work together to enable us to do any
         extra path processing that is needed to ensure that the requests are all routed to the correct asset. </p>
-      <p>Note that this was our first solution. Unfortunately, we found it to be incredibly limiting. It required more
-        user configuration, build time changes, and major limitations on the number of frameworks we could support.
+      <p>We found this approach to be incredibly limiting. It required more
+        user configuration, build time changes, having to deal with tearing down Lambdas, and major limitations on the number of frameworks we could support.
         Because of this, we went with the browser interception solution that used service workers on the client side
         code.</p>
-      <div class="img-wrapper">
-        <img src="images/diagrams/selecting-browser-solution.png"
-          alt="transition image showing us selecting service worker solution over lambda@Edge" />
-      </div>
-      <p>Let’s quickly review this solution.</p>
-      <h4>5.1.4 Browser Interception Solution</h4>
 
-      <div class="sequence">
-        <div class="img-wrapper">
-          <img src="images/diagrams/client-flow-1.png" alt="Client flow 1" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/client-flow-2.png" alt="Client flow 2" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/client-flow-3.png" alt="Client flow 3" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/client-flow-4.png" alt="Client flow 4" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/client-flow-5.png" alt="Client flow 5" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/client-flow-6.png" alt="Client flow 6" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/client-flow-7.png" alt="Client flow 7" />
-        </div>
+      <h4>5.1.4. Updating the Main Window URL from an Iframe</h4>
+      
+      <div class="img-wrapper">
+        <img src="images/diagrams/client-overview.png" alt="Client overview">
       </div>
-      <p>Initially, stagehand.html is requested and that returns a dashboard as part of the main page and an iframe
-        which will later contain the review app. Then a service worker is requested and installed. Thus, any future
-        requests from the iframe for the review app will be intercepted by the service worker to ensure the basepath is
-        always added as the image shows. </p>
-      <p>Here we’re handling routing on the client side without having any additional infrastructure involved. Because
-        of this benefit and the various aforementioned problems with the infrastructure interception solution, the
-        browser interception solution was what we ended up choosing for Stagehand. However, our work didn’t end there.
+
+      <p>
+        Our next issue arises with the serving our review from within an iframe. Recall that the iframe is an entire browsing context within a webpage. If we are navigating inside the iframe, the main window is unchanged. When a user navigates to the "About" page, they expect to see the URL change to <code>/about</code>. However, because the user cannot see the URL of the iframe, it looks like we haven't navigated anywhere. This lack of change can be confusing, not to mention inaccurate. We need to find a way to update the main window URL whenever the review app inside the iframe navigates somewhere.
       </p>
+
+      <p>
+        We also did not want the main window to actually navigate anywhere, so we opted to use URL fragments, denoted by a <code>#</code> in <code>test/12512/#about</code>. This way when we updated the main window with the location of the iframe we were able to update it without the main window thinking it was navigating somewhere.
+      </p>
+
       <div class="img-wrapper">
         <img src="images/diagrams/chall-iframe-msg.png" alt="Update main window part 1" />
       </div>
-      <p>Now that we have solved our routing issue with client side code, there is another issue that comes up. What
-        happens once a relative link is clicked? Well, the iframe content will be updated but the url in the main page
-        will remain the same since it hasn’t changed. However the user can only see the main window url and the lack of
-        change can be confusing, not to mention inaccurate. So we needed to update the main window so that it matches
-        the page that the review app is on. </p>
-      <p>Note that we needed to update it using URL fragments (ex. cloudfront.net/basepath/#path). Otherwise the main
-        window would automatically make a new http request whenever its url was changed. </p>
-      <p>Our first attempts used the postMessage API and then the Broadcast Channel API. Both of these APIs were tricky
-        to get the messages to the right client when you had multiple review apps. There were also some cross-browser
-        support issues. As a result, we needed another solution</p>
+
+      <p>Our first approach used the postMessage API and then the Broadcast Channel API. Both of these APIs were tricky to get the messages to the right client when you had multiple review apps. There were also some cross-browser support issues with these APIs. We wanted a solution that would work seamlessly across all browsers. As a result, we needed another approach.</p>
+
       <div class="img-wrapper">
         <img src="images/diagrams/chall-iframe-poll.png" alt="Update main window part 2" />
       </div>
-      <p>We decided to have the main window continuously poll the iframe to see if the path had been updated. If the
-        path had been updated, we updated the main window accordingly. This polling occurred twice a second. As a
-        result, the main window url almost always matched the iframe content. If it didn’t match at some point, this
-        would be quickly resolved within half a second.</p>
-      <p>Note that this solution uses the iframe location as the source of truth. The ability for this solution to work
-        is dependent on the iframe having the same origin as the main window. Two sites have the same origin provided
-        they have the same host, protocol, and port number. In Stagehand’s case, the iframe always has the same origin
-        as the main window due to them both using the same cloudfront url. If this weren’t the case, then we would have
-        to rely on our initial attempts of using the postMessage API and the Broadcast Channel API.</p>
 
-      <h3>5.2) Github Action Optimizations</h3>
+      <p>
+        If you remember when we first introduced iframes, we mentioned that if the origin (same host, protocol, and port) is the same for both the main window and the iframe, we can access certain attributes of the iframe through the main window. Both our main window and our review app are being served from the same origin. This gives us access to the iframe's location. We decided to have the main window continuously poll the iframe to see if the path had been updated. If the path had been updated, we updated the main window accordingly. 
+      </p>
+      <p>
+        We wanted accurate information in the URL bar, while also not overwhelming the application, we opted to poll twice a second. As a result, the main window URL almost always matched the iframe content. If it didn’t match at some point, this would be quickly resolved within half a second. We used the iframe location as the source of truth.
+      </p>
 
-      <div class="sequence">
-        <div class="img-wrapper">
-          <img src="images/diagrams/GitHub-Actions-flow-1.png" alt="GitHub Actions flow 1" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/GitHub-Actions-flow-2.png" alt="GitHub Actions flow 2" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/GitHub-Actions-flow-3.png" alt="GitHub Actions flow 3" />
-        </div>
-        <div class="img-wrapper">
-          <img src="images/diagrams/GitHub-Actions-flow-4.png" alt="GitHub Actions flow 4" />
-        </div>
-      </div>
+      <h3>5.2. GitHub Action Optimizations</h3>
 
-      <p>Another significant challenge we ran into was the speed and efficiency of github actions. To review, let’s
-        recall that from the above sequence of images that github actions usually start with an event like a pull
-        request occurring. From there, any applicable workflow file(s) will be triggered to run on a github server which
-        is provisioned and used behind the scenes within Github. Any work we need to do like generating build files,
-        updating files, etc. are done there based on what is described in the workflow file.</p>
+      <p>
+        We're now going to shift gears away from routing and focus on GitHub Actions. We're going to go through one of the ways we optimized our GitHub Action run times. To explain our optimizations we're going to narrow down on the workflow file, the only piece of code you need to provide in your repository to use GitHub Actions.
+      </p>
 
       <div class="img-wrapper">
         <img src="images/diagrams/workflow.png" alt="Workflow File Image" />
       </div>
 
-      <p>While we can specify exactly what needs to be done in the workflow file word for word, we can also pull in
-        existing github action code from another repo to help improve our workflow’s functionality. This is akin to
-        importing and using an existing npm package in your own node app. Note that there are two types of actions we
-        can import in our workflow. We can either containerize them using Docker or use Javascript to directly execute
-        them on the Github server. This will become important later.</p>
+      <p>
+        The workflow file is where you list all of the steps (see line 19 in the code above) you want execute. There are three different ways in which you can execute those steps.
+      </p>
 
-      <p>We used pre-built actions in our workflow for tasks such as uploading files to AWS’s S3 buckets and adding a
-        Github pull request comment. While this reduced the amount of code we had to write, we noticed that it was
-        increasing the amount of time required for our github actions to run. In fact, in some worst case scenarios, our
-        create review app workflow would take several minutes to run for a simple application. That level of slowness
-        would only get worse as application complexity increased. </p>
+      <ol>
+        <li>Containerized actions</li>
+        <li>JavaScript actions</li>
+        <li>Command line code</li>
+      </ol>
+
+      <p>
+        The first two options are pre-bundled code to execute some sort of functionality. These will often be provided by a third-party, and GitHub has a large marketplace for these actions (https://github.com/marketplace?type=actions). GitHub also provides some actions for you, such as the one we use above on line 30, which will pull down our repository code onto the GitHub server.
+      </p>
+
+      <p>
+        The last option gives us the ability to run code directly on the GitHub server's command line.
+      </p>
 
       <div class="img-wrapper">
         <img src="images/diagrams/gh-docker.png" alt="Github Actions Optimizations Docker Image" />
       </div>
 
-      <p>After running some tests and doing some research to see how to improve the speed and efficiency of our Github
-        Actions, we determined that the use of Docker actions was unnecessarily increasing our runtime. Docker is
-        helpful in isolating each job from other jobs that are also run on the same Github server. However, it adds a
-        lot of overhead to our workflow by requiring installation of the software, setting up containers, and tearing
-        down containers. Because the isolation didn’t benefit our use case, we decided to switch to use Javascript
-        actions instead. </p>
+      <p>
+        We initially used containerized actions with Docker because it was an easy way to separate the concerns of each of the pieces of code we wanted to execute (building and deploying the app, publishing the review app URL). This also gave us the ability to reuse the code for other scenarios and for other developers to be able to easily reuse our code as well.
+      </p>
+
+      <p>
+        We decided to move away from containerized actions for a few reasons. The biggest one being that spinning up these containers took quite some time, and our Actions would run for more than a couple minutes for a simple application. On top of this, GitHub's marketplace has lots of actions that other developers can easily use if they aren't concerned with the time it takes to spin up. We weren't satisfied with the duration that our actions took to run so we explored using JavaScript actions.
+      </p>
 
       <div class="img-wrapper">
         <img src="images/diagrams/gh-javascript.png" alt="Github Actions Optimizations JS Image" />
       </div>
 
-      <p>Now Javascript actions are used to set up the environment variables required for AWS. Then any work to be done
-        such as uploading files to the S3 bucket are done using standard commands (ex. AWS CLI tool commands). This
-        change dropped our average workflow from 2 ½ minutes to less than a minute which is much more acceptable for an
-        average small application.</p>
+      <p>
+        AWS offers a JavaScript action that easily sets up a user's AWS credentials. This JavaScript action is setup and run in a couple seconds because the code is run directly on the GitHub server. After we had the AWS credentials on the server, it was no issue to run all the commands we needed using the AWS CLI directly on the GitHub server. This change dropped our average workflow time from over 2 minutes, to under a minute.
+      </p>
 
-      <h2 id="future-work">6) Future Work</h2>
+      <h2 id="future-work">7. Future Work</h2>
 
-      <h3>6.1 Develop dashboard templates</h3>
+      <h3>7.1 Develop Dashboard Templates</h3>
 
       <p>Our current dashboard, while useful, is a minimal, one size fits all solution. We would like to create one or
         more dashboard templates optimized for common use cases. For example, some sites may want a more complex
         dashboard that allows the inputting of feedback within the review app itself. It would be nice if we could
         provide this out of the box instead of requiring the user to create it themselves.</p>
 
-      <h3>6.2 Implementation using other cloud providers</h3>
+      <h3>7.2 Implementation using other cloud providers</h3>
 
       <p>Our current solution uses AWS for its infrastrucutre. While this is a good, common choice amongst the various
         other cloud providers, it would be great if our solution were operational amongst all the alternatives such as
         Digital Ocean, Google Cloud, etc.</p>
 
-      <h3>6.3 Provide option for self-hosted GitHub Runners</h3>
+      <h3>7.3 Provide option for self-hosted GitHub Runners</h3>
 
-      <p>Right now, in order to run the automated jobs required by our github actions workflow files, github always uses
+      <p>Right now, in order to run the automated jobs required by our GitHub actions workflow files, GitHub always uses
         thier default servers. While this is great for convenience, it does reduce the amount of control the user has.
-        Some users may prefer to run github actions workflow files on thier own VPS (Virtual Private Server). We would
+        Some users may prefer to run GitHub actions workflow files on thier own VPS (Virtual Private Server). We would
         like to provide the option to do this by adding further integrations with cloud providers of VPSs like AWS's
         EC2, Digital Ocean's droplets, etc.</p>
 
@@ -1397,37 +1375,6 @@
 
       <p>Last, but definitely not least, we could like to create a comprehensive automated test suite. This will make
         adding additional features and general testing work required much easier.</p>
-
-      <!-- <div class="img-wrapper">
-        <img src="images/diagrams/daigram.png" alt="Random diagram" />
-      </div>
-
-      <blockquote>Quote. [<a href="#footnote-26">26</a>]</blockquote>
-
-      <div class="img-wrapper">
-        <figure>
-          <img src="images/diagrams/diagram.png" alt="Image with footnote caption" />
-          <figcaption>
-            Diagram from: AWS in Action [<a href="#footnote-27">27</a>]
-          </figcaption>
-        </figure>
-      </div>
-
-      <p>
-        <code>ulimits</code> were increased to the following:
-        <code class="nohighlight">
-            <pre>
-          "ulimits": [ 
-            {
-              "name": "nofile",
-              "softLimit": 50000,
-              "hardLimit": 65536
-            } 
-          ]</pre
-            >
-          </code>
-      </p>
-      <p>Once this was updated, the test ran without any errors.</p> -->
 
       <section id="footnotes">
         <h2 id="references">7) References</h2>
