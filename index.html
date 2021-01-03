@@ -300,7 +300,7 @@
       <p>
         Review apps are ephemeral, fully-functional versions of a production
         application that can be easily deployed and shared with others[<a href="#footnote-3">3</a>]. Let’s take this
-        definition apart a piece at a time:
+        definition apart piece by piece:
       </p>
 
       <ul>
@@ -348,9 +348,9 @@
       </p>
 
       <p>
-        Each review app can be accessed via a unique shareable URL. You can
-        share this with your product manager and even non-technical
-        stakeholders, getting more feedback more quickly while you are
+        Each review app can be accessed via a unique, shareable URL. You can
+        share this with your product manager and other non-technical
+        stakeholders. This will allow you to get feedback more quickly while you are
         developing your new feature.
       </p>
 
@@ -358,7 +358,7 @@
         Review apps also enable greater collaboration within your development
         team itself. As you, Alice, and Bob are coding up your new features,
         you can quickly deploy them with review apps and share them with each
-        other. So you do not have to pull down each other’s code and get it
+        other. This means you do not have to pull down each other’s code and get it
         running locally to collaborate.
       </p>
 
@@ -410,8 +410,8 @@
       <h2 id="frontend-review-apps">3. Frontend Review Apps</h3>
 
         <p>
-          Now that we understand what review apps are and their value, we will
-          take a look at what we mean that Stagehand is for “modern frontend
+          Now that we understand what review apps are and what their value is, we will
+          take a look at what we mean when we say that Stagehand is for “modern frontend
           applications”. First we will look at why frontend applications are a
           great use case for review apps and then we will look at what a modern
           frontend application actually is.
@@ -558,7 +558,7 @@
 
         <p>
           This type of modern dynamic application includes Single Page
-          Applications built with something like React, as well as JAMstack
+          Applications built with something like React, as well as <a href="#footnote-5">JAMstack</a>
           applications built with a frontend framework like Gatsby. Because
           these applications can be served as pre-built assets from a CDN,
           Stagehand also supports automated review apps for them.
@@ -644,8 +644,8 @@
         <p>
           The most extensive resource that you will have to provision and
           configure is a build server. You will have to set it up to automate
-          the building, deploying, and tearing down of your review apps. And you
-          will have to figure out a way to integrate it with wherever your
+          the building, deploying, and tearing down of your review apps. You
+          will also have to figure out a way to integrate it with wherever your
           repository is located, such as on GitHub. Finally, you will need some
           services to secure your review apps according to your needs.
         </p>
@@ -660,11 +660,11 @@
         </div>
 
         <p>
-          The DIY approach gives of all of the benefits of open source as we now
-          own the infrastructure and code. But provisioning and configuring so
+          The DIY approach gives us all of the benefits of open source as we now
+          own the infrastructure and code. However, the provisioning and configuring of so
           many resources to get review apps up and running is far from
           convenient. The DIY approach is flexible as we are not tied to a
-          larger hosting service. And we can now self-host our review apps on
+          larger hosting service. Additionally, we can now self-host our review apps on
           our own infrastructure. However, we will have to develop any features
           we need beyond basic functionality ourselves.
         </p>
@@ -682,7 +682,7 @@
         <p>
           Stagehand gives you the same tradeoffs as the DIY approach, but we
           automate the whole process for you. Stagehand is fully open source,
-          giving you control of the infrastructure and code. And we automate the
+          giving you control of the infrastructure and code. We also automate the
           provisioning and configuration of all of that infrastructure for you.
         </p>
 
@@ -1602,12 +1602,7 @@
                         its workflow automation tool</a>
                     </li>
                     <li id="footnote-5">
-                      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events"
-                        target="_blank">MDN on SSE</a>. The limit per browser is set to 6 open connections. This is not
-                      an issue when using SSE with HTTP/2, since HTTP/2 allows
-                      multiplexing, see
-                      <a href="https://www.infoq.com/articles/websocket-and-http2-coexist/"
-                        target="_blank">https://www.infoq.com/articles/websocket-and-http2-coexist/</a>
+                      <a href="https://jamstack.org/" target="_blank">JAMstack</a>
                     </li>
                   </ol>
 
