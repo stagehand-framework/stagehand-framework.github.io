@@ -144,10 +144,9 @@
 
       <p>
         Stagehand is a drop-in solution that provides review apps for modern
-        frontend applications. We are a framework that automatically manages
-        review apps for your application’s GitHub repository on your own cloud
-        infrastructure. We use AWS, GitHub Actions, and some Stagehand
-        client-side code to set-up, deploy, manage, and teardown review apps
+        frontend applications. We use your own GitHub repository and spin up your own cloud
+        infrastructure. Using AWS, GitHub Actions, and some Stagehand
+        client-side code we set-up, deploy, manage, and teardown review apps
         for your frontend application.
       </p>
 
@@ -157,7 +156,7 @@
 
       <p>
         All you have to do is install the Stagehand CLI via our NPM package
-        and run our init command from your local repo. We will handle the
+        and run <code>stagehand init</code> in your local repo. We will handle the
         rest. Once your code is pushed to a GitHub repository, you will have
         review apps automatically deployed for you to view and share whenever
         you open a pull request or make any additional commits on that pull
@@ -165,23 +164,23 @@
       </p>
 
       <p>
-        In this case study, we describe what review apps are as well as their
-        value for modern frontend applications. We then look over existing
-        solutions for review apps and where Stagehand fits into the mix. Then
-        we will look at how we built Stagehand as well as challenges we faced
-        along the way. Finally, we will go over some future work we would like
-        to develop.
+        After you're all set up, this is what using Stagehand will look like:
+      </p>
+      
+      <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/8MasRTLA-8c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video"></iframe>
+      </div>
+
+      <p>
+        Over the course of this case study, we're going to go through the problem we solve for developers and then we'll dive into how we built Stagehand and the challenges that came along with it.
       </p>
 
       <h2 id="what-are-review-apps">2. What are Review Apps?</h2>
 
       <p>
-        Stagehand automates the deployment and management of review apps for
-        modern frontend applications. To understand why we built Stagehand, we
-        need to understand what review apps are. In this section we will dive
-        into review apps and the value they bring to frontend developers as
-        well as what we mean when we say that Stagehand is for “modern
-        frontend applications”.
+        In this section we will dive into review apps and the value they bring to frontend developers as
+        well as what we mean when we say that Stagehand is for <em>modern
+        frontend applications</em>.
       </p>
 
       <h3>2.1. Staging Environments</h3>
@@ -220,11 +219,8 @@
 
       <p>
         Review apps generally fall under the same category as staging
-        environments, though their usefulness may expand beyond that. So it
-        will be useful to look at staging environments in more detail.
+        environments, though their usefulness may expand beyond that.
       </p>
-
-      <p>What are staging environments? Here is a good definition:</p>
 
       <blockquote>
         “A staging environment (sometimes called a pre-production environment)
@@ -239,6 +235,8 @@
         functionality work as intended.
       </p>
 
+      <h3>2.2. Using a Staging Environment</h3>
+
       <p>
         Consider this scenario where you are a developer of a frontend
         application:
@@ -250,7 +248,7 @@
 
       <p>
         The product manager wants a responsive navigation bar added to the
-        application and you are assigned this task. After coding up and
+        application. After coding up and
         testing your new navigation bar feature, you deploy your changes to a
         staging environment.
       </p>
@@ -264,9 +262,7 @@
       </p>
 
       <p>
-        But what if you are part of a development team that is assigned a wide
-        variety of features. Now you, Alice, and Bob are all working on
-        different parts of the frontend application at the same time. You are
+        Now you, Alice, and Bob are all working on multiple features of the frontend application at the same time. You are
         working on the navigation bar feature, Alice is working on the footer,
         and Bob is working on the page content:
       </p>
@@ -277,15 +273,15 @@
 
       <p>
         All of these features will have to be deployed to a shared staging
-        environment. There the new features can each be verified by the
+        environment. The new features can each be verified by the
         product manager and other stakeholders before being approved to go
         into production.
       </p>
 
       <p>
-        But because this environment is shared, maybe you and Alice have to
+        Sharing this environment means maybe you and Alice have to
         wait until Bob is done using it before you can deploy and share your
-        new features. Furthermore, you or Alice may have to clean up the
+        new features. Or even, you or Alice may have to clean up the
         staging environment if Bob made changes to it. And if your code now
         conflicts with Bob’s, you may have to resolve these conflicts.
       </p>
@@ -295,7 +291,7 @@
         scenarios where having review apps can be incredibly helpful.
       </p>
 
-      <h3>2.2. Review Apps</h3>
+      <h3>2.3. Review Apps</h3>
 
       <p>
         Review apps are ephemeral, fully-functional versions of a production
@@ -305,68 +301,54 @@
 
       <ul>
         <li>
-          Ephemeral - Review apps are temporary environments that can be built
-          and torn down at any time without affecting the production
-          application.
+          Ephemeral - <em>temporary environments</em> that can be built
+          and torn down at any time
         </li>
 
         <li>
-          Fully-Functional - Review apps have end-to-end production-like
-          functionality. They are temporary versions of the main application.
+          Fully-Functional - end-to-end <em>production-like
+          functionality</em>, temporary versions of the main application
         </li>
 
         <li>
-          Easily-Deployed - Review apps can be instantly built and deployed
-          whenever there is a change in an application’s code, like when a new
-          feature is added.
+          Easily-Deployed - <em>instantly built and deployed</em>
+          whenever there is a change in an application’s code
         </li>
 
         <li>
-          Self-Contained - Review apps exist in isolation from the main
-          production application. This allows developers to try out new
-          features and functionality in a deployed production-like environment
-          without touching the production code.
+          Self-Contained - <em>isolated from
+          production</em>, these environments cannot affect production or other review apps and vice versa
         </li>
       </ul>
-
-      <p>
-        Consider the value of review apps for the development team scenario
-        from above:
-      </p>
 
       <div class="img-wrapper">
         <img src="images/diagrams/scenario_3.png" alt="multiple developers w/ review apps" />
       </div>
 
       <p>
-        Your team has introduced a review app solution like Stagehand to the
+        Your team has now introduced a review app solution like Stagehand to the
         mix. With review apps, each developer on your team now has their own
-        isolated environment where you can easily deploy and share your new
-        features. You and your team no longer have to fight over a shared
-        staging environment just to be able to quickly deploy and share your
-        new features with others.
+        isolated environment where they can easily deploy and share their new
+        features. This reduces conflicts over shared staging environments.
       </p>
 
       <p>
-        Each review app can be accessed via a unique, shareable URL. You can
-        share this with your product manager and other non-technical
-        stakeholders. This will allow you to get feedback more quickly while you are
-        developing your new feature.
+        Each review app can be accessed via a unique, shareable URL. Sharing this with your product manager and other non-technical
+        stakeholders will allow you to get feedback earlier and more quickly.
       </p>
 
       <p>
         Review apps also enable greater collaboration within your development
-        team itself. As you, Alice, and Bob are coding up your new features,
-        you can quickly deploy them with review apps and share them with each
-        other. This means you do not have to pull down each other’s code and get it
+        team itself. You do not have to pull down each other’s code and get it
         running locally to collaborate.
       </p>
 
       <p>
         Review apps make checking out your work in a production-like
-        environment as you are developing as simple as possible. But what do
-        they look like in action from a developer’s point of view?
+        environment as you are developing as simple as possible.
       </p>
+
+      <h3>2.4. Collaborative Workflow</h3>
 
       <p>
         Here on the GitHub repository for your team’s application, you have
@@ -381,8 +363,7 @@
 
       <p>
         As soon as the pull request is opened, a review app is automatically
-        built and deployed for you. A unique URL for this particular review
-        app is automatically posted as well. You share this review app with
+        built and deployed for you, accessed with a unique URL. You share this review app with
         your product manager. She wants you to move the navigation bar icon to
         the other side of the page.
       </p>
@@ -392,8 +373,7 @@
       </div>
 
       <p>
-        After making the change and making a new commit to the open pull
-        request, a whole new review app is built and deployed. This new review
+        After updating some code and making a new commit to the same branch, a whole new review app is built and deployed. This new review
         app exists at the same time as the previous review app. You can even
         open each one via their URLs simultaneously and compare them
         side-by-side.
@@ -412,28 +392,24 @@
         <p>
           Now that we understand what review apps are and what their value is, we will
           take a look at what we mean when we say that Stagehand is for “modern frontend
-          applications”. First we will look at why frontend applications are a
-          great use case for review apps and then we will look at what a modern
-          frontend application actually is.
+          applications”.
         </p>
 
         <h4>3.1. Why Frontend Review Apps?</h4>
 
         <p>
-          Review apps are an incredibly helpful tool for developers of all types
-          of applications. But their benefits are particularly helpful for
-          developers of frontend applications. Why is this?
+          Frontend review apps are an incredibly helpful tool for developers.
         </p>
 
         <p>
-          First, because frontend applications deal heavily with the end user
-          experience, more visual testing and verification in a deployed
+          <em>First</em>, they deal heavily with the <em>end user
+          experience</em>, more visual testing and verification in a deployed
           environment is needed. You want to be able to mimic the eventual user
           experience as much as possible during development.
         </p>
 
         <p>
-          Second, frontend applications are more lightweight. Therefore, they do
+          <em>Second</em>, they are more <em>lightweight</em>. Therefore, they do
           not need to spin up as much infrastructure nor allocate as many
           resources as a full stack application. Also, because frontend
           applications are decoupled from data level concerns, they better mimic
@@ -441,9 +417,8 @@
         </p>
 
         <p>
-          Finally, because the functionality of frontend applications are more
-          user or consumer facing, there may need to be more sharing of new
-          features and functionality with non-technical stakeholders. You need a
+          <em>Finally</em>, because the functionality of frontend applications are more
+          user or consumer facing, there may need to be more <em>input from non-technical stakeholders</em>. You need a
           way to easily deploy and share your latest changes with them during
           development. Introducing review apps to your frontend development team
           fits all of these needs.
@@ -452,10 +427,7 @@
         <h4>3.2. Frontend Applicaton Architecture</h4>
 
         <p>
-          Stagehand provides review apps for frontend applications. What is a
-          frontend application? It will be helpful to first look at the
-          architecture of a full stack application for contrast. Here is how a
-          typical 3-tier web application architecture works:
+          To give some context for what type of architecture we are for, we'll contrast it first with a traditional 3-tier full stack web architecture.
         </p>
 
         <div class="sequence">
@@ -480,14 +452,14 @@
         </p>
 
         <p>
-          The key takeaway from this full stack architecture is that the assets
-          are generated at request time. So it is only when the client requests
+          <em>The key takeaway from this full stack architecture is that the assets
+          are generated at request time</em>. So it is only when the client requests
           our application that the assets are actually built. This is in
           contrast to what happens in a frontend application.
         </p>
 
         <p>
-          In a frontend application architecture, such as a site built with a
+          In a decoupled frontend application architecture, such as a site built with a
           static site generator, things happen in the opposite direction:
         </p>
 
@@ -516,9 +488,8 @@
         </p>
 
         <p>
-          Stagehand supports frontend applications like this that can be
-          pre-built and instantly served from a CDN. We also support a more
-          modern dynamic type of frontend application:
+          <em>Stagehand supports frontend applications like this that can be
+          pre-built and instantly served from a CDN</em>.
         </p>
 
         <div class="sequence">
@@ -540,36 +511,27 @@
         </div>
 
         <p>
-          In a more modern dynamic frontend application, the app is served in a
-          similar way to the previous frontend architecture above. First, the
-          assets are pre-built and pushed to a CDN whenever the code for the app
-          changes. And when requests come in from a client, those latest
-          pre-built assets are instantly served from the CDN.
+          In a more modern dynamic frontend application, the application is also pre-built and served from a CDN.
         </p>
 
         <p>
           However with modern dynamic frontend applications, more complex
           client-side JavaScript is sent back to the client in the response.
-          Then data can be fetched by that client-side code from external APIs.
+          Then <em>data can be fetched and rendered by client-side code from external APIs</em>.
           These APIs could be third party such as Stripe, Auth0, Firebase or
           your own custom built API. This gives these applications more dynamic
           functionality, similar to a full stack application.
         </p>
 
         <p>
-          This type of modern dynamic application includes Single Page
-          Applications built with something like React, as well as JAMstack<a href="#footnote-5">5</a>
-          applications built with a frontend framework like Gatsby. Because
-          these applications can be served as pre-built assets from a CDN,
-          Stagehand also supports automated review apps for them.
+          If you're familiar with JAMstack[<a href="#footnote-5">5</a>] or Single Page Applications (SPAs), they fall under this category. Stagehand also supports these.
         </p>
 
         <h2 id="existing-solutions">4. Existing Solutions</h2>
 
         <p>
-          Before we look at Stagehand, we will look at various existing
-          solutions that can empower developers with review apps. There are
-          generally two categories of existing solutions: feature solutions and
+          There are
+          generally two categories of existing review apps solutions: feature solutions and
           service solutions.
         </p>
 
@@ -592,11 +554,6 @@
           including FeaturePeek, Release, and Tugboat.
         </p>
 
-        <p>
-          Let’s compare the tradeoffs with these two types of review app
-          solutions:
-        </p>
-
         <div class="img-wrapper">
           <img src="images/diagrams/table-1.png" alt="tradeoffs table 1" />
         </div>
@@ -614,18 +571,10 @@
           your review apps for you and are feature-rich right out of the box.
         </p>
 
-        <p>
-          But what if you are a developer who wants to be able to self-host your
-          review apps on your own infrastructure? And what if you also want the
-          extensibility and control of an open source solution. One option is to
-          do it yourself as we will cover next.
-        </p>
-
         <h3>4.2. DIY</h3>
 
         <p>
-          To manually develop a solution for deploying and managing your own
-          review apps, you will have to provision and configure a rather large
+          If you wanted to self-host review apps and have the control of an open source solution you would have to provision and configure a rather large
           number of resources:
         </p>
 
@@ -634,7 +583,7 @@
         </div>
 
         <p>
-          First, you will need a cloud storage solution to store all of the
+          You will need a cloud storage solution to store all of the
           build assets for each of your review apps. Then you will need to
           provision and configure a CDN (content delivery network) for secure
           and fast hosting. For any processing needs such as routing, you may
@@ -648,11 +597,6 @@
           will also have to figure out a way to integrate it with wherever your
           repository is located, such as on GitHub. Finally, you will need some
           services to secure your review apps according to your needs.
-        </p>
-
-        <p>
-          Let’s compare the DIY approach with the previous types of review app
-          solutions we explored:
         </p>
 
         <div class="img-wrapper">
@@ -669,12 +613,6 @@
           we need beyond basic functionality ourselves.
         </p>
 
-        <p>
-          What if there was a non-hosted, open-source framework that does not
-          require all of the work of the DIY approach? This is where Stagehand
-          fits in and why we built it.
-        </p>
-
         <div class="img-wrapper">
           <img src="images/diagrams/table-3.png" alt="tradeoffs table 3" />
         </div>
@@ -682,29 +620,15 @@
         <p>
           Stagehand gives you the same tradeoffs as the DIY approach, but we
           automate the whole process for you. Stagehand is fully open source,
-          giving you control of the infrastructure and code. We also automate the
+          giving you control of your self-hosted infrastructure and code. We also automate the
           provisioning and configuration of all of that infrastructure for you.
         </p>
 
-        <p>
-          We are a drop-in solution that does not tie you into a larger service
-          just to take advantage of review apps. We allow you to self-host your
-          review apps on your own infrastructure. Like the DIY approach, we are
-          not feature-rich out of the box outside of basic review app
-          functionality.
-        </p>
-
-        <p>
-          Next we will dive into how Stagehand works as well as how we designed
-          and built it.
-        </p>
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/8MasRTLA-8c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video"></iframe>
+        </div>
 
         <h2 id="building-stagehand">5. Building Stagehand</h2>
-
-        <p>
-          Before we dive into what the pieces of Stagehand look like, let's
-          revisit what we offer.
-        </p>
 
         <div class="sequence">
           <div class="img-wrapper">
@@ -1433,15 +1357,15 @@
                   client side
                   code.</p>
 
-                <h4>10.1.4. Updating the Main Window URL from an Iframe</h4>
+                <h3>10.2. Updating the Main Window URL from an Iframe</h3>
 
                 <div class="img-wrapper">
                   <img src="images/diagrams/client-overview.png" alt="Client overview">
                 </div>
 
                 <p>
-                  Our next issue arises with the serving our review from within an iframe. Recall that the iframe is an
-                  entire browsing context within a webpage. If we are navigating inside the iframe, the main window is
+                  Our next issue arises with serving our review app from within an iframe. Recall that the iframe is an
+                  entire browsing context within a webpage. If we are navigating inside the iframe, the main window URL is
                   unchanged. When a user navigates to the "About" page, they expect to see the URL change to
                   <code>/about</code>. However, because the user cannot see the URL of the iframe, it looks like we
                   haven't navigated anywhere. This lack of change can be confusing, not to mention inaccurate. We need
@@ -1452,18 +1376,21 @@
                 <p>
                   We also did not want the main window to actually navigate anywhere, so we opted to use URL fragments,
                   denoted by a <code>#</code> in <code>test/12512/#about</code>. This way when we updated the main
-                  window with the location of the iframe we were able to update it without the main window thinking it
-                  was navigating somewhere.
+                  window with the location of the iframe the main window wouldn't make a new http request.
                 </p>
+
+                <h4>10.2.1. Service Worker Messaging</h4>
 
                 <div class="img-wrapper">
                   <img src="images/diagrams/chall-iframe-msg.png" alt="Update main window part 1" />
                 </div>
 
-                <p>Our first approach used the postMessage API and then the Broadcast Channel API. Both of these APIs
+                <p>Our first approach used the postMessage API and then the Broadcast Channel API from in the Service Worker and the main window. Both of these APIs
                   were tricky to get the messages to the right client when you had multiple review apps. There were also
                   some cross-browser support issues with these APIs. We wanted a solution that would work seamlessly
-                  across all browsers. As a result, we needed another approach.</p>
+                  across all browsers. This solution also needed two parties to be aware of one another (client and service worker), so it was tougher to debug. As a result, we needed another approach.</p>
+
+                <h4>10.2.2. Same Origin Polling</h4>
 
                 <div class="img-wrapper">
                   <img src="images/diagrams/chall-iframe-poll.png" alt="Update main window part 2" />
@@ -1477,17 +1404,17 @@
                   main window continuously poll the iframe to see if the path had been updated. If the path had been
                   updated, we updated the main window accordingly.
                 </p>
+
                 <p>
                   We wanted accurate information in the URL bar, while also not overwhelming the application, we opted
                   to poll twice a second. As a result, the main window URL almost always matched the iframe content. If
-                  it didn’t match at some point, this would be quickly resolved within half a second. We used the iframe
-                  location as the source of truth.
+                  it didn’t match at some point, this would be quickly resolved within half a second.
                 </p>
 
-                <h3>10.2. GitHub Action Optimizations</h3>
+                <h3>10.3. GitHub Action Optimizations</h3>
 
                 <p>
-                  We're now going to shift gears away from routing and focus on GitHub Actions. We're going to go
+                  We're going to go
                   through one of the ways we optimized our GitHub Action run times. To explain our optimizations we're
                   going to narrow down on the workflow file, the only piece of code you need to provide in your
                   repository to use GitHub Actions.
