@@ -558,7 +558,7 @@
 
         <p>
           This type of modern dynamic application includes Single Page
-          Applications built with something like React, as well as <a href="#footnote-5">JAMstack</a>
+          Applications built with something like React, as well as JAMstack<a href="#footnote-5">5</a>
           applications built with a frontend framework like Gatsby. Because
           these applications can be served as pre-built assets from a CDN,
           Stagehand also supports automated review apps for them.
@@ -736,7 +736,7 @@
         </div>
 
         <p>
-          Stagehand is divided into 3 components, AWS Infrastructure, GitHub
+          Stagehand is divided into 3 components: AWS Infrastructure, GitHub
           Actions, and Client-side code. We'll go through them in that order so
           you'll be able to fully understand each piece seen in the diagram
           above.
@@ -750,19 +750,19 @@
 
           <p>
             There are two flows through our AWS infrastructure. The first is when
-            review apps are being created or torn down, the second is when someone
+            review apps are being created or torn down. The second is when someone
             views a review app.
           </p>
 
           <h4>6.1. S3 Bucket</h4>
 
           <p>
-            The S3 Bucket is our storage solution, it is a database for files.
+            The S3 Bucket is our storage solution. It is a object store for our files.
             This is where each of our review apps for a particular Stagehand
             application are stored in its entirety. The review apps stored will
-            have identical files, for example, each review app will have an
+            have identical files. For example, each review app for a specific app will have an
             <code>index.html</code> file. This means we need a way for the review
-            apps to be deciphered from one another. We need to make sure all
+            apps to be differentiated from one another. We need to make sure all
             <code>index.html</code> files are uniquely name spaced, and that it is
             uniquely name spaced together with all the other assets for that
             review app.
@@ -790,11 +790,14 @@
 
           <p>
             We use CloudFront as our CDN and hosting solution. All incoming HTTPS
-            requests for review apps first go through CloudFront and then
-            CloudFront retrieves the correct asset from the S3 Bucket and returns
+            requests for review apps first go through CloudFront.
+            If the Cloudfront edge location has the requested
+            resource cached, it will be quickly returned to the user.
+            If Cloudfront is empty or expired, then
+            it retrieves the correct asset from the S3 Bucket and returns
             it to the user. The bonus of using CloudFront is that it handles
             securing requests with TLS and provides us with an out of the box
-            domain to use. There’s no need to configure a DNS, get an SSL
+            domain to use. There’s no need to configure DNS, get an SSL
             certificate, or link CloudFront to an existing domain.
           </p>
 
@@ -807,14 +810,14 @@
           <p>
             The last AWS infrastructure piece is Identity and Access Management
             (IAM). During <code>stagehand init</code> we create credentials for
-            you that have strict access and those are the credentials used in your
-            GitHub repository. This enables us to tightly secure the access to
+            you that have strict access controls. Those are the credentials used in your
+            GitHub repository as well. This enables us to tightly secure the access to
             CloudFront and S3. It also ensures that the AWS credentials that are
             used to spin up the infrastructure can’t access any other AWS
-            resources on the account of where this infrastructure is located. The
+            resources on the account where this infrastructure is located. The
             developer who initialized Stagehand to the repository now doesn’t have
-            to worry about what individuals who have access to the repository,
-            whether malicious or not, may do.
+            to worry about what individuals have access to the repository,
+            whether or not they are malicious, etc.
           </p>
 
           <h4>6.4. CloudFormation</h4>
@@ -825,12 +828,12 @@
 
           <p>
             To deploy our AWS infrastructure we used CloudFormation. It allows us
-            to use a template with listed resources, configuration, and outputs
-            and it’ll spin up a CloudFormation Stack with all the infrastructure
+            to use a template with listed resources, configuration, and outputs.
+            It will spin up a CloudFormation Stack with all the infrastructure
             we need. We didn’t need to customize each CloudFormation Stack to each
             Stagehand app so a template was a perfect approach. This also allows
             us to use the outputs that this CloudFormation Stack creation gives us
-            and then automate setting up the users GitHub account with the proper
+            to automate setting up the users GitHub account with the proper
             configuration. Another bonus of having all of our resources grouped
             together is not only the ease in spinning it up, but also in tearing
             it down.
@@ -839,10 +842,10 @@
           <h2 id="github-actions">7. GitHub Actions</h3>
 
             <p>
-              GitHub Actions is a fairly new tool offered by GitHub. It was launched
-              only a couple years ago[<a href="#footnote-1">1</a>], and has been
+              GitHub Actions [<a href="#footnote-6">6</a>] is a fairly new tool offered by GitHub.
+              It was launched only a couple years ago, and has been
               continuously improving over that time. With this feature in its
-              infancy, it may help to understand first why GitHub offered it before
+              infancy, it may help to first understand why GitHub offered it before
               we move onto how it actually functions.
             </p>
 
@@ -851,7 +854,7 @@
             <p>
               To understand why GitHub Actions exists and the problem it solves,
               we’ll go over a very common scenario for a GitHub user: You want to
-              build your Gatsby (a framework for building frontend apps) application
+              build your Gatsby application (a framework for building frontend apps)
               every time a commit to your repository is made. To make this happen
               what would you need to do?
             </p>
@@ -865,8 +868,8 @@
             </div>
             <p>
               The repository itself can’t run the code needed to build the Gatsby
-              app, the repository does not have a runtime. We need some place with a
-              runtime for the Gatsby build to be executed.
+              app. This is because the repository does not have a runtime.
+              We need some place with a runtime for the Gatsby build to be executed.
             </p>
 
             <div class="img-wrapper">
@@ -874,17 +877,17 @@
             </div>
 
             <p>
-              We can solve this by having a server somewhere, which will receive a
+              We can solve this by having a server receive a
               notification from GitHub letting us know when to start the build
               process. Then we’d pull down the code from the repository onto the
-              server and then run the build command. This is a lot of work to setup
+              server and run the build command. This is a lot of work to setup
               this seemingly simple task.
             </p>
             <p>
-              GitHub noticed that this was an incredibly common flow of events its
-              users would want to execute, running code in the context of their
-              repository. GitHub wanted to devise a way for you to run code directly
-              within your repository, eliminating the need to spin up or configure
+              GitHub noticed that running code in the context of their
+              repository was an incredibly common flow of events its
+              users would want to execute. GitHub wanted to devise a way for you to run code directly
+              within your repository and thus eliminating the need to spin up or configure
               your own server. This inspired the creation of GitHub Actions.
             </p>
 
@@ -894,7 +897,7 @@
 
             <p>
               There is now a way to run code within the context of your repository.
-              GitHub provides each repository access to a server that it can use the
+              GitHub provides each repository access to a server that it can use to
               run code on in response to GitHub events.
             </p>
             <p>
@@ -912,7 +915,7 @@
               Workflow files will live in your GitHub repository under a special
               folder
               <code>.github</code> to alert GitHub to check for the workflow files.
-              We provide all the workflow files that a user of Stagehand needs
+              We automatically provide all the workflow files that a user of Stagehand needs
               during setup.
             </p>
 
@@ -931,9 +934,9 @@
               </div>
             </div>
             <p>
-              The above is the flow of a GitHub Action, it is separated into four
-              steps. The event, the event listener, provisioning the server, and
-              executing the workflow file.
+              The above is the flow of a GitHub Action that is separated into four
+              steps: the event, the event listener, the provisioning of the server, and
+              the execution of the workflow file.
             </p>
             <p>
               Let's look at those four steps in the context of when Stagehand's
@@ -941,30 +944,30 @@
             </p>
             <ol>
               <li>
-                A pull request is created in your repository, creating a pull
+                A pull request is created in your repository which in turn creates a pull
                 request event
               </li>
               <li>
-                GitHub will see that <code>create_review_app.yml</code> inside your
-                repository is listening for when pull requests are opened,
-                triggering the workflow to begin
+                GitHub will see that the <code>create_review_app.yml</code> workflow file inside your
+                repository is listening for when pull requests are opened and will thus
+                trigger the workflow to begin.
               </li>
               <li>
-                GitHub will read <code>create_review_app.yml</code> and provision a
-                server for you set up with the appropriate environment credentials
+                GitHub will provision a server for you that is set up with the
+                appropriate environment credentials specified in <code>create_review_app.yml</code>.
               </li>
               <li>
-                GitHub server will execute the contents of
+                GitHub server will then execute the contents of
                 <code>create_review_app.yml</code>. This will build the review app,
                 copy the build to S3, and publish a comment containing the URL of
-                the review app
+                the review app.
               </li>
             </ol>
 
             <p>
-              We also provide one more workfile that will be triggered when a pull
+              We also provide one more Workflow file that will be triggered when a pull
               request is closed or merged. This will tear down any review apps
-              associated with that branch, and invalidate CloudFront’s cache so the
+              associated with that branch and invalidate CloudFront’s cache so the
               review apps will no longer be accessible.
             </p>
 
@@ -976,12 +979,12 @@
 
               <p>
                 Let's look at an overview of the pieces in our client-side code. There
-                are three fundamental pieces: the customizable dashboard (as seen by
+                are three fundamental parts: the customizable dashboard (as seen by
                 the banner providing some context about the review app), the iframe
                 (to serve the review app content), and the service worker (to handle
                 all http communication coming in and out of the iframe). All this code
                 lives in an HTML file and two JavaScript files that we provide to
-                every review app.
+                every review app automatically.
               </p>
 
               <h3>8.1. Dashboard and Iframe</h3>
@@ -993,14 +996,14 @@
               <p>
                 The HTML file provides the scaffolding for a dashboard. The Stagehand
                 dashboard visually sits on top of the review app to give extra context
-                to the viewer of the review app and reminding them that they’re
-                looking at a review app, not production. While the information that
+                to the viewer of the review app. It reminds the viewer that they’re
+                looking at a review app and not production. While the information that
                 our dashboard gives at the moment is a banner, this setup allows the
                 user of Stagehand to easily build out a custom dashboard to do and say
-                whatever they want. This could be as simple as building out dashboard
-                content, host it elsewhere and link to it in your provided Stagehand
-                HTML file. Alternatively, it can be built directly within the provided
-                HTML/JavaScript files.
+                whatever they want. This could be done by building out custom dashboard
+                content and hosting it on another domain. You could then link to it in
+                your provided Stagehand HTML file. Alternatively, your custom dashboard
+                can be built directly within the provided HTML and JavaScript files.
               </p>
 
               <p>
@@ -1010,7 +1013,7 @@
 
               <blockquote>
                 “The iframe represents a nested browsing context, embedding another
-                HTML page into the current one.” [<a href="#footnote-12">FIX LATER</a>]
+                HTML page into the current one.” [<a href="#footnote-7">7</a>]
               </blockquote>
 
               <div class="img-wrapper">
@@ -1018,9 +1021,9 @@
               </div>
 
               <p>
-                It is basically a webpage within another webpage, created with just a
-                simple HTML tag. It can be styled so that it looks as though it’s the
-                main window, which is how we achieve this. Another feature of an
+                It is basically a webpage within another webpage that is created with just a
+                simple HTML tag. We have styled it so that it looks as though it’s the
+                main window itself rather than a tag within the mainw window. Another feature of an
                 iframe is that if the main window is the same origin (ie
                 <code>https://1245.cloudfront.net</code>) as the iframe, then the main
                 window can access certain properties of the iframe like its content
@@ -1033,11 +1036,12 @@
               <p>
                 Those familiar with Service Workers may notice that we’re using them
                 in an unorthodox way. More often than not they’re used for Progressive
-                Web Apps (*link to PWA explanation*) and take advantage of many
+                Web Apps [<a href="#footnote-8">8</a>] [<a href="#footnote-9">9</a>].
+                They take advantage of many
                 browser APIs like the built in Cache and Database options to serve app
-                content quicker and enable offline use. All this information about
-                Service Workers is not important to understand how we’re using them,
-                so we’re going to talk about them only in the context that they’re
+                content quickly and enable offline use. Most of this information about
+                Service Workers is not relevant in order to understand how we’re using them.
+                Therefore, we are only going to talk about them in the context that they’re
                 being used.
               </p>
 
@@ -1045,19 +1049,19 @@
                 <img src="images/diagrams/client-serviceworker.png" alt="Client service worker" />
               </div>
               <p>
-                A Service Worker is a browser feature, it is not infrastructure, it is
+                A Service Worker [<a href="#footnote-10">10</a>] is a browser feature. It is not infrastructure. It is
                 code that is run inside a browser process. Once it is registered to a
-                domain (ie <code>1245.cloudfront.net</code>) it intercepts all
+                domain, such as <code>1245.cloudfront.net</code>, it intercepts all
                 requests going in and out of that domain. We can both alter the
                 request and response in the cycle. In our case we’re going to
-                intercept HTTP requests.
+                intercept and alter HTTP requests.
               </p>
 
               <p>
                 The important takeaways for how we’re using them is to know that they
-                are an in-browser proxy, and they are able to send and receive
-                messages to the domain they are registered to. We are using them
-                strictly to make sure each request coming out of the review app has
+                are an in-browser proxy and they are able to send and receive
+                messages to the domain that they are registered to. We are only using them
+                to make sure each request coming out of the review app has
                 the correct path.
               </p>
 
@@ -1069,7 +1073,8 @@
 
               <p>
                 Before we begin walking through the client request cycle, we need to
-                revisit the GitHub Server. Now that we have client files in the mix,
+                revisit the GitHub Server and its interactions with our AWS infrastructure.
+                Now that we have client files in the mix,
                 we need to add both the review app build and the Stagehand client
                 files to the S3 Bucket. This means that each review app will have its
                 own version of the Stagehand Client files. These client files are very
@@ -1078,7 +1083,8 @@
 
               <p>
                 Once our app is built and all of the appropriate review app files are
-                in the s3 bucket we can view the review app.
+                in the s3 bucket, we can view the review app. The below images show
+                how this process occurs.
               </p>
 
               <div class="sequence">
@@ -1098,14 +1104,14 @@
 
               <ol>
                 <li>
-                  Client fetches the Stagehand HTML file provided to each review app
+                  The client fetches the Stagehand HTML file provided to each review app.
                 </li>
                 <li>
-                  Client renders both the dashboard and the iframe that will later
-                  house the review app
+                  The client renders both the dashboard and the iframe that will later
+                  house the review app.
                 </li>
                 <li>Stagehand JavaScript and Service Worker files are requested.</li>
-                <li>Service Worker begins installation</li>
+                <li>The service Worker begins installation.</li>
               </ol>
 
               <p>
@@ -1114,7 +1120,9 @@
                 worker only needs to install once per each Stagehand application, not
                 once per review app. This is because the service worker registers to
                 the CloudFront domain, which encompasses
-                <em>all</em> of the review apps.
+                <em>all</em> of the review apps within a single Stagehand application.
+                The below images show how this process continues once the service worker
+                is registered.
               </p>
 
               <div class="sequence">
@@ -1130,14 +1138,14 @@
               </div>
 
               <ol start="5">
-                <li>All HTTP requests will be intercepted by the service worker</li>
+                <li>All outgoing HTTP requests will be intercepted by the service worker.</li>
                 <li>
-                  Service worker will fix the requested path and forward the request
-                  to CloudFront
+                  The service worker will fix the requested path and forward the HTTP request
+                  to CloudFront.
                 </li>
                 <li>
-                  Service worker will forward the response to the iframe, populating
-                  it with the assets it needs
+                  The service worker will forward the response to the iframe and populate
+                  it with the assets it needs.
                 </li>
               </ol>
 
@@ -1146,22 +1154,26 @@
                 <p>
                   Now that we understand how Stagehand is built, we can discuss how it
                   works from a user perspective. We provide a straight forward CLI tool
-                  to the user to manage their Stagehand apps. It is a node npm package
-                  so set up is just one command in the CLI:
+                  to the user to manage their Stagehand apps. It is a node npm package.
+                  This means set up is just one, simple command in the CLI:
                 </p>
                 <p><code>npm install -g stagehand-framework</code></p>
+                <p>Once Stagehand is setup on a device, the following commands can be used: <code>init</code>,
+                  <code>list</code>, <code>add</code>, <code>access</code>,
+                  <code>destroy</code>, and <code>help</code>
+                </p>
                 <p>
                   The <code>init</code> command forms the meat of our command line tool.
                   You use it by navigating to the root directory of a project that you
                   want to use stagehand on. Then when you run the command, a list of
                   easy to use prompts are provided. It will gather app configuration
                   details such as the GitHub token to use for GitHub API access, the app
-                  setup and build command, the Stagehand app’s name, etc.
+                  setup and build commands, the Stagehand app’s name, etc.
                 </p>
                 <p>
                   Then various local files are added. The
                   <code>.github</code> directory, which is provided to all github
-                  projects, is populated with GitHub Actions workflows. A
+                  projects, is populated with GitHub Actions workflow files. A
                   <code>.stagehand</code> directory is created or updated in the user’s
                   <code>HOME</code> directory as well. It holds persistent information
                   about the local Stagehand applications the user has access to.
@@ -1192,7 +1204,7 @@
                 </div>
                 <p>
                   The <code>add</code> and <code>access</code> command work together to
-                  alter and view access control. They allow collaboration between users
+                  alter and view access controls. They allow collaboration between users
                   on different devices who want to use the same Stagehand app.
                 </p>
                 <p>
@@ -1201,21 +1213,21 @@
                   the gif shows. That user can also add or remove another user’s access
                   to the project by entering the new user’s email address. Once this
                   change is complete, the Stagehand app’s S3 bucket name is outputted.
-                  This bucket can be manually provided to the user who was just added.
-                  This new user can then run <code>stagehand add</code> and provide this
-                  S3 bucket to ensure that they have local access to that Stagehand app.
+                  This bucket name can be manually provided to the user who was just added.
+                  This new user can then run <code>stagehand add</code> on thier device and provide this
+                  S3 bucket name to ensure that they have local access to that Stagehand app.
                 </p>
                 <div class="img-wrapper">
                   <img src="images/diagrams/access.gif" alt="Stagehand access gif" />
                 </div>
                 <p>
                   The <code>destroy</code> command is the opposite of the
-                  <code>init</code> command. Similar to init, it is run in the root of
+                  <code>init</code> command. Similar to <code>init</code>, it is run in the root of
                   an existing Stagehand application. It removes all related local files
                   such as the workflow files in the <code>.github</code> directory. It
                   also removes the app from the local datastore so this app won’t show
-                  up when running other commands like <code>stagehand list</code>. And
-                  last but definitely not least, this command tears down the AWS
+                  up when running other commands like <code>stagehand list</code>.
+                  Last but definitely not least, this command tears down the AWS
                   infrastructure and removes any secrets in our corresponding GitHub
                   repository.
                 </p>
@@ -1604,13 +1616,25 @@
                     <li id="footnote-5">
                       <a href="https://jamstack.org/" target="_blank">JAMstack</a>
                     </li>
+                    <li id="footnote-6">
+                      <a href="https://github.com/features/actions" target="_blank">Github Actions</a>
+                    </li>
+                    <li id="footnote-7">
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" target="_blank">iFrames
+                        in MDN</a>
+                    </li>
+                    <li id="footnote-8">
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps"
+                        target="_blank">Progressive Web Apps in MDN</a>
+                    </li>
+                    <li id="footnote-9">
+                      <a href="https://cushiondb.github.io/#pwa" target="_blank">Progressive Web Apps in CushionDB</a>
+                    </li>
+                    <li id="footnote-10">
+                      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"
+                        target="_blank">Progressive Web Apps in MDN</a>
+                    </li>
                   </ol>
-
-                  Icons made by
-                  <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a>
-                  from
-                  <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">
-                    www.flaticon.com</a>.
                 </section>
     </section>
   </main>
