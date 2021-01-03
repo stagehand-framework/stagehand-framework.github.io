@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="images/logos/stagehand_logo-full.png" />
+  <img src="images/logos/stagehand_logo-full.png" width="500" height="327" />
 </p>
 
 <h1 align="center">Stagehand: Automated review apps for modern frontend applications</h1>
