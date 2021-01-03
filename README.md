@@ -1,10 +1,15 @@
 <p align="center">
-  <img src="images/logos/river_logo-readme.png" />
+  <img src="images/logos/stagehand_logo-full.png" />
 </p>
 
-<h1 align="center">River: A drop-in real-time service for web applications</h1>
-<h2 align="center">Cloud-native, easily deployed, and ready to scale with your needs</h2>
+<h1 align="center">Stagehand: Automated review apps for modern frontend applications</h1>
+<h2 align="center">All you need is an AWS account and a GitHub repo to get started</h2>
 
-For the application developer, River abstracts away the complexity of setting up a resilient infrastructure and removes the hassle of managing WebSocket connections. It allows backend services to publish events and makes these events available to web clients in real-time. River is a great fit for existing applications looking for a way to easily add real-time functionality.
+Stagehand is a drop-in solution that provides review apps for modern
+frontend applications. We are a framework that automatically manages
+review apps for your application’s GitHub repository on your own cloud
+infrastructure. We use AWS, GitHub Actions, and some Stagehand
+client-side code to set-up, deploy, manage, and teardown review apps
+for your frontend application.
 
-To learn more, please read our [case study](http://river-live.github.io) or feel free to drop us a line!
+To learn more, please read our [case study](http://stagehand-framework.github.io) or feel free to drop us a line!
