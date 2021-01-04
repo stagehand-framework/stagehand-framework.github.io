@@ -176,7 +176,7 @@
       </p>
 
       <p>
-        Over the course of this case study, we're going to go through the problem we solve for developers and then we'll dive into how we built Stagehand and the challenges that came along with it.
+        Over the course of this case study, we're going to go through the problems we solve for developers and then we'll dive into how we built Stagehand and the challenges that came along with it.
       </p>
 
       <h2 id="what-are-review-apps">2. What are Review Apps?</h2>
@@ -367,7 +367,7 @@
 
       <p>
         As soon as the pull request is opened, a review app is automatically
-        built and deployed for you, accessed with a unique URL. You share this review app with
+        built and deployed for you, and it can be accessed with a unique URL. You share this review app with
         your product manager. She wants you to move the navigation bar icon to
         the other side of the page.
       </p>
@@ -407,7 +407,7 @@
 
         <p>
           <em>First</em>, they deal heavily with the <em>end user
-          experience</em>, more visual testing and verification in a deployed
+          experience</em> so more visual testing and verification in a deployed
           environment is needed. You want to be able to mimic the eventual user
           experience as much as possible during development.
         </p>
@@ -609,7 +609,7 @@
 
         <p>
           The DIY approach gives us all of the benefits of open source as we now
-          own the infrastructure and code. However, the provisioning and configuring of so
+          own the infrastructure and code. However, provisioning and configuring so
           many resources to get review apps up and running is far from
           convenient. The DIY approach is flexible as we are not tied to a
           larger hosting service. Additionally, we can now self-host our review apps on
@@ -863,7 +863,7 @@
             </div>
             <p>
               The above is the flow of a GitHub Action that is separated into four
-              steps: the event, the event listener, the provisioning of the server, and
+              steps: the event, the event listener, provisioning the server, and
               the execution of the workflow file.
             </p>
             <p>
@@ -1370,7 +1370,7 @@
                 <p>
                   Our next issue arises with serving our review app from within an iframe. Recall that the iframe is an
                   entire browsing context within a webpage. If we are navigating inside the iframe, the main window URL is
-                  unchanged. When a user navigates to the "About" page, they expect to see the URL change to
+                  unchanged. When a user navigates to the "About" page, they expect to see the URL path change to
                   <code>/about</code>. However, because the user cannot see the URL of the iframe, it looks like we
                   haven't navigated anywhere. This lack of change can be confusing, not to mention inaccurate. We need
                   to find a way to update the main window URL whenever the review app inside the iframe navigates
@@ -1442,8 +1442,7 @@
 
                 <p>
                   The first two options are pre-bundled code to execute some sort of functionality. These will often be
-                  provided by a third-party, and GitHub has a large marketplace for these actions
-                  (https://github.com/marketplace?type=actions). GitHub also provides some actions for you, such as the
+                  provided by a third-party, and GitHub has a large marketplace for these actions[<a href="#footnote-6">6</a>]. GitHub also provides some actions for you, such as the
                   one we use above on line 30, which will pull down our repository code onto the GitHub server.
                 </p>
 
@@ -1548,7 +1547,7 @@
                       <a href="https://jamstack.org/" target="_blank">JAMstack</a>
                     </li>
                     <li id="footnote-6">
-                      <a href="https://github.com/features/actions" target="_blank">Github Actions</a>
+                      <a href="https://github.com/features/actions" target="_blank">Github Actions Marketplace</a>
                     </li>
                     <li id="footnote-7">
                       <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" target="_blank">iFrames
@@ -1563,7 +1562,7 @@
                     </li>
                     <li id="footnote-10">
                       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API"
-                        target="_blank">Progressive Web Apps in MDN</a>
+                        target="_blank">Service Worker in MDN</a>
                     </li>
                   </ol>
                 </section>
