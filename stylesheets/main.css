@@ -129,6 +129,8 @@ a:hover {
   display: flex;
   justify-content: center;
   padding: 2rem 0;
+  flex-direction: row;
+  align-items: center;
 }
 
 .integration div.box {

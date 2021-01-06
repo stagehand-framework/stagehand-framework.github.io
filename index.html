@@ -144,10 +144,9 @@
 
       <p>
         Stagehand is a drop-in solution that provides review apps for modern
-        frontend applications. We use your own GitHub repository and spin up your own cloud
-        infrastructure. Using AWS, GitHub Actions, and some Stagehand
+        frontend applications. Using AWS, GitHub Actions, and some Stagehand
         client-side code we set-up, deploy, manage, and teardown review apps
-        for your frontend application.
+        for your frontend application. All the code and infrastructure lives on your own accounts so you're in total control.
       </p>
 
       <div class="img-wrapper">
@@ -156,15 +155,14 @@
 
       <p>
         All you have to do is install the Stagehand CLI via our NPM package
-        and run <code>stagehand init</code> in your local repo. We will handle the
-        rest. Once your code is pushed to a GitHub repository, you will have
+        and run <code>stagehand init</code> in your local repo. Once your code is pushed to a GitHub repository, you will have
         review apps automatically deployed for you to view and share whenever
         you open a pull request or make any additional commits on that pull
-        request.
+        request. We automate all the hard parts for you, so you can focus on developing your application code.
       </p>
 
       <p>
-        After you're all set up, this is what using Stagehand will look like:
+        Here's an example of what it looks like when you're all set up:
       </p>
 
       <div class="video-container">
@@ -172,7 +170,11 @@
       </div>
       
       <p>
-        Here we see that a pull request is opened, triggering a review app to be created. A commit is then made off-screen with a "New Change", creating another review app. Every review app has a customizable Stagehand dashboard which opens up by hovering over the banner at the top.
+        The video starts with a pull request opening, triggering a review app to be created. A commit is then made off-screen with a "New Change", creating another review app. Every review app has our basic Stagehand dashboard which opens up by hovering over the banner at the top.
+      </p>
+
+      <p>
+        The code for the dashboard is inserted into your GitHub repository in the <code>stagehand.html</code> file so feel free to change it and customize it to fit your own needs!
       </p>
 
       <p>
@@ -182,9 +184,7 @@
       <h2 id="what-are-review-apps">2. What are Review Apps?</h2>
 
       <p>
-        In this section we will dive into review apps and the value they bring to frontend developers as
-        well as what we mean when we say that Stagehand is for <em>modern
-        frontend applications</em>.
+        In this section we will dive into review apps and the value they bring to frontend developers.
       </p>
 
       <h3>2.1. Staging Environments</h3>
@@ -200,15 +200,12 @@
       </div>
 
       <p>
-        Whenever code changes in a production application, such as with adding
-        a new feature, it starts in a development environment. This
-        environment involves a developer coding up the new feature and testing
-        it on their local machine.
+        The first environment we touch, development, is where we make code changes to our application. This involves a developer coding a feature and testing
+        it out on their local machine.
       </p>
 
       <p>
-        Once the new feature code is finished and tested locally, it typically
-        moves on to a dedicated testing environment. This environment is
+        Once we're satisfied with how that feature works locally, we can move it on to a dedicated testing environment. This environment is
         optimized for whatever aspects of the application are being tested
         (specific units, end-to-end functionality, etc.).
       </p>
@@ -219,11 +216,6 @@
         environment as closely as possibly for any final checks. [<a href="#footnote-1">1</a>] Finally, the new code
         moves to the production environment to go
         live.
-      </p>
-
-      <p>
-        Review apps generally fall under the same category as staging
-        environments, though their usefulness may expand beyond that.
       </p>
 
       <blockquote>
@@ -237,6 +229,11 @@
         automated end-to-end testing, and for product managers and/or other
         stakeholders to be able to validate that new features and
         functionality work as intended.
+      </p>
+
+      <p>
+        Review apps generally fall under the same category as staging
+        environments, though their usefulness may expand beyond that.
       </p>
 
       <h3>2.2. Using a Staging Environment</h3>
@@ -277,7 +274,7 @@
 
       <p>
         All of these features will have to be deployed to a shared staging
-        environment. The new features can each be verified by the
+        environment. The new features are verified by the
         product manager and other stakeholders before being approved to go
         into production.
       </p>
@@ -291,16 +288,14 @@
       </p>
 
       <p>
-        This type of bottleneck in the development cycle is one of many
-        scenarios where having review apps can be incredibly helpful.
+        This type of bottleneck in the development cycle is far too common and can be remedied by having review apps.
       </p>
 
       <h3>2.3. Review Apps</h3>
 
       <p>
         Review apps are ephemeral, fully-functional versions of a production
-        application that can be easily deployed and shared with others[<a href="#footnote-3">3</a>]. Let’s take this
-        definition apart piece by piece:
+        application that can be easily deployed and shared with others[<a href="#footnote-3">3</a>].
       </p>
 
       <ul>
@@ -348,15 +343,15 @@
       </p>
 
       <p>
-        Review apps make checking out your work in a production-like
+        This makes checking out your work in a production-like
         environment as you are developing as simple as possible.
       </p>
 
       <h3>2.4. Collaborative Workflow</h3>
 
       <p>
-        Here on the GitHub repository for your team’s application, you have
-        opened a pull request for your new navigation bar feature. The product
+        To understand how review apps look like in the context of GitHub pull requests, we'll walk through a similar scenario.
+        It starts with you opening a pull request for your new navigation bar feature. The product
         manager will have to see the change and give approval before your code
         can move on to production.
       </p>
@@ -368,7 +363,7 @@
       <p>
         As soon as the pull request is opened, a review app is automatically
         built and deployed for you, and it can be accessed with a unique URL. You share this review app with
-        your product manager. She wants you to move the navigation bar icon to
+        your product manage but they want you to move the navigation bar icon to
         the other side of the page.
       </p>
 
@@ -377,16 +372,13 @@
       </div>
 
       <p>
-        After updating some code and making a new commit to the same branch, a whole new review app is built and deployed. This new review
-        app exists at the same time as the previous review app. You can even
-        open each one via their URLs simultaneously and compare them
+        After updating some code and making a new commit to the same branch, a whole new review app is built and deployed. Both review apps are live simultaneously enabling you to
+        open each one and compare them
         side-by-side.
       </p>
 
       <p>
-        You share the link for the new review app with your product manager.
-        She is now satisfied with the changes. You are clear to promote your
-        new navigation bar feature to production. When this pull request is
+        You share the link for the new review app with your product manager, and after approval you are clear to merge your changes to production. When this pull request is
         closed, all review apps associated with it will be automatically
         disposed of which will free up any unnecessary cloud resources.
       </p>
@@ -395,8 +387,8 @@
 
         <p>
           Now that we understand what review apps are and what their value is, we will
-          take a look at what we mean when we say that Stagehand is for “modern frontend
-          applications”.
+          take a look at what we mean when we say that Stagehand is for <em>modern frontend
+          applications</em>.
         </p>
 
         <h4>3.1. Why Frontend Review Apps?</h4>
@@ -413,7 +405,7 @@
         </p>
 
         <p>
-          <em>Second</em>, they are more <em>lightweight</em>. Therefore, they do
+          <em>Second</em>, they are more <em>lightweight</em>. They do
           not need to spin up as much infrastructure nor allocate as many
           resources as a full stack application. Also, because frontend
           applications are decoupled from data level concerns, they better mimic
@@ -424,8 +416,7 @@
           <em>Finally</em>, because the functionality of frontend applications are more
           user or consumer facing, there may need to be more <em>input from non-technical stakeholders</em>. You need a
           way to easily deploy and share your latest changes with them during
-          development. Introducing review apps to your frontend development team
-          fits all of these needs.
+          development.
         </p>
 
         <h4>3.2. Frontend Applicaton Architecture</h4>
@@ -447,12 +438,12 @@
         </div>
 
         <p>
-          First, a request comes in from a client for our application and is
-          handled by our web server. Then the application server will handle the
+          First, a client requests an asset from an application, that request is first
+          handled by the web server. Then the application server will handle the
           business logic for the application, including fetching data from the
           database and generating the assets for the response. Finally, the
-          response is sent back to the client in the form of HTML, CSS, and
-          JavaScript.
+          response is sent back to the client, generally HTML, CSS, and
+          JavaScript files.
         </p>
 
         <p>
@@ -483,10 +474,10 @@
         </div>
 
         <p>
-          First, when a change is made to the code or content of our
-          application, that is when the assets are built. Then those pre-built
+          In this architecture, when a change is made to the codebase of the
+          application the assets are automatically built. Then those pre-built
           assets are typically pushed to a content delivery network (CDN) for
-          hosting. When a client makes a request for our application, these
+          hosting, replacing old versions of the assets. When a client makes a request for the application, these
           latest pre-built assets can be instantly served from an edge location
           on the CDN.
         </p>
@@ -515,7 +506,7 @@
         </div>
 
         <p>
-          In a more modern dynamic frontend application, the application is also pre-built and served from a CDN.
+          Modern dynamic frontend applications take the previous architecture a step further. They both are pre-built and served from a CDN.
         </p>
 
         <p>
@@ -535,8 +526,8 @@
 
         <p>
           There are
-          generally two categories of existing review apps solutions: feature solutions and
-          service solutions.
+          generally two categories of existing review apps solutions: <em>feature solutions</em> and
+          <em>service solutions</em>.
         </p>
 
         <h3>4.1. Feature vs. Service Solutions</h3>
@@ -598,8 +589,7 @@
           The most extensive resource that you will have to provision and
           configure is a build server. You will have to set it up to automate
           the building, deploying, and tearing down of your review apps. You
-          will also have to figure out a way to integrate it with wherever your
-          repository is located, such as on GitHub. Finally, you will need some
+          will also have to integrate it with some version control platform, such as GitHub. Finally, you will need some
           services to secure your review apps according to your needs.
         </p>
 
@@ -611,10 +601,7 @@
           The DIY approach gives us all of the benefits of open source as we now
           own the infrastructure and code. However, provisioning and configuring so
           many resources to get review apps up and running is far from
-          convenient. The DIY approach is flexible as we are not tied to a
-          larger hosting service. Additionally, we can now self-host our review apps on
-          our own infrastructure. However, we will have to develop any features
-          we need beyond basic functionality ourselves.
+          convenient. DIY has the same flexibility as Reviews as a Service but it won't be feature rich right out of the box.
         </p>
 
         <div class="img-wrapper">
@@ -622,10 +609,9 @@
         </div>
 
         <p>
-          Stagehand gives you the same tradeoffs as the DIY approach, but we
-          automate the whole process for you. Stagehand is fully open source,
-          giving you control of your self-hosted infrastructure and code. We also automate the
-          provisioning and configuration of all of that infrastructure for you.
+          Stagehand gives you the same tradeoffs as the DIY approach with one key difference. We automate
+          provisioning and configuration of all of the infrastructure and setup for you. Stagehand is fully open source,
+          giving you control of your self-hosted infrastructure and code. As a bonus we also provide you with a dashboard wrapper for each of your review apps.
         </p>
 
         <div class="sequence">
@@ -654,8 +640,8 @@
         <p>
           We built Stagehand in such a way to be less-dependent on if frameworks
           change certain configurations or if a new hot framework shows up on
-          the market. We ask for your build commands, and how your app outputs
-          its html assets. This is all the information we need to set up your
+          the market. We ask for your build commands and how your app outputs
+          its HTML assets. This is all the information we need to set up your
           local repository. Let's dive into how we built it.
         </p>
 
@@ -839,8 +825,8 @@
 
             <p>
               The only piece of information that needs to be provided to GitHub so
-              that it knows when and how to run the code is a Workflow file. These
-              Workflow files will live in your GitHub repository under a special
+              that it knows when and how to run the code is a workflow file. These
+              workflow files will live in your GitHub repository under a special
               folder
               <code>.github</code> to alert GitHub to check for the workflow files.
               We automatically provide all the workflow files that a user of Stagehand needs
@@ -872,12 +858,11 @@
             </p>
             <ol>
               <li>
-                A pull request is created in your repository which in turn creates a pull
-                request event
+                A pull request is created in your repository
               </li>
               <li>
                 GitHub will see that the <code>create_review_app.yml</code> workflow file inside your
-                repository is listening for when pull requests are opened and will thus
+                repository is listening for when pull requests are created and will thus
                 trigger the workflow to begin.
               </li>
               <li>
@@ -887,13 +872,13 @@
               <li>
                 GitHub server will then execute the contents of
                 <code>create_review_app.yml</code>. This will build the review app,
-                copy the build to S3, and publish a comment containing the URL of
+                copy the build to an S3 Bucket, and publish a comment containing the URL of
                 the review app.
               </li>
             </ol>
 
             <p>
-              We also provide one more Workflow file that will be triggered when a pull
+              We also provide one more workflow file that will be triggered when a pull
               request is closed or merged. This will tear down any review apps
               associated with that branch and invalidate CloudFront’s cache so the
               review apps will no longer be accessible.
@@ -909,9 +894,9 @@
                 Let's look at an overview of the pieces in our client-side code. There
                 are three fundamental parts: the customizable dashboard (as seen by
                 the banner providing some context about the review app), the iframe
-                (to serve the review app content), and the service worker (to handle
-                all http communication coming in and out of the iframe). All this code
-                lives in an HTML file and two JavaScript files that we provide to
+                (to serve the review app content), and the Service Worker (to handle
+                all HTTP communication coming in and out of the iframe). All this code
+                lives in an HTML file and two JavaScript files that we place in
                 every review app automatically.
               </p>
 
@@ -1011,7 +996,7 @@
 
               <p>
                 Once our app is built and all of the appropriate review app files are
-                in the s3 bucket, we can view the review app. The below images show
+                in the S3 Bucket, we can view the review app. The below images show
                 how this process occurs.
               </p>
 
@@ -1032,24 +1017,24 @@
 
               <ol>
                 <li>
-                  The client fetches the Stagehand HTML file provided to each review app.
+                  The client fetches the Stagehand HTML file provided to each review app
                 </li>
                 <li>
                   The client renders both the dashboard and the iframe that will later
-                  house the review app.
+                  house the review app
                 </li>
-                <li>Stagehand JavaScript and Service Worker files are requested.</li>
-                <li>The service Worker begins installation.</li>
+                <li>Stagehand JavaScript and Service Worker files are requested</li>
+                <li>The Service Worker begins installation</li>
               </ol>
 
               <p>
-                It's possible that the service worker may need extra time to register
-                for Stagehand to work. A simple refresh will do the trick. The service
-                worker only needs to install once per each Stagehand application, not
-                once per review app. This is because the service worker registers to
+                It's possible that the Service Worker may need extra time to register
+                for Stagehand to work. A simple refresh will do the trick. The Service
+                Worker only needs to install once per each Stagehand application, not
+                once per review app. This is because the Service Worker registers to
                 the CloudFront domain, which encompasses
                 <em>all</em> of the review apps within a single Stagehand application.
-                The below images show how this process continues once the service worker
+                The below images show how this process continues once the Service Worker
                 is registered.
               </p>
 
@@ -1066,14 +1051,14 @@
               </div>
 
               <ol start="5">
-                <li>All outgoing HTTP requests will be intercepted by the service worker.</li>
+                <li>All outgoing HTTP requests will be intercepted by the Service Worker</li>
                 <li>
-                  The service worker will fix the requested path and forward the HTTP request
-                  to CloudFront.
+                  The Service Worker will fix the requested path and forward the HTTP request
+                  to CloudFront
                 </li>
                 <li>
-                  The service worker will forward the response to the iframe and populate
-                  it with the assets it needs.
+                  The Service Worker will forward the response to the iframe and populate
+                  it with the assets it needs
                 </li>
               </ol>
 
@@ -1090,46 +1075,47 @@
                   <code>list</code>, <code>add</code>, <code>access</code>,
                   <code>destroy</code>, and <code>help</code>
                 </p>
-                <p>
-                  The <code>init</code> command forms the meat of our command line tool.
-                  You use it by navigating to the root directory of a project that you
-                  want to use stagehand on. Then when you run the command, a list of
-                  easy to use prompts are provided. It will gather app configuration
-                  details such as the GitHub token to use for GitHub API access, the app
-                  setup and build commands, the Stagehand app’s name, etc.
-                </p>
-                <p>
-                  Then various local files are added. The
-                  <code>.github</code> directory, which is provided to all github
-                  projects, is populated with GitHub Actions workflow files. A
-                  <code>.stagehand</code> directory is created or updated in the user’s
-                  <code>HOME</code> directory as well. It holds persistent information
-                  about the local Stagehand applications the user has access to.
-                </p>
-                <p>
-                  Then this command runs the AWS CloudFormation template to provision
-                  all necessary AWS infrastructure. Once this is complete, the process
-                  uses the outputs of our template to automatically add our required
-                  secrets to the user’s repository via the GitHub API. All in all, this
-                  process makes setting up review apps as simple as running this command
-                  and waiting for the process to finish before continuing with the
-                  normal developer workflow of commits, pull requests, etc.
-                </p>
+
                 <div class="img-wrapper">
                   <img src="images/diagrams/init.gif" alt="Stagehand init gif" />
                 </div>
+
                 <p>
-                  The <code>list</code> command is used to list all stagehand
-                  applications you have access to. Once those are displayed, you can
-                  select a single app and view all available review apps within it.
-                  Then, as the gif shows, you can select a single review app from the
-                  terminal to automatically open it in the browser. This allows you to
-                  interact with review apps without having to navigate to GitHub and
-                  look through all your pull requests for the review app URLs.
+                  The <code>init</code> command forms the meat of our command line tool.
+                  Run the command from the root directory of your application and follow the list of prompts. It'll ask for your setup/build commands, and a couple more specific questions about your application.
                 </p>
+
+                <p>
+                  The first time <code>init</code> is run, it will ask for a GitHub token for access to your GitHub repositories and it will create the local data files needed to manage your Stagehand apps.
+                </p>
+
+                <p>
+                  Various files will also be added to your local respository in the
+                  <code>.github</code> directory. This is where you'll find the Stagehand client files and the GitHub Actions workflow files. Then this command runs the AWS CloudFormation template to provision
+                  all necessary AWS infrastructure.
+                </p>
+
+                <p>
+                  After you push your new code to your GitHub repository, every pull request and subsequent commit will spin up review apps for you.
+                </p>
+                
                 <div class="img-wrapper">
                   <img src="images/diagrams/list.gif" alt="Stagehand list gif" />
                 </div>
+
+                <p>
+                  The <code>list</code> command is used to list all Stagehand
+                  applications you have access to. Once those are displayed, you can
+                  select a single app and view all available review apps within it.
+                  Selecting a review app will automatically open it in the browser. This allows you to
+                  interact with review apps without having to navigate to GitHub and
+                  look through all your pull requests for the review app URLs.
+                </p>
+                
+                <div class="img-wrapper">
+                  <img src="images/diagrams/access.gif" alt="Stagehand access gif" />
+                </div>
+
                 <p>
                   The <code>add</code> and <code>access</code> command work together to
                   alter and view access controls. They allow collaboration between users
@@ -1137,31 +1123,23 @@
                 </p>
                 <p>
                   The user who has access to a Stagehand app locally can run
-                  <code>stagehand access</code> to view the access controls on an app as
-                  the gif shows. That user can also add or remove another user’s access
-                  to the project by entering the new user’s email address. Once this
-                  change is complete, the Stagehand app’s S3 bucket name is outputted.
-                  This bucket name can be manually provided to the user who was just added.
-                  This new user can then run <code>stagehand add</code> on thier device and provide this
-                  S3 bucket name to ensure that they have local access to that Stagehand app.
+                  <code>stagehand access</code> to manage or view the access controls. You will need to enter a user's email address associated with their AWS account to provide them access to your app.
                 </p>
+                
                 <div class="img-wrapper">
-                  <img src="images/diagrams/access.gif" alt="Stagehand access gif" />
+                  <img src="images/diagrams/destroy.gif" alt="Stagehand destroy gif" />
                 </div>
+
                 <p>
-                  The <code>destroy</code> command is the opposite of the
-                  <code>init</code> command. Similar to <code>init</code>, it is run in the root of
-                  an existing Stagehand application. It removes all related local files
-                  such as the workflow files in the <code>.github</code> directory. It
+                  The <code>destroy</code> command removes all related Stagehand files
+                  from the <code>.github</code> directory. It
                   also removes the app from the local datastore so this app won’t show
                   up when running other commands like <code>stagehand list</code>.
                   Last but definitely not least, this command tears down the AWS
                   infrastructure and removes any secrets in our corresponding GitHub
                   repository.
                 </p>
-                <div class="img-wrapper">
-                  <img src="images/diagrams/destroy.gif" alt="Stagehand destroy gif" />
-                </div>
+                
 
                 <h2 id="challenges">10. Challenges</h2>
 
@@ -1173,18 +1151,12 @@
 
                 <h3>10.1. Relative Paths</h3>
 
-                <p>
-                  A reoccuring problem through our development was relative paths.
-                  However before we get into the problem and how we solved it, let's
-                  review Stagehand's architecture.
-                </p>
-
                 <div class="img-wrapper">
-                  <img src="images/diagrams/final-architecture.png" alt="Final Architecture Diagram" />
+                  <img src="images/diagrams/client-overview.png" alt="Final Architecture Diagram" />
                 </div>
 
                 <p>
-                  Remember that our final architecture uses a service worker in the
+                  Recall that Stagehand's architecture uses a Service Worker in the
                   client side code to handle routing. We also used an iframe to serve
                   the review app, which enabled us to have a dashboard wrapped around
                   the review app. While this was our final approach, our original
@@ -1199,7 +1171,7 @@
                   its assets
                   are built, it has no awareness of where it’s going to be hosted, or what its domain will be. Because
                   of this,
-                  the app is coded using relative paths which are shown above.</p>
+                  the app is coded using relative paths.</p>
 
                 <div class="img-wrapper">
                   <img src="images/diagrams/paths-1.png" alt="Relative Paths 1" />
@@ -1216,7 +1188,7 @@
                   Relative paths only
                   specify how to get to the new asset relative to the current domain.
                   Relative paths are used when navigating as well as getting any application specific assets
-                  (javascripts, styling, etc.) within an app, this means the application code does not care where it is
+                  (JavaScript, styling, etc.) within an app, this means the application code does not care where it is
                   hosted. The application is self-contained. Therefore, it is unaware that it is hosted, or will be
                   hosted, at <code>google.com</code>.</p>
 
@@ -1271,8 +1243,8 @@
                   <img src="images/diagrams/browser-intercept.png" alt="browser-intercept with service worker" />
                 </div>
 
-                <p>This above solution we went over in our previous section as it was the solution we ended up using. We
-                  won't spend much time on that solution, instead, the following solution we'll explore more in the
+                <p>We ended up going this route as we described in the previous section so we
+                  won't spend much time on this, instead, the following solution we'll explore more in the
                   upcoming section and discuss why we ended up not going this route.
 
                 <h5>Infrastructure Interception Solution: add Serverless Functions to our CDN</h5>
@@ -1300,22 +1272,21 @@
                 <p>Recall that each review app had a branch name and
                   a unique commit identifier. These two pieces together will form the <em>basepath</em>. The basepath in
                   the S3
-                  bucket, <code>s3://bucket/feature-branch-1/1w2e3r/</code>, corresponds to the URL path in the browser,
+                  Bucket, <code>s3://bucket/feature-branch-1/1w2e3r/</code>, corresponds to the URL path in the browser,
                   <code>1245.cloudfront.net/feature-branch-1/1w2e3r/</code>.
                 </p>
                 <p>Each of the review apps for a single Stagehand app are hosted at a unique basepath under the same
                   CloudFront
                   domain. The above CloudFront domain (<code>1245.cloudfront.net</code>) will serve <em>all</em> of the
                   review apps for a single Stagehand application. Each unique basepath will correspond to a single
-                  review app within the Stagehand app. This is similar to our google maps example from earlier where we
+                  review app within the Stagehand app. This is similar to our Google maps example from earlier where we
                   wanted multiple apps hosted under <code>google.com</code> within different paths.</p>
                 <div class="img-wrapper">
                   <img src="images/diagrams/basepath.png" alt="adding a basepath image" />
                 </div>
 
-                <p>The major problem we then need to handle in Stagehand is how do we add a basepath to our site so
-                  relative links
-                  work within a review app that corresponds to specific basepath in the S3 Bucket? What we expect to
+                <p>How do we add a basepath to our site so
+                  relative links within a review app corresponds to specific basepath in the S3 Bucket? What we expect to
                   happen with Stagehand’s
                   relative links is shown in the above image at the top right. We expect the relative link to
                   automatically add
@@ -1379,8 +1350,8 @@
 
                 <p>
                   We also did not want the main window to actually navigate anywhere, so we opted to use URL fragments,
-                  denoted by a <code>#</code> in <code>test/12512/#about</code>. This way when we updated the main
-                  window with the location of the iframe the main window wouldn't make a new http request.
+                  denoted by a <code>#</code> in <code>test/12512/#about</code>. Now when we updated the main
+                  window with the location of the iframe the main window wouldn't make a new HTTP request.
                 </p>
 
                 <h4>10.2.1. Service Worker Messaging</h4>
@@ -1392,7 +1363,7 @@
                 <p>Our first approach used the postMessage API and then the Broadcast Channel API from in the Service Worker and the main window. Both of these APIs
                   were tricky to get the messages to the right client when you had multiple review apps. There were also
                   some cross-browser support issues with these APIs. We wanted a solution that would work seamlessly
-                  across all browsers. This solution also needed two parties to be aware of one another (client and service worker), so it was tougher to debug. As a result, we needed another approach.</p>
+                  across all browsers. This solution also needed coordination between two parties (client and Service Worker), so it was tougher to debug. As a result, we needed another approach.</p>
 
                 <h4>10.2.2. Same Origin Polling</h4>
 
@@ -1415,11 +1386,11 @@
                   it didn’t match at some point, this would be quickly resolved within half a second.
                 </p>
 
-                <h3>10.3. GitHub Action Optimizations</h3>
+                <h3>10.3. GitHub Actions Optimization</h3>
 
                 <p>
                   We're going to go
-                  through one of the ways we optimized our GitHub Action run times. To explain our optimizations we're
+                  through one of the ways we optimized our GitHub Actions run times. To explain our optimizations we're
                   going to narrow down on the workflow file, the only piece of code you need to provide in your
                   repository to use GitHub Actions.
                 </p>
@@ -1463,7 +1434,7 @@
 
                 <p>
                   We decided to move away from containerized actions for a few reasons. The biggest one being that
-                  spinning up these containers took quite some time, and our Actions would run for more than a couple
+                  spinning up these containers took quite some time, and our actions would run for more than a couple
                   minutes for a simple application. On top of this, GitHub's marketplace has lots of actions that other
                   developers can easily use if they aren't concerned with the time it takes to spin up. We weren't
                   satisfied with the duration that our actions took to run so we explored using JavaScript actions.
