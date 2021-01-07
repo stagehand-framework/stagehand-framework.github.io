@@ -671,7 +671,7 @@
           <h4>6.1. S3 Bucket</h4>
 
           <p>
-            The S3 Bucket is our storage solution. It is a object store for our files.
+            The S3 Bucket is our storage solution. It is an object store for our files.
             This is where each of our review apps for a particular Stagehand
             application are stored in its entirety. The review apps stored will
             have identical files. For example, each review app for a specific app will have an
@@ -703,7 +703,7 @@
           </div>
 
           <p>
-            We use CloudFront as our CDN and hosting solution. All incoming HTTPS
+            We use CloudFront as our CDN and hosting solution. All incoming HTTP
             requests for review apps first go through CloudFront.
             If the Cloudfront edge location has the requested
             resource cached, it will be quickly returned to the user.
@@ -745,11 +745,11 @@
             to use a template with listed resources, configuration, and outputs.
             It will spin up a CloudFormation Stack with all the infrastructure
             we need. We didn’t need to customize each CloudFormation Stack to each
-            Stagehand app so a template was a perfect approach. This also allows
+            Stagehand app, so a template was a perfect approach. This also allows
             us to use the outputs that this CloudFormation Stack creation gives us
             to automate setting up the users GitHub account with the proper
             configuration. Another bonus of having all of our resources grouped
-            together is not only the ease in spinning it up, but also in tearing
+            together is not only the ease of spinning it up, but also of tearing
             it down.
           </p>
 
@@ -757,9 +757,9 @@
 
             <p>
               GitHub Actions [<a href="#footnote-6">6</a>] is a fairly new tool offered by GitHub.
-              It was launched only a couple years ago, and has been
+              It was launched only a couple of years ago, and has been
               continuously improving over that time. With this feature in its
-              infancy, it may help to first understand why GitHub offered it before
+              infancy, it may help to first understand why GitHub created it before
               we move onto how it actually functions.
             </p>
 
@@ -795,13 +795,13 @@
               notification from GitHub letting us know when to start the build
               process. Then we’d pull down the code from the repository onto the
               server and run the build command. This is a lot of work to setup
-              this seemingly simple task.
+              a seemingly simple task.
             </p>
             <p>
               GitHub noticed that running code in the context of their
               repository was an incredibly common flow of events its
               users would want to execute. GitHub wanted to devise a way for you to run code directly
-              within your repository and thus eliminating the need to spin up or configure
+              within your repository and eliminate the need to spin up or configure
               your own server. This inspired the creation of GitHub Actions.
             </p>
 
@@ -811,8 +811,8 @@
 
             <p>
               There is now a way to run code within the context of your repository.
-              GitHub provides each repository access to a server that it can use to
-              run code on in response to GitHub events.
+              GitHub provides each repository access to a server on which it can 
+              run code in response to GitHub events.
             </p>
             <p>
               If you recall, the events we’re concerned about (pull requests,
